@@ -1,0 +1,44 @@
+/* ============================================================
+   Gosan Magazine — color tokens
+   Sources: yootazi/GosanMagazine index.html  +  2026 brand brief
+   ============================================================ */
+:root {
+  /* --- base palette --- */
+  --paper: #F9F9F9;            /* page background — off-white, never pure white */
+  --paper-warm: #F5F3EE;       /* warm band background (issue band, contact band) */
+  --white: #FFFFFF;            /* card surfaces sitting on paper */
+  --ink: #1A1A1A;              /* charcoal black — headlines, header, footer */
+  --ink-soft: #222222;         /* body text */
+  --grey: #6B6B6B;             /* muted text, bylines */
+  --grey-faint: #B9B9B9;       /* muted text on dark surfaces */
+
+  --cerulean: #1D92B4;         /* primary accent — links, tags, active states */
+  --cerulean-dark: #0E7D99;    /* hover / emphasized accent */
+  --cerulean-wash: rgba(29, 146, 180, 0.14);  /* watercolor block behind drop caps */
+
+  --gold: #D4AF37;             /* metallic gold — rules, brackets, dots motif */
+  --gold-deep: #C99227;        /* gold for buttons / stronger contrast */
+  --gold-light: #D9B35A;       /* gold calligraphy on dark surfaces */
+  --gold-wash: rgba(212, 175, 55, 0.16);      /* gold-leaf wash behind hovers */
+
+  /* --- lines --- */
+  --line: #E8E6E1;             /* hairline borders, card rules */
+  --line-draft: rgba(26, 26, 26, 0.18); /* 1px technical drafting lines */
+  --line-dark: #333333;        /* separators on dark surfaces */
+
+  /* --- semantic aliases --- */
+  --surface-page: var(--paper);
+  --surface-band: var(--paper-warm);
+  --surface-card: var(--white);
+  --surface-inverse: var(--ink);
+
+  --text-heading: var(--ink);
+  --text-body: var(--ink-soft);
+  --text-muted: var(--grey);
+  --text-on-dark: #D8D8D8;
+
+  --accent: var(--cerulean);
+  --accent-strong: var(--cerulean-dark);
+  --highlight: var(--gold);
+  --border-hairline: var(--line);
+}

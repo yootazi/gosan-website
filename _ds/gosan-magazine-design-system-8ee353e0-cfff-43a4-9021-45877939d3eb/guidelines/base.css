@@ -1,0 +1,81 @@
+/* ============================================================
+   Gosan Magazine — base styles & brand utility classes
+   ============================================================ */
+body {
+  font-family: var(--font-body);
+  background: var(--surface-page);
+  color: var(--text-body);
+  line-height: var(--leading-body);
+  margin: 0;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; }
+
+/* --- gold dot grid (motif lifted from the print cover) --- */
+.gsn-dots {
+  background-image: radial-gradient(var(--gold) 1.6px, transparent 1.6px);
+  background-size: 13px 13px;
+  opacity: 0.9;
+}
+
+/* --- 1px technical drafting lines; extend past containers --- */
+.gsn-draft-h { height: 1px; background: var(--line-draft); border: none; margin: 0; }
+.gsn-draft-v { width: 1px; background: var(--line-draft); }
+
+/* --- Latin technical label: ISSUE 01 // 2585 --- */
+.gsn-technical {
+  font-family: var(--font-technical);
+  font-size: var(--text-technical);
+  letter-spacing: var(--tracking-technical);
+  text-transform: uppercase;
+  color: var(--grey);
+  direction: ltr;
+  display: inline-block;
+}
+
+/* --- display headline (Lateef) --- */
+.gsn-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: var(--leading-display);
+}
+
+/* --- drop cap with cerulean watercolor block bleeding behind it --- */
+.gsn-dropcap {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--ink);
+  padding: 0 0.18em;
+  z-index: 0;
+}
+.gsn-dropcap::before {
+  content: '';
+  position: absolute;
+  inset: 8% -6% 4% -10%;
+  background: var(--cerulean-wash);
+  transform: rotate(-2deg);
+  z-index: -1;
+}
+
+/* --- gold hero rule --- */
+.gsn-rule-gold {
+  width: 70px;
+  height: var(--rule-accent);
+  background: var(--gold);
+  border: none;
+  margin: var(--space-8) auto;
+}
+
+/* --- vertical masthead caption (writing-mode) --- */
+.gsn-vertical-caption {
+  writing-mode: vertical-rl;
+  font-size: var(--text-technical);
+  color: var(--gold-deep);
+  border-right: 1px solid var(--gold);
+  padding-right: 0.5rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}

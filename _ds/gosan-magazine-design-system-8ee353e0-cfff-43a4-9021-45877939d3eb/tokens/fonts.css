@@ -1,0 +1,8 @@
+/* Gosan webfonts — all served from Google Fonts.
+   Lateef    → display / headline Naskh serif (per brand brief; "Parastoo" is not
+               CDN-available, Lateef is the approved stand-in).
+   Vazirmatn → body & UI text (what the live site actually uses).
+   IBM Plex Mono → Latin "technical drafting" labels (ISSUE 01 // 2585). */
+@import url('https://fonts.googleapis.com/css2?family=Lateef:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');

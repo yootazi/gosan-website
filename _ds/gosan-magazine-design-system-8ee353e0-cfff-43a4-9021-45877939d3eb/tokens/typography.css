@@ -1,0 +1,35 @@
+/* ============================================================
+   Gosan Magazine — typography tokens (RTL Persian first)
+   ============================================================ */
+:root {
+  /* families */
+  --font-display: 'Lateef', 'Vazirmatn', serif;       /* headlines, pull quotes, drop caps */
+  --font-body: 'Vazirmatn', 'Tahoma', sans-serif;     /* body, UI, navigation */
+  --font-technical: 'IBM Plex Mono', monospace;       /* Latin drafting labels: ISSUE 01 // 2585 */
+
+  /* scale (rem) */
+  --text-hero: 4.5rem;        /* hero headline (Lateef) */
+  --text-display: 2.8rem;     /* page titles */
+  --text-title: 1.6rem;       /* section h2 */
+  --text-card-title: 1.15rem; /* article card h4 */
+  --text-body-size: 1rem;
+  --text-small: 0.88rem;      /* excerpts, descriptions */
+  --text-caption: 0.78rem;    /* bylines, dates, tags */
+  --text-technical: 0.72rem;  /* mono drafting labels */
+
+  /* weights (Vazirmatn) */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+  --weight-black: 900;
+
+  /* leading — Persian needs generous line-height */
+  --leading-body: 2.1;
+  --leading-prose: 2.3;      /* long-form justified articles */
+  --leading-heading: 1.6;
+  --leading-display: 1.35;
+
+  /* tracking for Latin technical labels */
+  --tracking-technical: 0.18em;
+}

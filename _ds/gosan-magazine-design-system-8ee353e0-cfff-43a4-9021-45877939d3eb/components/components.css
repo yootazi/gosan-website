@@ -1,0 +1,197 @@
+/* ============================================================
+   Gosan Magazine — component classes (consumed by the JSX kit)
+   ============================================================ */
+
+/* ---------- Button ---------- */
+.gsn-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-body);
+  font-weight: var(--weight-bold);
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 0.85rem 2.2rem;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--speed-base), color var(--speed-base), transform var(--speed-fast);
+}
+.gsn-btn--primary { background: var(--ink); color: var(--white); }
+.gsn-btn--primary:hover { background: #333333; transform: translateY(-2px); }
+.gsn-btn--gold { background: var(--gold-deep); color: var(--white); }
+.gsn-btn--gold:hover { background: var(--gold); transform: translateY(-2px); }
+.gsn-btn--ghost {
+  background: none; color: var(--accent-strong);
+  padding: 0; border-radius: 0;
+  font-size: var(--text-small); font-weight: var(--weight-medium);
+}
+.gsn-btn--ghost:hover { color: var(--gold-deep); transform: none; }
+.gsn-btn--sm { padding: 0.55rem 1.4rem; font-size: var(--text-small); }
+
+/* ---------- Tag ---------- */
+.gsn-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: var(--weight-medium);
+  color: var(--accent-strong);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-xs);
+  padding: 0.05rem 0.7rem;
+}
+.gsn-tag--gold { color: var(--gold-deep); border-color: var(--gold); }
+
+/* ---------- SectionHead ---------- */
+.gsn-section-head { display: flex; align-items: baseline; gap: 1.2rem; }
+.gsn-section-head h2 {
+  font-size: var(--text-title);
+  font-weight: var(--weight-bold);
+  color: var(--text-heading);
+  position: relative;
+  padding-right: 1rem;
+  margin: 0;
+}
+.gsn-section-head h2::before {
+  content: '';
+  position: absolute; right: 0; top: 0.35em;
+  width: 4px; height: 1.1em;
+  background: var(--accent);
+}
+.gsn-section-head .gsn-more {
+  font-size: 0.85rem; color: var(--accent-strong);
+  font-weight: var(--weight-medium); margin-right: auto;
+  transition: color var(--speed-fast);
+}
+.gsn-section-head .gsn-more:hover { color: var(--gold-deep); }
+
+/* ---------- ArticleCard ---------- */
+.gsn-card {
+  border-top: var(--rule-accent) solid var(--line);
+  padding-top: 1.4rem;
+  transition: border-color var(--speed-base);
+}
+.gsn-card:hover { border-top-color: var(--gold); }
+.gsn-card h4 {
+  font-size: var(--text-card-title);
+  font-weight: var(--weight-bold);
+  line-height: 1.8;
+  margin: 0 0 0.5rem;
+  transition: color var(--speed-fast);
+  position: relative;
+}
+.gsn-card h4 .gsn-brush {
+  position: absolute; inset: 0.1em -0.3em -0.1em -0.3em;
+  background: var(--gold-wash);
+  opacity: 0; transform: scaleX(0.6);
+  transform-origin: right center;
+  transition: opacity var(--speed-slow) var(--ease-out), transform var(--speed-slow) var(--ease-out);
+  z-index: -1;
+}
+.gsn-card:hover h4 { color: var(--accent-strong); }
+.gsn-card:hover h4 .gsn-brush { opacity: 1; transform: scaleX(1); }
+.gsn-card p { font-size: var(--text-small); color: var(--text-muted); text-align: justify; margin: 0; }
+.gsn-card .gsn-byline { margin-top: 0.9rem; font-size: 0.8rem; color: var(--text-muted); }
+.gsn-card .gsn-byline .gsn-date { color: var(--accent); }
+
+/* ---------- Verse (poetry block) ---------- */
+.gsn-verse {
+  display: inline-block;
+  padding: 1.5rem 2.6rem;
+  border-right: var(--rule-accent) solid var(--gold);
+  background: var(--surface-band);
+  font-weight: var(--weight-medium);
+  line-height: 2.4;
+}
+.gsn-verse .gsn-hemistichs {
+  display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap;
+  font-size: 1.1rem;
+}
+.gsn-verse .gsn-poet {
+  display: block; margin-top: 0.6rem;
+  font-size: 0.82rem; color: var(--text-muted); font-weight: var(--weight-regular);
+}
+
+/* ---------- PullQuote (gold L-brackets) ---------- */
+.gsn-pullquote {
+  position: relative;
+  padding: 2rem 2.4rem;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  line-height: 2;
+  color: var(--text-heading);
+  text-align: center;
+}
+.gsn-pullquote::before {
+  content: '';
+  position: absolute; top: 0; right: 0;
+  width: 36px; height: 36px;
+  border-top: 1px solid var(--gold);
+  border-right: 1px solid var(--gold);
+}
+.gsn-pullquote::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0;
+  width: 36px; height: 36px;
+  border-bottom: 1px solid var(--gold);
+  border-left: 1px solid var(--gold);
+}
+.gsn-pullquote cite {
+  display: block; margin-top: 0.6rem;
+  font-family: var(--font-body); font-style: normal;
+  font-size: 0.82rem; color: var(--text-muted);
+}
+
+/* ---------- FormField ---------- */
+.gsn-field { display: block; }
+.gsn-field label {
+  display: block;
+  font-weight: var(--weight-bold);
+  font-size: 0.92rem;
+  margin-bottom: 0.45rem;
+  color: var(--text-heading);
+}
+.gsn-field input,
+.gsn-field textarea {
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  font-size: 0.92rem;
+  outline: none;
+  background: var(--surface-card);
+  color: var(--text-body);
+  transition: border-color var(--speed-fast), box-shadow var(--speed-fast);
+}
+.gsn-field input:focus,
+.gsn-field textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--cerulean-wash);
+}
+.gsn-field textarea { min-height: 150px; resize: vertical; }
+.gsn-field input[type="email"] { direction: ltr; text-align: left; }
+
+/* ---------- DraftFrame (architectural image frame) ---------- */
+.gsn-draft-frame { position: relative; }
+.gsn-draft-frame::before,
+.gsn-draft-frame::after {
+  content: '';
+  position: absolute;
+  background: transparent;
+  pointer-events: none;
+}
+.gsn-draft-frame::before {
+  inset: -18px auto -18px -18px; width: 1px;
+  border-left: 1px solid var(--line-draft);
+}
+.gsn-draft-frame::after {
+  inset: -18px -18px auto -18px; height: 1px;
+  border-top: 1px solid var(--line-draft);
+}
+.gsn-draft-frame > .gsn-frame-inner {
+  border: 1px solid var(--line-draft);
+  display: block;
+}
