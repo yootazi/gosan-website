@@ -513,7 +513,7 @@ body[data-motion="off"] .listen-fill.is-live { animation: none; }
 /* ---------- article: two-column body ---------- */
 .essay-lede {
   font-family: var(--font-display); font-weight: 500;
-  font-size: 1.35rem; line-height: 1.95; color: var(--ink);
+  font-size: 11px; line-height: 1.95; color: var(--ink);
   text-align: justify; margin: 0 0 1.8rem;
 }
 .essay-cols {
@@ -1210,9 +1210,10 @@ body[data-motion="off"] .tt-wave span { animation: none !important; }
 .nc-mast-side.is-end { align-items: flex-end; text-align: left; }
 .nc-issueline {
   font-family: var(--font-technical);
-  letter-spacing: 0.12em;
-  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  font-size: 0.6rem;
   color: var(--grey);
+  white-space: nowrap;
 }
 .nc-mast-cover { display: block; width: 78px; height: auto; box-shadow: 0 6px 20px -10px rgba(0,0,0,0.4); margin-top: 0.3rem; }
 .nc-mast-sub {
@@ -1321,7 +1322,7 @@ body[data-motion="off"] .nc-carousel-slide-media { transition: none; }
 /* --- manifesto (two-column composition: statement + branding) --- */
 .nc-manifesto { background: var(--paper); }
 .nc-manifesto-grid {
-  max-width: 1260px; margin: 0 auto; padding: 4.4rem 2.5rem 4rem;
+  max-width: 1180px; margin: 0 auto; padding: 4.4rem 2rem 4rem;
   display: grid; grid-template-columns: 0.92fr 2px 1.08fr; gap: 0 3rem;
   align-items: stretch; min-height: 540px;
 }
@@ -1348,6 +1349,27 @@ body[data-motion="off"] .nc-carousel-slide-media { transition: none; }
 .nc-man-actions { margin-top: 1.6rem; }
 .nc-man-archive { font-size: 0.84rem; color: var(--accent-strong); text-decoration: none; font-weight: 500; transition: color var(--speed-fast); }
 .nc-man-archive:hover { color: var(--gold-deep); }
+
+/* --- category placeholder cards (empty sections, fillable) --- */
+.nc-cat-ph .nc-img-wrap { aspect-ratio: 16 / 10; }
+.nc-cat-ph .nc-img-wrap image-slot { display: block; width: 100%; height: 100%; }
+.nc-cat-ph-title { color: var(--grey-faint, #B4AFA2); font-weight: 700; }
+.nc-cat-ph-by { font-size: 0.82rem; color: var(--grey-faint, #B4AFA2); margin: 0.45rem 0 0; }
+.nc-cat-ph-dek { color: var(--grey-faint, #B4AFA2); }
+
+.article-cat-link { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color var(--speed-fast); }
+.article-cat-link:hover { border-bottom-color: currentColor; }
+
+/* --- print / save-as-PDF: keep just the article body --- */
+@media print {
+  .scroll-progress, .back-top, .site-header, .nc-topics,
+  .listen-bar, .share-card, .article-aside, .comments-section,
+  .author-bio-card, .tweaks-root, .search-overlay { display: none !important; }
+  .article-layout, .article-head, .essay-cols { display: block !important; }
+  .essay-cols { column-count: 1 !important; }
+  body { background: #fff !important; }
+  a { text-decoration: none !important; color: inherit !important; }
+}
 
 @media (max-width: 860px) {
   .nc-manifesto-grid { grid-template-columns: 1fr; gap: 2.6rem 0; min-height: 0; padding: 3.2rem 1.6rem; }

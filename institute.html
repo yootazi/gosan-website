@@ -3,437 +3,1081 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gōsān — Culture & Arts Institute</title>
+<title>GŌSĀN — Culture &amp; Arts Institute</title>
 <meta name="description" content="Gōsān Culture & Arts Institute — a data-driven policy think tank designing the institutional, economic, and digital blueprints for a free Iran's creative economy.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500&family=Inter:wght@300;400;500&family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Doto:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#efece4;        /* warm off-white */
-  --ink:#16140f;          /* near-black */
-  --soft:#7c776b;         /* muted grey */
-  --line:#cfc9bb;         /* hairline */
-  --paper2:#e7e3d9;
-  --maxw:1320px;
-  --pad:clamp(20px,5vw,72px);
+  --bg:#0B1B33;           /* corporate think-tank navy */
+  --panel:#0F2342;
+  --panel2:#143052;
+  --line:#1E3A5C;
+  --grid:#13294A;
+  --ink:#EAF0F6;
+  --soft:#8896A8;
+  --soft2:#46586E;
+  --accent:#FF4D23;       /* signal orange-red */
+  --data:#46D6C9;         /* instrument cyan */
+  --maxw:1360px;
+  --pad:clamp(18px,4.5vw,64px);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+html{scroll-behavior:smooth;scroll-padding-top:60px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 body{
-  background:var(--paper);color:var(--ink);
-  font-family:'Inter',system-ui,sans-serif;
-  font-weight:400;line-height:1.5;overflow-x:hidden;
+  background:var(--bg);color:var(--ink);
+  font-family:'Archivo',system-ui,sans-serif;font-weight:400;line-height:1.5;overflow-x:hidden;
 }
-body[dir=rtl]{font-family:'Vazirmatn',system-ui,sans-serif;}
-::selection{background:var(--ink);color:var(--paper)}
-.serif{font-family:'Playfair Display',Georgia,serif}
-body[dir=rtl] .ltr,.ltr{direction:ltr;unicode-bidi:isolate}
+.gridbg{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:64px 64px;background-position:center top}
+::selection{background:var(--accent);color:#0B1B33}
 a{color:inherit;text-decoration:none}
+.mono{font-family:'JetBrains Mono',monospace}
+.lcd{font-family:'Doto','JetBrains Mono',monospace;font-weight:900;font-variant-numeric:tabular-nums}
+.ltr{direction:ltr;unicode-bidi:isolate}
+.acc{color:var(--accent)}
+.data{color:var(--data)}
 
 /* ---------- HEADER ---------- */
 header.site{
-  position:fixed;top:0;left:0;right:0;z-index:50;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 var(--pad);height:72px;
-  background:color-mix(in srgb,var(--paper) 82%,transparent);
-  backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
+  position:fixed;top:0;left:0;right:0;z-index:60;height:54px;
+  display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);
+  background:color-mix(in srgb,var(--bg) 92%,transparent);
   border-bottom:1px solid transparent;transition:border-color .4s,background .4s;
 }
 header.site.scrolled{border-bottom-color:var(--line)}
-.brand{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;letter-spacing:.06em}
-nav.main{display:flex;align-items:center;gap:clamp(14px,2vw,30px)}
-nav.main a{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);position:relative;padding:4px 0;transition:color .3s}
+.backlink{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);transition:color .25s}
+.backlink:hover{color:var(--accent)}
+nav.main{display:flex;align-items:center;gap:clamp(9px,1.3vw,18px)}
+nav.main a{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);position:relative;padding:4px 0;transition:color .25s}
 nav.main a:hover{color:var(--ink)}
-nav.main a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--ink);transition:width .35s}
-nav.main a:hover::after{width:100%}
-.lang{display:flex;gap:8px;align-items:center;font-size:11px;letter-spacing:.12em}
-.lang button{background:none;border:0;cursor:pointer;color:var(--soft);font:inherit;letter-spacing:.12em;padding:4px 2px;transition:color .3s}
-.lang button.active{color:var(--ink)}
-.lang .sep{color:var(--line)}
+nav.main a span.ix{color:var(--soft2);margin-right:5px}
+nav.main a:hover span.ix{color:var(--accent)}
+.hclock{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;color:var(--soft);display:flex;gap:14px;align-items:center;white-space:nowrap}
+.hclock b{color:var(--data);font-weight:500}
+.langsw{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:var(--ink);border:1px solid var(--line);padding:4px 9px;transition:color .25s,border-color .25s,background .25s}
+.langsw:hover{color:var(--accent);border-color:var(--accent)}
 .navtoggle{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
-.navtoggle span{width:22px;height:1.5px;background:var(--ink);display:block;transition:.3s}
-.backlink{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);transition:color .3s;white-space:nowrap}
-.backlink:hover{color:var(--ink)}
-.backband{text-align:center;padding-top:0!important}
-.cta-back{display:inline-block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:5px}
+.navtoggle span{width:20px;height:1.5px;background:var(--ink);display:block;transition:.3s}
+
+/* ---------- shared section ---------- */
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+section.block{padding:clamp(64px,11vh,128px) 0}
+.seclabel{display:flex;align-items:center;gap:14px;margin-bottom:40px;
+  font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--soft)}
+.seclabel .num{color:var(--accent)}
+.seclabel::after{content:"";flex:1;height:1px;background:var(--line)}
+.seclabel .rt{color:var(--soft2);letter-spacing:.16em}
 
 /* ---------- HERO ---------- */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
-  padding:120px var(--pad) 60px;position:relative}
-.hero .kick{font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--soft);margin-bottom:6vh}
-.hero h1{font-family:'Playfair Display',serif;font-weight:500;
-  font-size:clamp(78px,21vw,300px);line-height:.86;letter-spacing:-.01em;margin:0}
-.hero .sub{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;
-  font-size:clamp(18px,2.4vw,30px);color:var(--ink);max-width:18ch;margin-top:5vh;line-height:1.32}
-.hero .meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:7vh;
-  font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft)}
-.hero .scrollcue{position:absolute;bottom:26px;left:var(--pad);font-size:10px;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--soft);display:flex;align-items:center;gap:10px}
-.hero .scrollcue::before{content:"";width:34px;height:1px;background:var(--soft);display:inline-block;
-  animation:cue 2.4s ease-in-out infinite}
-@keyframes cue{0%,100%{transform:scaleX(.4);transform-origin:left}50%{transform:scaleX(1);transform-origin:left}}
-body[dir=rtl] .hero .scrollcue{left:auto;right:var(--pad)}
+.hero{position:relative;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;justify-content:center;
+  gap:clamp(10px,3vh,40px);padding:clamp(80px,11vh,128px) var(--pad) 0}
+.hero-top{position:absolute;top:74px;left:var(--pad);right:var(--pad);display:flex;justify-content:space-between;
+  font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
+.hero-kick{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--soft);margin-bottom:clamp(12px,2.4vh,24px);display:flex;align-items:center;gap:12px}
+.hero-kick::before{content:"";width:9px;height:9px;background:var(--accent);border-radius:50%;box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 24%,transparent);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+.hero h1{font-weight:900;font-size:clamp(72px,18vw,260px);line-height:.84;letter-spacing:-.03em;margin:0}
+.hero h1 .dot{color:var(--accent)}
+.hero-logo{display:block;width:min(660px,82vw);height:auto;margin:0 auto;filter:drop-shadow(0 0 1px rgba(255,255,255,.4))}
+.hero-sub{max-width:34ch;margin:clamp(4px,1.4vh,18px) 0 0 max(0px,calc((100vw - var(--maxw)) / 2));font-size:clamp(16px,1.7vw,21px);font-weight:400;color:#BCC8D6;line-height:1.45}
+.hero-sub b{color:var(--ink);font-weight:600}
+.hero-strip{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);
+  font-family:'JetBrains Mono',monospace}
+@media(max-height:680px){.hero-kick{margin-bottom:8px}.hero h1{line-height:.82}}
+.hero-strip>div{padding:18px 18px 22px;border-right:1px solid var(--line)}
+.hero-strip>div:last-child{border-right:0}
+.hero-strip .k{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-bottom:8px}
+.hero-strip .v{font-size:13px;color:var(--ink);letter-spacing:.04em}
+.hero-strip .v b{color:var(--data);font-weight:500}
 
-/* ---------- MARQUEE ---------- */
-.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  overflow:hidden;white-space:nowrap;padding:18px 0}
-.marquee .track{display:inline-block;animation:scroll 38s linear infinite}
-.marquee span{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(20px,3vw,38px);
-  color:var(--ink);padding:0 28px}
-.marquee span::after{content:"✦";color:var(--soft);font-style:normal;font-size:.5em;
-  vertical-align:middle;margin-left:46px}
-@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-body[dir=rtl] .marquee .track{animation-direction:reverse}
+/* ---------- METRICS BAND ---------- */
+.metrics{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--panel)}
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.metric{padding:clamp(28px,4vw,48px) clamp(20px,2.5vw,38px);border-right:1px solid var(--line);position:relative}
+.metric:last-child{border-right:0}
+.metric .mk{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);display:flex;justify-content:space-between}
+.metric .mk .ix{color:var(--soft2)}
+.metric .mv{font-family:'Doto',monospace;font-weight:900;font-size:clamp(46px,6vw,84px);line-height:1;margin:18px 0 8px;letter-spacing:.01em;color:var(--ink)}
+.metric .mv .u{font-size:.42em;color:var(--accent);margin-left:4px;letter-spacing:0}
+.metric.is-accent .mv{color:var(--accent)}
+.metric .mc{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--soft);letter-spacing:.04em;line-height:1.5}
 
-/* ---------- SECTIONS ---------- */
-section.block{padding:clamp(70px,12vh,150px) var(--pad);max-width:var(--maxw);margin:0 auto}
-.label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--soft);
-  display:flex;align-items:center;gap:14px;margin-bottom:42px}
-.label .num{font-family:'Playfair Display',serif;font-style:italic;letter-spacing:0;font-size:15px}
-.label::after{content:"";flex:1;height:1px;background:var(--line)}
-
-/* manifesto */
-.manifesto{font-family:'Playfair Display',serif;font-weight:400;
-  font-size:clamp(26px,4.2vw,58px);line-height:1.18;letter-spacing:-.01em;max-width:20ch}
-.manifesto em{font-style:italic;color:var(--ink)}
-.manifesto .muted{color:var(--soft)}
-.read{display:inline-flex;align-items:center;gap:10px;margin-top:48px;
-  font-size:12px;letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid var(--ink);
-  padding-bottom:4px;transition:gap .3s}
+/* ---------- THESIS ---------- */
+.thesis{font-weight:600;font-size:clamp(26px,3.7vw,52px);line-height:1.16;letter-spacing:-.015em;max-width:20ch}
+.thesis .muted{color:var(--soft)}
+.thesis em{font-style:normal;color:var(--accent)}
+.read{display:inline-flex;align-items:center;gap:10px;margin-top:42px;font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--accent);padding-bottom:5px;transition:gap .3s}
 .read:hover{gap:18px}
 
-/* pillars */
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
-.pillar{padding:42px 34px 48px;border-right:1px solid var(--line);position:relative}
-.pillar:last-child{border-right:0}
-.pillar .pn{font-family:'Playfair Display',serif;font-size:42px;color:var(--line);line-height:1;margin-bottom:30px;transition:color .4s}
-.pillar:hover .pn{color:var(--ink)}
-.pillar .tag{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);margin-bottom:12px}
-.pillar h3{font-family:'Playfair Display',serif;font-weight:500;font-size:25px;line-height:1.16;margin-bottom:16px}
-.pillar p{font-size:14.5px;color:#3f3c34;line-height:1.62;font-weight:300}
-body[dir=rtl] .pillar{border-right:0;border-left:1px solid var(--line)}
-body[dir=rtl] .pillar:last-child{border-left:0}
+/* ---------- PILLARS ---------- */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);background:var(--line);gap:1px}
+.pillar{background:var(--bg);padding:30px 28px 40px;position:relative;transition:background .35s}
+.pillar:hover{background:var(--panel)}
+.pillar .ptop{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:34px}
+.pillar .pn{font-family:'Doto',monospace;font-weight:900;font-size:40px;line-height:1;color:var(--accent)}
+.pillar .pid{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--soft2);text-align:right}
+.pillar .tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);margin-bottom:12px}
+.pillar h3{font-weight:700;font-size:22px;line-height:1.15;margin-bottom:14px;letter-spacing:-.01em}
+.pillar p{font-size:14px;color:#94A3B4;line-height:1.6;font-weight:400}
+.pillar .bar{height:3px;background:var(--grid);margin-top:26px;overflow:hidden}
+.pillar .bar i{display:block;height:100%;background:var(--accent);width:0;transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+.pillar.in .bar i{width:var(--w,70%)}
 
-/* review index */
+/* ---------- DATA ATLAS (drawing block) ---------- */
+.drawing{border:1px solid var(--line);background:var(--panel);position:relative}
+.drawing-top{display:grid;grid-template-columns:1.1fr 1fr;gap:0;border-bottom:1px solid var(--line)}
+.dt-left{padding:clamp(28px,3.5vw,52px);border-right:1px solid var(--line)}
+.dt-left h2{font-weight:800;font-size:clamp(26px,3.4vw,44px);line-height:1.05;letter-spacing:-.02em;margin-bottom:20px}
+.dt-left h2 em{font-style:normal;color:var(--accent)}
+.dt-left p{font-size:14.5px;line-height:1.62;color:#94A3B4;max-width:42ch}
+.dt-stats{display:flex;gap:30px;margin-top:30px;flex-wrap:wrap}
+.dt-stat .n{font-family:'Doto',monospace;font-weight:900;font-size:34px;color:var(--data);line-height:1}
+.dt-stat .l{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-top:6px}
+.dt-chart{padding:clamp(22px,2.5vw,34px);display:flex;flex-direction:column}
+.chart-head{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:14px}
+.chart svg{width:100%;height:auto;display:block}
+/* title block strip */
+.titleblock{display:grid;grid-template-columns:auto repeat(3,1fr);font-family:'JetBrains Mono',monospace;font-size:10px}
+.tb-cell{padding:14px 18px;border-right:1px solid var(--line)}
+.tb-cell:last-child{border-right:0}
+.tb-cell .k{color:var(--soft);letter-spacing:.12em;text-transform:uppercase;font-size:9px;margin-bottom:5px}
+.tb-cell .v{color:var(--ink);letter-spacing:.06em}
+.tb-logo{display:flex;align-items:center;justify-content:center;padding:10px 22px;border-right:1px solid var(--line)}
+.tb-logo svg{width:34px;height:34px;display:block}
+
+/* ---------- REVIEW INDEX ---------- */
 .index{border-top:1px solid var(--ink)}
-.row{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:baseline;
-  padding:26px 4px;border-bottom:1px solid var(--line);cursor:default;
-  transition:padding .4s,background .4s}
-.row:hover{padding-left:20px;padding-right:20px;background:var(--paper2)}
-body[dir=rtl] .row:hover{padding-left:20px;padding-right:20px}
-.row .rt{font-family:'Playfair Display',serif;font-size:clamp(20px,2.6vw,32px);font-weight:500;line-height:1.1}
-.row .rb{font-size:12px;letter-spacing:.04em;color:var(--soft);margin-top:8px;font-style:italic;font-family:'Playfair Display',serif}
-.row .rk{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);white-space:nowrap}
-.note-line{margin-top:30px;font-size:13px;color:var(--soft);font-style:italic;font-family:'Playfair Display',serif}
+.irow{display:grid;grid-template-columns:42px 1fr auto;gap:22px;align-items:baseline;padding:24px 6px;
+  border-bottom:1px solid var(--line);transition:padding .35s,background .35s}
+.irow:hover{padding-left:18px;padding-right:18px;background:var(--panel)}
+.irow .ix{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:.06em}
+.irow .it{font-weight:600;font-size:clamp(18px,2.2vw,28px);line-height:1.12;letter-spacing:-.01em}
+.irow:hover .it{color:var(--accent)}
+.irow .ib{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--soft);margin-top:8px;letter-spacing:.02em}
+.irow .ik{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);white-space:nowrap;border:1px solid var(--line);padding:5px 10px}
+.note-line{margin-top:26px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--soft);letter-spacing:.04em}
 
-/* atlas */
-.atlas{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center}
-.atlas h2{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(30px,4.4vw,56px);line-height:1.08;margin-bottom:24px;letter-spacing:-.01em}
-.atlas p{font-size:15.5px;line-height:1.65;color:#3f3c34;font-weight:300;max-width:46ch}
-.atlas svg{width:100%;height:auto;display:block}
-.atlas .frame{border:1px solid var(--line);padding:26px}
-.atlas .cap{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-top:16px;text-align:center}
+/* ---------- ADVISORS ---------- */
+.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);background:var(--line);gap:1px}
+.adv{background:var(--bg);padding:26px 24px;min-height:130px;display:flex;flex-direction:column;justify-content:space-between;transition:background .35s}
+.adv:hover{background:var(--panel)}
+.adv .aix{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--soft2);letter-spacing:.12em}
+.adv .an{font-weight:700;font-size:18px;letter-spacing:-.01em;margin-top:auto}
+.adv .af{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-top:8px}
 
-/* advisors */
-.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.adv{background:var(--paper);padding:30px 26px;min-height:128px;display:flex;flex-direction:column;justify-content:flex-end;transition:background .4s}
-.adv:hover{background:var(--paper2)}
-.adv .an{font-family:'Playfair Display',serif;font-size:21px;font-weight:500}
-.adv .af{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-top:8px}
-
-/* support */
+/* ---------- SUPPORT ---------- */
 .support{text-align:center}
-.support .big{font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(30px,5.6vw,80px);line-height:1.06;letter-spacing:-.01em;max-width:16ch;margin:0 auto}
-.support .big em{font-style:italic}
-.support a.cta{display:inline-block;margin-top:54px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;
-  border:1px solid var(--ink);padding:18px 38px;border-radius:40px;transition:background .35s,color .35s}
-.support a.cta:hover{background:var(--ink);color:var(--paper)}
+.support .big{font-weight:800;font-size:clamp(30px,5.4vw,76px);line-height:1.05;letter-spacing:-.02em;max-width:15ch;margin:0 auto}
+.support .big em{font-style:normal;color:var(--accent)}
+.support .cta{display:inline-flex;align-items:center;gap:12px;margin-top:46px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  border:1px solid var(--accent);color:var(--ink);padding:16px 34px;transition:background .3s,color .3s}
+.support .cta:hover{background:var(--accent);color:#0B1B33}
+/* contact form */
+.cform{max-width:560px;margin:44px auto 0;text-align:left;display:grid;gap:16px}
+.cform .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:560px){.cform .row2{grid-template-columns:1fr}}
+.cform .fld{display:flex;flex-direction:column;gap:8px}
+.cform label{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.cform input,.cform textarea{width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:3px;color:var(--ink);font-family:'Archivo',system-ui,sans-serif;font-size:14px;padding:12px 13px}
+.cform textarea{resize:vertical;min-height:120px;line-height:1.55}
+.cform input:focus,.cform textarea:focus{outline:none;border-color:var(--accent)}
+.cform button{justify-self:center;margin-top:6px;background:var(--accent);color:#0B1B33;border:0;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:16px 40px;cursor:pointer;transition:transform .2s,box-shadow .3s}
+.cform button:hover{transform:translateY(-1px);box-shadow:0 10px 30px -10px color-mix(in srgb,var(--accent) 70%,transparent)}
 
-/* footer */
-footer{border-top:1px solid var(--line);padding:60px var(--pad) 46px;margin-top:40px}
-.fwrap{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:34px}
-.fwrap .fb{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;letter-spacing:.05em}
-.fcol{font-size:12px;line-height:1.9;color:var(--soft)}
-.fcol strong{color:var(--ink);font-weight:500;display:block;margin-bottom:8px;letter-spacing:.14em;text-transform:uppercase;font-size:10.5px}
-.colophon{max-width:var(--maxw);margin:46px auto 0;padding-top:22px;border-top:1px solid var(--line);
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--line);background:var(--panel)}
+.foot{max-width:var(--maxw);margin:0 auto;padding:54px var(--pad) 30px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
+.foot .fb{font-weight:900;font-size:30px;letter-spacing:.02em}
+.foot .fb-logo{display:block;height:58px;width:auto}
+.foot .fb .dot{color:var(--accent)}
+.fcol strong{display:block;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-bottom:12px}
+.fcol p{font-size:13px;color:#A9B6C4;line-height:1.7;margin-bottom:3px}
+.fcol a{border-bottom:1px solid var(--line)}
+.fcol a:hover{border-bottom-color:var(--accent);color:var(--accent)}
+.colophon{border-top:1px solid var(--line)}
+.colophon-in{max-width:var(--maxw);margin:0 auto;padding:14px var(--pad);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.colophon-in b{color:var(--data);font-weight:500}
 
-/* reveal animation */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+/* reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .85s cubic-bezier(.2,.7,.2,1),transform .85s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.marquee .track{animation:none}.hero .scrollcue::before{animation:none}}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.hero-kick::before{animation:none}}
+
+/* ============ PROGRAMS — podcast / talks / events / panels / videos ============ */
+/* ---- PODCAST ---- */
+.podcast{border:1px solid var(--line);background:var(--panel)}
+.pod-main{display:flex;align-items:center;gap:clamp(16px,2vw,26px);padding:clamp(22px,3vw,40px);border-bottom:1px solid var(--line)}
+.pod-play{flex-shrink:0;width:64px;height:64px;border-radius:50%;background:var(--accent);color:#0B1B33;border:0;cursor:pointer;display:grid;place-items:center;transition:transform .25s,box-shadow .35s}
+.pod-play:hover{transform:scale(1.06);box-shadow:0 0 34px -6px rgba(255,77,35,.55)}
+.pod-play svg{width:20px;height:20px;margin-left:3px}
+.pod-meta{flex:1;min-width:0}
+.pod-kick{font-size:11px;color:var(--data);margin-bottom:9px;font-family:'JetBrains Mono',monospace;letter-spacing:.06em}
+.pod-title{font-weight:800;font-size:clamp(20px,2.4vw,30px);line-height:1.2;letter-spacing:-.01em}
+.pod-sub{font-size:13px;color:var(--soft);margin-top:9px}
+.pod-wave{display:flex;align-items:center;gap:3px;height:46px;flex-shrink:0}
+.pod-wave span{width:3px;border-radius:2px;background:linear-gradient(var(--data),var(--accent));height:35%}
+.pod-wave.on span{animation:podbar .9s ease-in-out infinite}
+@keyframes podbar{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+.pod-list{list-style:none}
+.pod-row{width:100%;display:grid;grid-template-columns:auto 1fr auto auto;gap:18px;align-items:center;background:none;border:0;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;color:inherit;padding:18px clamp(18px,2.5vw,30px);text-align:left;transition:background .3s}
+.pod-row:last-child{border-bottom:0}
+.pod-row:hover{background:var(--panel2)}
+.pod-row.on{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.pod-n{color:var(--accent);font-size:13px;font-family:'JetBrains Mono',monospace}
+.pod-rt{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:15px}
+.pod-tag{font-size:10px;color:var(--soft);border:1px solid var(--line);padding:4px 10px;white-space:nowrap;font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
+.pod-len{font-size:13px;color:var(--soft);font-family:'JetBrains Mono',monospace}
+@media(max-width:620px){.pod-wave{display:none}.pod-row{grid-template-columns:auto 1fr auto}.pod-tag{display:none}}
+
+/* ---- CONVERSATIONS ---- */
+.talks{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);background:var(--line);gap:1px}
+.talk{background:var(--bg);padding:30px 28px 32px;display:flex;flex-direction:column;gap:20px;transition:background .35s}
+.talk:hover{background:var(--panel)}
+.talk-ix{font-size:11px;color:var(--soft2);display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;letter-spacing:.1em}
+.talk-q{font-weight:700;font-size:20px;line-height:1.5;letter-spacing:-.01em}
+.talk-q b{color:var(--accent);font-weight:700}
+.talk-by{margin-top:auto}
+.talk-name{font-weight:700;font-size:15px}
+.talk-role{font-size:11px;color:var(--soft);margin-top:7px;font-family:'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:860px){.talks{grid-template-columns:1fr}}
+
+/* ---- EVENTS ---- */
+.events{border-top:1px solid var(--ink)}
+.evrow{display:grid;grid-template-columns:130px 1fr auto auto;gap:24px;align-items:center;padding:24px 6px;border-bottom:1px solid var(--line);transition:padding .35s,background .35s}
+.evrow:hover{padding-left:18px;padding-right:18px;background:var(--panel)}
+.ev-date{font-family:'Doto',monospace;font-weight:900;color:var(--data);font-size:34px;line-height:.9;letter-spacing:.02em}
+.ev-date small{display:block;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:11px;color:var(--soft);margin-top:8px;letter-spacing:.06em;text-transform:uppercase}
+.ev-title{font-weight:600;font-size:clamp(17px,2vw,24px);line-height:1.3}
+.ev-loc{font-size:12px;color:var(--soft);white-space:nowrap;font-family:'JetBrains Mono',monospace;letter-spacing:.06em}
+.ev-cta{font-size:11px;border:1px solid var(--accent);color:var(--ink);padding:8px 16px;white-space:nowrap;transition:background .3s,color .3s;font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
+.ev-cta:hover{background:var(--accent);color:#0B1B33}
+.ev-cta.past{border-color:var(--line);color:var(--soft);pointer-events:none}
+@media(max-width:760px){.evrow{grid-template-columns:84px 1fr;row-gap:10px}.ev-loc,.ev-cta{grid-column:2;justify-self:start}}
+
+/* ---- PANELS ---- */
+.panels{list-style:none}
+.panel{display:grid;grid-template-columns:96px 1fr auto auto;gap:24px;align-items:center;padding:22px 6px;border-top:1px solid var(--line);transition:padding .35s}
+.panel:last-child{border-bottom:1px solid var(--line)}
+.panel:hover{padding-left:14px}
+.panel-no{color:var(--accent);font-size:13px;font-family:'JetBrains Mono',monospace;letter-spacing:.08em}
+.panel-title{font-weight:600;font-size:clamp(16px,1.9vw,21px);line-height:1.4}
+.panel-by{font-size:12px;color:var(--soft);margin-top:8px}
+.panel-tag{font-size:11px;color:var(--data);border:1px solid color-mix(in srgb,var(--data) 40%,transparent);border-radius:999px;padding:5px 14px;white-space:nowrap;font-family:'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
+.panel-cta{font-size:11px;color:var(--soft);opacity:0;transition:opacity .3s,color .3s;white-space:nowrap;font-family:'JetBrains Mono',monospace;letter-spacing:.08em}
+.panel:hover .panel-cta{opacity:1;color:var(--accent)}
+@media(max-width:760px){.panel{grid-template-columns:70px 1fr}.panel-tag{grid-column:2;justify-self:start;margin-top:8px}.panel-cta{display:none}}
+
+/* ---- EDUCATIONAL VIDEOS ---- */
+.videos{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;border:1px solid var(--line);background:var(--line)}
+.vid{background:var(--bg);display:flex;flex-direction:column;cursor:pointer;transition:background .35s}
+.vid:hover{background:var(--panel)}
+.vid-thumb{position:relative;aspect-ratio:16/10;background:var(--panel2);overflow:hidden}
+.vid-thumb image-slot{display:block;width:100%;height:100%}
+.vid-dur{position:absolute;bottom:8px;right:8px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink);background:color-mix(in srgb,#0B1B33 78%,transparent);padding:3px 8px}
+.vid-pl{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:color-mix(in srgb,var(--accent) 92%,transparent);display:grid;place-items:center;transition:transform .3s}
+.vid:hover .vid-pl{transform:translate(-50%,-50%) scale(1.12)}
+.vid-pl svg{width:16px;height:16px;margin-left:2px;color:#0B1B33}
+.vid-body{padding:18px 18px 22px;display:flex;flex-direction:column;gap:9px}
+.vid-lesson{font-size:11px;color:var(--soft);font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
+.vid-title{font-weight:700;font-size:16px;line-height:1.35}
+@media(max-width:980px){.videos{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.videos{grid-template-columns:1fr}}
 
 /* responsive */
-@media(max-width:860px){
-  nav.main{display:none}
-  .navtoggle{display:flex}
-  .pillars{grid-template-columns:1fr}
-  .pillar{border-right:0;border-bottom:1px solid var(--line)}
-  body[dir=rtl] .pillar{border-left:0;border-bottom:1px solid var(--line)}
-  .pillar:last-child{border-bottom:0}
-  .atlas{grid-template-columns:1fr}
-  .adv-grid{grid-template-columns:repeat(2,1fr)}
-  .row{grid-template-columns:1fr}
-  .row .rk{margin-top:10px}
-  header.site.open nav.main{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;
-    align-items:flex-start;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px var(--pad) 20px}
-  header.site.open nav.main a{padding:14px 0;font-size:13px;width:100%;border-bottom:1px solid var(--line)}
+@media(max-width:980px){
+  .hero-strip{grid-template-columns:repeat(2,1fr)}
+  .hero-strip>div:nth-child(2){border-right:0}
+  .metrics-grid{grid-template-columns:repeat(2,1fr)}
+  .metric:nth-child(2){border-right:0}
+  .metric:nth-child(1),.metric:nth-child(2){border-bottom:1px solid var(--line)}
+  .drawing-top{grid-template-columns:1fr}
+  .dt-left{border-right:0;border-bottom:1px solid var(--line)}
+  .foot{grid-template-columns:1fr 1fr}
 }
-@media(max-width:520px){.adv-grid{grid-template-columns:1fr}}
+@media(max-width:1080px){
+  nav.main{display:none}
+  .hclock span.coord{display:none}
+}
+@media(max-width:760px){
+  .pillars{grid-template-columns:1fr}
+  .adv-grid{grid-template-columns:1fr 1fr}
+  .titleblock{grid-template-columns:1fr 1fr}
+  .tb-cell:nth-child(3){border-right:0}
+  .foot{grid-template-columns:1fr}
+  .irow{grid-template-columns:30px 1fr}
+  .irow .ik{grid-column:2;justify-self:start;margin-top:10px}
+}
+@media(max-width:480px){.metrics-grid{grid-template-columns:1fr}.metric{border-right:0;border-bottom:1px solid var(--line)}.adv-grid{grid-template-columns:1fr}}
+.embed-wrap{margin-top:42px;border:1px solid var(--line);background:var(--panel)}
+.embed-head{display:flex;align-items:center;gap:14px;padding:13px 18px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace}
+.embed-head .eh-k{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.embed-head .eh-t{font-size:12px;letter-spacing:.02em;color:var(--soft)}
+.embed-frame{display:block;width:100%;border:0;background:var(--bg);height:900px;transition:height .25s ease}
+.embed-frame.embed-fixed{transition:none}
+/* ---------- VISION 2600 ---------- */
+.vision-lead{display:grid;grid-template-columns:1.25fr 1fr;gap:34px;align-items:end;margin-bottom:38px}
+@media(max-width:860px){.vision-lead{grid-template-columns:1fr;gap:18px}}
+.vision-lead h2{font-size:clamp(28px,3.7vw,54px);font-weight:900;line-height:1.03;letter-spacing:-.02em}
+.vision-lead h2 em{font-style:normal;color:var(--accent)}
+.vision-lead .vl-side p{color:#BCC8D6;font-size:14.5px;line-height:1.7}
+.vision-lead .vl-side p b{color:var(--ink);font-weight:600}
+.vision-meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.04em}
+.vision-meta span{border:1px solid var(--line);border-radius:999px;padding:6px 13px;color:var(--soft)}
+.vision-meta span b{color:var(--data);font-weight:500}
+.goals-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+@media(max-width:820px){.goals-grid{grid-template-columns:1fr}}
+.goal{background:var(--bg);padding:28px 26px 30px;display:flex;flex-direction:column;gap:15px;transition:background .3s}
+.goal:hover{background:var(--panel)}
+.goal-head{display:flex;gap:16px;align-items:flex-start}
+.goal-n{font-family:'Doto','JetBrains Mono',monospace;font-weight:900;font-size:36px;line-height:.9;color:var(--accent);flex:none}
+.goal-tag{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);display:block;margin-bottom:7px}
+.goal-head h3{font-size:18px;font-weight:700;line-height:1.24;letter-spacing:-.01em}
+.goal-obj{font-size:13.5px;color:#AEBBCB;line-height:1.6}
+.goal-rows{display:flex;flex-direction:column;gap:13px;margin-top:auto}
+.grow{border-left:2px solid var(--line);padding-left:14px}
+.grow-now{border-left-color:var(--accent)}
+.grow-pol{border-left-color:var(--data)}
+.grk{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);display:block;margin-bottom:6px}
+.grow-now .grk{color:var(--accent)}
+.grow-pol .grk{color:var(--data)}
+.grow p{font-size:12.5px;color:#B8C4D2;line-height:1.6}
+.grow p b{color:var(--ink);font-weight:600}
+.grow-cta{display:inline-block;margin-top:9px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:3px}
+.goal-link{margin-top:auto;display:inline-flex;align-items:center;gap:9px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:var(--soft);transition:color .25s}
+.goal-link .gl-dot{width:7px;height:7px;border-radius:50%;background:var(--soft2)}
+.goal-link.is-live{color:var(--data)}
+.goal-link.is-live .gl-dot{background:var(--data);box-shadow:0 0 0 3px color-mix(in srgb,var(--data) 22%,transparent)}
+.goal:hover .goal-link{color:var(--accent)}
+.goal:hover .goal-link.is-live{color:var(--data)}
+/* ---------- PROJECTS PLATFORM ---------- */
+.proj-intro{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:26px;margin-bottom:24px}
+.proj-intro p{max-width:58ch;color:#BCC8D6;font-size:15px;line-height:1.7}
+.proj-intro p b{color:var(--ink);font-weight:600}
+.proj-stats{display:flex;gap:28px}
+.proj-stats span{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);display:flex;flex-direction:column;gap:4px}
+.proj-stats b{font-family:'Doto','JetBrains Mono',monospace;font-size:28px;font-weight:900;color:var(--ink);letter-spacing:.02em;line-height:.9}
+.proj-filter{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.pjf{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:var(--soft);background:none;border:1px solid var(--line);border-radius:999px;padding:7px 15px;cursor:pointer;transition:.18s}
+.pjf:hover{color:var(--ink);border-color:var(--soft)}
+.pjf.on{color:var(--ink);background:var(--panel2);border-color:transparent}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(292px,1fr));gap:14px}
+.pcard{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:20px 20px 22px;display:flex;flex-direction:column;gap:13px;border-top:3px solid var(--st,var(--soft2));transition:transform .2s,background .25s;animation:rise .5s both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}}
+.pcard:hover{transform:translateY(-3px);background:var(--panel2)}
+.pc-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.pc-status{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:8px;color:var(--st)}
+.pc-status .sdot{width:8px;height:8px;border-radius:50%;background:var(--st)}
+.pc-status.live .sdot{box-shadow:0 0 0 4px color-mix(in srgb,var(--data) 22%,transparent)}
+.pc-g{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--soft2)}
+.pc-tag{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:5px}
+.pc-name{font-size:19px;font-weight:800;letter-spacing:-.01em;line-height:1.2}
+.pc-desc{font-size:13px;color:#AEBBCB;line-height:1.62}
+.pc-act{margin-top:auto;align-self:flex-start;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;border:1px solid var(--line);background:none;color:var(--ink);border-radius:3px;padding:9px 15px;cursor:pointer;transition:.2s;text-decoration:none;display:inline-block}
+.pc-act:hover{border-color:var(--accent);color:var(--accent)}
+.pc-act.is-live{border-color:var(--data);color:var(--data)}
+.pc-act.is-live:hover{background:var(--data);color:#0B1B33}
+.pc-act.done{border-color:var(--data);color:var(--data);pointer-events:none}
+.proj-stage{margin-top:30px;border:1px solid var(--line);background:var(--panel);scroll-margin-top:70px}
 </style>
 </head>
-<body dir="ltr">
+<body>
+<div class="gridbg" aria-hidden="true"></div>
 
 <header class="site" id="hdr">
-  <a href="#top" class="brand ltr">GŌSĀN</a>
+  <a href="Gosan%20Weblog.html#/" target="_top" class="backlink" onclick="if(window.parent!==window){window.parent.postMessage({type:'gosan-nav',hash:'#/'},'*');return false;}">← Gosan Weblog</a>
   <nav class="main" id="nav">
-    <a href="#mission" data-en="Mission" data-fa="مأموریت">Mission</a>
-    <a href="#review" data-en="The Review" data-fa="گاهنامه">The Review</a>
-    <a href="#atlas" data-en="Data Atlas" data-fa="اطلس داده">Data Atlas</a>
-    <a href="#advisors" data-en="Advisors" data-fa="مشاوران">Advisors</a>
-    <a href="#support" data-en="Support" data-fa="حمایت">Support</a>
+    <a href="#thesis">Thesis</a>
+    <a href="#vision">Vision</a>
+    <a href="#projects">Projects</a>
+    <a href="#mission">Mission</a>
+    <a href="#atlas">Atlas</a>
+    <a href="#podcast">Podcast</a>
+    <a href="#talks">Talks</a>
+    <a href="#events">Events</a>
+    <a href="#panels">Panels</a>
+    <a href="#videos">Videos</a>
+    <a href="#review">Review</a>
+    <a href="#support">Support</a>
   </nav>
-  <div style="display:flex;align-items:center;gap:18px">
-    <div class="lang ltr">
-      <button data-lang="en" class="active">EN</button><span class="sep">/</span><button data-lang="fa">فا</button>
-    </div>
-    <button class="navtoggle" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
-  </div>
+  <div class="hclock"><a href="institute-fa.html" class="langsw ltr" title="نسخهٔ فارسی">FA</a><span class="coord ltr" id="coord">52.52°N · 13.40°E</span><span class="ltr" id="clock">--:--:--</span></div>
 </header>
 
 <main id="top">
 
   <!-- HERO -->
   <section class="hero">
-    <div class="kick" data-en="Culture &amp; Arts Institute · اندیشکدهٔ فرهنگ و هنر گوسان"
-         data-fa="اندیشکدهٔ فرهنگ و هنر · Culture &amp; Arts Institute">Culture &amp; Arts Institute · اندیشکدهٔ فرهنگ و هنر گوسان</div>
-    <h1 class="ltr">GŌSĀN</h1>
-    <div class="sub" data-en="Designing the systems, economics &amp; infrastructure for a free Iran's creative economy."
-         data-fa="طراحیِ سامانه‌ها، اقتصاد و زیرساخت‌های اقتصادِ خلاقِ ایرانِ آزاد.">Designing the systems, economics &amp; infrastructure for a free Iran's creative economy.</div>
-    <div class="meta">
-      <span class="ltr" data-en="Berlin · Washington, D.C." data-fa="برلین · واشینگتن دی‌سی">Berlin · Washington, D.C.</span>
-      <span data-en="Evidence-Based Cultural Policy" data-fa="سیاست‌گذاریِ شواهدمحور">Evidence-Based Cultural Policy</span>
-      <span class="ltr" data-en="Est. Tirgān 2585" data-fa="بنیادِ تیرگان ۲۵۸۵">Est. Tirgān 2585</span>
+    <div class="hero-top">
+      <span>Gōsān Culture &amp; Arts Institute</span>
+      <span class="ltr">FILE / 00 — INDEX</span>
     </div>
-    <div class="scrollcue" data-en="Scroll" data-fa="پایین">Scroll</div>
+    <div>
+      <div class="hero-kick">Evidence-Based Cultural Policy</div>
+      <img class="hero-logo" src="assets/logo-gosan-white.png" alt="Gōsān">
+      <p class="hero-sub" data-comment-anchor="c1507f860a-p">A data-driven policy institute designing the <b>institutional, economic &amp; digital infrastructure</b> for a free Iran's creative economy.</p>
+    </div>
+    <div class="hero-strip mono">
+      <div style="padding: 1px 18px 22px"><div class="k">Basis of operations</div><div class="v ltr">Berlin · Washington, D.C.</div></div>
+      <div><div class="k">Established</div><div class="v ltr">Tirgān <b>2585</b></div></div>
+      <div><div class="k">Discipline</div><div class="v">Cultural Macroeconomics</div></div>
+      <div><div class="k">Status</div><div class="v"><b>Active</b> · Founding Phase</div></div>
+    </div>
   </section>
 
-  <!-- MARQUEE -->
-  <div class="marquee" aria-hidden="true"><div class="track" id="mq"></div></div>
-
-  <!-- MISSION / MANIFESTO -->
-  <section class="block reveal" id="mission">
-    <div class="label"><span class="num">01</span><span data-en="The Institute" data-fa="اندیشکده">The Institute</span></div>
-    <p class="manifesto"
-       data-en="We treat culture not as ornament, but as a <em>macroeconomic driver</em>, an instrument of soft power, and a <em>pillar of national stability.</em> <span class='muted'>Gōsān designs the institutional, economic and digital blueprints for Iran's transition toward an open future.</span>"
-       data-fa="ما به فرهنگ نه به‌مثابهٔ تزئین، بلکه به‌عنوان <em>محرکِ اقتصادِ کلان</em>، ابزارِ قدرتِ نرم و <em>ستونِ ثباتِ ملی</em> می‌نگریم. <span class='muted'>گوسان الگوهای نهادی، اقتصادی و دیجیتالِ گذارِ ایران به آینده‌ای آزاد را طراحی می‌کند.</span>">
-       We treat culture not as ornament, but as a <em>macroeconomic driver</em>, an instrument of soft power, and a <em>pillar of national stability.</em> <span class="muted">Gōsān designs the institutional, economic and digital blueprints for Iran's transition toward an open future.</span></p>
-    <a class="read" href="#support"><span data-en="Read the Prospectus" data-fa="مطالعهٔ معرفی‌نامه">Read the Prospectus</span> →</a>
-  </section>
-
-  <!-- PILLARS -->
-  <section class="block reveal" id="pillars">
-    <div class="label"><span class="num">02</span><span data-en="Mission — Three Pillars" data-fa="مأموریت — سه ستون">Mission — Three Pillars</span></div>
-    <div class="pillars">
-      <div class="pillar">
-        <div class="pn ltr">A</div>
-        <div class="tag" data-en="De-Radicalization" data-fa="رادیکالیسم‌زدایی">De-Radicalization</div>
-        <h3 data-en="Institutional Charters" data-fa="منشورهای نهادی">Institutional Charters</h3>
-        <p data-en="Plug-and-play legal charters that convert state propaganda apparatuses into independent, public-interest platforms — ready on day one."
-           data-fa="منشورهای حقوقیِ آمادهٔ بهره‌برداری که سازوکارهای تبلیغاتیِ دولتی را به پلتفرم‌های مستقل و عام‌المنفعه بدل می‌کنند — آماده از روزِ نخست.">Plug-and-play legal charters that convert state propaganda apparatuses into independent, public-interest platforms — ready on day one.</p>
+  <!-- METRICS -->
+  <section class="metrics" id="metrics">
+    <div class="metrics-grid">
+      <div class="metric is-accent reveal">
+        <div class="mk"><span>Institutions mapped</span><span class="ix">/ 01</span></div>
+        <div class="mv lcd" data-count="1536">0</div>
+        <div class="mc">Museums, centres &amp; theatres at real GPS coordinates</div>
       </div>
-      <div class="pillar">
-        <div class="pn ltr">B</div>
-        <div class="tag" data-en="Creative Macroeconomy" data-fa="اقتصادِ کلانِ خلاق">Creative Macroeconomy</div>
-        <h3 data-en="A Formal Market" data-fa="یک بازارِ رسمی">A Formal Market</h3>
-        <p data-en="Tax codes, copyright frameworks and co-production compacts that bring the underground and diaspora creative classes into a thriving market that drives GDP."
-           data-fa="کدهای مالیاتی، چارچوب‌های حق‌تکثیر و پیمان‌های تولیدِ مشترک که هنرمندانِ زیرزمینی و دیاسپورا را وارد بازاری پویا و محرکِ تولید ناخالص داخلی می‌کنند.">Tax codes, copyright frameworks and co-production compacts that bring the underground and diaspora creative classes into a thriving market that drives GDP.</p>
+      <div class="metric reveal">
+        <div class="mk"><span>Provinces analysed</span><span class="ix">/ 02</span></div>
+        <div class="mv lcd" data-count="31">0</div>
+        <div class="mc">Cultural provision ranked by an equality index</div>
       </div>
-      <div class="pillar">
-        <div class="pn ltr">C</div>
-        <div class="tag" data-en="Digital Infrastructure" data-fa="زیرساختِ دیجیتال">Digital Infrastructure</div>
-        <h3 data-en="A Post-Censorship Web" data-fa="وبِ پساسانسور">A Post-Censorship Web</h3>
-        <p data-en="Policy for algorithmic copyright equity, digital-asset protection, and technology to catalogue and secure physical heritage during transition."
-           data-fa="سیاست برای عدالتِ الگوریتمیِ حق‌تکثیر، حفاظت از دارایی‌های دیجیتال و فناوری برای فهرست‌برداری و ایمن‌سازیِ میراثِ فیزیکی در دوران گذار.">Policy for algorithmic copyright equity, digital-asset protection, and technology to catalogue and secure physical heritage during transition.</p>
+      <div class="metric reveal">
+        <div class="mk"><span>Strategic goals</span><span class="ix">/ 03</span></div>
+        <div class="mv lcd" data-count="8" data-pad="2">0</div>
+        <div class="mc">The 15-year Vision 2600 blueprint</div>
+      </div>
+      <div class="metric reveal">
+        <div class="mk"><span>Cultural signals</span><span class="ix">/ 04</span></div>
+        <div class="mv lcd" data-count="10">0</div>
+        <div class="mc">Measured indicators of cultural health</div>
       </div>
     </div>
   </section>
 
-  <!-- THE REVIEW -->
-  <section class="block reveal" id="review">
-    <div class="label"><span class="num">03</span><span data-en="The Review — Gōsān" data-fa="گاهنامهٔ گوسان">The Review — Gōsān</span></div>
-    <div class="index">
-      <div class="row">
-        <div><div class="rt" data-en="Culture as Critical Infrastructure" data-fa="فرهنگ به‌مثابهٔ زیرساختِ حیاتی">Culture as Critical Infrastructure</div>
-          <div class="rb" data-en="The founding essay" data-fa="جستارِ بنیان‌گذاری">The founding essay</div></div>
-        <div class="rk" data-en="Essay" data-fa="جستار">Essay</div>
-      </div>
-      <div class="row">
-        <div><div class="rt" data-en="The Multiplier: One Dollar, Four Returned" data-fa="ضریب: یک دلار، چهار بازده">The Multiplier: One Dollar, Four Returned</div>
-          <div class="rb" data-en="On arts-district spillover economics" data-fa="دربارهٔ اقتصادِ سرریزِ مناطقِ هنری">On arts-district spillover economics</div></div>
-        <div class="rk" data-en="Policy Brief" data-fa="گزارشِ سیاستی">Policy Brief</div>
-      </div>
-      <div class="row">
-        <div><div class="rt" data-en="The Gōsān and the National Imagination" data-fa="گوسان و تخیلِ ملی">The Gōsān and the National Imagination</div>
-          <div class="rb" data-en="On the Parthian minstrels and cultural memory" data-fa="دربارهٔ خنیاگرانِ اشکانی و حافظهٔ فرهنگی">On the Parthian minstrels and cultural memory</div></div>
-        <div class="rk" data-en="Note" data-fa="یادداشت">Note</div>
-      </div>
-      <div class="row">
-        <div><div class="rt" data-en="Drafting Broadcasting for a Free Iran" data-fa="پیش‌نویسِ پخشِ همگانی برای ایرانِ آزاد">Drafting Broadcasting for a Free Iran</div>
-          <div class="rb" data-en="A model public-charter, annotated" data-fa="منشورِ نمونهٔ عام‌المنفعه، با حاشیه‌نگاری">A model public-charter, annotated</div></div>
-        <div class="rk" data-en="Legislation" data-fa="قانون‌گذاری">Legislation</div>
-      </div>
+  <!-- THESIS -->
+  <section class="block" id="thesis">
+    <div class="wrap">
+      <div class="seclabel"><span class="num">01</span><span>The Thesis</span><span class="rt ltr">REF&nbsp;001.00</span></div>
+      <p class="thesis reveal">We treat culture not as ornament, but as a <em>macroeconomic driver</em>, an instrument of soft power, and a <em>pillar of national stability.</em> <span class="muted">Gōsān designs the institutional, economic and digital blueprints for Iran's transition toward an open future.</span></p>
+      <a class="read reveal" href="#support">Read the prospectus →</a>
     </div>
-    <div class="note-line" data-en="First issue — Mehregān 2585, with ISSN." data-fa="نخستین شماره — مهرگان ۲۵۸۵، با شابک (ISSN).">First issue — Mehregān 2585, with ISSN.</div>
   </section>
 
-  <!-- ATLAS -->
-  <section class="block reveal" id="atlas">
-    <div class="label"><span class="num">04</span><span data-en="The Data Atlas" data-fa="اطلسِ داده">The Data Atlas</span></div>
-    <div class="atlas">
-      <div>
-        <h2 data-en="The Cultural ROI Atlas" data-fa="اطلسِ بازدهِ فرهنگی">The Cultural ROI Atlas</h2>
-        <p data-en="We map every public dollar spent on culture against real-time economic indicators — revealing which districts are cultural deserts and which are economic engines. Open-source, interactive, and built for the language ministries of finance actually use."
-           data-fa="ما هر دلارِ عمومیِ صرف‌شده برای فرهنگ را با شاخص‌های اقتصادیِ بی‌درنگ هم‌بسته می‌کنیم — تا آشکار شود کدام محله کویرِ فرهنگی و کدام موتورِ اقتصادی است. متن‌باز، تعاملی و به زبانی که وزارت‌خانه‌های دارایی به‌کار می‌برند.">We map every public dollar spent on culture against real-time economic indicators — revealing which districts are cultural deserts and which are economic engines. Open-source, interactive, and built for the language ministries of finance actually use.</p>
-        <a class="read" href="#support"><span data-en="Preview the Index" data-fa="پیش‌نمایشِ شاخص">Preview the Index</span> →</a>
+  <!-- VISION 2600 -->
+  <section class="block" id="vision" style="padding-top:0">
+    <div class="wrap">
+      <div class="seclabel"><span class="num">02</span><span>Vision 2600 — The Blueprint</span><span class="rt ltr">REF&nbsp;002.00</span></div>
+      <div class="vision-lead reveal">
+        <h2>A 15-year blueprint for the <em>revival &amp; prosperity</em> of Iranian arts and culture.</h2>
+        <div class="vl-side">
+          <p><b>Core directive:</b> to act as an un-censorable digital repository, legal incubator and economic architect for the future of Iranian culture — absorbing all risk from the diaspora while protecting and gathering data from creators on the ground.</p>
+          <div class="vision-meta">
+            <span>Status <b>Active</b> · Offshore</span>
+            <span><b>8</b> strategic goals</span>
+            <span><b>15</b>-year roadmap</span>
+          </div>
+        </div>
       </div>
-      <div>
-        <div class="frame">
-          <svg viewBox="0 0 460 300" role="img" aria-label="Cultural prosperity line chart">
-            <g stroke="#cfc9bb" stroke-width="1">
-              <line x1="20" y1="40" x2="440" y2="40"/><line x1="20" y1="100" x2="440" y2="100"/>
-              <line x1="20" y1="160" x2="440" y2="160"/><line x1="20" y1="220" x2="440" y2="220"/>
-              <line x1="20" y1="270" x2="440" y2="270"/>
-            </g>
-            <polyline fill="none" stroke="#16140f" stroke-width="1.6"
-              points="20,232 75,210 130,214 185,160 240,150 295,96 350,104 405,52 440,44"/>
-            <polyline fill="none" stroke="#9a948660" stroke-width="1.2" stroke-dasharray="3 3"
-              points="20,250 75,244 130,236 185,224 240,214 295,196 350,188 405,168 440,160"/>
-            <g fill="#16140f">
-              <circle cx="185" cy="160" r="2.6"/><circle cx="295" cy="96" r="2.6"/><circle cx="405" cy="52" r="2.6"/>
-            </g>
-          </svg>
-          <div class="cap" data-en="Cultural Prosperity Index — public investment vs. local growth" data-fa="شاخصِ رفاهِ فرهنگی — سرمایه‌گذاریِ عمومی در برابرِ رشدِ محلی">Cultural Prosperity Index — public investment vs. local growth</div>
+
+      <div class="goals-grid reveal">
+        <article class="goal">
+          <div class="goal-head"><span class="goal-n">01</span><div><span class="goal-tag">Identity</span><h3>Cultural Truth, Reconciliation &amp; Identity Revival</h3></div></div>
+          <p class="goal-obj">Recover, document and restore the authentic national identity and regional heritages the regime suppressed, rewrote or criminalised.</p>
+          <a class="goal-link is-live" href="#projects"><span class="gl-dot"></span>Project · Index of Erased Heritage</a>
+        </article>
+
+        <article class="goal">
+          <div class="goal-head"><span class="goal-n">02</span><div><span class="goal-tag">Free Expression</span><h3>Institutionalising Freedom of Expression &amp; Anti-Censorship Law</h3></div></div>
+          <p class="goal-obj">Erect ironclad constitutional and legal barriers so creative expression can never again be weaponised or policed by any authority.</p>
+          <a class="goal-link" href="#projects"><span class="gl-dot"></span>Project · Charter Lab</a>
+        </article>
+
+        <article class="goal">
+          <div class="goal-head"><span class="goal-n">03</span><div><span class="goal-tag">Governance</span><h3>Independent, "Arms-Length" Cultural Governance</h3></div></div>
+          <p class="goal-obj">Insulate cultural funding, management and leadership entirely from political regimes — a peer-reviewed, expert-led model.</p>
+          <a class="goal-link" href="#projects"><span class="gl-dot"></span>Project · Governance Library</a>
+        </article>
+
+        <article class="goal">
+          <div class="goal-head"><span class="goal-n">04</span><div><span class="goal-tag">Artists</span><h3>Elevating the Socio-Economic Status of Creative Workers</h3></div></div>
+          <p class="goal-obj">Guarantee the financial security, dignity and labour rights of independent artists — turning art from a hazardous gamble into a viable career.</p>
+          <a class="goal-link" href="#projects"><span class="gl-dot"></span>Project · Artist Pulse</a>
+        </article>
+
+        <article class="goal">
+          <div class="goal-head"><span class="goal-n">05</span><div><span class="goal-tag">Economy</span><h3>Activating the Creative Economy &amp; Infrastructure</h3></div></div>
+          <p class="goal-obj">Transition culture from a state-subsidised propaganda machine into a profitable, self-sustaining engine that creates jobs and fuels GDP.</p>
+          <a class="goal-link" href="#projects"><span class="gl-dot"></span>Project · Creative Incubator</a>
+        </article>
+
+        <article class="goal">
+          <div class="goal-head"><span class="goal-n">06</span><div><span class="goal-tag">Soft Power</span><h3>Global Soft Power &amp; Cultural Diplomacy</h3></div></div>
+          <p class="goal-obj">Rebrand Iran on the world stage — replacing the image of a fundamentalist state with a vibrant 2,600-year civilisation leading a modern renaissance.</p>
+          <a class="goal-link" href="#projects"><span class="gl-dot"></span>Project · Gōsān Gallery</a>
+        </article>
+
+        <article class="goal">
+          <div class="goal-head"><span class="goal-n">07</span><div><span class="goal-tag">Regions</span><h3>Decentralisation &amp; Regional Cultural Sovereignty</h3></div></div>
+          <p class="goal-obj">Dismantle the centralised, Tehran-heavy cultural monopoly and empower Iran's provinces to govern, fund and celebrate their local assets.</p>
+          <a class="goal-link" href="#projects"><span class="gl-dot"></span>Project · Regional Portals</a>
+        </article>
+
+        <article class="goal">
+          <div class="goal-head"><span class="goal-n">08</span><div><span class="goal-tag">Digital</span><h3>Digital Sovereignty, Creative Tech &amp; Cyber-Resilience</h3></div></div>
+          <p class="goal-obj">Build secure, advanced digital infrastructure to protect the creative economy from state surveillance today and corporate monopolies tomorrow.</p>
+          <a class="goal-link" href="#projects"><span class="gl-dot"></span>Project · Resilient Distribution</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE PROJECTS PLATFORM -->
+  <section class="block" id="projects" style="padding-top:0">
+    <div class="wrap">
+      <div class="seclabel"><span class="num">03</span><span>The Projects — Build Platform</span><span class="rt ltr">REF&nbsp;002.10</span></div>
+      <div class="proj-intro reveal">
+        <p>Each strategic goal becomes a working platform. This is what we are building now — shipped and hosted from offshore so <b>creators on the ground carry none of the risk</b>. One initiative per goal; the first is already live.</p>
+        <div class="proj-stats">
+          <span><b id="pjLive">1</b>Live</span>
+          <span><b id="pjDev">4</b>Building</span>
+          <span><b id="pjPlan">3</b>Planned</span>
+        </div>
+      </div>
+      <div class="proj-filter reveal" id="pjFilter">
+        <button class="pjf on" data-f="all">All</button>
+        <button class="pjf" data-f="live">Live</button>
+        <button class="pjf" data-f="dev">In development</button>
+        <button class="pjf" data-f="planned">Planned</button>
+      </div>
+      <div class="proj-grid reveal" id="pjGrid"></div>
+
+      <!-- live project surface -->
+      <div class="proj-stage reveal" id="erased">
+        <div class="embed-head"><span class="eh-k">Live · Goal 01</span><span class="eh-t">The Index of Erased Heritage — crowd-sourced secure archive</span></div>
+        <iframe class="embed-frame" src="embeds/index-erased-heritage.html" title="The Index of Erased Heritage"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION / PILLARS -->
+  <section class="block" id="mission" style="padding-top:0">
+    <div class="wrap">
+      <div class="seclabel"><span class="num">04</span><span>Mission — Three Pillars</span><span class="rt ltr">REF&nbsp;003.00</span></div>
+      <div class="pillars reveal">
+        <div class="pillar">
+          <div class="ptop"><div class="pn ltr">A</div><div class="pid ltr">PLR-A<br>158.01</div></div>
+          <div class="tag">De-Radicalization</div>
+          <h3>Institutional Charters</h3>
+          <p>Plug-and-play legal charters that convert state propaganda apparatuses into independent, public-interest platforms — ready on day one.</p>
+          <div class="bar" style="--w:88%"><i></i></div>
+        </div>
+        <div class="pillar">
+          <div class="ptop"><div class="pn ltr">B</div><div class="pid ltr">PLR-B<br>158.02</div></div>
+          <div class="tag">Creative Macroeconomy</div>
+          <h3>A Formal Market</h3>
+          <p>Tax codes, copyright frameworks and co-production compacts that bring the underground and diaspora creative classes into a market that drives GDP.</p>
+          <div class="bar" style="--w:72%"><i></i></div>
+        </div>
+        <div class="pillar">
+          <div class="ptop"><div class="pn ltr">C</div><div class="pid ltr">PLR-C<br>158.03</div></div>
+          <div class="tag">Digital Infrastructure</div>
+          <h3>A Post-Censorship Web</h3>
+          <p>Policy for algorithmic copyright equity, digital-asset protection, and technology to catalogue and secure physical heritage during transition.</p>
+          <div class="bar" style="--w:64%"><i></i></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ADVISORS -->
-  <section class="block reveal" id="advisors">
-    <div class="label"><span class="num">05</span><span data-en="Board of Advisors" data-fa="هیئتِ مشاوران">Board of Advisors</span></div>
-    <div class="adv-grid">
-      <div class="adv"><div class="an" data-en="Founder &amp; Director" data-fa="بنیان‌گذار و مدیر">Founder &amp; Director</div><div class="af">Yalda Zamani</div></div>
-      <div class="adv"><div class="an" data-en="Chief Scientific Advisor" data-fa="مشاورِ ارشدِ علمی">Chief Scientific Advisor</div><div class="af" data-en="Economics · By invitation" data-fa="اقتصاد · با دعوت">Economics · By invitation</div></div>
-      <div class="adv"><div class="an" data-en="Cultural Policy" data-fa="سیاستِ فرهنگی">Cultural Policy</div><div class="af" data-en="By invitation" data-fa="با دعوت">By invitation</div></div>
-      <div class="adv"><div class="an" data-en="Heritage &amp; GIS" data-fa="میراث و GIS">Heritage &amp; GIS</div><div class="af" data-en="By invitation" data-fa="با دعوت">By invitation</div></div>
-      <div class="adv"><div class="an" data-en="Digital Rights" data-fa="حقوقِ دیجیتال">Digital Rights</div><div class="af" data-en="By invitation" data-fa="با دعوت">By invitation</div></div>
-      <div class="adv"><div class="an" data-en="Arts Administration" data-fa="مدیریتِ هنری">Arts Administration</div><div class="af" data-en="By invitation" data-fa="با دعوت">By invitation</div></div>
+  <!-- DATA ATLAS -->
+  <section class="block" id="atlas" style="padding-top:0">
+    <div class="wrap">
+      <div class="seclabel"><span class="num">05</span><span>The Data Atlas</span><span class="rt ltr">DWG&nbsp;158.04.00</span></div>
+      <div class="drawing reveal">
+        <div class="drawing-top">
+          <div class="dt-left">
+            <h2>The Cultural <em>ROI</em> Atlas</h2>
+            <p>We map every public unit spent on culture against real-time economic indicators — revealing which districts are cultural deserts and which are economic engines. Open-source, interactive, built in the language ministries of finance actually use.</p>
+            <div class="dt-stats">
+              <div class="dt-stat"><div class="n lcd ltr">×4.2</div><div class="l">Mean return</div></div>
+              <div class="dt-stat"><div class="n lcd ltr">128</div><div class="l">Districts</div></div>
+              <div class="dt-stat"><div class="n lcd ltr">+38%</div><div class="l">Growth delta</div></div>
+            </div>
+          </div>
+          <div class="dt-chart">
+            <div class="chart-head"><span>Fig. 04 — Investment vs. Local Growth</span><span class="ltr">2585 / Q1–Q8</span></div>
+            <div class="chart">
+              <svg viewBox="0 0 480 300" role="img" aria-label="Cultural prosperity chart: investment bars vs growth line">
+                <!-- grid -->
+                <g stroke="#1E3A5C" stroke-width="1">
+                  <line x1="34" y1="40" x2="470" y2="40"/><line x1="34" y1="100" x2="470" y2="100"/>
+                  <line x1="34" y1="160" x2="470" y2="160"/><line x1="34" y1="220" x2="470" y2="220"/>
+                  <line x1="34" y1="262" x2="470" y2="262"/>
+                </g>
+                <!-- y labels -->
+                <g fill="#5b5a55" font-family="'JetBrains Mono',monospace" font-size="9">
+                  <text x="6" y="44">100</text><text x="10" y="104">75</text><text x="10" y="164">50</text><text x="14" y="224">25</text><text x="18" y="266">0</text>
+                </g>
+                <!-- investment bars -->
+                <g fill="#1B3450">
+                  <rect x="44" y="206" width="30" height="56"/><rect x="98" y="196" width="30" height="66"/>
+                  <rect x="152" y="178" width="30" height="84"/><rect x="206" y="170" width="30" height="92"/>
+                  <rect x="260" y="150" width="30" height="112"/><rect x="314" y="138" width="30" height="124"/>
+                  <rect x="368" y="120" width="30" height="142"/><rect x="422" y="104" width="30" height="158"/>
+                </g>
+                <!-- accent bar (peak) -->
+                <rect x="422" y="104" width="30" height="158" fill="#FF4D23"/>
+                <!-- growth line (cyan) -->
+                <polyline fill="none" stroke="#46D6C9" stroke-width="2"
+                  points="59,236 113,224 167,206 221,184 275,150 329,142 383,96 437,58"/>
+                <g fill="#0B1B33" stroke="#46D6C9" stroke-width="2">
+                  <circle cx="221" cy="184" r="3.4"/><circle cx="329" cy="142" r="3.4"/><circle cx="437" cy="58" r="3.4"/>
+                </g>
+                <!-- callout -->
+                <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#46D6C9">
+                  <text x="372" y="48">PEAK +38%</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <!-- title block -->
+        <div class="titleblock">
+          <div class="tb-logo">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><g fill="#FF4D23"><rect x="6" y="9" width="28" height="6" transform="skewX(-18)"/><rect x="9" y="19" width="28" height="6" transform="skewX(-18)"/><rect x="12" y="29" width="28" height="6" transform="skewX(-18)"/></g></svg>
+          </div>
+          <div class="tb-cell"><div class="k">Drawing No.</div><div class="v ltr">158.04.00</div></div>
+          <div class="tb-cell"><div class="k">Scale</div><div class="v ltr">1 : 100</div></div>
+          <div class="tb-cell"><div class="k">Method</div><div class="v">Open · Auditable</div></div>
+        </div>
+      </div>
+
+      <!-- embedded interactive atlas -->
+      <div class="embed-wrap reveal">
+        <div class="embed-head"><span class="eh-k">Interactive</span><span class="eh-t">Institution Dot Map — 1,536 institutions at real coordinates</span></div>
+        <iframe class="embed-frame embed-fixed" src="embeds/embed_map.html" title="Cultural Atlas of Iran — Institution Dot Map" style="height:660px"></iframe>
+      </div>
     </div>
-    <div class="note-line" data-en="The board is assembled by invitation. To propose a name, write to the Office of the Director." data-fa="هیئت با دعوت شکل می‌گیرد. برای پیشنهادِ نام، به دفترِ مدیر بنویسید.">The board is assembled by invitation. To propose a name, write to the Office of the Director.</div>
+  </section>
+
+  <!-- DISTRIBUTION -->
+  <section class="block" id="distribution" style="padding-top:0">
+    <div class="wrap">
+      <div class="seclabel"><span class="num">06</span><span>Distribution Statistics</span><span class="rt ltr">DAT&nbsp;158.05.00</span></div>
+      <div class="embed-wrap reveal">
+        <div class="embed-head"><span class="eh-k">Dataset</span><span class="eh-t">Institutions by category &amp; province</span></div>
+        <iframe class="embed-frame" src="embeds/embed_distribution.html" title="Distribution Statistics"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- GLOBAL COMPARISON -->
+  <section class="block" id="global" style="padding-top:0">
+    <div class="wrap">
+      <div class="seclabel"><span class="num">07</span><span>Global Comparison</span><span class="rt ltr">DAT&nbsp;158.06.00</span></div>
+      <div class="embed-wrap reveal">
+        <div class="embed-head"><span class="eh-k">Benchmark</span><span class="eh-t">Iran vs. the global cultural economy</span></div>
+        <iframe class="embed-frame" src="embeds/embed_global.html" title="Global Comparison"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNALS -->
+  <section class="block" id="signals" style="padding-top:0">
+    <div class="wrap">
+      <div class="seclabel"><span class="num">08</span><span>Ten Signals</span><span class="rt ltr">DAT&nbsp;158.07.00</span></div>
+      <div class="embed-wrap reveal">
+        <div class="embed-head"><span class="eh-k">Indicators</span><span class="eh-t">Ten measured signals of cultural health</span></div>
+        <iframe class="embed-frame" src="embeds/embed_signals.html" title="Ten Signals"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- PODCAST -->
+  <section class="block" id="podcast" style="padding-top:0">
+    <div class="wrap">
+      <div class="seclabel"><span class="num">09</span><span>The Gōsān Podcast — The Voice of Policy</span><span class="rt ltr">AUD&nbsp;051.00</span></div>
+      <div class="podcast reveal">
+        <div class="pod-main">
+          <button class="pod-play" id="podPlay" aria-label="Play / pause"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg></button>
+          <div class="pod-meta">
+            <div class="pod-kick">Current episode · Season One</div>
+            <div class="pod-title" id="podTitle">Culture as Critical Infrastructure</div>
+            <div class="pod-sub" id="podSub">With Yalda Zamani · 42 min</div>
+          </div>
+          <div class="pod-wave" id="podWave" aria-hidden="true">
+            <span style="height:30%"></span><span style="height:62%"></span><span style="height:45%"></span><span style="height:80%"></span><span style="height:55%"></span><span style="height:95%"></span><span style="height:40%"></span><span style="height:72%"></span><span style="height:50%"></span><span style="height:85%"></span>
+          </div>
+        </div>
+        <ul class="pod-list">
+          <li><button class="pod-row on" data-title="Culture as Critical Infrastructure" data-sub="With Yalda Zamani · 42 min"><span class="pod-n ltr">01</span><span class="pod-rt">Culture as Critical Infrastructure</span><span class="pod-tag">Essay</span><span class="pod-len ltr">42:10</span></button></li>
+          <li><button class="pod-row" data-title="The Multiplier: One Unit, Four Returned" data-sub="Policy brief · 36 min"><span class="pod-n ltr">02</span><span class="pod-rt">The Multiplier: One Unit, Four Returned</span><span class="pod-tag">Brief</span><span class="pod-len ltr">35:48</span></button></li>
+          <li><button class="pod-row" data-title="The Gōsān &amp; the National Imagination" data-sub="Note · 29 min"><span class="pod-n ltr">03</span><span class="pod-rt">The Gōsān &amp; the National Imagination</span><span class="pod-tag">Note</span><span class="pod-len ltr">28:33</span></button></li>
+          <li><button class="pod-row" data-title="Drafting Broadcasting for a Free Iran" data-sub="Interview · 51 min"><span class="pod-n ltr">04</span><span class="pod-rt">Drafting Broadcasting for a Free Iran</span><span class="pod-tag">Interview</span><span class="pod-len ltr">51:02</span></button></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONVERSATIONS -->
+  <section class="block" id="talks" style="padding-top:0">
+    <div class="wrap">
+      <div class="seclabel"><span class="num">10</span><span>Conversations</span><span class="rt ltr">INT&nbsp;052.00</span></div>
+      <div class="talks reveal">
+        <div class="talk">
+          <div class="talk-ix"><span class="ltr">CONV / 01</span><span class="ltr">↗</span></div>
+          <p class="talk-q">When we <b>measure</b> culture, the budget follows it.</p>
+          <div class="talk-by"><div class="talk-name">With a cultural economist</div><div class="talk-role">Macroeconomics · Berlin</div></div>
+        </div>
+        <div class="talk">
+          <div class="talk-ix"><span class="ltr">CONV / 02</span><span class="ltr">↗</span></div>
+          <p class="talk-q">A public charter means media belongs to the <b>people</b> from day one.</p>
+          <div class="talk-by"><div class="talk-name">With a media-law scholar</div><div class="talk-role">Media law · Transition</div></div>
+        </div>
+        <div class="talk">
+          <div class="talk-ix"><span class="ltr">CONV / 03</span><span class="ltr">↗</span></div>
+          <p class="talk-q">Every unrecorded monument is a <b>memory</b> that can be erased.</p>
+          <div class="talk-by"><div class="talk-name">With a heritage researcher</div><div class="talk-role">Heritage &amp; GIS</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section class="block" id="events" style="padding-top:0">
+    <div class="wrap">
+      <div class="seclabel"><span class="num">11</span><span>Events</span><span class="rt ltr">EVT&nbsp;053.00</span></div>
+      <div class="events reveal">
+        <div class="evrow">
+          <div class="ev-date">12<small>Oct 2585</small></div>
+          <div class="ev-title">Opening Forum: Iran's Creative Economy</div>
+          <div class="ev-loc">Berlin · In person</div>
+          <a class="ev-cta" href="#support">Register</a>
+        </div>
+        <div class="evrow">
+          <div class="ev-date">28<small>Nov 2585</small></div>
+          <div class="ev-title">Public-Media Charter Workshop</div>
+          <div class="ev-loc">Online · Live video</div>
+          <a class="ev-cta" href="#support">Register</a>
+        </div>
+        <div class="evrow">
+          <div class="ev-date">09<small>Dec 2585</small></div>
+          <div class="ev-title">Launch of the First Issue of the Gōsān Review</div>
+          <div class="ev-loc">Washington, D.C. · In person</div>
+          <a class="ev-cta" href="#support">Register</a>
+        </div>
+        <div class="evrow">
+          <div class="ev-date">02<small>Aug 2585</small></div>
+          <div class="ev-title">Cultural ROI Roundtable</div>
+          <div class="ev-loc">Held · Archive</div>
+          <a class="ev-cta past">Concluded</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANELS -->
+  <section class="block" id="panels" style="padding-top:0">
+    <div class="wrap">
+      <div class="seclabel"><span class="num">12</span><span>Panels &amp; Sessions</span><span class="rt ltr">PNL&nbsp;054.00</span></div>
+      <ul class="panels reveal">
+        <li class="panel">
+          <span class="panel-no ltr">P/01</span>
+          <div><div class="panel-title">The Future of Public Media After Transition</div><div class="panel-by">With researchers in law, media &amp; economics</div></div>
+          <span class="panel-tag">In person</span>
+          <span class="panel-cta">Details →</span>
+        </li>
+        <li class="panel">
+          <span class="panel-no ltr">P/02</span>
+          <div><div class="panel-title">The Creative Economy &amp; Youth Employment</div><div class="panel-by">Policy roundtable with private-sector participation</div></div>
+          <span class="panel-tag">Online</span>
+          <span class="panel-cta">Details →</span>
+        </li>
+        <li class="panel">
+          <span class="panel-no ltr">P/03</span>
+          <div><div class="panel-title">Digital Heritage &amp; Intellectual Property</div><div class="panel-by">Specialist panel on digital rights</div></div>
+          <span class="panel-tag">Recorded</span>
+          <span class="panel-cta">Details →</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EDUCATIONAL VIDEOS -->
+  <section class="block" id="videos" style="padding-top:0">
+    <div class="wrap">
+      <div class="seclabel"><span class="num">13</span><span>Educational Videos</span><span class="rt ltr">EDU&nbsp;055.00</span></div>
+      <div class="videos reveal">
+        <div class="vid">
+          <div class="vid-thumb"><image-slot id="en-vid-1" placeholder="Lesson 1 thumbnail"></image-slot><div class="vid-pl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg></div><div class="vid-dur">14:22</div></div>
+          <div class="vid-body"><div class="vid-lesson">Lesson 01</div><div class="vid-title">Foundations of Cultural Economics</div></div>
+        </div>
+        <div class="vid">
+          <div class="vid-thumb"><image-slot id="en-vid-2" placeholder="Lesson 2 thumbnail"></image-slot><div class="vid-pl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg></div><div class="vid-dur">19:05</div></div>
+          <div class="vid-body"><div class="vid-lesson">Lesson 02</div><div class="vid-title">How to Measure Cultural ROI</div></div>
+        </div>
+        <div class="vid">
+          <div class="vid-thumb"><image-slot id="en-vid-3" placeholder="Lesson 3 thumbnail"></image-slot><div class="vid-pl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg></div><div class="vid-dur">22:40</div></div>
+          <div class="vid-body"><div class="vid-lesson">Lesson 03</div><div class="vid-title">Designing an Institutional Charter, Step by Step</div></div>
+        </div>
+        <div class="vid">
+          <div class="vid-thumb"><image-slot id="en-vid-4" placeholder="Lesson 4 thumbnail"></image-slot><div class="vid-pl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg></div><div class="vid-dur">17:30</div></div>
+          <div class="vid-body"><div class="vid-lesson">Lesson 04</div><div class="vid-title">Copyright in the Digital Age</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE REVIEW -->
+  <section class="block" id="review" style="padding-top:0">
+    <div class="wrap">
+      <div class="seclabel"><span class="num">14</span><span>The Review — Gōsān</span><span class="rt ltr">ISSN&nbsp;FORTHCOMING</span></div>
+      <div class="index reveal">
+        <div class="irow"><span class="ix ltr">01</span><div><div class="it">Culture as Critical Infrastructure</div><div class="ib">The founding essay</div></div><div class="ik">Essay</div></div>
+        <div class="irow"><span class="ix ltr">02</span><div><div class="it">The Multiplier: One Unit, Four Returned</div><div class="ib">On arts-district spillover economics</div></div><div class="ik">Policy Brief</div></div>
+        <div class="irow"><span class="ix ltr">03</span><div><div class="it">The Gōsān &amp; the National Imagination</div><div class="ib">On the Parthian minstrels and cultural memory</div></div><div class="ik">Note</div></div>
+        <div class="irow"><span class="ix ltr">04</span><div><div class="it">Drafting Broadcasting for a Free Iran</div><div class="ib">A model public-charter, annotated</div></div><div class="ik">Legislation</div></div>
+      </div>
+      <div class="note-line">// First issue — Mehregān 2585, with ISSN.</div>
+    </div>
+  </section>
+
+  <!-- ADVISORS -->
+  <section class="block" id="advisors" style="padding-top:0">
+    <div class="wrap">
+      <div class="seclabel"><span class="num">15</span><span>Board of Advisors</span><span class="rt ltr">REF&nbsp;006.00</span></div>
+      <div class="adv-grid reveal">
+        <div class="adv"><div class="aix ltr">A/01</div><div class="an">Founder &amp; Director</div><div class="af">Yalda Zamani</div></div>
+        <div class="adv"><div class="aix ltr">A/02</div><div class="an">Chief Scientific Advisor</div><div class="af">Economics · By invitation</div></div>
+        <div class="adv"><div class="aix ltr">A/03</div><div class="an">Cultural Policy</div><div class="af">By invitation</div></div>
+        <div class="adv"><div class="aix ltr">A/04</div><div class="an">Heritage &amp; GIS</div><div class="af">By invitation</div></div>
+        <div class="adv"><div class="aix ltr">A/05</div><div class="an">Digital Rights</div><div class="af">By invitation</div></div>
+        <div class="adv"><div class="aix ltr">A/06</div><div class="an">Arts Administration</div><div class="af">By invitation</div></div>
+      </div>
+      <div class="note-line">// The board is assembled by invitation. To propose a name, write to the Office of the Director.</div>
+    </div>
   </section>
 
   <!-- SUPPORT -->
-  <section class="block support reveal" id="support">
-    <div class="label" style="justify-content:center"><span class="num">06</span><span data-en="Support" data-fa="حمایت">Support</span></div>
-    <p class="big" data-en="Gōsān is built by its <em>founding supporters.</em>" data-fa="گوسان را <em>حامیانِ بنیان‌گذارش</em> می‌سازند.">Gōsān is built by its <em>founding supporters.</em></p>
-    <a class="cta" href="mailto:hello@gosan.institute"><span data-en="Join the Founding Circle" data-fa="پیوستن به حلقهٔ بنیان‌گذاران">Join the Founding Circle</span> →</a>
-  </section>
-
-  <!-- BACK TO MAGAZINE -->
-  <section class="block backband reveal" id="backmag">
-    <div class="label" style="justify-content:center"><span data-en="Gosan Weblog" data-fa="گاهنامهٔ گوسان">Gosan Weblog</span></div>
-    <a class="cta-back" href="Gosan%20Weblog.html#/" target="_top" onclick="if(window.top!==window.self){window.top.location.hash='#/';return false;}" data-en="Return to the Gōsān Weblog →" data-fa="← بازگشت به گاهنامهٔ گوسان">Return to the Gōsān Weblog →</a>
+  <section class="block support" id="support">
+    <div class="wrap">
+      <div class="seclabel" style="justify-content:center"><span class="num">16</span><span>Support</span></div>
+      <p class="big reveal">Get in touch with <em>Gōsān.</em></p>
+      <form class="cform reveal" action="https://formsubmit.co/info@gosan.org" method="POST">
+        <input type="hidden" name="_subject" value="New message from the Gōsān website">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" style="display:none">
+        <div class="row2">
+          <div class="fld"><label for="cf-name">Name</label><input id="cf-name" type="text" name="name" required></div>
+          <div class="fld"><label for="cf-email">Email</label><input id="cf-email" type="email" name="email" required></div>
+        </div>
+        <div class="fld"><label for="cf-subject">Subject</label><input id="cf-subject" type="text" name="subject"></div>
+        <div class="fld"><label for="cf-msg">Message</label><textarea id="cf-msg" name="message" required></textarea></div>
+        <button type="submit">Send message →</button>
+      </form>
+    </div>
   </section>
 
 </main>
 
 <footer>
-  <div class="fwrap">
-    <div class="fb ltr">GŌSĀN</div>
-    <div class="fcol"><strong data-en="Institute" data-fa="اندیشکده">Institute</strong>
-      <span data-en="Culture &amp; Arts Institute" data-fa="اندیشکدهٔ فرهنگ و هنر گوسان">Culture &amp; Arts Institute</span><br>
-      <span class="ltr">Berlin · Washington, D.C.</span></div>
-    <div class="fcol"><strong data-en="The Review" data-fa="گاهنامه">The Review</strong>
-      <span data-en="Quarterly · ISSN forthcoming" data-fa="فصلنامه · شابک به‌زودی">Quarterly · ISSN forthcoming</span><br>
-      <span data-en="Mehregān 2585 →" data-fa="مهرگان ۲۵۸۵ →">Mehregān 2585 →</span></div>
-    <div class="fcol"><strong data-en="Contact" data-fa="تماس">Contact</strong>
-      <a href="mailto:hello@gosan.institute" class="ltr" style="border-bottom:1px solid var(--line)">hello@gosan.institute</a><br>
-      <span data-en="Office of the Director" data-fa="دفترِ مدیر">Office of the Director</span></div>
+  <div class="foot">
+    <div class="fb ltr"><img class="fb-logo" src="assets/logo-gosan-white.png" alt="Gōsān"></div>
+    <div class="fcol"><strong>Institute</strong><p>Culture &amp; Arts Institute</p><p class="ltr">Berlin · Washington, D.C.</p></div>
+    <div class="fcol"><strong>The Review</strong><p>Quarterly · ISSN forthcoming</p><p>Mehregān 2585 →</p></div>
+    <div class="fcol"><strong>Contact</strong><p><a href="mailto:hello@gosan.institute" class="ltr">hello@gosan.institute</a></p><p>Office of the Director</p></div>
   </div>
-  <div class="colophon">
-    <span data-en="© <span id='yr'></span> Gōsān Culture &amp; Arts Institute" data-fa="© <span id='yr'></span> اندیشکدهٔ فرهنگ و هنر گوسان">© <span id="yr"></span> Gōsān Culture &amp; Arts Institute</span>
-    <span data-en="Evidence-Based Cultural Policy" data-fa="سیاست‌گذاریِ فرهنگیِ شواهدمحور">Evidence-Based Cultural Policy</span>
-  </div>
+  <div class="colophon"><div class="colophon-in">
+    <span class="ltr">© <span id="yr"></span> Gōsān Culture &amp; Arts Institute</span>
+    <span>Time <b class="ltr" id="clock2">--:--:--</b> · Evidence-Based Cultural Policy</span>
+  </div></div>
 </footer>
 
 <script>
 (function(){
   "use strict";
-  /* ---- year ---- */
-  function setYear(){var y=document.getElementById('yr'); if(y) y.textContent=new Date().getFullYear();}
+  var $=function(s,c){return (c||document).querySelector(s);};
+  var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s));};
 
-  /* ---- marquee build ---- */
-  var words={
-    en:["Evidence-Based Cultural Policy","Soft Power","The Creative Economy","Macroeconomic Spillovers","Digital Heritage","Free Iran"],
-    fa:["سیاست‌گذاریِ شواهدمحور","قدرتِ نرم","اقتصادِ خلاق","سرریزهای اقتصادِ کلان","میراثِ دیجیتال","ایرانِ آزاد"]
-  };
-  function buildMarquee(lang){
-    var t=document.getElementById('mq'); if(!t) return;
-    var set=words[lang].map(function(w){return '<span>'+w+'</span>';}).join('');
-    t.innerHTML=set+set; /* duplicate for seamless loop */
+  /* year */
+  var y=$('#yr'); if(y) y.textContent=new Date().getFullYear();
+
+  /* live clock */
+  function tick(){
+    var d=new Date();
+    var s=[d.getHours(),d.getMinutes(),d.getSeconds()].map(function(n){return (n<10?'0':'')+n;}).join(':');
+    var c1=$('#clock'), c2=$('#clock2'); if(c1)c1.textContent=s; if(c2)c2.textContent=s;
   }
+  tick(); setInterval(tick,1000);
 
-  /* ---- language toggle ---- */
-  function applyText(lang){
-    document.querySelectorAll('[data-en]').forEach(function(el){
-      var v=el.getAttribute('data-'+lang);
-      if(v!=null) el.innerHTML=v;
+  /* sticky header border (rAF-throttled) */
+  var hdr=$('#hdr');
+  var ticking=false;
+  function onScroll(){
+    if(ticking)return; ticking=true;
+    requestAnimationFrame(function(){
+      hdr.classList.toggle('scrolled', window.scrollY>16);
+      check();
+      ticking=false;
     });
   }
-  function setLang(lang){
-    var rtl=(lang==='fa');
-    document.documentElement.lang=rtl?'fa':'en';
-    document.documentElement.dir=rtl?'rtl':'ltr';
-    document.body.dir=rtl?'rtl':'ltr';
-    applyText(lang);
-    buildMarquee(lang);
-    setYear();
-    document.querySelectorAll('.lang button').forEach(function(b){
-      b.classList.toggle('active', b.getAttribute('data-lang')===lang);
-    });
-    try{localStorage.setItem('gosan-lang',lang);}catch(e){}
+
+  /* count-up for metric numerals */
+  function countUp(el){
+    var target=parseFloat(el.getAttribute('data-count'));
+    var dec=parseInt(el.getAttribute('data-dec')||'0',10);
+    var pad=parseInt(el.getAttribute('data-pad')||'0',10);
+    var unit=el.querySelector('.u'); var unitHTML=unit?unit.outerHTML:'';
+    var start=null, dur=1100;
+    function fmt(v){
+      var n=dec?v.toFixed(dec):Math.round(v).toString();
+      if(pad){while(n.length<pad)n='0'+n; return n;}
+      var parts=n.split('.');
+      parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,',');
+      return parts.join('.');
+    }
+    function step(ts){
+      if(!start)start=ts; var p=Math.min(1,(ts-start)/dur);
+      var e=1-Math.pow(1-p,3);
+      el.innerHTML=unitHTML+fmt(target*e);
+      if(p<1)requestAnimationFrame(step); else el.innerHTML=unitHTML+fmt(target);
+    }
+    requestAnimationFrame(step);
   }
-  document.querySelectorAll('.lang button').forEach(function(b){
-    b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));});
-  });
 
-  /* ---- sticky header border + mobile menu ---- */
-  var hdr=document.getElementById('hdr');
-  window.addEventListener('scroll',function(){
-    hdr.classList.toggle('scrolled', window.scrollY>20);
-  },{passive:true});
-  var burger=document.getElementById('burger');
-  if(burger){burger.addEventListener('click',function(){hdr.classList.toggle('open');});}
-  document.querySelectorAll('nav.main a').forEach(function(a){
-    a.addEventListener('click',function(){hdr.classList.remove('open');});
-  });
-
-  /* ---- reveal on scroll ---- */
+  /* reveal + trigger counters — IO plus scroll/timer fallback (IO can be inert in frames) */
+  function revealEl(el){
+    if(el.classList.contains('in'))return;
+    el.classList.add('in');
+    $$('.mv[data-count]',el).forEach(countUp);
+    if(el.matches&&el.matches('.mv[data-count]'))countUp(el);
+  }
+  var reveals=$$('.reveal');
+  function check(){
+    var vh=window.innerHeight;
+    reveals=reveals.filter(function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top < vh*0.9){ revealEl(el); return false; }
+      return true;
+    });
+  }
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);} });
-    },{threshold:.12});
-    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
-  } else {
-    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});
+      entries.forEach(function(e){
+        if(e.isIntersecting){ revealEl(e.target); io.unobserve(e.target); reveals=reveals.filter(function(x){return x!==e.target;}); }
+      });
+    },{threshold:.15});
+    $$('.reveal').forEach(function(el){io.observe(el);});
   }
-
-  /* ---- init ---- */
-  var saved='en';
-  try{saved=localStorage.getItem('gosan-lang')||'en';}catch(e){}
-  setLang(saved);
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',check,{passive:true});
+  window.addEventListener('load',check);
+  [120,500,1100,2000].forEach(function(t){setTimeout(check,t);});
+  check();
+})();
+</script>
+<script>
+(function(){
+  var PROJECTS = [
+    {g:"01", name:"Index of Erased Heritage", tag:"Identity", status:"live", desc:"A secure, anonymous archive for submitting pre-Islamic history, banned literature, forbidden music and suppressed regional traditions.", action:"Open the archive ↓", href:"#erased"},
+    {g:"02", name:"Charter Lab", tag:"Free Expression", status:"dev", desc:"Collaborative legal hackathons pairing exiled human-rights lawyers with creators to draft the future Charter of Artistic Freedoms.", action:"Join the build"},
+    {g:"03", name:"Governance Library", tag:"Governance", status:"dev", desc:"Open research and interactive blueprints on arms-length, expert-led cultural governance models used worldwide.", action:"Join the build"},
+    {g:"04", name:"Artist Pulse", tag:"Artists", status:"dev", desc:"Encrypted, metadata-stripped micro-surveys mapping the economic, housing and health needs of artists inside Iran.", action:"Join the build"},
+    {g:"05", name:"Creative Incubator", tag:"Economy", status:"planned", desc:"A bridge between diaspora investors and underground creators to plan independent streaming, design and distribution ventures.", action:"Get notified"},
+    {g:"06", name:"Gōsān Gallery", tag:"Soft Power", status:"planned", desc:"Global digital storefronts and online galleries showcasing independent Iranian visionaries to international audiences.", action:"Get notified"},
+    {g:"07", name:"Regional Portals", tag:"Regions", status:"dev", desc:"Dedicated portals for Kurdistan, Baluchestan, Khuzestan and Azerbaijan to document languages, music and crafts safely.", action:"Join the build"},
+    {g:"08", name:"Resilient Distribution", tag:"Digital", status:"planned", desc:"Decentralised peer-to-peer and IPFS infrastructure letting artists share and monetise work beyond regime interference.", action:"Get notified"}
+  ];
+  var ST = { live:{label:"Live", v:"--data"}, dev:{label:"In development", v:"--accent"}, planned:{label:"Planned", v:"--soft"} };
+  var KEY = "gosan-project-signups-v1";
+  var signed = {}; try{ signed = JSON.parse(localStorage.getItem(KEY) || "{}"); }catch(e){ signed = {}; }
+  var grid = document.getElementById("pjGrid");
+  if(!grid) return;
+  var filter = "all";
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(m){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[m];}); }
+  function card(p){
+    var st = ST[p.status];
+    var done = !!signed[p.g];
+    var act = p.status==="live"
+      ? '<a class="pc-act is-live" href="'+p.href+'">'+esc(p.action)+'</a>'
+      : '<button class="pc-act'+(done?' done':'')+'" data-g="'+p.g+'">'+(done?'✓ On the list':esc(p.action))+'</button>';
+    return '<article class="pcard" data-status="'+p.status+'" style="--st:var('+st.v+')">'+
+      '<div class="pc-top"><span class="pc-status '+p.status+'"><span class="sdot"></span>'+st.label+'</span><span class="pc-g">Goal '+p.g+'</span></div>'+
+      '<div><div class="pc-tag">'+esc(p.tag)+'</div><div class="pc-name">'+esc(p.name)+'</div></div>'+
+      '<div class="pc-desc">'+esc(p.desc)+'</div>'+act+'</article>';
+  }
+  function render(){
+    var list = PROJECTS.filter(function(p){ return filter==="all" || p.status===filter; });
+    grid.innerHTML = list.map(card).join("");
+    grid.querySelectorAll(".pc-act[data-g]").forEach(function(b){
+      b.addEventListener("click", function(){
+        signed[b.getAttribute("data-g")] = true;
+        try{ localStorage.setItem(KEY, JSON.stringify(signed)); }catch(e){}
+        b.classList.add("done"); b.textContent = "✓ On the list";
+      });
+    });
+  }
+  document.querySelectorAll("#pjFilter .pjf").forEach(function(f){
+    f.addEventListener("click", function(){
+      filter = f.getAttribute("data-f");
+      document.querySelectorAll("#pjFilter .pjf").forEach(function(x){ x.classList.remove("on"); });
+      f.classList.add("on");
+      render();
+    });
+  });
+  render();
+})();
+</script>
+<script>
+(function(){
+  function fitOne(f){
+    try{
+      var doc=f.contentDocument; if(!doc||!doc.body) return;
+      var h=Math.max(doc.body.scrollHeight, doc.body.offsetHeight);
+      if(h>40) f.style.height=(h+2)+'px';
+    }catch(e){}
+  }
+  function fitAll(){ document.querySelectorAll('iframe.embed-frame:not(.embed-fixed)').forEach(fitOne); }
+  document.querySelectorAll('iframe.embed-frame:not(.embed-fixed)').forEach(function(f){
+    f.addEventListener('load',function(){ [60,300,900,2000].forEach(function(t){setTimeout(function(){fitOne(f);},t);}); });
+  });
+  window.addEventListener('message',function(e){
+    if(!e.data||!e.data.__gosanEmbed) return;
+    document.querySelectorAll('iframe.embed-frame:not(.embed-fixed)').forEach(function(f){ if(f.contentWindow===e.source) fitOne(f); });
+  });
+  window.addEventListener('resize',fitAll);
+  window.addEventListener('load',fitAll);
+  [500,1500,3000].forEach(function(t){setTimeout(fitAll,t);});
+})();
+</script>
+<script src="image-slot.js"></script>
+<script>
+(function(){
+  var play=document.getElementById('podPlay');
+  var wave=document.getElementById('podWave');
+  var titleEl=document.getElementById('podTitle');
+  var subEl=document.getElementById('podSub');
+  var rows=Array.prototype.slice.call(document.querySelectorAll('.pod-row'));
+  if(!play) return;
+  var playing=false;
+  var icoPlay='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg>';
+  var icoPause='<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+  function setPlaying(on){
+    playing=on;
+    play.innerHTML=on?icoPause:icoPlay;
+    if(wave)wave.classList.toggle('on',on);
+  }
+  play.addEventListener('click',function(){setPlaying(!playing);});
+  rows.forEach(function(r){
+    r.addEventListener('click',function(){
+      rows.forEach(function(x){x.classList.remove('on');});
+      r.classList.add('on');
+      if(titleEl)titleEl.textContent=r.getAttribute('data-title')||titleEl.textContent;
+      if(subEl)subEl.textContent=r.getAttribute('data-sub')||subEl.textContent;
+      setPlaying(true);
+    });
+  });
 })();
 </script>
 </body>

@@ -61,6 +61,18 @@ function App() {
     document.body.dataset.lang = 'fa';
   }, []);
 
+  /* let the embedded Institute iframe ask us to navigate (cross-origin-safe back button) */
+  React.useEffect(() => {
+    const onMsg = (e) => {
+      const d = e && e.data;
+      if (d && d.type === 'gosan-nav' && typeof d.hash === 'string') {
+        window.location.hash = d.hash;
+      }
+    };
+    window.addEventListener('message', onMsg);
+    return () => window.removeEventListener('message', onMsg);
+  }, []);
+
   /* apply tweaks to css custom properties */
   React.useEffect(() => {
     const root = document.documentElement;
@@ -92,7 +104,7 @@ function App() {
          route.page === 'about' ? <AboutPage /> :
          route.page === 'contact' ? <ContactPage /> :
          route.page === 'shivenameh' ? <ShivenamehPage /> :
-         route.page === 'thinktank' ? <iframe src="institute.html" title="Gōsān Culture & Arts Institute" className="inst-frame" style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', border: 0, zIndex: 40, background: '#efece4' }} /> :
+         route.page === 'thinktank' ? <iframe src="institute-fa.html" title="اندیشکدهٔ فرهنگ و هنر گوسان" className="inst-frame" style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', border: 0, zIndex: 40, background: '#0B1B33' }} /> :
          <HomePage lang={lang} />}
       </div>
       <SiteFooter route={route.page} />

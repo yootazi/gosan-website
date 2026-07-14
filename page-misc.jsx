@@ -177,17 +177,17 @@ function AboutPage() {
               </dd>
             </div>
           </dl>
-          <span className="about-spine">گوسان، سال یکم، شمارهٔ یکم، بهار ۲۵۸۵</span>
+          <span className="about-spine">گوسان، سال یکم، شمارهٔ یکم، تابستان ۲۵۸۵</span>
         </Reveal>
       </section>
 
       <section className="board-section">
         <div className="wrap" style={{ maxWidth: '1100px', paddingTop: '4.5rem', paddingBottom: '4.5rem', position: 'relative', zIndex: 1 }}>
           <Reveal>
-            <span className="gsn-technical" style={{ color: 'var(--gold-deep)', display: 'block', textAlign: 'right', marginBottom: '0.7rem' }}>TEAM // ISSUE 01 — SPRING 2585</span>
+            <span className="gsn-technical" style={{ color: 'var(--gold-deep)', display: 'block', textAlign: 'right', marginBottom: '0.7rem' }}>TEAM // ISSUE 01 — SUMMER 2585</span>
             <SectionHead title="هیئت تحریریه" />
             <p className="board-hint">
-              دست‌اندرکاران این شماره؛ سال یکم، شمارهٔ یکم، بهار ۲۵۸۵.
+              دست‌اندرکاران این شماره؛ سال یکم، شمارهٔ یکم، تابستان ۲۵۸۵.
             </p>
           </Reveal>
           <Reveal delay={120}>
@@ -223,7 +223,15 @@ function ContactPage() {
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', margin: 0 }}>سپاس از همراهی شما؛ به‌زودی پاسخ می‌دهیم.</p>
               </div>
             ) : (
-              <form onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
+              <form onSubmit={(e) => {
+                e.preventDefault();
+                const v = (id) => (document.getElementById(id) || {}).value || '';
+                const name = v('c-name'), mail = v('c-mail'), msg = v('c-msg');
+                const subject = encodeURIComponent('تماس از وب‌سایت گوسان — ' + (name || 'بدون نام'));
+                const body = encodeURIComponent('نام: ' + name + '\nرایانامه: ' + mail + '\n\nپیام:\n' + msg);
+                window.location.href = 'mailto:info@gosan.org?subject=' + subject + '&body=' + body;
+                setSent(true);
+              }}>
                 <FormField id="c-name" label="نام" placeholder="نام و نام خانوادگی" />
                 <FormField id="c-mail" label="رایانامه" type="email" placeholder="you@example.com" />
                 <FormField id="c-msg" label="پیام" multiline placeholder="پیام خود را بنویسید…" />

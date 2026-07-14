@@ -1,5 +1,24 @@
 /* Gosan Weblog — article reading view: two-column feature + listen bar + footnotes */
 
+/* article category → home section key (matches NcCatSection ids on the home page) */
+const TAG_TO_SECTION = {
+  'جستار': 'essay',
+  'دیدگاه': 'viewpoint',
+  'یادمان': 'memoriam',
+  'گفتگو': 'interview',
+  'نقد و بررسی': 'review',
+  'پیشنهاد': 'proposal',
+};
+function goToHomeSection(tag) {
+  const key = TAG_TO_SECTION[tag];
+  if (key) {
+    try { sessionStorage.setItem('gosan-scroll', 'cat-' + key); } catch (e) {}
+    window.location.hash = '#/';
+  } else {
+    window.location.hash = '#/archive/' + encodeURIComponent(tag);
+  }
+}
+
 const AUTHOR_PHOTOS = {
   'حافظ باباشاهی': 'assets/author-hafez.png',
 };
@@ -231,6 +250,7 @@ function ShareIcon({ kind }) {
     x: <path d="M4 4l16 16M20 4L4 20" />,
     instagram: <React.Fragment><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" /></React.Fragment>,
     paperclip: <path d="M21 11.5l-8.5 8.5a5 5 0 0 1-7-7l8.5-8.5a3.3 3.3 0 0 1 4.7 4.7l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4l7.8-7.8" />,
+    print: <React.Fragment><path d="M6 9V3h12v6" /><path d="M6 18H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2" /><rect x="6" y="14" width="12" height="7" /></React.Fragment>,
   };
   return <svg {...common}>{paths[kind]}</svg>;
 }
@@ -252,6 +272,7 @@ function ShareRow() {
         <a href="#" onClick={(e) => e.preventDefault()} aria-label="ایکس"><ShareIcon kind="x" /></a>
         <a href="#" onClick={(e) => e.preventDefault()} aria-label="اینستاگرام"><ShareIcon kind="instagram" /></a>
         <a href="#" onClick={copy} aria-label="پیوست"><ShareIcon kind="paperclip" /></a>
+        <a href="#" onClick={(e) => { e.preventDefault(); window.print(); }} aria-label="چاپ یا ذخیره به PDF" title="چاپ / ذخیره به PDF"><ShareIcon kind="print" /></a>
       </div>
     </div>
   );
@@ -289,7 +310,15 @@ function CommentsSection() {
           سپاس؛ دیدگاه شما ثبت شد و پس از بازبینی منتشر می‌شود.
         </p>
       ) : (
-        <form onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          const v = (id) => (document.getElementById(id) || {}).value || '';
+          const name = v('cm-name'), mail = v('cm-mail'), msg = v('cm-msg');
+          const subject = encodeURIComponent('دیدگاه تازه — گوسان' + (typeof document !== 'undefined' && document.title ? ' (' + document.title + ')' : ''));
+          const body = encodeURIComponent('نام: ' + name + '\nرایانامه: ' + mail + '\nصفحه: ' + (typeof location !== 'undefined' ? location.href : '') + '\n\nدیدگاه:\n' + msg);
+          window.location.href = 'mailto:info@gosan.org?subject=' + subject + '&body=' + body;
+          setSent(true);
+        }}>
           <div className="comments-row">
             <FormField id="cm-name" placeholder="نام شما" />
             <FormField id="cm-mail" type="email" placeholder="ایمیل شما" />
@@ -364,6 +393,41 @@ function FullEssayBody() {
   );
 }
 
+/* default template for every article that doesn't yet have hand-set full content.
+   Same format as the lead essay — lede + two-column body + pull quote + a fillable
+   image figure + closing — using the article's own data and editable placeholders. */
+function TemplateEssayBody({ post }) {
+  const ph = 'متنِ کاملِ این نوشتار در این بخش جای می‌گیرد. این قالب آمادهٔ ویرایش است؛ پاراگراف‌های اصلی مقاله را اینجا بگذارید تا در همین نظم و آرایش، یک‌دست با دیگر نوشتارهای گوسان، منتشر شوند.';
+  return (
+    <React.Fragment>
+      <div className="essay-cols">
+        <p>{ph}</p>
+        <p>{ph}</p>
+      </div>
+
+      <PullQuote cite={post.author} style={{ margin: '2.8rem 0' }}>
+        جملهٔ شاخصِ این نوشتار را در اینجا برجسته کنید.
+      </PullQuote>
+
+      <figure className="essay-figure">
+        <DraftFrame label="FIG. 01">
+          <div className="nc-img-wrap" style={{ aspectRatio: '16 / 9' }}>
+            {React.createElement('image-slot', { id: `slot-article-${post.slug}`, placeholder: 'تصویر مقاله را اینجا رها کنید', shape: 'rect' })}
+          </div>
+        </DraftFrame>
+        <figcaption>توضیح تصویر مقاله در این بخش قرار می‌گیرد.</figcaption>
+      </figure>
+
+      <div className="essay-cols">
+        <p>{ph}</p>
+        <p>{ph}</p>
+      </div>
+
+      <p className="essay-close">{ph}</p>
+    </React.Fragment>
+  );
+}
+
 function ArticleView({ slug }) {
   const post = GOSAN_POSTS.find((p) => p.slug === slug) || GOSAN_POSTS[0];
   const articleRef = React.useRef(null);
@@ -380,7 +444,7 @@ function ArticleView({ slug }) {
 
       <div className="article-head">
         <DraftLineH top="2.4rem" right="-6rem" left="-6rem" />
-        <span className="gsn-technical" style={{ color: 'var(--gold-deep)' }}>ESSAY // ISSUE 01 — SPRING 2585</span>
+        <span className="gsn-technical" style={{ color: 'var(--gold-deep)' }}><a href="#/" className="article-cat-link" onClick={(e) => { e.preventDefault(); goToHomeSection(post.tag); }}>{post.tag}</a> · شمارهٔ یکم — تابستان ۲۵۸۵</span>
         <h1 className="gsn-display" style={{ fontSize: '2.4rem', margin: '0.6rem 0 1rem' }}>{post.title}</h1>
         <div className="article-byline">
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem' }}>
@@ -397,10 +461,7 @@ function ArticleView({ slug }) {
           {post.full ? (
             <FullEssayBody />
           ) : (
-            <React.Fragment>
-              <p className="essay-lede">{post.excerpt}</p>
-              <p className="gsn-technical" style={{ display: 'block', textAlign: 'center', margin: '2.5rem 0' }}>FULL TEXT — TO BE PLACED</p>
-            </React.Fragment>
+            <TemplateEssayBody post={post} />
           )}
         </article>
         <SummaryAside post={post} getText={getText} />

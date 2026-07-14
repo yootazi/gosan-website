@@ -21,10 +21,10 @@ const GOSAN_POSTS_EN = {
 
 const HOME_T = {
   fa: {
-    issueR: 'سال یکم · شمارهٔ یکم', season: 'بهار ۲۵۸۵',
+    issueR: 'سال یکم · شمارهٔ یکم', season: 'تابستان ۲۵۸۵ (۱۴۰۵)',
     tagline: 'گاهنامه‌ای در فرهنگ، هنر و میراث کهن ایران',
     subSmall: 'ده شماره در سال · دسترسی به بایگانی', sub: 'دریافت اشتراک ←',
-    issueLine: 'شمارهٔ یکم — بهار ۲۵۸۵', by: 'به‌قلمِ',
+    issueLine: 'شمارهٔ یکم — تابستان ۲۵۸۵', by: 'به‌قلمِ',
     notes: 'یادداشت‌ها و درنگ‌ها', features: 'جستارهای این شماره', featuresMore: 'همهٔ جستارها ←',
     interviews: 'گفتگو', interviewsMore: 'همهٔ گفتگوها ←', poetry: 'شعر',
     memoriam: 'یادمان', memoriamMore: 'همهٔ یادمان‌ها ←', popular: 'پرخواننده‌ترین‌ها',
@@ -48,10 +48,10 @@ const HOME_T = {
     ],
   },
   en: {
-    issueR: 'Vol. I · No. 1', season: 'Spring 2585',
+    issueR: 'Vol. I · No. 1', season: 'Summer 2585',
     tagline: 'A review of the arts, culture & heritage of Iran',
     subSmall: 'Ten issues a year · archive access', sub: 'Subscribe →',
-    issueLine: 'No. 1 — Spring 2585', by: 'by',
+    issueLine: 'No. 1 — Summer 2585', by: 'by',
     notes: 'Notes & Comments', features: 'Features', featuresMore: 'All essays →',
     interviews: 'Interviews', interviewsMore: 'All interviews →', poetry: 'Poetry',
     memoriam: 'Memoriam', memoriamMore: 'All memorials →', popular: 'Most Popular',
@@ -141,6 +141,25 @@ function HomePage({ lang = 'fa', onToggleLang }) {
     return cleanup;
   }, []);
 
+  /* scroll to a section when arriving from an article's category link */
+  React.useEffect(() => {
+    let target;
+    try { target = sessionStorage.getItem('gosan-scroll'); } catch (e) {}
+    if (!target) return;
+    try { sessionStorage.removeItem('gosan-scroll'); } catch (e) {}
+    let tries = 0;
+    const tryScroll = () => {
+      const el = document.getElementById(target);
+      if (el) {
+        const y = el.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      } else if (tries++ < 12) {
+        setTimeout(tryScroll, 130);
+      }
+    };
+    setTimeout(tryScroll, 150);
+  }, []);
+
   const latest = ['gosan-narrators', 'music-interview', 'miniature-narrative', 'nowruz-rites', 'calligraphy-talk', 'memorial'].map(P);
   const featured = ['gosan-narrators', 'music-interview', 'memorial'].map(P);
   const notes = ['silence-music', 'city-memory', 'letter-future'].map(P);
@@ -149,6 +168,20 @@ function HomePage({ lang = 'fa', onToggleLang }) {
   const reflections = ['cypress-memory', 'radif-memorial'].map(P);
   const popular = ['gosan-narrators', 'modern-poetry', 'music-interview', 'memorial', 'calligraphy-talk'].map(P);
 
+  /* the magazine's section taxonomy. populated categories reuse the sample
+     articles; the rest are fillable placeholder structures (image-slots). */
+  const categories = [
+    { key: 'essay', label: 'جستار', posts: features, layout: 'grid' },
+    { key: 'viewpoint', label: 'دیدگاه', posts: [], layout: 'grid' },
+    { key: 'memoriam', label: 'یادمان', posts: reflections, layout: 'rows' },
+    { key: 'interview', label: 'گفتگو', posts: interviews, layout: 'rows' },
+    { key: 'review', label: 'نقد و بررسی', posts: [], layout: 'grid' },
+    { key: 'proposal', label: 'پیشنهاد', posts: [], layout: 'grid' },
+    { key: 'dossier-policy', label: 'پروندهٔ سیاست‌گذاری فرهنگی', posts: [], layout: 'grid' },
+    { key: 'dossier-economy', label: 'پروندهٔ اقتصاد خلاق', posts: [], layout: 'grid' },
+    { key: 'dossier-education', label: 'پروندهٔ آموزش', posts: [], layout: 'grid' },
+  ];
+
   return (
     <main className="nc-home" data-screen-label={en ? 'Home' : 'خانه'}>
 
@@ -156,8 +189,7 @@ function HomePage({ lang = 'fa', onToggleLang }) {
       <div className="nc-masthead">
         <div className="nc-masthead-grid">
           <div className="nc-mast-side is-start">
-            <span className="nc-issueline">{T.issueR}</span>
-            <span className="nc-issueline">{T.season}</span>
+            <span className="nc-issueline">{T.issueR} · {T.season}</span>
             <a href="#/archive"><img className="nc-mast-cover" src="assets/issue-cover.jpg" alt={en ? 'Issue No. 1 cover' : 'جلد شمارهٔ یکم'} /></a>
           </div>
           <div className="nc-mast-center">
@@ -202,76 +234,7 @@ function HomePage({ lang = 'fa', onToggleLang }) {
       {/* body */}
       <div className="nc-body">
         <div className="nc-main">
-
-          <section className="nc-section">
-            <div className="nc-sectionhead"><span className="nc-sh-label">{T.notes}</span><span className="nc-sh-mark">◆</span></div>
-            <div className="nc-rows">
-              {notes.map((p) => (
-                <article key={p.slug} className="nc-row is-note">
-                  <h3 className="nc-title"><a href={`#/article/${p.slug}`}>{p.title}</a></h3>
-                  <ByLine post={p} by={T.by} />
-                  <p className="nc-dek">{p.excerpt}</p>
-                </article>
-              ))}
-            </div>
-          </section>
-
-          <section className="nc-section">
-            <div className="nc-sectionhead"><span className="nc-sh-label">{T.features}</span><span className="nc-sh-mark">◆</span><a className="nc-sh-more" href="#/archive/جستار">{T.featuresMore}</a></div>
-            <div className="nc-grid2">
-              {features.map((p) => (
-                <article key={p.slug}>
-                  <Slot slug={p.slug} lang={lang} ph={T.slotPh} />
-                  <span className="nc-kicker">{p.tag}</span>
-                  <h3 className="nc-title" style={{ marginTop: '0.4rem' }}><a href={`#/article/${p.slug}`}>{p.title}</a></h3>
-                  <ByLine post={p} by={T.by} />
-                  <p className="nc-dek">{p.excerpt}</p>
-                </article>
-              ))}
-            </div>
-          </section>
-
-          <section className="nc-section">
-            <div className="nc-sectionhead"><span className="nc-sh-label">{T.interviews}</span><span className="nc-sh-mark">◆</span><a className="nc-sh-more" href="#/archive/گفتگو">{T.interviewsMore}</a></div>
-            <div className="nc-rows">
-              {interviews.map((p) => (
-                <article key={p.slug} className="nc-row">
-                  <Slot slug={p.slug} lang={lang} ph={T.slotPh} />
-                  <div>
-                    <span className="nc-kicker">{p.tag}</span>
-                    <h3 className="nc-title" style={{ marginTop: '0.35rem' }}><a href={`#/article/${p.slug}`}>{p.title}</a></h3>
-                    <ByLine post={p} by={T.by} />
-                    <p className="nc-dek">{p.excerpt}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </section>
-
-          <section className="nc-section">
-            <div className="nc-sectionhead"><span className="nc-sh-label">{T.poetry}</span><span className="nc-sh-mark">◆</span></div>
-            <div className="nc-poems">
-              {T.verses.map((v, i) => <Verse key={i} hemistichs={v.hemistichs} poet={v.poet} />)}
-            </div>
-          </section>
-
-          <section className="nc-section">
-            <div className="nc-sectionhead"><span className="nc-sh-label">{T.memoriam}</span><span className="nc-sh-mark">◆</span><a className="nc-sh-more" href="#/archive/یادمان">{T.memoriamMore}</a></div>
-            <div className="nc-rows">
-              {reflections.map((p) => (
-                <article key={p.slug} className="nc-row">
-                  <Slot slug={p.slug} lang={lang} ph={T.slotPh} />
-                  <div>
-                    <span className="nc-kicker">{p.tag}</span>
-                    <h3 className="nc-title" style={{ marginTop: '0.35rem' }}><a href={`#/article/${p.slug}`}>{p.title}</a></h3>
-                    <ByLine post={p} by={T.by} />
-                    <p className="nc-dek">{p.excerpt}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </section>
-
+          {categories.map((c) => <NcCatSection key={c.key} cat={c} lang={lang} T={T} />)}
         </div>
 
         {/* sidebar */}
@@ -337,7 +300,7 @@ function NcFloatingNav({ en }) {
           onClick={() => window.dispatchEvent(new Event('gosan:search'))}
           aria-label={en ? 'Search' : 'جستجو'}
           title={en ? 'Search ( / )' : 'جستجو ( / )'}
-        >⍰</button>
+        ><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="20" y1="20" x2="16.05" y2="16.05"></line></svg></button>
       </div>
     </nav>
   );
@@ -430,6 +393,63 @@ function NcManifesto({ T }) {
         </div>
 
       </div>
+    </section>
+  );
+}
+
+function NcCatSection({ cat, lang, T }) {
+  const { key, label, posts, layout } = cat;
+  return (
+    <section id={`cat-${key}`} className="nc-section" data-screen-label={label}>
+      <div className="nc-sectionhead">
+        <span className="nc-sh-label">{label}</span>
+        <span className="nc-sh-mark">◆</span>
+        <a className="nc-sh-more" href={`#/archive/${encodeURIComponent(label)}`}>همه ←</a>
+      </div>
+
+      {posts.length ? (
+        layout === 'rows' ? (
+          <div className="nc-rows">
+            {posts.map((p) => (
+              <article key={p.slug} className="nc-row">
+                <Slot slug={p.slug} lang={lang} ph={T.slotPh} />
+                <div>
+                  <span className="nc-kicker">{p.tag}</span>
+                  <h3 className="nc-title" style={{ marginTop: '0.35rem' }}><a href={`#/article/${p.slug}`}>{p.title}</a></h3>
+                  <ByLine post={p} by={T.by} />
+                  <p className="nc-dek">{p.excerpt}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div className="nc-grid2">
+            {posts.map((p) => (
+              <article key={p.slug}>
+                <Slot slug={p.slug} lang={lang} ph={T.slotPh} />
+                <span className="nc-kicker">{p.tag}</span>
+                <h3 className="nc-title" style={{ marginTop: '0.4rem' }}><a href={`#/article/${p.slug}`}>{p.title}</a></h3>
+                <ByLine post={p} by={T.by} />
+                <p className="nc-dek">{p.excerpt}</p>
+              </article>
+            ))}
+          </div>
+        )
+      ) : (
+        <div className="nc-grid2 nc-cat-empty">
+          {[0, 1].map((i) => (
+            <article key={i} className="nc-cat-ph">
+              <div className="nc-img-wrap">
+                {React.createElement('image-slot', { id: `slot-cat-${key}-${i}`, placeholder: T.slotPh, shape: 'rect' })}
+              </div>
+              <span className="nc-kicker">{label}</span>
+              <h3 className="nc-title nc-cat-ph-title" style={{ marginTop: '0.4rem' }}>عنوان نوشتار</h3>
+              <p className="nc-cat-ph-by">نام نویسنده</p>
+              <p className="nc-dek nc-cat-ph-dek">چکیدهٔ کوتاه نوشتار در این بخش جای می‌گیرد.</p>
+            </article>
+          ))}
+        </div>
+      )}
     </section>
   );
 }

@@ -82,7 +82,7 @@ function HalftoneHero() {
   return (
     <section className="hero-halftone" data-screen-label="سرصفحه">
       <div className="hero-halftone-inner">
-        <span className="hero-halftone-eyebrow">ISSUE 01 // SPRING 2585</span>
+        <span className="hero-halftone-eyebrow">ISSUE 01 // SUMMER 2585</span>
         <HalftoneLogo />
         <p className="hero-halftone-tagline">روایتگرِ فرهنگ و هنرِ ایران</p>
         <div className="hero-halftone-actions">

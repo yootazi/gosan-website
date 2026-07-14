@@ -138,7 +138,7 @@ function FlickerHero() {
         gridGap={6}
       />
       <div className="hero-halftone-inner">
-        <span className="hero-halftone-eyebrow">ISSUE 01 // SPRING 2585</span>
+        <span className="hero-halftone-eyebrow">ISSUE 01 // SUMMER 2585</span>
         <div className="hero-flicker-logo">
           <FlickeringGrid
             color="#F6F3EC"

@@ -30,7 +30,7 @@ function SiteHeader({ active, lang = 'fa', onToggleLang }) {
             onClick={() => window.dispatchEvent(new Event('gosan:search'))}
             aria-label="جستجو"
             title="جستجو ( / )"
-          >⌕</button>
+          ><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="20" y1="20" x2="16.05" y2="16.05"></line></svg></button>
           <ul>
             {NAV_ITEMS.map((it) => (
               <li key={it.href}>
@@ -89,7 +89,7 @@ function SiteFooter({ route }) {
         </div>
       </div>
       <div style={{ borderTop: '1px solid var(--line-dark)', textAlign: 'center', padding: '1.2rem', fontSize: '0.78rem', color: '#9A9A9A' }}>
-        گاهنامهٔ گوسان <span style={{ color: 'var(--gold)' }}>●</span> سال یکم، شمارهٔ یکم، بهار ۲۵۸۵ <span style={{ color: 'var(--gold)' }}>●</span> همهٔ حقوق محفوظ است
+        گاهنامهٔ گوسان <span style={{ color: 'var(--gold)' }}>●</span> سال یکم، شمارهٔ یکم، تابستان ۲۵۸۵ <span style={{ color: 'var(--gold)' }}>●</span> همهٔ حقوق محفوظ است
       </div>
     </footer>
   );
