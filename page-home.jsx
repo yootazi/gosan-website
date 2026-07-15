@@ -160,15 +160,19 @@ function HomePage({ lang = 'fa', onToggleLang }) {
     setTimeout(tryScroll, 150);
   }, []);
 
-  const latest = ['gosan-narrators', 'music-interview', 'miniature-narrative', 'nowruz-rites', 'calligraphy-talk', 'memorial'].map(P);
-  const featured = ['gosan-narrators', 'music-interview', 'memorial'].map(P);
+  /* real pieces of issue no. 1 — hero switcher, featured strip and popular list
+     are curated from the eleven received essays (no demo posts left up top). */
+  const latest = ['music-totalitarian-regimes', 'interview-farnaz-modarresifar', 'herzfeld-german-archives', 'between-two-defeats', 'beyzaie-myth-symbolic-action', 'interview-armin-sanayei'].map(P);
+  const featured = ['manichaean-music-terms', 'voice-of-the-council', 'oil-to-narrative'].map(P);
   const notes = ['silence-music', 'city-memory', 'letter-future'].map(P);
-  const features = ['manichaean-music-terms', 'herzfeld-german-archives', 'voice-of-the-council'].map(P);
+  const features = ['manichaean-music-terms', 'herzfeld-german-archives', 'voice-of-the-council', 'music-totalitarian-regimes'].map(P);
   const viewpoints = ['note-for-gosan', 'crossroads-ahead'].map(P);
-  const interviews = ['interview-farnaz-modarresifar'].map(P);
+  const interviews = ['interview-farnaz-modarresifar', 'interview-armin-sanayei'].map(P);
+  const reviews = ['beyzaie-myth-symbolic-action'].map(P);
+  const policyDossier = ['between-two-defeats'].map(P);
   const economyDossier = ['oil-to-narrative'].map(P);
   const reflections = ['cypress-memory', 'radif-memorial'].map(P);
-  const popular = ['gosan-narrators', 'modern-poetry', 'music-interview', 'memorial', 'calligraphy-talk'].map(P);
+  const popular = ['music-totalitarian-regimes', 'interview-farnaz-modarresifar', 'note-for-gosan', 'between-two-defeats', 'crossroads-ahead'].map(P);
 
   /* the magazine's section taxonomy. populated categories reuse the sample
      articles; the rest are fillable placeholder structures (image-slots). */
@@ -177,9 +181,9 @@ function HomePage({ lang = 'fa', onToggleLang }) {
     { key: 'viewpoint', label: 'دیدگاه', posts: viewpoints, layout: 'grid' },
     { key: 'memoriam', label: 'یادمان', posts: reflections, layout: 'rows' },
     { key: 'interview', label: 'گفتگو', posts: interviews, layout: 'rows' },
-    { key: 'review', label: 'نقد و بررسی', posts: [], layout: 'grid' },
+    { key: 'review', label: 'نقد و بررسی', posts: reviews, layout: 'grid' },
     { key: 'proposal', label: 'پیشنهاد', posts: [], layout: 'grid' },
-    { key: 'dossier-policy', label: 'پروندهٔ سیاست‌گذاری فرهنگی', posts: [], layout: 'grid' },
+    { key: 'dossier-policy', label: 'پروندهٔ سیاست‌گذاری فرهنگی', posts: policyDossier, layout: 'grid' },
     { key: 'dossier-economy', label: 'پروندهٔ اقتصاد خلاق', posts: economyDossier, layout: 'grid' },
     { key: 'dossier-education', label: 'پروندهٔ آموزش', posts: [], layout: 'grid' },
   ];
