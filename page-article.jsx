@@ -323,7 +323,7 @@ function ShareRow() {
 }
 
 /* ---------- summary aside (چکیده) — always visible ---------- */
-function SummaryAside({ post, getText }) {
+function SummaryAside({ post, getText, articleRef, slug }) {
   return (
     <aside className="article-aside">
       <ListenBar getText={getText} />
@@ -333,6 +333,7 @@ function SummaryAside({ post, getText }) {
         <span className="summary-meta">مقاله از شمارهٔ یکم گوسان، {post.date}</span>
         <p className="summary-text">{post.summary || post.excerpt}</p>
       </div>
+      {articleRef ? <TableOfContents articleRef={articleRef} slug={slug} /> : null}
       <div className="share-card">
         <ShareRow />
       </div>
@@ -502,7 +503,6 @@ function ArticleView({ slug }) {
 
       <div className="article-layout">
         <article ref={articleRef}>
-          <TableOfContents articleRef={articleRef} slug={post.slug} />
           {post.full ? (
             <FullEssayBody />
           ) : (window.GOSAN_ARTICLE_BODIES && window.GOSAN_ARTICLE_BODIES[post.slug]) ? (
@@ -511,7 +511,7 @@ function ArticleView({ slug }) {
             <TemplateEssayBody post={post} />
           )}
         </article>
-        <SummaryAside post={post} getText={getText} />
+        <SummaryAside post={post} getText={getText} articleRef={articleRef} slug={post.slug} />
       </div>
 
       <CommentsSection />

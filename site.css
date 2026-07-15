@@ -516,18 +516,18 @@ body[data-motion="off"] .listen-fill.is-live { animation: none; }
   font-size: 0.82rem; line-height: var(--leading-prose); color: var(--ink);
   text-align: justify; margin: 0 0 1.2rem;
 }
-/* article table of contents — gold, only shown for articles with > 3 headings */
+/* article table of contents — gold, plain (no box), only when > 3 headings;
+   sits between the چکیده card and the share row in the aside */
 .article-toc {
-  border: 1px solid var(--gold); border-radius: 8px;
-  background: var(--gold-wash); padding: 0.9rem 1.2rem; margin: 0 0 2.2rem;
+  margin: 1.6rem 0; padding: 1.4rem 0 0; border-top: 1px solid var(--line);
 }
 .article-toc-head {
   display: block; font-family: var(--font-display); font-weight: 700;
-  font-size: 0.78rem; color: var(--gold-deep); margin-bottom: 0.55rem;
+  font-size: 0.78rem; color: var(--gold-deep); margin-bottom: 0.6rem;
   letter-spacing: 0.03em;
 }
 .article-toc ol {
-  margin: 0; padding: 0 1.1rem 0 0; display: flex; flex-direction: column; gap: 0.4rem;
+  margin: 0; padding: 0 1.1rem 0 0; display: flex; flex-direction: column; gap: 0.45rem;
   list-style: decimal;
 }
 .article-toc li { font-size: 0.82rem; line-height: 1.7; color: var(--gold-deep); }
