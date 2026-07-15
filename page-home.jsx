@@ -80,10 +80,20 @@ function postFor(slug, lang) {
   return GOSAN_POSTS.find((p) => p.slug === slug);
 }
 
+/* real cover photos for articles that ship with imagery; the rest fall back
+   to fillable <image-slot> placeholders. */
+const GOSAN_COVERS = {
+  'herzfeld-german-archives': 'uploads/herzfeld-persepolis-1932.png',
+  'interview-farnaz-modarresifar': 'uploads/farnaz-modarresifar-villa-medicis-2025.jpg',
+};
+
 function Slot({ slug, lang, ph }) {
+  const cover = GOSAN_COVERS[slug];
   return (
     <div className="nc-img-wrap">
-      {React.createElement('image-slot', { id: `slot-${lang}-${slug}`, placeholder: ph, shape: 'rect' })}
+      {cover
+        ? <img className="nc-cover-img" src={cover} alt="" loading="lazy" />
+        : React.createElement('image-slot', { id: `slot-${lang}-${slug}`, placeholder: ph, shape: 'rect' })}
     </div>
   );
 }
@@ -168,24 +178,23 @@ function HomePage({ lang = 'fa', onToggleLang }) {
   const features = ['manichaean-music-terms', 'herzfeld-german-archives', 'voice-of-the-council', 'music-totalitarian-regimes'].map(P);
   const viewpoints = ['note-for-gosan', 'crossroads-ahead'].map(P);
   const interviews = ['interview-farnaz-modarresifar', 'interview-armin-sanayei'].map(P);
-  const reviews = ['beyzaie-myth-symbolic-action'].map(P);
+  const reviews = [].map(P);
   const policyDossier = ['between-two-defeats'].map(P);
   const economyDossier = ['oil-to-narrative'].map(P);
-  const reflections = ['cypress-memory', 'radif-memorial'].map(P);
+  const reflections = ['beyzaie-myth-symbolic-action', 'cypress-memory', 'radif-memorial'].map(P);
   const popular = ['music-totalitarian-regimes', 'interview-farnaz-modarresifar', 'note-for-gosan', 'between-two-defeats', 'crossroads-ahead'].map(P);
 
   /* the magazine's section taxonomy. populated categories reuse the sample
      articles; the rest are fillable placeholder structures (image-slots). */
   const categories = [
+    { key: 'dossier-policy', label: 'پروندهٔ سیاست‌گذاری فرهنگی', posts: policyDossier, layout: 'grid' },
+    { key: 'dossier-economy', label: 'پروندهٔ اقتصاد خلاق', posts: economyDossier, layout: 'grid' },
+    { key: 'dossier-education', label: 'پروندهٔ آموزش', posts: [], layout: 'grid' },
     { key: 'essay', label: 'جستار', posts: features, layout: 'grid' },
     { key: 'viewpoint', label: 'دیدگاه', posts: viewpoints, layout: 'grid' },
     { key: 'memoriam', label: 'یادمان', posts: reflections, layout: 'rows' },
     { key: 'interview', label: 'گفتگو', posts: interviews, layout: 'rows' },
     { key: 'review', label: 'نقد و بررسی', posts: reviews, layout: 'grid' },
-    { key: 'proposal', label: 'پیشنهاد', posts: [], layout: 'grid' },
-    { key: 'dossier-policy', label: 'پروندهٔ سیاست‌گذاری فرهنگی', posts: policyDossier, layout: 'grid' },
-    { key: 'dossier-economy', label: 'پروندهٔ اقتصاد خلاق', posts: economyDossier, layout: 'grid' },
-    { key: 'dossier-education', label: 'پروندهٔ آموزش', posts: [], layout: 'grid' },
   ];
 
   return (
@@ -354,7 +363,9 @@ function NcCarousel({ slides, lang, T }) {
         <div className="nc-carousel-media">
           {slides.map((s, i) => (
             <div key={s.slug} className={`nc-carousel-slide-media ${i === active ? 'is-active' : ''}`} aria-hidden={i !== active}>
-              {React.createElement('image-slot', { id: `slot-carousel-${lang}-${s.slug}`, placeholder: T.slotPh, shape: 'rect' })}
+              {GOSAN_COVERS[s.slug]
+                ? <img className="nc-cover-img" src={GOSAN_COVERS[s.slug]} alt="" loading="lazy" />
+                : React.createElement('image-slot', { id: `slot-carousel-${lang}-${s.slug}`, placeholder: T.slotPh, shape: 'rect' })}
             </div>
           ))}
         </div>

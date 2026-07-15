@@ -10,7 +10,7 @@ function acToFa(n) {
 
 /* article paragraph — same typography as .essay-cols, single column */
 function AP({ children, style }) {
-  return <p style={{ fontSize: '0.98rem', lineHeight: 'var(--leading-prose)', textAlign: 'justify', margin: '0 0 1.2rem', ...style }}>{children}</p>;
+  return <p style={{ fontSize: '0.9rem', lineHeight: 'var(--leading-prose)', textAlign: 'justify', margin: '0 0 1.2rem', ...style }}>{children}</p>;
 }
 
 /* in-body section heading */
@@ -20,7 +20,7 @@ function AH({ children }) {
 
 /* interview question */
 function AQ({ children }) {
-  return <p style={{ fontSize: '0.98rem', lineHeight: 'var(--leading-prose)', textAlign: 'justify', margin: '2rem 0 1.2rem', fontWeight: 700, color: 'var(--ink)' }}>{children}</p>;
+  return <p style={{ fontSize: '0.9rem', lineHeight: 'var(--leading-prose)', textAlign: 'justify', margin: '2rem 0 1.2rem', fontWeight: 700, color: 'var(--ink)' }}>{children}</p>;
 }
 
 /* footnote marker + hover card — same markup/classes as the Footnote component,
