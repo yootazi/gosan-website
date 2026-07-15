@@ -10,7 +10,7 @@ function acToFa(n) {
 
 /* article paragraph — same typography as .essay-cols, single column */
 function AP({ children, style }) {
-  return <p style={{ fontSize: '0.9rem', lineHeight: 'var(--leading-prose)', textAlign: 'justify', margin: '0 0 1.2rem', ...style }}>{children}</p>;
+  return <p style={{ fontSize: '0.82rem', lineHeight: '1.95', textAlign: 'justify', margin: '0 0 1.2rem', ...style }}>{children}</p>;
 }
 
 /* in-body section heading */
@@ -20,7 +20,7 @@ function AH({ children }) {
 
 /* interview question */
 function AQ({ children }) {
-  return <p style={{ fontSize: '0.9rem', lineHeight: 'var(--leading-prose)', textAlign: 'justify', margin: '2rem 0 1.2rem', fontWeight: 700, color: 'var(--ink)' }}>{children}</p>;
+  return <p style={{ fontSize: '0.82rem', lineHeight: '1.95', textAlign: 'justify', margin: '2rem 0 1.2rem', fontWeight: 700, color: 'var(--ink)' }}>{children}</p>;
 }
 
 /* footnote marker + hover card — same markup/classes as the Footnote component,
@@ -814,7 +814,7 @@ function EssayNoteForGosan() {
       <AP>بی‌آنکه بنا به بررسی همانندی‌های تاریخی شرایط امروزین و آن روزگار ایران و چرخه‌ی امید و نومیدی مکرر مردمان این دیار در ادوار گوناگون تاریخ پر تنش این کشور را داشته باشم، به بانگ خوش‌آهنگ داستانی که قرار است این گوسان نورسیده از ایران و تاریخ و تمدنش به گوش سنگین ملتی سال‌خورده، بخواند دل خوش می‌کنم.</AP>
       <AP>بانگ و نوایی که به گفته‌ی لوفلر دلاشو در کتاب «زبان رمزی افسانه‌ها»* شاعران روایتگر چنگ‌نواز (در ایران Gosan و در یونان Aedes و در قرون وسطی Troubadour) در ترکیب و تناظر «افسانه‌های سودمند» با موسیقی می‌ساختند و برای «حفظ تعادل روانی شخص و جامعه» در کوی و برزن و میدان می‌پراکندند.</AP>
       <p className="essay-close">به گواه شهرزاده‌هایی که ما و نیاکان ارجمند ما بوده‌اند، این ملت تاریخی هزار و یک شب موحش را با جادوی کارکرد همین قصه‌ها و بار استعاری اسطوره‌های دیرین خویش و در دل تداوم تاریخی خود تاب آورده، امری که بی‌گمان نوزاده‌ای به نام گوسان هم در پی آن است، چیزی بیفزاید و ردی به نیکی از خود برجای گذارد.</p>
-      <AP style={{ textAlign: 'left', color: 'var(--text-muted)', fontSize: '0.9rem' }}>سام گیوراد — دی ۱۴۰۴، تهران</AP>
+      <AP style={{ textAlign: 'left', color: 'var(--text-muted)', fontSize: '0.82rem' }}>سام گیوراد — دی ۱۴۰۴، تهران</AP>
     </React.Fragment>
   );
 }
@@ -864,7 +864,7 @@ function EssayCrossroadsAhead() {
       <div className="essay-verse">
         <Verse hemistichs={['شیر بی دُم و سَر و اِشکم که دید', 'این چنین شیری خدا خود نافرید']} />
       </div>
-      <AP style={{ textAlign: 'left', color: 'var(--text-muted)', fontSize: '0.9rem' }}>مهرداد غلامی — جون ۲۰۲۶ / خرداد ۱۴۰۵</AP>
+      <AP style={{ textAlign: 'left', color: 'var(--text-muted)', fontSize: '0.82rem' }}>مهرداد غلامی — جون ۲۰۲۶ / خرداد ۱۴۰۵</AP>
     </React.Fragment>
   );
 }
@@ -1154,7 +1154,7 @@ function EssayBeyzaieMythSymbolicAction() {
       <AP>تئاتر بهرام بیضایی بر مسئولیت انسانی انگشت می‌گذارد بی‌آنکه حقیقتی نهایی را به پیش بکشد. آنچه در آثار او باقی می‌ماند، ایستادن در برابر فاجعه است؛ نه برای مهار کردن آن، بلکه برای ناممکن‌بودنِ فراموشی‌اش. اسطوره و کنش نمادین در این تئاتر، ابزار معنا‌بخشی به جهان نیستند، بلکه شکل‌هایی از بقا در وضعیت بی‌معنایی‌اند؛ روایت‌هایی که هم‌زمان دفاع و اتهام‌اند، هم حقیقت را حمل می‌کنند و هم ناتمام می‌مانند.</AP>
 
       <p className="essay-close">در این معنا، بیضایی نه به گذشته پناه می‌برد و نه آینده‌ای رهایی‌بخش ترسیم می‌کند. تئاتر او میدان مواجهه است: مواجهه با چرخه‌ای که تکرار می‌شود، با خشونتی که نامرئی می‌ماند، و با انسانی که ناگزیر به روایت‌کردن است، روایت کردنی زنانه که در آن همواره چیزی در حال ساخته شدن و قابل زیستن هست. اهمیت این تئاتر نه در پاسخ‌هایی است که می‌دهد، بلکه در پافشاری‌اش بر پرسشی است که بسته نمی‌شود؛ پرسشی که نشان می‌دهد سخن گفتن، هنوز و همچنان ممکن است، حتی اگر رهایی در کار نباشد.</p>
-      <AP style={{ marginTop: '2rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}><strong>حامد امان‌پور قرایی</strong> — نویسنده و کارگردان تئاتر</AP>
+      <AP style={{ marginTop: '2rem', fontSize: '0.82rem', color: 'var(--text-muted)' }}><strong>حامد امان‌پور قرایی</strong> — نویسنده و کارگردان تئاتر</AP>
     </React.Fragment>
   );
 }
