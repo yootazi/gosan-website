@@ -8,6 +8,9 @@ const TAG_TO_SECTION = {
   'گفتگو': 'interview',
   'نقد و بررسی': 'review',
   'پیشنهاد': 'proposal',
+  'پروندهٔ سیاست‌گذاری فرهنگی': 'dossier-policy',
+  'پروندهٔ اقتصاد خلاق': 'dossier-economy',
+  'پروندهٔ آموزش': 'dossier-education',
 };
 function goToHomeSection(tag) {
   const key = TAG_TO_SECTION[tag];
@@ -460,6 +463,8 @@ function ArticleView({ slug }) {
         <article ref={articleRef}>
           {post.full ? (
             <FullEssayBody />
+          ) : (window.GOSAN_ARTICLE_BODIES && window.GOSAN_ARTICLE_BODIES[post.slug]) ? (
+            React.createElement(window.GOSAN_ARTICLE_BODIES[post.slug])
           ) : (
             <TemplateEssayBody post={post} />
           )}

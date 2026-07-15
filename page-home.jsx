@@ -163,8 +163,10 @@ function HomePage({ lang = 'fa', onToggleLang }) {
   const latest = ['gosan-narrators', 'music-interview', 'miniature-narrative', 'nowruz-rites', 'calligraphy-talk', 'memorial'].map(P);
   const featured = ['gosan-narrators', 'music-interview', 'memorial'].map(P);
   const notes = ['silence-music', 'city-memory', 'letter-future'].map(P);
-  const features = ['miniature-narrative', 'nowruz-rites', 'modern-poetry'].map(P);
-  const interviews = ['calligraphy-talk', 'painter-talk'].map(P);
+  const features = ['manichaean-music-terms', 'herzfeld-german-archives', 'voice-of-the-council'].map(P);
+  const viewpoints = ['note-for-gosan', 'crossroads-ahead'].map(P);
+  const interviews = ['interview-farnaz-modarresifar'].map(P);
+  const economyDossier = ['oil-to-narrative'].map(P);
   const reflections = ['cypress-memory', 'radif-memorial'].map(P);
   const popular = ['gosan-narrators', 'modern-poetry', 'music-interview', 'memorial', 'calligraphy-talk'].map(P);
 
@@ -172,13 +174,13 @@ function HomePage({ lang = 'fa', onToggleLang }) {
      articles; the rest are fillable placeholder structures (image-slots). */
   const categories = [
     { key: 'essay', label: 'جستار', posts: features, layout: 'grid' },
-    { key: 'viewpoint', label: 'دیدگاه', posts: [], layout: 'grid' },
+    { key: 'viewpoint', label: 'دیدگاه', posts: viewpoints, layout: 'grid' },
     { key: 'memoriam', label: 'یادمان', posts: reflections, layout: 'rows' },
     { key: 'interview', label: 'گفتگو', posts: interviews, layout: 'rows' },
     { key: 'review', label: 'نقد و بررسی', posts: [], layout: 'grid' },
     { key: 'proposal', label: 'پیشنهاد', posts: [], layout: 'grid' },
     { key: 'dossier-policy', label: 'پروندهٔ سیاست‌گذاری فرهنگی', posts: [], layout: 'grid' },
-    { key: 'dossier-economy', label: 'پروندهٔ اقتصاد خلاق', posts: [], layout: 'grid' },
+    { key: 'dossier-economy', label: 'پروندهٔ اقتصاد خلاق', posts: economyDossier, layout: 'grid' },
     { key: 'dossier-education', label: 'پروندهٔ آموزش', posts: [], layout: 'grid' },
   ];
 
