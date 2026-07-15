@@ -199,9 +199,9 @@ function HomePage({ lang = 'fa', onToggleLang }) {
      articles; the rest are fillable placeholder structures (image-slots). */
   const categories = [
     { key: 'dossier-policy', label: 'پروندهٔ سیاست‌گذاری فرهنگی', posts: policyDossier, layout: 'grid' },
+    { key: 'essay', label: 'جستار', posts: features, layout: 'grid' },
     { key: 'dossier-economy', label: 'پروندهٔ اقتصاد خلاق', posts: economyDossier, layout: 'grid' },
     { key: 'dossier-education', label: 'پروندهٔ آموزش', posts: [], layout: 'grid' },
-    { key: 'essay', label: 'جستار', posts: features, layout: 'grid' },
     { key: 'viewpoint', label: 'دیدگاه', posts: viewpoints, layout: 'grid' },
     { key: 'memoriam', label: 'یادمان', posts: reflections, layout: 'rows' },
     { key: 'interview', label: 'گفتگو', posts: interviews, layout: 'rows' },

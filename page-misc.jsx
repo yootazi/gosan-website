@@ -226,11 +226,12 @@ function ContactPage() {
               <form onSubmit={(e) => {
                 e.preventDefault();
                 const v = (id) => (document.getElementById(id) || {}).value || '';
-                const name = v('c-name'), mail = v('c-mail'), msg = v('c-msg');
-                const subject = encodeURIComponent('تماس از وب‌سایت گوسان — ' + (name || 'بدون نام'));
-                const body = encodeURIComponent('نام: ' + name + '\nرایانامه: ' + mail + '\n\nپیام:\n' + msg);
-                window.location.href = 'mailto:info@gosan.org?subject=' + subject + '&body=' + body;
-                setSent(true);
+                const fields = {
+                  name: v('c-name'), email: v('c-mail'), message: v('c-msg'),
+                  subject: 'تماس از وب‌سایت گوسان — ' + (v('c-name') || 'بدون نام'),
+                  page: (typeof location !== 'undefined' ? location.href : ''),
+                };
+                gosanFormSubmit(fields).then(() => setSent(true)).catch(() => { gosanMailtoFallback(fields); setSent(true); });
               }}>
                 <FormField id="c-name" label="نام" placeholder="نام و نام خانوادگی" />
                 <FormField id="c-mail" label="رایانامه" type="email" placeholder="you@example.com" />

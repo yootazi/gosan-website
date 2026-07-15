@@ -117,9 +117,44 @@ const GOSAN_POSTS = [
   { slug: 'interview-armin-sanayei', tag: 'گفتگو', title: 'گفتگو با آرمین صنایعی', excerpt: 'گفت‌وگو با آرمین صنایعی، آهنگساز موسیقی معاصر؛ از باله‌ای بر پایهٔ پرومتئوس و سیمرغ تا هویت، گسست تاریخی و سیاست‌گذاری موسیقی در ایران.', date: 'تابستان ۲۵۸۵', author: 'یلدا زمانی' },
 ];
 
+/* ---------- serverless form delivery ----------
+   Static site (GitHub Pages) has no backend, so form submissions are POSTed to
+   FormSubmit (a free relay) which forwards them to info@gosan.org. The very first
+   submission triggers a one-time activation email to that inbox; once confirmed,
+   every later submission is delivered. If the request fails (offline / blocked),
+   callers fall back to a mailto: compose. */
+const GOSAN_FORM_INBOX = 'info@gosan.org';
+async function gosanFormSubmit(fields) {
+  const payload = {
+    _subject: fields.subject || 'پیام از وب‌سایت گوسان',
+    _template: 'table',
+    _captcha: 'false',
+    نام: fields.name || '',
+    رایانامه: fields.email || '',
+    صفحه: fields.page || '',
+    پیام: fields.message || '',
+  };
+  const res = await fetch('https://formsubmit.co/ajax/' + GOSAN_FORM_INBOX, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) throw new Error('form relay status ' + res.status);
+  return res.json();
+}
+function gosanMailtoFallback(fields) {
+  const subject = encodeURIComponent(fields.subject || 'پیام از وب‌سایت گوسان');
+  const body = encodeURIComponent(
+    'نام: ' + (fields.name || '') + '\nرایانامه: ' + (fields.email || '') +
+    '\nصفحه: ' + (fields.page || '') + '\n\nپیام:\n' + (fields.message || '')
+  );
+  window.location.href = 'mailto:' + GOSAN_FORM_INBOX + '?subject=' + subject + '&body=' + body;
+}
+
 Object.assign(window, {
   Button, Tag, SectionHead, ArticleCard, Verse, PullQuote, GoldDots, DraftFrame, FormField,
   DraftLineH, DraftLineV, Reveal, useParallax, GOSAN_POSTS, ClockIcon,
+  gosanFormSubmit, gosanMailtoFallback,
 });
 
 function ClockIcon() {

@@ -336,36 +336,57 @@ function TableOfContents({ articleRef, slug }) {
 }
 
 /* ---------- social / share icons ---------- */
+const GOSAN_SITE_BASE = 'https://yootazi.github.io/gosan-website/';
+
 function ShareIcon({ kind }) {
+  if (kind === 'x') {
+    /* official X (formerly Twitter) logo — solid glyph */
+    return (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+      </svg>
+    );
+  }
   const common = { width: 17, height: 17, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.7, strokeLinecap: 'round', strokeLinejoin: 'round' };
   const paths = {
     link: <React.Fragment><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></React.Fragment>,
     facebook: <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />,
-    x: <path d="M4 4l16 16M20 4L4 20" />,
-    instagram: <React.Fragment><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" /></React.Fragment>,
-    paperclip: <path d="M21 11.5l-8.5 8.5a5 5 0 0 1-7-7l8.5-8.5a3.3 3.3 0 0 1 4.7 4.7l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4l7.8-7.8" />,
+    telegram: <polygon points="22 2 15 22 11 13 2 9 22 2" />,
+    whatsapp: <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />,
     print: <React.Fragment><path d="M6 9V3h12v6" /><path d="M6 18H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2" /><rect x="6" y="14" width="12" height="7" /></React.Fragment>,
   };
   return <svg {...common}>{paths[kind]}</svg>;
 }
 
-function ShareRow() {
+function ShareRow({ post }) {
   const [copied, setCopied] = React.useState(false);
+  const slug = post ? post.slug : '';
+  /* social buttons point at a lightweight per-article share page that carries the
+     Open Graph cover image, then redirects real visitors to the article. */
+  const shareUrl = GOSAN_SITE_BASE + 'share/' + slug + '.html';
+  const articleUrl = GOSAN_SITE_BASE + '#/article/' + slug;
+  const text = (post ? post.title : 'گوسان') + ' — گوسان';
+  const enc = encodeURIComponent;
+  const pop = (url) => (e) => { e.preventDefault(); window.open(url, '_blank', 'noopener,noreferrer,width=620,height=560'); };
   const copy = (e) => {
     e.preventDefault();
-    try { navigator.clipboard.writeText(window.location.href); } catch (err) {}
+    try { navigator.clipboard.writeText(articleUrl); } catch (err) {}
     setCopied(true);
     setTimeout(() => setCopied(false), 1600);
   };
+  const xUrl = 'https://twitter.com/intent/tweet?text=' + enc(text) + '&url=' + enc(shareUrl);
+  const fbUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + enc(shareUrl);
+  const tgUrl = 'https://t.me/share/url?url=' + enc(shareUrl) + '&text=' + enc(text);
+  const waUrl = 'https://wa.me/?text=' + enc(text + ' ' + shareUrl);
   return (
     <div className="share-row">
       <span className="share-label">{copied ? 'نشانی رونوشت شد ✓' : 'این متن را به اشتراک بگذارید'}</span>
       <div className="share-icons">
         <a href="#" onClick={copy} aria-label="رونوشت پیوند" title="رونوشت پیوند"><ShareIcon kind="link" /></a>
-        <a href="#" onClick={(e) => e.preventDefault()} aria-label="فیسبوک"><ShareIcon kind="facebook" /></a>
-        <a href="#" onClick={(e) => e.preventDefault()} aria-label="ایکس"><ShareIcon kind="x" /></a>
-        <a href="#" onClick={(e) => e.preventDefault()} aria-label="اینستاگرام"><ShareIcon kind="instagram" /></a>
-        <a href="#" onClick={copy} aria-label="پیوست"><ShareIcon kind="paperclip" /></a>
+        <a href={xUrl} onClick={pop(xUrl)} target="_blank" rel="noopener noreferrer" aria-label="اشتراک در ایکس" title="ایکس (X)"><ShareIcon kind="x" /></a>
+        <a href={fbUrl} onClick={pop(fbUrl)} target="_blank" rel="noopener noreferrer" aria-label="اشتراک در فیسبوک" title="فیسبوک"><ShareIcon kind="facebook" /></a>
+        <a href={tgUrl} onClick={pop(tgUrl)} target="_blank" rel="noopener noreferrer" aria-label="اشتراک در تلگرام" title="تلگرام"><ShareIcon kind="telegram" /></a>
+        <a href={waUrl} onClick={pop(waUrl)} target="_blank" rel="noopener noreferrer" aria-label="اشتراک در واتساپ" title="واتساپ"><ShareIcon kind="whatsapp" /></a>
         <a href="#" onClick={(e) => { e.preventDefault(); window.print(); }} aria-label="چاپ یا ذخیره به PDF" title="چاپ / ذخیره به PDF"><ShareIcon kind="print" /></a>
       </div>
     </div>
@@ -384,7 +405,7 @@ function SummaryAside({ post, getText }) {
         <p className="summary-text">{post.summary || post.excerpt}</p>
       </div>
       <div className="share-card">
-        <ShareRow />
+        <ShareRow post={post} />
       </div>
     </aside>
   );
@@ -407,11 +428,12 @@ function CommentsSection() {
         <form onSubmit={(e) => {
           e.preventDefault();
           const v = (id) => (document.getElementById(id) || {}).value || '';
-          const name = v('cm-name'), mail = v('cm-mail'), msg = v('cm-msg');
-          const subject = encodeURIComponent('دیدگاه تازه — گوسان' + (typeof document !== 'undefined' && document.title ? ' (' + document.title + ')' : ''));
-          const body = encodeURIComponent('نام: ' + name + '\nرایانامه: ' + mail + '\nصفحه: ' + (typeof location !== 'undefined' ? location.href : '') + '\n\nدیدگاه:\n' + msg);
-          window.location.href = 'mailto:info@gosan.org?subject=' + subject + '&body=' + body;
-          setSent(true);
+          const fields = {
+            name: v('cm-name'), email: v('cm-mail'), message: v('cm-msg'),
+            subject: 'دیدگاه تازه — گوسان' + (typeof document !== 'undefined' && document.title ? ' (' + document.title + ')' : ''),
+            page: (typeof location !== 'undefined' ? location.href : ''),
+          };
+          gosanFormSubmit(fields).then(() => setSent(true)).catch(() => { gosanMailtoFallback(fields); setSent(true); });
         }}>
           <div className="comments-row">
             <FormField id="cm-name" placeholder="نام شما" />
