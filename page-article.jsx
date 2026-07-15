@@ -41,12 +41,20 @@ const GUEST_BY_SLUG = {
 };
 
 const AUTHOR_BIOS = {
-  'حافظ باباشاهی': 'پژوهشگر فرهنگ و تاریخ ایران و از بنیان‌گذاران گاهنامهٔ گوسان. کوشش او بازخوانی روایت‌های کهن و پیوند زدن میراث نیاکان به پرسش‌های امروز است.',
-  'امین نایب‌پور': 'پژوهشگر نگارگری و هنرهای تصویری ایران؛ دل‌بستهٔ پیوند تصویر و روایت در نسخه‌های مصور کهن و زبان بصری امروز.',
-  'یلدا زمانی': 'پژوهشگر موسیقی کهن ایرانی و گردآورندهٔ نغمه‌های آیینی؛ در پی ردیابی پیوند دیرینهٔ شعر و موسیقی در سنت روایتگری.',
-  'احسان شواربی': 'پژوهشگر زبان‌های باستانی و کتیبه‌های ایرانی؛ نگارندهٔ یادمان‌هایی در پاسداشت چهره‌های ماندگار فرهنگ و ادب.',
-  'سهراب لبیب': 'خوشنویس و پژوهشگر هنر؛ دل‌مشغول جای‌گاه قلم و حرف در هویت بصری ایرانی، از نیِ خوشنویسی تا حروف امروز.',
+  'یلدا زمانی': 'مدیرمسئول و سردبیر گاهنامهٔ گوسان؛ پژوهشگر و کنشگر حوزهٔ موسیقی. — https://www.yaldazamani.com — https://de.linkedin.com/in/yaldazamani',
+  'حافظ باباشاهی': 'پیانیست و مدرس موسیقی، مدرس در کنسرواتوار ریشارد واگنر وین و از بنیان‌گذاران گاهنامهٔ گوسان. — https://www.richard-wagner-konservatorium.at/abteilungen/tasteninstrumente/hafez-babashahi/ — https://at.linkedin.com/in/hafez-babashahi-4a565a73',
+  'احسان شواربی': 'پژوهشگر زبان‌ها و کتیبه‌های ایران باستان. — https://khm-at.academia.edu/EhsanShavarebi',
+  'امین نایب‌پور': 'پژوهشگر نگارگری و هنرهای تصویری ایران. — https://www.linkedin.com/in/aminnayebpour/',
+  'سهراب لبیب': 'پیانیست و مدرس موسیقی.',
 };
+
+/* render a bio string, turning bare URLs into links */
+function bioWithLinks(text) {
+  const parts = String(text || '').split(/(https?:\/\/[^\s—]+)/g);
+  return parts.map((p, i) => /^https?:\/\//.test(p)
+    ? <a key={i} href={p} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>{p.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}</a>
+    : <React.Fragment key={i}>{p}</React.Fragment>);
+}
 
 function toFa(n) {
   return String(n).replace(/[0-9]/g, (d) => '۰۱۲۳۴۵۶۷۸۹'[d]);
@@ -123,7 +131,7 @@ function AuthorBioBlock({ post }) {
       <div className="article-bio-body">
         <span className="article-bio-label">دربارهٔ {kind}</span>
         <span className="article-bio-name">{person}</span>
-        <p className="article-bio-text">{bio || ('معرفی کوتاه ' + kind + ' در دست تکمیل است.')}</p>
+        <p className="article-bio-text">{bio ? bioWithLinks(bio) : ('معرفی کوتاه ' + kind + ' در دست تکمیل است.')}</p>
       </div>
     </div>
   );
