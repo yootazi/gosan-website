@@ -542,10 +542,25 @@ body[data-motion="off"] .listen-fill.is-live { animation: none; }
 }
 .essay-cols p { margin: 0 0 1.2rem; break-inside: avoid; }
 .essay-cols p:last-child { margin-bottom: 0; }
-.essay-figure { margin: 2.8rem 0; }
+/* body figures: smaller and floated so text wraps around them and they don't
+   dominate the column; alternate sides for visual rhythm */
+.essay-figure {
+  float: right; width: 290px; max-width: 40%;
+  margin: 0.3rem 0 1.1rem 1.7rem;
+}
+.essay-figure:nth-of-type(even) {
+  float: left; margin: 0.3rem 1.7rem 1.1rem 0;
+}
 .essay-figure figcaption {
-  margin-top: 0.8rem; text-align: center; font-size: 0.82rem;
-  color: var(--text-muted); font-style: italic;
+  margin-top: 0.55rem; text-align: center; font-size: 0.74rem;
+  color: var(--text-muted); font-style: italic; line-height: 1.7;
+}
+/* keep floated figures from spilling into the next section */
+.essay-close, .essay-verse, article h2.gsn-display { clear: both; }
+@media (max-width: 640px) {
+  .essay-figure, .essay-figure:nth-of-type(even) {
+    float: none; width: auto; max-width: 100%; margin: 1.8rem 0;
+  }
 }
 .essay-verse {
   display: flex; align-items: flex-start; justify-content: center; gap: 0.3rem;
