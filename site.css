@@ -1376,6 +1376,27 @@ body[data-motion="off"] .nc-carousel-slide-media { transition: none; }
 .nc-cat-ph-title { color: var(--grey-faint, #B4AFA2); font-weight: 700; }
 .nc-cat-ph-by { font-size: 0.82rem; color: var(--grey-faint, #B4AFA2); margin: 0.45rem 0 0; }
 .nc-cat-ph-dek { color: var(--grey-faint, #B4AFA2); }
+/* collaboration invitation shown in sections that have no articles yet */
+.nc-cat-invite {
+  border: 1px solid var(--gold); border-radius: 12px; background: var(--gold-wash);
+  padding: 2.2rem 2rem; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 0.7rem;
+}
+.nc-cat-invite-lead {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
+  color: var(--ink); margin: 0;
+}
+.nc-cat-invite-body {
+  font-size: 0.9rem; line-height: 2; color: var(--text-body);
+  margin: 0; max-width: 46ch;
+}
+.nc-cat-invite-cta {
+  margin-top: 0.6rem; display: inline-block; font-family: var(--font-display);
+  font-weight: 700; font-size: 0.85rem; color: var(--gold-deep);
+  border: 1px solid var(--gold); border-radius: 999px; padding: 0.5rem 1.4rem;
+  transition: background var(--speed-fast), color var(--speed-fast);
+}
+.nc-cat-invite-cta:hover { background: var(--gold); color: var(--ink); }
 
 .article-cat-link { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color var(--speed-fast); }
 .article-cat-link:hover { border-bottom-color: currentColor; }

@@ -22,8 +22,16 @@ function goToHomeSection(tag) {
   }
 }
 
+/* Author avatars appear ONLY for the five board members; each uses the SAME
+   photo file as the About page board (assets/board-*.png), so replacing one
+   file updates both the byline circle and the About page. Every other writer
+   shows no avatar circle at all. */
 const AUTHOR_PHOTOS = {
-  'حافظ باباشاهی': 'assets/author-hafez.png',
+  'حافظ باباشاهی': 'assets/board-hafez.png',
+  'یلدا زمانی': 'assets/board-yalda.png',
+  'احسان شواربی': 'assets/board-ehsan.png',
+  'سهراب لبیب': 'assets/board-sohrab.png',
+  'امین نایب‌پور': 'assets/board-amin.png',
 };
 
 const AUTHOR_BIOS = {
@@ -50,6 +58,8 @@ function AuthorAvatar({ name }) {
   const [open, setOpen] = React.useState(false);
   const ref = React.useRef(null);
   const src = AUTHOR_PHOTOS[name];
+  /* only board members (those with a photo) get an avatar circle; others none */
+  if (!src) return null;
   const bio = AUTHOR_BIOS[name] || 'از نویسندگان و پژوهشگران همکار گاهنامهٔ گوسان.';
   React.useEffect(() => {
     if (!open) return;

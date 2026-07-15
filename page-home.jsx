@@ -453,18 +453,10 @@ function NcCatSection({ cat, lang, T }) {
           </div>
         )
       ) : (
-        <div className="nc-grid2 nc-cat-empty">
-          {[0, 1].map((i) => (
-            <article key={i} className="nc-cat-ph">
-              <div className="nc-img-wrap">
-                {React.createElement('image-slot', { id: `slot-cat-${key}-${i}`, placeholder: T.slotPh, shape: 'rect' })}
-              </div>
-              <span className="nc-kicker">{label}</span>
-              <h3 className="nc-title nc-cat-ph-title" style={{ marginTop: '0.4rem' }}>عنوان نوشتار</h3>
-              <p className="nc-cat-ph-by">نام نویسنده</p>
-              <p className="nc-dek nc-cat-ph-dek">چکیدهٔ کوتاه نوشتار در این بخش جای می‌گیرد.</p>
-            </article>
-          ))}
+        <div className="nc-cat-invite">
+          <p className="nc-cat-invite-lead">این بخش هنوز در آغاز راه است و چشم‌به‌راه نخستین نوشته‌هاست.</p>
+          <p className="nc-cat-invite-body">اگر در زمینهٔ «{label}» پژوهش، نقد یا دیدگاهی دارید، گوسان از دریافت مقاله یا پیشنهاد شما برای همکاری استقبال می‌کند.</p>
+          <a className="nc-cat-invite-cta" href="#/contact">ارسال مقاله یا پیشنهاد ←</a>
         </div>
       )}
     </section>
