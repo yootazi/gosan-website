@@ -69,7 +69,7 @@ function toFa(n) {
 /* two-part titles: the part after «:» or «؛» drops to the next line */
 function splitTitle(t) {
   const s = String(t == null ? '' : t);
-  const m = s.match(/^(.+?)[:؛]\s*(.+)$/);
+  const m = s.match(/^(.+?)\s*[:؛—–]\s*(.+)$/);
   return m ? [m[1].trim(), m[2].trim()] : [s, null];
 }
 function TitleLines({ text }) {

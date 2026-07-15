@@ -90,7 +90,7 @@ const GOSAN_COVERS = {
 /* split a two-part title at «:» or «؛» and drop the second part to a new line */
 function splitTitle(t) {
   const s = String(t == null ? '' : t);
-  const m = s.match(/^(.+?)[:؛]\s*(.+)$/);
+  const m = s.match(/^(.+?)\s*[:؛—–]\s*(.+)$/);
   return m ? [m[1].trim(), m[2].trim()] : [s, null];
 }
 function TitleLines({ text }) {
