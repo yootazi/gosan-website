@@ -87,6 +87,17 @@ const GOSAN_COVERS = {
   'interview-farnaz-modarresifar': 'uploads/farnaz-modarresifar-villa-medicis-2025.jpg',
 };
 
+/* split a two-part title at «:» or «؛» and drop the second part to a new line */
+function splitTitle(t) {
+  const s = String(t == null ? '' : t);
+  const m = s.match(/^(.+?)[:؛]\s*(.+)$/);
+  return m ? [m[1].trim(), m[2].trim()] : [s, null];
+}
+function TitleLines({ text }) {
+  const [main, sub] = splitTitle(text);
+  return sub ? <React.Fragment>{main}<span className="title-sub">{sub}</span></React.Fragment> : <React.Fragment>{text}</React.Fragment>;
+}
+
 function Slot({ slug, lang, ph }) {
   const cover = GOSAN_COVERS[slug];
   return (
@@ -235,7 +246,7 @@ function HomePage({ lang = 'fa', onToggleLang }) {
             <article>
               <Slot slug={p.slug} lang={lang} ph={T.slotPh} />
               <span className="nc-kicker">{p.tag}</span>
-              <h2 className="nc-title" style={{ marginTop: '0.5rem' }}><a href={`#/article/${p.slug}`}>{p.title}</a></h2>
+              <h2 className="nc-title" style={{ marginTop: '0.5rem' }}><a href={`#/article/${p.slug}`}><TitleLines text={p.title} /></a></h2>
               <ByLine post={p} by={T.by} />
               <p className="nc-dek">{p.excerpt}</p>
             </article>
@@ -342,7 +353,7 @@ function NcCarousel({ slides, lang, T }) {
       <div className="nc-carousel-inner">
         <div className="nc-carousel-text">
           <div className="nc-carousel-copy" key={active}>
-            <h2 className="nc-carousel-title"><a href={`#/article/${p.slug}`}>{p.title}</a></h2>
+            <h2 className="nc-carousel-title"><a href={`#/article/${p.slug}`}><TitleLines text={p.title} /></a></h2>
             <p className="nc-carousel-by"><span>{p.author}</span></p>
             <p className="nc-carousel-dek">{p.excerpt}</p>
           </div>
@@ -432,7 +443,7 @@ function NcCatSection({ cat, lang, T }) {
                 <Slot slug={p.slug} lang={lang} ph={T.slotPh} />
                 <div>
                   <span className="nc-kicker">{p.tag}</span>
-                  <h3 className="nc-title" style={{ marginTop: '0.35rem' }}><a href={`#/article/${p.slug}`}>{p.title}</a></h3>
+                  <h3 className="nc-title" style={{ marginTop: '0.35rem' }}><a href={`#/article/${p.slug}`}><TitleLines text={p.title} /></a></h3>
                   <ByLine post={p} by={T.by} />
                   <p className="nc-dek">{p.excerpt}</p>
                 </div>
@@ -445,7 +456,7 @@ function NcCatSection({ cat, lang, T }) {
               <article key={p.slug}>
                 <Slot slug={p.slug} lang={lang} ph={T.slotPh} />
                 <span className="nc-kicker">{p.tag}</span>
-                <h3 className="nc-title" style={{ marginTop: '0.4rem' }}><a href={`#/article/${p.slug}`}>{p.title}</a></h3>
+                <h3 className="nc-title" style={{ marginTop: '0.4rem' }}><a href={`#/article/${p.slug}`}><TitleLines text={p.title} /></a></h3>
                 <ByLine post={p} by={T.by} />
                 <p className="nc-dek">{p.excerpt}</p>
               </article>

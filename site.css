@@ -551,8 +551,30 @@ body[data-motion="off"] .listen-fill.is-live { animation: none; }
   margin-top: 0.55rem; text-align: center; font-size: 0.74rem;
   color: var(--text-muted); font-style: italic; line-height: 1.7;
 }
+/* articles with 3+ figures: float them left/right so the text wraps (they stay
+   spread by the paragraphs between). A .essay-figure-block stays a centered
+   block — e.g. a wide document scan. */
+article:has(.essay-figure:nth-of-type(3)) .essay-figure:not(.essay-figure-block) {
+  float: right; width: 285px; max-width: 40%; margin: 0.3rem 0 1.1rem 1.7rem;
+}
+article:has(.essay-figure:nth-of-type(3)) .essay-figure:not(.essay-figure-block):nth-of-type(even) {
+  float: left; margin: 0.3rem 1.7rem 1.1rem 0;
+}
+article:has(.essay-figure:nth-of-type(3)) .essay-close,
+article:has(.essay-figure:nth-of-type(3)) .essay-verse,
+article:has(.essay-figure:nth-of-type(3)) h2.gsn-display,
+article:has(.essay-figure:nth-of-type(3)) .essay-figure-block { clear: both; }
+@media (max-width: 640px) {
+  article:has(.essay-figure:nth-of-type(3)) .essay-figure:not(.essay-figure-block),
+  article:has(.essay-figure:nth-of-type(3)) .essay-figure:not(.essay-figure-block):nth-of-type(even) {
+    float: none; width: 85%; max-width: 100%; margin: 1.8rem auto;
+  }
+}
 /* hide the English technical label inside the frame — the Persian caption is enough */
 .essay-figure .gsn-draft-frame figcaption.gsn-technical { display: none; }
+/* two-part titles: the part after «:» or «؛» drops to the next line, lighter */
+.title-sub { display: block; font-size: 0.72em; font-weight: 500; color: var(--text-muted); margin-top: 0.25em; line-height: 1.4; }
+.nc-carousel-title .title-sub, .nc-title .title-sub { color: var(--text-muted); }
 /* compact writer / interviewee biography at the end of an article */
 .article-bio {
   max-width: 720px; margin: 2.4rem auto 0; padding: 1.2rem 0 0;

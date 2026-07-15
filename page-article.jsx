@@ -52,6 +52,17 @@ function toFa(n) {
   return String(n).replace(/[0-9]/g, (d) => '۰۱۲۳۴۵۶۷۸۹'[d]);
 }
 
+/* two-part titles: the part after «:» or «؛» drops to the next line */
+function splitTitle(t) {
+  const s = String(t == null ? '' : t);
+  const m = s.match(/^(.+?)[:؛]\s*(.+)$/);
+  return m ? [m[1].trim(), m[2].trim()] : [s, null];
+}
+function TitleLines({ text }) {
+  const [main, sub] = splitTitle(text);
+  return sub ? <React.Fragment>{main}<span className="title-sub">{sub}</span></React.Fragment> : <React.Fragment>{text}</React.Fragment>;
+}
+
 /* footnote contents for the featured essay (referenced by Footnote n=…) */
 const ESSAY_FOOTNOTES = [
   'واژهٔ «گوسان» ریشه در زبان پارتی دارد. مری بویس در مقالهٔ کلاسیک خود، «گوسان پارتی و سنت رامشگری ایرانی» (۱۹۵۷)، این واژه را با نقش خنیاگرانِ راوی پیوند داده است.',
@@ -514,7 +525,7 @@ function ArticleView({ slug }) {
       <div className="article-head">
         <DraftLineH top="2.4rem" right="-6rem" left="-6rem" />
         <span className="gsn-technical" style={{ color: 'var(--gold-deep)' }}><a href="#/" className="article-cat-link" onClick={(e) => { e.preventDefault(); goToHomeSection(post.tag); }}>{post.tag}</a> · شمارهٔ یکم — تابستان ۲۵۸۵</span>
-        <h1 className="gsn-display" style={{ fontSize: '2.4rem', margin: '0.6rem 0 1rem' }}>{post.title}</h1>
+        <h1 className="gsn-display" style={{ fontSize: '2.4rem', margin: '0.6rem 0 1rem' }}><TitleLines text={post.title} /></h1>
         <div className="article-byline">
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem' }}>
             <AuthorAvatar name={post.author} />
