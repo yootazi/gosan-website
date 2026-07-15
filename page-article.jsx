@@ -244,6 +244,37 @@ function ArticleMeta({ articleRef }) {
   );
 }
 
+/* ---------- article table of contents (only when > 3 headings) ---------- */
+function TableOfContents({ articleRef, slug }) {
+  const [items, setItems] = React.useState([]);
+  React.useEffect(() => {
+    if (!articleRef.current) return;
+    const hs = Array.prototype.slice.call(articleRef.current.querySelectorAll('h2.gsn-display'));
+    if (hs.length <= 3) { setItems([]); return; }
+    const list = hs.map((h, i) => {
+      if (!h.id) h.id = 'sec-' + slug + '-' + i;
+      return { id: h.id, text: (h.textContent || '').trim() };
+    });
+    setItems(list);
+  }, [articleRef, slug]);
+  if (items.length <= 3) return null;
+  const jump = (e, id) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  return (
+    <nav className="article-toc" aria-label="فهرست مطالب">
+      <span className="article-toc-head">فهرست</span>
+      <ol>
+        {items.map((it) => (
+          <li key={it.id}><a href={'#' + it.id} onClick={(e) => jump(e, it.id)}>{it.text}</a></li>
+        ))}
+      </ol>
+    </nav>
+  );
+}
+
 /* ---------- social / share icons ---------- */
 function ShareIcon({ kind }) {
   const common = { width: 17, height: 17, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.7, strokeLinecap: 'round', strokeLinejoin: 'round' };
@@ -461,6 +492,7 @@ function ArticleView({ slug }) {
 
       <div className="article-layout">
         <article ref={articleRef}>
+          <TableOfContents articleRef={articleRef} slug={post.slug} />
           {post.full ? (
             <FullEssayBody />
           ) : (window.GOSAN_ARTICLE_BODIES && window.GOSAN_ARTICLE_BODIES[post.slug]) ? (
