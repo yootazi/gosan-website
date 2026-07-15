@@ -34,6 +34,12 @@ const AUTHOR_PHOTOS = {
   'امین نایب‌پور': 'assets/board-amin.png',
 };
 
+/* interview guests — the bio block shows the interviewee, not the interviewer */
+const GUEST_BY_SLUG = {
+  'interview-farnaz-modarresifar': 'فرناز مدرسی‌فر',
+  'interview-armin-sanayei': 'آرمین صنایعی',
+};
+
 const AUTHOR_BIOS = {
   'حافظ باباشاهی': 'پژوهشگر فرهنگ و تاریخ ایران و از بنیان‌گذاران گاهنامهٔ گوسان. کوشش او بازخوانی روایت‌های کهن و پیوند زدن میراث نیاکان به پرسش‌های امروز است.',
   'امین نایب‌پور': 'پژوهشگر نگارگری و هنرهای تصویری ایران؛ دل‌بستهٔ پیوند تصویر و روایت در نسخه‌های مصور کهن و زبان بصری امروز.',
@@ -90,6 +96,25 @@ function AuthorAvatar({ name }) {
         </div>
       ) : null}
     </span>
+  );
+}
+
+/* compact writer / interviewee biography, shown at the end of the article */
+function AuthorBioBlock({ post }) {
+  const isInterview = !!GUEST_BY_SLUG[post.slug];
+  const person = isInterview ? GUEST_BY_SLUG[post.slug] : post.author;
+  const bio = AUTHOR_BIOS[person];
+  const photo = AUTHOR_PHOTOS[person];
+  const kind = isInterview ? 'مهمان' : 'نویسنده';
+  return (
+    <div className="article-bio">
+      {photo ? <span className="article-bio-avatar"><img src={photo} alt={person} /></span> : null}
+      <div className="article-bio-body">
+        <span className="article-bio-label">دربارهٔ {kind}</span>
+        <span className="article-bio-name">{person}</span>
+        <p className="article-bio-text">{bio || ('معرفی کوتاه ' + kind + ' در دست تکمیل است.')}</p>
+      </div>
+    </div>
   );
 }
 
@@ -513,6 +538,8 @@ function ArticleView({ slug }) {
         </article>
         <SummaryAside post={post} getText={getText} />
       </div>
+
+      <AuthorBioBlock post={post} />
 
       <CommentsSection />
 

@@ -551,6 +551,19 @@ body[data-motion="off"] .listen-fill.is-live { animation: none; }
   margin-top: 0.55rem; text-align: center; font-size: 0.74rem;
   color: var(--text-muted); font-style: italic; line-height: 1.7;
 }
+/* hide the English technical label inside the frame — the Persian caption is enough */
+.essay-figure .gsn-draft-frame figcaption.gsn-technical { display: none; }
+/* compact writer / interviewee biography at the end of an article */
+.article-bio {
+  max-width: 720px; margin: 2.4rem auto 0; padding: 1.2rem 0 0;
+  border-top: 1px solid var(--line); display: flex; gap: 1rem; align-items: flex-start;
+}
+.article-bio-avatar { flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%; overflow: hidden; background: var(--surface-band); }
+.article-bio-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.article-bio-body { flex: 1; min-width: 0; }
+.article-bio-label { display: block; font-size: 0.68rem; letter-spacing: 0.04em; color: var(--accent); font-weight: 700; margin-bottom: 0.15rem; }
+.article-bio-name { display: block; font-family: var(--font-display); font-weight: 700; font-size: 0.92rem; color: var(--ink); margin-bottom: 0.3rem; }
+.article-bio-text { margin: 0; font-size: 0.8rem; line-height: 1.9; color: var(--text-body); text-align: justify; }
 @media (max-width: 640px) {
   .essay-figure { width: 85%; max-width: 100%; margin: 1.8rem auto; }
 }
