@@ -1365,7 +1365,7 @@ body[data-motion="off"] .nc-carousel-copy { animation: none; }
   font-size: 0.82rem; line-height: 1.85; color: var(--text-body);
   margin: 1.1rem 0 0; max-width: 42ch; text-align: justify;
 }
-.nc-carousel-dots { position: absolute; bottom: 2.6rem; display: flex; gap: 0.7rem; }
+.nc-carousel-dots { position: absolute; bottom: 1rem; display: flex; gap: 0.7rem; }
 .nc-dot {
   width: 15px; height: 15px; padding: 0; border-radius: 50%;
   border: 1.5px solid var(--ink); background: none; cursor: pointer;
