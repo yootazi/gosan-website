@@ -1366,7 +1366,7 @@ body[data-motion="off"] .nc-carousel-copy { animation: none; }
 }
 .nc-dot:hover { transform: scale(1.18); }
 .nc-dot.is-active { background: var(--ink); }
-.nc-carousel-media { position: relative; overflow: hidden; background: var(--surface-band); min-height: 540px; }
+.nc-carousel-media { position: relative; overflow: hidden; background: var(--surface-band); aspect-ratio: 4 / 3; min-height: 0; align-self: center; margin: 2rem 0; }
 .nc-carousel-slide-media {
   position: absolute; inset: 0; opacity: 0; pointer-events: none;
   transition: opacity 0.9s var(--ease-out);
