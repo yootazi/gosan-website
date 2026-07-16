@@ -218,17 +218,13 @@ function HomePage({ lang = 'fa', onToggleLang }) {
         <div className="nc-masthead-grid">
           <div className="nc-mast-side is-start">
             <span className="nc-issueline">{T.issueR} · {T.season}</span>
+            <a className="nc-mast-sub" href="#/archive">{T.sub}</a>
             <a href="#/archive"><img className="nc-mast-cover" src="assets/issue-cover.jpg" alt={en ? 'Issue No. 1 cover' : 'جلد شمارهٔ یکم'} /></a>
           </div>
           <div className="nc-mast-center">
             <a href="#/" className="nc-logo" role="img" aria-label="گوسان"></a>
           </div>
-          <div className="nc-mast-side is-end">
-            <a className="nc-mast-sub" href="#/archive">
-              <small>{T.subSmall}</small>
-              {T.sub}
-            </a>
-          </div>
+          <div className="nc-mast-side is-end"></div>
         </div>
       </div>
 
