@@ -572,6 +572,13 @@ article:has(.essay-figure:nth-of-type(3)) .essay-figure-block { clear: both; }
 }
 /* hide the English technical label inside the frame — the Persian caption is enough */
 .essay-figure .gsn-draft-frame figcaption.gsn-technical { display: none; }
+/* two-up figure row: two related portraits side by side in one calm, aligned row */
+.essay-figure-pair {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem;
+  margin: 2.4rem auto; align-items: start; clear: both;
+}
+.essay-figure-pair .essay-figure { width: 100%; max-width: 100%; margin: 0; }
+@media (max-width: 640px) { .essay-figure-pair { grid-template-columns: 1fr; gap: 1.9rem; } }
 /* two-part titles: the part after «:» or «؛» drops to the next line, lighter */
 .title-sub { display: block; font-size: 0.72em; font-weight: 500; color: var(--text-muted); margin-top: 0.25em; line-height: 1.4; }
 .nc-carousel-title .title-sub, .nc-title .title-sub { color: var(--text-muted); }
