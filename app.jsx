@@ -21,6 +21,7 @@ function parseHash() {
   if (parts[0] === 'contact') return { page: 'contact', param: '' };
   if (parts[0] === 'shivenameh') return { page: 'shivenameh', param: '' };
   if (parts[0] === 'thinktank') return { page: 'thinktank', param: '' };
+  if (parts[0] === 'impressum') return { page: 'impressum', param: '' };
   return { page: 'home', param: '' };
 }
 
@@ -45,6 +46,7 @@ const PAGE_TITLES = {
   contact: 'گوسان — تماس با ما',
   shivenameh: 'گوسان — شیوه‌نامه',
   thinktank: 'گوسان — اندیشکدهٔ فرهنگ و هنر',
+  impressum: 'گوسان — اطلاعات ناشر (Impressum)',
 };
 
 const NAV_ACTIVE = { home: 'خانه', archive: 'بایگانی', about: 'دربارهٔ ما', contact: 'تماس با ما', shivenameh: 'شیوه‌نامه', thinktank: 'اندیشکده' };
@@ -104,6 +106,7 @@ function App() {
          route.page === 'about' ? <AboutPage /> :
          route.page === 'contact' ? <ContactPage /> :
          route.page === 'shivenameh' ? <ShivenamehPage /> :
+         route.page === 'impressum' ? <ImpressumPage /> :
          route.page === 'thinktank' ? <iframe src="institute-fa.html" title="اندیشکدهٔ فرهنگ و هنر گوسان" className="inst-frame" style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', border: 0, zIndex: 40, background: '#0B1B33' }} /> :
          <HomePage lang={lang} />}
       </div>

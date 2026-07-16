@@ -259,4 +259,52 @@ function ContactPage() {
   );
 }
 
-Object.assign(window, { ArchivePage, AboutPage, ContactPage });
+function ImpressumPage() {
+  const label = { fontSize: '0.72rem', letterSpacing: '0.09em', color: 'var(--gold-deep)', textTransform: 'uppercase', fontWeight: 700, margin: '1.9rem 0 0.55rem' };
+  const line = { fontSize: '0.98rem', lineHeight: 2, color: 'var(--ink)', margin: '0 0 0.3rem', direction: 'ltr', textAlign: 'right' };
+  const empty = { color: 'var(--text-muted)', fontStyle: 'italic' };
+  const mail = { direction: 'ltr', display: 'inline-block', borderBottom: '1px solid var(--gold)', fontWeight: 500 };
+  return (
+    <main data-screen-label="Impressum">
+      <PageTitle technical="IMPRESSUM // GOSAN" title="اطلاعات ناشر — Impressum" lede="شناسنامهٔ حقوقی وب‌سایت بر پایهٔ § ۵ DDG و § ۱۸ MStV" />
+      <div className="wrap" style={{ maxWidth: '760px', paddingBottom: '5rem' }}>
+        <Reveal>
+          <p style={{ fontSize: '0.9rem', lineHeight: 2, color: 'var(--text-muted)', margin: '0 0 1.4rem', textAlign: 'justify' }}>
+            اطلاعات قانونی زیر بر پایهٔ § ۵ قانون خدمات دیجیتال آلمان (DDG) ارائه می‌شود.
+          </p>
+
+          <div style={label}>ناشر · Diensteanbieter</div>
+          <p style={line}>Gōsān Institute e.V.</p>
+          <p style={line}>Friedrichstr. 155</p>
+          <p style={line}>10117 Berlin</p>
+          <p style={line}>Germany</p>
+
+          <div style={label}>نماینده · Vertreten durch</div>
+          <p style={line}>Yalda Zamani</p>
+
+          <div style={label}>تماس · Kontakt</div>
+          <p style={line}>E-Mail: <a href="mailto:info@gosan.org" style={mail}>info@gosan.org</a></p>
+          <p style={line}>Telefon: <span style={empty}>—</span></p>
+
+          <div style={label}>ثبت انجمن · Registereintrag</div>
+          <p style={line}>Registergericht: <span style={empty}>—</span></p>
+          <p style={line}>Registernummer: <span style={empty}>—</span></p>
+
+          <div style={label}>شمارهٔ مالیاتی · Umsatzsteuer-Identifikationsnummer</div>
+          <p style={line}><span style={empty}>—</span></p>
+
+          <div style={label}>مسئول محتوا · Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</div>
+          <p style={line}>Yalda Zamani</p>
+          <p style={line}>Friedrichstr. 155, 10117 Berlin, Germany</p>
+
+          <MotifDivider style={{ margin: '2.6rem 0 1.4rem' }} />
+          <p style={{ fontSize: '0.82rem', lineHeight: 1.95, color: 'var(--text-muted)', textAlign: 'justify' }}>
+            حل اختلاف مصرف‌کننده · Verbraucherstreitbeilegung: Gōsān Institute e.V. مایل یا موظف به شرکت در روش حل اختلاف در برابر هیئت داوری مصرف‌کننده نیست.
+          </p>
+        </Reveal>
+      </div>
+    </main>
+  );
+}
+
+Object.assign(window, { ArchivePage, AboutPage, ContactPage, ImpressumPage });

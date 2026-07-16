@@ -84,6 +84,7 @@ function SiteFooter({ route }) {
             <li><a href="#/about">دربارهٔ ما</a></li>
             <li><a href="#/thinktank">اندیشکدهٔ فرهنگ و هنر</a></li>
             <li><a href="#/contact">تماس با ما</a></li>
+            <li><a href="#/impressum">اطلاعات ناشر · Impressum</a></li>
             <li><a href="mailto:info@gosan.org" style={{ direction: 'ltr', display: 'inline-block', borderBottom: '1px solid var(--gold)', color: 'var(--white)' }}>info@gosan.org</a></li>
           </ul>
         </div>
