@@ -82,9 +82,11 @@ function postFor(slug, lang) {
 
 /* real cover photos for articles that ship with imagery; the rest fall back
    to fillable <image-slot> placeholders. */
+/* Home-page cover photos use a black-and-white halftone treatment (separate
+   files); the same photos appear inside the articles in their original form. */
 const GOSAN_COVERS = {
-  'herzfeld-german-archives': 'uploads/herzfeld-persepolis-1932.png',
-  'interview-farnaz-modarresifar': 'uploads/farnaz-modarresifar-villa-medicis-2025.jpg',
+  'herzfeld-german-archives': 'uploads/cover-herzfeld.jpg',
+  'interview-farnaz-modarresifar': 'uploads/cover-farnaz.jpg',
 };
 
 /* split a two-part title at «:» or «؛» and drop the second part to a new line */

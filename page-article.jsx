@@ -402,7 +402,7 @@ function SummaryAside({ post, getText }) {
         <span className="summary-head">چکیده</span>
         <hr className="summary-rule" />
         <span className="summary-meta">مقاله از شمارهٔ یکم گوسان، {post.date}</span>
-        <p className="summary-text">{post.summary || post.excerpt}</p>
+        <p className="summary-text">{(window.GOSAN_SUMMARIES && window.GOSAN_SUMMARIES[post.slug]) || post.summary || post.excerpt}</p>
       </div>
       <div className="share-card">
         <ShareRow post={post} />
