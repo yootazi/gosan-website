@@ -90,7 +90,7 @@ function SiteFooter({ route }) {
         </div>
       </div>
       <div style={{ borderTop: '1px solid var(--line-dark)', textAlign: 'center', padding: '1.2rem', fontSize: '0.78rem', color: '#9A9A9A' }}>
-        گاهنامهٔ گوسان <span style={{ color: 'var(--gold)' }}>●</span> سال یکم، شمارهٔ یکم، تابستان ۲۵۸۵ <span style={{ color: 'var(--gold)' }}>●</span> همهٔ حقوق محفوظ است
+        گاهنامهٔ گوسان <span style={{ color: 'var(--gold)' }}>●</span> سال یکم، شمارهٔ یکم، پاییز ۲۵۸۵ <span style={{ color: 'var(--gold)' }}>●</span> همهٔ حقوق محفوظ است
       </div>
     </footer>
   );

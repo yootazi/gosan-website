@@ -560,7 +560,7 @@ function ArticleView({ slug }) {
 
       <div className="article-head">
         <DraftLineH top="2.4rem" right="-6rem" left="-6rem" />
-        <span className="gsn-technical" style={{ color: 'var(--gold-deep)' }}><a href="#/" className="article-cat-link" onClick={(e) => { e.preventDefault(); goToHomeSection(post.tag); }}>{post.tag}</a> · شمارهٔ یکم — تابستان ۲۵۸۵</span>
+        <span className="gsn-technical" style={{ color: 'var(--gold-deep)' }}><a href="#/" className="article-cat-link" onClick={(e) => { e.preventDefault(); goToHomeSection(post.tag); }}>{post.tag}</a> · شمارهٔ یکم — پاییز ۲۵۸۵</span>
         <h1 className="gsn-display" style={{ fontSize: '2.4rem', margin: '0.6rem 0 1rem' }}><TitleLines text={post.title} /></h1>
         <div className="article-byline">
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem' }}>

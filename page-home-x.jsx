@@ -170,7 +170,7 @@ function HomePage() {
           <Reveal>
             <img
               src="assets/issue-cover.jpg"
-              alt="جلد شمارهٔ یکم گوسان — سال یکم، شمارهٔ یکم، فروردین ۲۵۸۵"
+              alt="جلد شمارهٔ یکم گوسان — سال یکم، شمارهٔ یکم، پاییز ۲۵۸۵"
               style={{
                 display: 'block', width: '100%', boxShadow: 'var(--shadow-cover)',
               }}
@@ -178,7 +178,7 @@ function HomePage() {
           </Reveal>
           <Reveal delay={130}>
             <h2 style={{ fontSize: '1.6rem', fontWeight: 900, margin: '0 0 0.3rem' }}>گاهنامهٔ فرهنگی و هنری گوسان</h2>
-            <div style={{ color: 'var(--accent)', fontWeight: 500, marginBottom: '1.6rem' }}>سال یکم، شمارهٔ یکم، بهار ۲۵۸۵</div>
+            <div style={{ color: 'var(--accent)', fontWeight: 500, marginBottom: '1.6rem' }}>سال یکم، شمارهٔ یکم، پاییز ۲۵۸۵</div>
             <dl style={{ margin: '0 0 2rem' }}>
               <div style={{ marginBottom: '0.5rem' }}>
                 <dt style={{ fontWeight: 700, display: 'inline' }}>چکیده:</dt>

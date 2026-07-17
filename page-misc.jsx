@@ -177,7 +177,7 @@ function AboutPage() {
               </dd>
             </div>
           </dl>
-          <span className="about-spine">گوسان، سال یکم، شمارهٔ یکم، تابستان ۲۵۸۵</span>
+          <span className="about-spine">گوسان، سال یکم، شمارهٔ یکم، پاییز ۲۵۸۵</span>
         </Reveal>
       </section>
 
@@ -187,7 +187,7 @@ function AboutPage() {
             <span className="gsn-technical" style={{ color: 'var(--gold-deep)', display: 'block', textAlign: 'right', marginBottom: '0.7rem' }}>TEAM // ISSUE 01 — SUMMER 2585</span>
             <SectionHead title="هیئت تحریریه" />
             <p className="board-hint">
-              دست‌اندرکاران این شماره؛ سال یکم، شمارهٔ یکم، تابستان ۲۵۸۵.
+              دست‌اندرکاران این شماره؛ سال یکم، شمارهٔ یکم، پاییز ۲۵۸۵.
             </p>
           </Reveal>
           <Reveal delay={120}>

@@ -21,10 +21,10 @@ const GOSAN_POSTS_EN = {
 
 const HOME_T = {
   fa: {
-    issueR: 'سال یکم · شمارهٔ یکم', season: 'تابستان ۲۵۸۵ (۱۴۰۵)',
+    issueR: 'سال یکم · شمارهٔ یکم', season: 'پاییز ۲۵۸۵ (۱۴۰۵)',
     tagline: 'گاهنامه‌ای در فرهنگ، هنر و میراث کهن ایران',
     subSmall: 'ده شماره در سال · دسترسی به بایگانی', sub: 'دریافت اشتراک ←',
-    issueLine: 'شمارهٔ یکم — تابستان ۲۵۸۵', by: 'به‌قلمِ',
+    issueLine: 'شمارهٔ یکم — پاییز ۲۵۸۵', by: 'به‌قلمِ',
     notes: 'یادداشت‌ها و درنگ‌ها', features: 'جستارهای این شماره', featuresMore: 'همهٔ جستارها ←',
     interviews: 'گفتگو', interviewsMore: 'همهٔ گفتگوها ←', poetry: 'شعر',
     memoriam: 'یادمان', memoriamMore: 'همهٔ یادمان‌ها ←', popular: 'پرخواننده‌ترین‌ها',
@@ -393,7 +393,7 @@ function NcManifesto({ T }) {
           <div className="nc-man-brand-foot">
             <img className="nc-man-logo" src="assets/logo-gosan.png" alt="گوسان" />
             <p className="nc-man-sub">گاهنامهٔ فرهنگی و هنری گوسان</p>
-            <p className="nc-man-issue">سال یکم، شمارهٔ یکم، تابستان ۲۵۸۵ (۱۴۰۵)</p>
+            <p className="nc-man-issue">سال یکم، شمارهٔ یکم، پاییز ۲۵۸۵ (۱۴۰۵)</p>
           </div>
         </div>
 
