@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>اطلس فرهنگی ایران — آمارِ توزیع</title>
+<style>
+  @font-face{font-family:'IRANSansX';src:url('../assets/fonts/IRANSansX-Regular.woff2') format('woff2');font-weight:100 500;font-display:swap}
+  @font-face{font-family:'IRANSansX';src:url('../assets/fonts/IRANSansX-Bold.woff2') format('woff2');font-weight:600 900;font-display:swap}
+  :root{
+    --card:#FFFFFF; --line:#E3E0D8; --track:#EFEDE7;
+    --txt:#1A1A1A; --muted:#6E6A61; --accent:#46707F;
+    --mus:#6B5E8E; --kan:#B08A3E; --thr:#46707F; --lib:#4F7A5E; --cin:#A64B3C;
+    --bad:#A64B3C; --good:#4F7A5E;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:transparent;color:var(--txt);
+    font-family:'IRANSansX',system-ui,sans-serif;
+    font-size:14px;line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent)}
+  .wrap{max-width:1180px;margin:0 auto;padding:22px 20px 30px}
+  section{margin:0 0 46px}
+  .sec-h{font-size:11.5px;color:var(--accent);font-weight:700;margin:0 0 4px}
+  .sec-t{font-size:19px;font-weight:700;margin:0 0 4px}
+  .sec-d{color:var(--muted);font-size:13px;margin:0 0 20px;max-width:760px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px 20px}
+  .grid{display:grid;gap:16px}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g2{grid-template-columns:1fr 1fr}
+  @media(max-width:860px){.g4,.g3,.g2{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.g4,.g3,.g2{grid-template-columns:1fr}.wrap{padding:20px 16px 40px}}
+  /* KPI */
+  .kpi .v{font-size:30px;font-weight:800;line-height:1.3;font-variant-numeric:tabular-nums}
+  .kpi .l{font-size:12px;color:var(--muted);margin-top:7px}
+  .kpi .s{font-size:11px;color:var(--muted);margin-top:5px;opacity:.85}
+  .dotc{display:inline-block;width:9px;height:9px;border-radius:50%;margin-left:6px;vertical-align:middle}
+  /* bars */
+  .barrow{display:grid;grid-template-columns:150px 1fr 72px;align-items:center;gap:10px;margin:7px 0;font-size:12.5px}
+  .barrow .nm{color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .track{height:13px;background:var(--track);border-radius:7px;overflow:hidden}
+  .fill{height:100%;border-radius:7px}
+  .barrow .vv{text-align:left;font-variant-numeric:tabular-nums;color:var(--muted)}
+  .barrow.bad .vv{color:var(--bad);font-weight:700}
+  /* table */
+  table{border-collapse:collapse;width:100%;font-size:12.5px}
+  th,td{padding:8px 9px;text-align:left;white-space:nowrap;font-variant-numeric:tabular-nums}
+  th{position:sticky;top:0;background:#F1EFEA;color:var(--muted);font-weight:700;font-size:11px;
+    border-bottom:1px solid var(--line);cursor:pointer}
+  th:first-child,td:first-child{text-align:right}
+  th.sorted{color:var(--accent)}
+  tbody tr{border-bottom:1px solid #F0EEE8}
+  tbody tr:hover{background:#F7F6F2}
+  .scrollbox{max-height:520px;overflow:auto;border-radius:8px;border:1px solid var(--line)}
+  .pill{display:inline-block;font-size:10px;padding:1px 7px;border-radius:20px;border:1px solid var(--line);color:var(--muted)}
+  .pill.bad{color:var(--bad);border-color:rgba(166,75,60,.4)}
+  .pill.good{color:var(--good);border-color:rgba(79,122,94,.4)}
+  .note{font-size:11.5px;color:var(--muted);line-height:1.9;margin-top:12px}
+  .note b{color:var(--txt)}
+  .src{font-size:10.5px;color:var(--muted);margin-top:8px;line-height:1.9}
+  .chart-cap{font-size:12px;color:var(--muted);margin:2px 0 14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div style="margin-bottom:18px">
+    <div class="sec-h" style="margin-bottom:2px">اندیشکدهٔ فرهنگ و هنر گوسان — اطلس فرهنگی ایران</div>
+  </div>
+<section id="stats">
+  <div class="sec-h">بخش ۱ — درونِ ایران</div>
+  <div class="sec-t">نهادهای فرهنگی چگونه توزیع شده‌اند</div>
+  <p class="sec-d">شمارِ ملی نهادها، و ناهمواریِ پراکندگیِ آن‌ها در ۳۱ استان پس از هم‌سنجی با جمعیت. نکتهٔ اصلی نه در جمعِ کل، که در <b>نابرابری</b> است: چه کسانی برخوردارند و چه کسانی بیرون مانده‌اند.</p>
+
+  <div class="grid g4" id="kpis"></div>
+
+  <div class="grid g2" style="margin-top:16px">
+    <div class="card">
+      <div class="sec-t" style="font-size:15px">کم‌برخوردارترین استان‌ها — به ازای هر ۱۰۰٬۰۰۰ نفر</div>
+      <div class="chart-cap">پنج استانِ دارای کمترین برخورداری در هر رده. رنگِ سرخ یعنی بسیار پایین‌تر از میانگینِ ملی.</div>
+      <div id="leastTabs" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px"></div>
+      <div id="leastBars"></div>
+      <div class="note" id="leastNote"></div>
+    </div>
+    <div class="card">
+      <div class="sec-t" style="font-size:15px">نابرابری، سنجیده‌شده</div>
+      <div class="chart-cap">ضریب جینیِ برخورداریِ سرانه در میان استان‌ها (۰ = برابریِ کامل، ۱ = تمرکزِ همه‌چیز در یک استان).</div>
+      <div id="giniWrap"></div>
+      <div class="note">یک کتابخانه در برخوردارترین استان، به ازای هر نفر، چندین برابر دسترس‌پذیرتر از کم‌برخوردارترین استان است.
+      سینما نابرابرترین کالای فرهنگیِ ایران است — و متمرکزترین آن‌ها در چند شهرِ معدود.</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <div class="sec-t" style="font-size:15px">هر ۳۱ استان — رتبه‌بندی بر پایهٔ شاخصِ برابریِ فرهنگی</div>
+    <div class="chart-cap">برای مرتب‌سازی، روی عنوانِ هر ستون کلیک کنید. ستون‌های سرانه (به ازای هر ۱۰۰هزار نفر) توسعه‌نیافتگی‌ای را آشکار می‌کنند که شمارِ مطلق پنهان می‌کند
+      (مثلاً تهران و البرز بیشترین نهادها را دارند اما سرانهٔ آن‌ها پایین است).</div>
+    <div class="scrollbox"><table id="provTable"><thead></thead><tbody></tbody></table></div>
+    <div class="src">منبع: شمارِ استانی و شاخصِ ترکیبی — سالنامهٔ آماری ایران (مرکز آمار) ۱۳۹۱؛ موزه‌ها (در استان‌های دارای آمارِ منتشرشده) سازمان میراث فرهنگی. سرانه‌ها بر پایهٔ جمعیتِ ثبت‌شده محاسبه شده‌اند. موزه‌ها تنها برای ۹ استانِ دارای آمارِ منتشرشده نمایش داده می‌شوند.</div>
+  </div>
+</section>
+</div>
+<script>
+window.STATS={"provinces": [{"en": "Yazd", "fa": "یزد", "rank": 1, "index": 59.5, "pop": 1156000, "lib": 124, "lib_pc": 10.727, "cin": 4, "cin_pc": 0.346, "seats": 1380, "seats_pc": 119.4, "kan": 26, "kan_pc": 2.249, "mus": 39.0}, {"en": "Ilam", "fa": "ایلام", "rank": 2, "index": 54.3, "pop": 591000, "lib": 49, "lib_pc": 8.291, "cin": 1, "cin_pc": 0.1692, "seats": 474, "seats_pc": 80.2, "kan": 22, "kan_pc": 3.723, "mus": 6.0}, {"en": "South Khorasan", "fa": "خراسان جنوبی", "rank": 3, "index": 53.2, "pop": 786000, "lib": 45, "lib_pc": 5.725, "cin": 4, "cin_pc": 0.5089, "seats": 1329, "seats_pc": 169.1, "kan": 15, "kan_pc": 1.908, "mus": null}, {"en": "Tehran", "fa": "تهران", "rank": 4, "index": 51.5, "pop": 13323000, "lib": 196, "lib_pc": 1.471, "cin": 111, "cin_pc": 0.8331, "seats": 37337, "seats_pc": 280.2, "kan": 57, "kan_pc": 0.428, "mus": 193.0}, {"en": "Kohgiluyeh and Boyer-Ahmad", "fa": "کهگیلویه و بویراحمد", "rank": 5, "index": 49.7, "pop": 728000, "lib": 56, "lib_pc": 7.692, "cin": 3, "cin_pc": 0.4121, "seats": 760, "seats_pc": 104.4, "kan": 14, "kan_pc": 1.923, "mus": 3.0}, {"en": "Gilan", "fa": "گیلان", "rank": 6, "index": 47.9, "pop": 2546000, "lib": 88, "lib_pc": 3.456, "cin": 11, "cin_pc": 0.4321, "seats": 6190, "seats_pc": 243.1, "kan": 36, "kan_pc": 1.414, "mus": null}, {"en": "Semnan", "fa": "سمنان", "rank": 7, "index": 46.9, "pop": 715000, "lib": 52, "lib_pc": 7.273, "cin": 2, "cin_pc": 0.2797, "seats": 381, "seats_pc": 53.3, "kan": 21, "kan_pc": 2.937, "mus": null}, {"en": "Markazi", "fa": "مرکزی", "rank": 8, "index": 45.2, "pop": 1436000, "lib": 75, "lib_pc": 5.223, "cin": 3, "cin_pc": 0.2089, "seats": 1178, "seats_pc": 82.0, "kan": 49, "kan_pc": 3.412, "mus": null}, {"en": "Hamadan", "fa": "همدان", "rank": 9, "index": 38.4, "pop": 1756000, "lib": 68, "lib_pc": 3.872, "cin": 6, "cin_pc": 0.3417, "seats": 1902, "seats_pc": 108.3, "kan": 36, "kan_pc": 2.05, "mus": null}, {"en": "Bushehr", "fa": "بوشهر", "rank": 10, "index": 37.5, "pop": 1174000, "lib": 67, "lib_pc": 5.707, "cin": 4, "cin_pc": 0.3407, "seats": 925, "seats_pc": 78.8, "kan": 19, "kan_pc": 1.618, "mus": null}, {"en": "Chaharmahal and Bakhtiari", "fa": "چهارمحال و بختیاری", "rank": 11, "index": 35.6, "pop": 973000, "lib": 62, "lib_pc": 6.372, "cin": 1, "cin_pc": 0.1028, "seats": 600, "seats_pc": 61.7, "kan": 23, "kan_pc": 2.364, "mus": null}, {"en": "Isfahan", "fa": "اصفهان", "rank": 12, "index": 33.3, "pop": 5136000, "lib": 260, "lib_pc": 5.062, "cin": 13, "cin_pc": 0.2531, "seats": 6000, "seats_pc": 116.8, "kan": 60, "kan_pc": 1.168, "mus": 51.0}, {"en": "Lorestan", "fa": "لرستان", "rank": 13, "index": 33.2, "pop": 1784000, "lib": 56, "lib_pc": 3.139, "cin": 5, "cin_pc": 0.2803, "seats": 2983, "seats_pc": 167.2, "kan": 20, "kan_pc": 1.121, "mus": null}, {"en": "Mazandaran", "fa": "مازندران", "rank": 14, "index": 31.5, "pop": 3302000, "lib": 92, "lib_pc": 2.786, "cin": 10, "cin_pc": 0.3028, "seats": 5759, "seats_pc": 174.4, "kan": 27, "kan_pc": 0.818, "mus": null}, {"en": "Ardabil", "fa": "اردبیل", "rank": 15, "index": 31.5, "pop": 1284000, "lib": 65, "lib_pc": 5.062, "cin": 2, "cin_pc": 0.1558, "seats": 500, "seats_pc": 38.9, "kan": 30, "kan_pc": 2.336, "mus": null}, {"en": "Fars", "fa": "فارس", "rank": 16, "index": 30.1, "pop": 4904000, "lib": 183, "lib_pc": 3.732, "cin": 11, "cin_pc": 0.2243, "seats": 7208, "seats_pc": 147.0, "kan": 47, "kan_pc": 0.958, "mus": 46.0}, {"en": "Khuzestan", "fa": "خوزستان", "rank": 17, "index": 29.4, "pop": 4725000, "lib": 173, "lib_pc": 3.661, "cin": 11, "cin_pc": 0.2328, "seats": 6026, "seats_pc": 127.5, "kan": 52, "kan_pc": 1.101, "mus": null}, {"en": "Kurdistan", "fa": "کردستان", "rank": 18, "index": 28.7, "pop": 1614000, "lib": 88, "lib_pc": 5.452, "cin": 3, "cin_pc": 0.1859, "seats": 1320, "seats_pc": 81.8, "kan": 18, "kan_pc": 1.115, "mus": null}, {"en": "Qom", "fa": "قم", "rank": 19, "index": 27.8, "pop": 1300000, "lib": 53, "lib_pc": 4.077, "cin": 4, "cin_pc": 0.3077, "seats": 1200, "seats_pc": 92.3, "kan": 11, "kan_pc": 0.846, "mus": 6.0}, {"en": "North Khorasan", "fa": "خراسان شمالی", "rank": 20, "index": 26.5, "pop": 868000, "lib": 65, "lib_pc": 7.488, "cin": 1, "cin_pc": 0.1152, "seats": 480, "seats_pc": 55.3, "kan": 6, "kan_pc": 0.691, "mus": null}, {"en": "Golestan", "fa": "گلستان", "rank": 21, "index": 26.2, "pop": 1893000, "lib": 61, "lib_pc": 3.222, "cin": 6, "cin_pc": 0.317, "seats": 1827, "seats_pc": 96.5, "kan": 16, "kan_pc": 0.845, "mus": null}, {"en": "Zanjan", "fa": "زنجان", "rank": 22, "index": 26.1, "pop": 1103000, "lib": 67, "lib_pc": 6.074, "cin": 1, "cin_pc": 0.0907, "seats": 232, "seats_pc": 21.0, "kan": 19, "kan_pc": 1.723, "mus": null}, {"en": "Razavi Khorasan", "fa": "خراسان رضوی", "rank": 23, "index": 25.2, "pop": 6444000, "lib": 176, "lib_pc": 2.731, "cin": 20, "cin_pc": 0.3104, "seats": 7534, "seats_pc": 116.9, "kan": 43, "kan_pc": 0.667, "mus": 76.0}, {"en": "Kermanshah", "fa": "کرمانشاه", "rank": 24, "index": 24.7, "pop": 2003000, "lib": 82, "lib_pc": 4.094, "cin": 2, "cin_pc": 0.0999, "seats": 1330, "seats_pc": 66.4, "kan": 33, "kan_pc": 1.648, "mus": null}, {"en": "East Azarbaijan", "fa": "آذربایجان شرقی", "rank": 25, "index": 23.3, "pop": 3925000, "lib": 126, "lib_pc": 3.21, "cin": 8, "cin_pc": 0.2038, "seats": 4504, "seats_pc": 114.8, "kan": 28, "kan_pc": 0.713, "mus": 41.0}, {"en": "Qazvin", "fa": "قزوین", "rank": 26, "index": 22.8, "pop": 1284000, "lib": 51, "lib_pc": 3.972, "cin": 2, "cin_pc": 0.1558, "seats": 550, "seats_pc": 42.8, "kan": 19, "kan_pc": 1.48, "mus": null}, {"en": "Kerman", "fa": "کرمان", "rank": 27, "index": 19.9, "pop": 3184000, "lib": 110, "lib_pc": 3.455, "cin": 4, "cin_pc": 0.1256, "seats": 1828, "seats_pc": 57.4, "kan": 39, "kan_pc": 1.225, "mus": null}, {"en": "West Azarbaijan", "fa": "آذربایجان غربی", "rank": 28, "index": 17.9, "pop": 3278000, "lib": 113, "lib_pc": 3.447, "cin": 3, "cin_pc": 0.0915, "seats": 2107, "seats_pc": 64.3, "kan": 33, "kan_pc": 1.007, "mus": null}, {"en": "Alborz", "fa": "البرز", "rank": 29, "index": 15.1, "pop": 2730000, "lib": 63, "lib_pc": 2.308, "cin": 6, "cin_pc": 0.2198, "seats": 2292, "seats_pc": 84.0, "kan": 6, "kan_pc": 0.22, "mus": null}, {"en": "Hormozgan", "fa": "هرمزگان", "rank": 30, "index": 12.9, "pop": 1806000, "lib": 60, "lib_pc": 3.322, "cin": 2, "cin_pc": 0.1107, "seats": 436, "seats_pc": 24.1, "kan": 14, "kan_pc": 0.775, "mus": null}, {"en": "Sistan and Baluchestan", "fa": "سیستان و بلوچستان", "rank": 31, "index": 7.0, "pop": 2777000, "lib": 58, "lib_pc": 2.089, "cin": 1, "cin_pc": 0.036, "seats": 200, "seats_pc": 7.2, "kan": 27, "kan_pc": 0.972, "mus": null}], "national": {"pop": 80528000, "lib": 2884, "cin": 265, "kan": 866, "seats": 106772, "lib_pc": 3.581363004172462, "cin_pc": 0.329078084641367, "kan_pc": 1.0754023445261276, "seats_pc": 132.58990661633223}};
+</script>
+<script>
+(function(){
+const S = window.STATS;
+  if(!S){ document.body.insertAdjacentHTML("afterbegin","<p style='padding:20px;color:#A64B3C'>بارگذاری داده‌ها ممکن نشد</p>"); return; }
+  const P = S.provinces, NAT = S.national;
+  const fmt = n => n.toLocaleString('fa-IR');
+  const f1 = n => (Math.round(n*10)/10).toLocaleString('fa-IR');
+  const f2 = n => (Math.round(n*100)/100).toLocaleString('fa-IR');
+  const f3 = n => (Math.round(n*1000)/1000).toLocaleString('fa-IR');
+  const fd = s => String(s).replace(/[0-9]/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
+
+
+/* ---------- KPIs (Panel 1) ---------- */
+  const totalInst = NAT.lib+NAT.cin+NAT.kan;
+  const kpis = [
+    {v:fmt(totalInst), l:"نهادِ عمومیِ شمارش‌شده", s:"کتابخانه‌ها + سینماها + فرهنگ‌سراها", c:"var(--accent)"},
+    {v:fmt(NAT.lib), l:"کتابخانهٔ عمومی", s:f2(NAT.lib_pc)+" به ازای هر ۱۰۰هزار نفر", c:"var(--lib)"},
+    {v:fmt(NAT.cin), l:"سینما", s:f3(NAT.cin_pc)+" به ازای هر ۱۰۰هزار نفر · "+fmt(NAT.seats)+" صندلی", c:"var(--cin)"},
+    {v:fmt(NAT.kan), l:"فرهنگ‌سرا", s:f2(NAT.kan_pc)+" به ازای هر ۱۰۰هزار نفر", c:"var(--kan)"},
+  ];
+  document.getElementById("kpis").innerHTML = kpis.map(k=>
+    `<div class="card kpi"><div class="v" style="color:${k.c}">${k.v}</div><div class="l">${k.l}</div><div class="s">${k.s}</div></div>`).join("");
+
+  /* ---------- Least-served bars (tabbed) ---------- */
+  const cats = [
+    {key:"lib_pc", lab:"کتابخانه‌ها", col:"var(--lib)", nat:NAT.lib_pc},
+    {key:"cin_pc", lab:"سینماها",   col:"var(--cin)", nat:NAT.cin_pc},
+    {key:"kan_pc", lab:"فرهنگ‌سراها", col:"var(--kan)", nat:NAT.kan_pc},
+    {key:"seats_pc", lab:"صندلی‌های سینما", col:"var(--cin)", nat:NAT.seats_pc},
+  ];
+  let curCat = 1; // cinemas = most striking
+  function renderLeast(){
+    const c = cats[curCat];
+    document.getElementById("leastTabs").innerHTML = cats.map((x,i)=>
+      `<span class="pill" style="cursor:pointer;${i===curCat?'color:var(--accent);border-color:var(--accent)':''}" data-i="${i}">${x.lab}</span>`).join("");
+    document.querySelectorAll("#leastTabs .pill").forEach(p=>p.onclick=()=>{curCat=+p.dataset.i;renderLeast();});
+    const rows = P.filter(p=>p[c.key]!=null).sort((a,b)=>a[c.key]-b[c.key]).slice(0,6);
+    const max = Math.max(...P.filter(p=>p[c.key]!=null).map(p=>p[c.key]));
+    document.getElementById("leastBars").innerHTML = rows.map(p=>{
+      const bad = p[c.key] < c.nat*0.6;
+      return `<div class="barrow ${bad?'bad':''}"><div class="nm">${p.fa}</div>
+        <div class="track"><div class="fill" style="width:${Math.max(2,p[c.key]/max*100)}%;background:${c.col};opacity:${bad?1:.55}"></div></div>
+        <div class="vv">${f3(p[c.key])}</div></div>`;
+    }).join("");
+    document.getElementById("leastNote").innerHTML =
+      `میانگینِ ملی: <b>${f3(c.nat)} به ازای هر ۱۰۰هزار نفر</b>. میله‌های سرخ زیر ۶۰٪ این خط قرار دارند. `+
+      (c.key==="cin_pc" ? `سیستان و بلوچستان <b>برای ۲٫۷۸ میلیون نفر تنها یک سینما</b> دارد — حدودِ یک‌دهمِ نرخِ ملی.` :
+       c.key==="lib_pc" ? `توجه کنید که تهران و البرز نیز در این فهرست‌اند: شمارِ مطلقِ بزرگ، اما سرانهٔ اندک.` :
+       `نمای سرانه شکاف‌هایی را آشکار می‌کند که جمعِ خام پنهان می‌کند.`);
+  }
+  renderLeast();
+
+  /* ---------- Gini bars ---------- */
+  function gini(vals){ vals=vals.slice().sort((a,b)=>a-b); const n=vals.length; const s=vals.reduce((a,b)=>a+b,0);
+    if(!s) return 0; let cum=0; vals.forEach((v,i)=>cum+=(i+1)*v); return (2*cum)/(n*s)-(n+1)/n; }
+  const ginis = [
+    {lab:"سینماها", g:gini(P.map(p=>p.cin_pc)), col:"var(--cin)"},
+    {lab:"فرهنگ‌سراها", g:gini(P.map(p=>p.kan_pc)), col:"var(--kan)"},
+    {lab:"کتابخانه‌ها", g:gini(P.map(p=>p.lib_pc)), col:"var(--lib)"},
+  ].sort((a,b)=>b.g-a.g);
+  document.getElementById("giniWrap").innerHTML = ginis.map(x=>
+    `<div class="barrow"><div class="nm">${x.lab}</div>
+      <div class="track"><div class="fill" style="width:${x.g*100}%;background:${x.col}"></div></div>
+      <div class="vv" style="color:var(--txt);font-weight:700">${f3(x.g)}</div></div>`).join("");
+
+  /* ---------- Province table ---------- */
+  const cols = [["fa","استان"],["rank","رتبه"],["index","شاخص"],["pop","جمعیت"],
+    ["lib","کتابخانه"],["lib_pc","سرانه"],["cin","سینما"],["cin_pc","سرانه"],
+    ["kan","فرهنگ‌سرا"],["kan_pc","سرانه"],["mus","موزه"]];
+  let sortKey="rank", sortDir=1;
+  function drawTable(){
+    const thead=document.querySelector("#provTable thead"), tbody=document.querySelector("#provTable tbody");
+    thead.innerHTML="<tr>"+cols.map(c=>`<th data-k="${c[0]}" class="${c[0]===sortKey?'sorted':''}">${c[1]}</th>`).join("")+"</tr>";
+    thead.querySelectorAll("th").forEach(th=>th.onclick=()=>{const k=th.dataset.k; if(k===sortKey)sortDir*=-1; else{sortKey=k;sortDir=1;} drawTable();});
+    const rows=P.slice().sort((a,b)=>{ const av=a[sortKey],bv=b[sortKey];
+      if(sortKey==="fa") return (av<bv?-1:1)*sortDir;
+      return ((av==null?-1:av)-(bv==null?-1:bv))*sortDir; });
+    tbody.innerHTML=rows.map(p=>{
+      const worst = p.rank>=27;
+      return `<tr><td>${p.fa}</td>
+        <td>${fmt(p.rank)}${worst?' <span class="pill bad">پایین</span>':p.rank<=5?' <span class="pill good">بالا</span>':''}</td>
+        <td>${f1(p.index)}</td><td>${fd((p.pop/1e6).toFixed(2))} م</td>
+        <td>${fmt(p.lib)}</td><td>${f2(p.lib_pc)}</td>
+        <td>${fmt(p.cin)}</td><td>${f3(p.cin_pc)}</td>
+        <td>${fmt(p.kan)}</td><td>${f2(p.kan_pc)}</td>
+        <td>${p.mus==null?'—':fmt(p.mus)}</td></tr>`;
+    }).join("");
+  }
+  drawTable();
+
+
+})();
+
+// post height to parent for auto-resizing iframes (optional consumer-side)
+(function(){
+  function ph(){ try{ var h=document.documentElement.scrollHeight;
+    parent.postMessage({gosanHeight:h},"*"); }catch(e){} }
+  window.addEventListener("load",ph); window.addEventListener("resize",ph);
+  setTimeout(ph,400); setTimeout(ph,1200);
+})();
+
+</script>
+<script>
+(function(){function p(){try{parent.postMessage({__gosanEmbed:1,h:document.documentElement.scrollHeight},'*')}catch(e){}}addEventListener('load',p);addEventListener('resize',p);if(window.ResizeObserver){new ResizeObserver(p).observe(document.body)}setTimeout(p,300);setTimeout(p,1000);setTimeout(p,2500)})();
+</script>
+</body>
+</html>

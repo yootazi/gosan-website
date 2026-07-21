@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>نمایهٔ میراثِ زدوده — بایگانی امن</title>
+<style>
+  @font-face{font-family:'IRANSansX';src:url('../assets/fonts/IRANSansX-Regular.woff2') format('woff2');font-weight:100 500;font-display:swap}
+  @font-face{font-family:'IRANSansX';src:url('../assets/fonts/IRANSansX-Bold.woff2') format('woff2');font-weight:600 900;font-display:swap}
+  :root{
+    --panel:#FFFFFF; --panel2:#F7F6F2; --line:#E3E0D8;
+    --ink:#1A1A1A; --soft:#6E6A61; --soft2:#99938A;
+    --accent:#46707F; --ok:#4F7A5E;
+    /* رنگ‌های دسته‌ها (داده — برای زمینهٔ روشن تیره‌تر شده‌اند) */
+    --c-hist:#6D5BA8; --c-lit:#9C7A2E; --c-music:#3E7396; --c-trad:#4F7A5E; --c-region:#A05656;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:transparent;color:var(--ink);
+    font-family:'IRANSansX',sans-serif;
+    line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1200px;margin:0 auto;padding:30px 26px 60px}
+  /* سربرگ */
+  .ieh-head{border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:26px}
+  .ieh-kick{font-size:11.5px;color:var(--accent);display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .ieh-kick::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  .ieh-head h1{font-size:clamp(26px,3.4vw,40px);font-weight:900;line-height:1.35}
+  .ieh-head h1 span{color:var(--accent)}
+  .ieh-head .lead{margin-top:14px;max-width:62ch;color:#55514A;font-size:15px;line-height:1.9}
+  .ieh-head .lead b{color:var(--ink);font-weight:600}
+  .secure{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .secure span{font-size:11.5px;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 36%,transparent);border-radius:999px;padding:6px 13px;display:flex;align-items:center;gap:7px}
+  .secure span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  /* چیدمان */
+  .ieh-grid{display:grid;grid-template-columns:340px 1fr;gap:26px;align-items:start}
+  @media(max-width:880px){.ieh-grid{grid-template-columns:1fr}}
+  /* برگهٔ سپردن */
+  .form-card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:22px;position:sticky;top:14px}
+  .form-card h2{font-size:14px;font-weight:700;margin-bottom:4px}
+  .form-card .fnote{font-size:11.5px;color:var(--soft);line-height:1.85;margin-bottom:18px}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:10.5px;color:var(--soft);margin-bottom:7px}
+  .field input[type=text],.field select,.field textarea{width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:6px;color:var(--ink);font-family:inherit;font-size:13px;padding:10px 11px;text-align:right}
+  .field textarea{resize:vertical;min-height:78px;line-height:1.7}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent)}
+  .toggle-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;margin-bottom:16px}
+  .toggle-row .tl{font-size:12px}
+  .toggle-row .ts{font-size:10.5px;color:var(--soft);margin-top:2px}
+  .switch{position:relative;width:40px;height:22px;flex:none}
+  .switch input{display:none}
+  .slider{position:absolute;inset:0;background:var(--soft2);border-radius:20px;transition:.2s;cursor:pointer}
+  .slider:before{content:"";position:absolute;width:16px;height:16px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}
+  .switch input:checked + .slider{background:var(--accent)}
+  .switch input:checked + .slider:before{transform:translateX(18px)}
+  .submit-btn{width:100%;background:var(--accent);color:#FFFFFF;border:0;border-radius:6px;font-family:inherit;font-size:12.5px;font-weight:700;padding:13px;cursor:pointer;transition:transform .2s,background .25s}
+  .submit-btn:hover{transform:translateY(-1px);background:#3C6270}
+  .form-ok{font-size:11.5px;color:var(--ok);margin-top:11px;min-height:16px;line-height:1.7}
+  /* بایگانی */
+  .arch-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+  .arch-count{font-size:11.5px;color:var(--soft)}
+  .arch-count b{color:var(--ink)}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{font-family:inherit;font-size:11px;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:6px 13px;cursor:pointer;transition:.18s;display:flex;align-items:center;gap:7px;background:none}
+  .chip:hover{color:var(--ink);border-color:var(--soft)}
+  .chip.on{color:var(--ink);border-color:var(--accent);background:var(--panel)}
+  .chip .cdot{width:8px;height:8px;border-radius:50%}
+  .arch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+  .entry{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:17px 17px 18px;display:flex;flex-direction:column;gap:9px;border-inline-start:3px solid var(--cat,var(--soft2));transition:transform .2s,border-color .25s,background .25s;animation:rise .5s ease both}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}}
+  .entry:hover{transform:translateY(-3px);background:var(--panel2)}
+  .entry.fresh{border-color:var(--ok)}
+  .e-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .e-cat{font-size:10.5px;color:var(--cat,var(--soft));display:flex;align-items:center;gap:7px}
+  .e-cat .cdot{width:8px;height:8px;border-radius:50%;background:var(--cat,var(--soft))}
+  .e-new{font-size:10px;color:#FFFFFF;background:var(--ok);border-radius:4px;padding:2px 7px}
+  .e-title{font-size:16px;font-weight:700;line-height:1.55}
+  .e-desc{font-size:12.5px;color:var(--soft);line-height:1.85}
+  .e-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:6px;font-size:10.5px;color:var(--soft2)}
+  .e-region{color:var(--soft)}
+  .empty{grid-column:1/-1;text-align:center;color:var(--soft);font-size:13px;padding:40px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="ieh-head">
+    <div class="ieh-kick">هدف ۰۱ · هم‌اکنون فعال · با مشارکت مردمی</div>
+    <h1>نمایهٔ <span>میراثِ زدوده</span></h1>
+    <p class="lead">بایگانی امن و مردم‌ساخته از آنچه رژیم در پی حذفش بود. <b>تاریخ پیشااسلامی، ادبیات ممنوع، موسیقی قدغن و سنت‌های سرکوب‌شدهٔ منطقه‌ای</b> را — بی‌نام و با زدودن همهٔ فراداده‌های هویتی — به نمایه بسپارید. هر مدخل، خطر را در برون‌مرز به دوش می‌کشد تا حافظه در درون‌مرز زنده بماند.</p>
+    <div class="secure">
+      <span>فراداده‌ها زدوده می‌شوند</span>
+      <span>بی‌نام به‌صورتِ پیش‌فرض</span>
+      <span>آینه‌سازی‌شده در برون‌مرز</span>
+      <span>سانسورناپذیر</span>
+    </div>
+  </div>
+
+  <div class="ieh-grid">
+    <!-- سپردن -->
+    <form class="form-card" id="ehForm">
+      <h2>سپردن به نمایه</h2>
+      <p class="fnote">بدون حساب کاربری. بدون ردیابی. مدخل‌ها پیش از آینه‌سازی عمومی به دست تاریخ‌نگاران برون‌مرزی بازبینی می‌شوند. این نسخهٔ نمایشی، سپرده‌ها را تنها به‌صورت محلی در مرورگر شما نگه می‌دارد.</p>
+      <div class="field">
+        <label for="f-title">عنوان اثر / سنت</label>
+        <input type="text" id="f-title" placeholder="مثال: ترانه‌های آتشِ نوروزی کردستان" required />
+      </div>
+      <div class="field">
+        <label for="f-cat">دسته</label>
+        <select id="f-cat">
+          <option value="hist">تاریخ پیشااسلامی</option>
+          <option value="lit">ادبیات ممنوع</option>
+          <option value="music">موسیقی قدغن</option>
+          <option value="trad">سنت سرکوب‌شده</option>
+          <option value="region">میراث منطقه‌ای</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-region">منطقه / خاستگاه</label>
+        <input type="text" id="f-region" placeholder="مثال: بلوچستان" />
+      </div>
+      <div class="field">
+        <label for="f-desc">آنچه زدوده شد و چرا اهمیت دارد</label>
+        <textarea id="f-desc" placeholder="میراث را شرح دهید؛ زمان و چگونگی سرکوب آن و منابع موجود…"></textarea>
+      </div>
+      <div class="toggle-row">
+        <div><div class="tl">سپردنِ بی‌نام</div><div class="ts">نام، نشانی آی‌پی و فراداده‌های دستگاه زدوده می‌شود</div></div>
+        <label class="switch"><input type="checkbox" id="f-anon" checked /><span class="slider"></span></label>
+      </div>
+      <button class="submit-btn" type="submit">سپردن به بایگانی ←</button>
+      <div class="form-ok" id="formOk"></div>
+    </form>
+
+    <!-- بایگانی -->
+    <div>
+      <div class="arch-bar">
+        <div class="arch-count"><b id="archN">۰</b> مدخل نگهداری‌شده</div>
+        <div class="chips" id="chips"></div>
+      </div>
+      <div class="arch-grid" id="archGrid"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const fd = s => String(s).replace(/[0-9]/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+  var CATS = {
+    hist:{label:"تاریخ پیشااسلامی", v:"--c-hist"},
+    lit:{label:"ادبیات ممنوع", v:"--c-lit"},
+    music:{label:"موسیقی قدغن", v:"--c-music"},
+    trad:{label:"سنت سرکوب‌شده", v:"--c-trad"},
+    region:{label:"میراث منطقه‌ای", v:"--c-region"}
+  };
+  var SEED = [
+    {cat:"hist", title:"استوانهٔ کوروش به‌مثابهِ منشور حقوق", region:"پارس", desc:"اعلامیهٔ سدهٔ ششم پیش از میلاد دربارهٔ رواداری دینی و بازگرداندن مردمانِ آواره — از برنامهٔ درسی هویت ملی حذف شد و بیگانه قلمداد گردید.", date:"2585.04"},
+    {cat:"music", title:"ضبط‌های زیرزمینی تنبک و سنتور", region:"تهران", desc:"ضبط‌های خانگی تک‌نوازی که پس از محدودیت‌های اجرای عمومی بر نوار کاست دست‌به‌دست می‌شد — پیکره‌ای موازی که هرگز از سوی حکومت مجوز نگرفت و بایگانی نشد.", date:"2585.04"},
+    {cat:"lit", title:"بندهای سانسورشدهٔ شاعران معاصر", region:"خراسان", desc:"ابیاتی که در ممیزی ارشاد از دیوان‌های چاپی حذف شد — و تنها در دست‌نوشته‌های پیش از انتشار، که به خارج منتقل گردید، برجا مانده است.", date:"2585.03"},
+    {cat:"trad", title:"جشن آتش میان‌زمستانی سدهٔ زرتشتیان", region:"یزد", desc:"آیینی سه‌هزارساله در بزرگداشت آتش که ده‌ها سال از برگزاری‌اش بازداشته شد و ثبت‌نشده ماند؛ ترتیب آیینی آن بیشتر در حافظهٔ سالخوردگان زنده است.", date:"2585.03"},
+    {cat:"region", title:"مقام‌های زهیریگ بلوچی", region:"بلوچستان", desc:"مقام‌های درمانی و سوگوارانهٔ جنوب شرق ایران که از پخش سراسری کنار گذاشته شد و با سالخوردگی استادانِ بی‌شاگرد در خطر فراموشی است.", date:"2585.03"},
+    {cat:"region", title:"حماسه‌های شفاهی دنگبیژی هورامان", region:"کردستان", desc:"روایت‌های تاریخی آوازی که سینه‌به‌سینه از استاد به شاگرد رسیده و با محدودیت‌های زبانی در آموزش و رسانه به حاشیه رانده شده است.", date:"2585.02"},
+    {cat:"lit", title:"طنز توقیف‌شدهٔ مطبوعات دههٔ هشتاد خورشیدی", region:"تهران", desc:"کاریکاتورها و ستون‌های سیاسی که پیش از توزیع جمع‌آوری و خمیر شد — نسخه‌های اسکن‌شده از مجموعه‌های خصوصی بازسازی شده است.", date:"2585.02"},
+    {cat:"trad", title:"آیین‌های تعمید مندایی کارون", region:"خوزستان", desc:"آیین‌های رودخانه‌ایِ یکی از کهن‌ترین اقلیت‌های ایران که با آوارگی و انحراف آب‌هایی که به آن وابسته‌اند رو به زوال رفته است.", date:"2585.02"}
+  ];
+  var KEY = "gosan-erased-heritage-fa-v1";
+  var store = [];
+  try { store = JSON.parse(localStorage.getItem(KEY) || "[]"); } catch(e){ store = []; }
+
+  var filter = "all";
+  var grid = document.getElementById("archGrid");
+  var chipsEl = document.getElementById("chips");
+  var archN = document.getElementById("archN");
+
+  function all(){ return store.concat(SEED); }
+
+  function chip(id, label, v){
+    var dot = v ? '<span class="cdot" style="background:var('+v+')"></span>' : '';
+    return '<button type="button" class="chip'+(filter===id?' on':'')+'" data-f="'+id+'">'+dot+label+'</button>';
+  }
+  function renderChips(){
+    var html = chip("all","همه", null);
+    for (var k in CATS){ html += chip(k, CATS[k].label, CATS[k].v); }
+    chipsEl.innerHTML = html;
+    chipsEl.querySelectorAll(".chip").forEach(function(c){
+      c.onclick = function(){ filter = c.dataset.f; renderChips(); renderGrid(); };
+    });
+  }
+  function card(e){
+    var c = CATS[e.cat] || {label:e.cat, v:"--soft"};
+    var fresh = e._fresh ? '<span class="e-new">تازه</span>' : '';
+    var region = e.region ? '<span class="e-region">'+esc(e.region)+'</span>' : '<span class="e-region">—</span>';
+    return '<article class="entry'+(e._fresh?' fresh':'')+'" style="--cat:var('+c.v+')">'+
+      '<div class="e-top"><span class="e-cat"><span class="cdot"></span>'+c.label+'</span>'+fresh+'</div>'+
+      '<div class="e-title">'+esc(e.title)+'</div>'+
+      '<div class="e-desc">'+esc(e.desc||'')+'</div>'+
+      '<div class="e-foot">'+region+'<span>'+ (e.anon!==false?'بی‌نام':'با نام') +' · '+fd(e.date||'—')+'</span></div>'+
+    '</article>';
+  }
+  function renderGrid(){
+    var list = all().filter(function(e){ return filter==="all" || e.cat===filter; });
+    archN.textContent = fd(all().length);
+    if (!list.length){ grid.innerHTML = '<div class="empty">در این دسته هنوز مدخلی ثبت نشده است — نخستین نگاهبانِ آن باشید.</div>'; return; }
+    grid.innerHTML = list.map(card).join("");
+  }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(m){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[m]; }); }
+
+  function nowStamp(){ return "2585." + String(new Date().getMonth()+1).padStart(2,"0"); }
+
+  document.getElementById("ehForm").addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var title = document.getElementById("f-title").value.trim();
+    if (!title){ return; }
+    var entry = {
+      cat: document.getElementById("f-cat").value,
+      title: title,
+      region: document.getElementById("f-region").value.trim(),
+      desc: document.getElementById("f-desc").value.trim(),
+      anon: document.getElementById("f-anon").checked,
+      date: nowStamp(),
+      _fresh: true
+    };
+    store.unshift(entry);
+    try { localStorage.setItem(KEY, JSON.stringify(store.map(function(e){ var c=Object.assign({},e); delete c._fresh; return c; }))); } catch(e){}
+    filter = "all";
+    renderChips(); renderGrid();
+    this.reset(); document.getElementById("f-anon").checked = true;
+    var ok = document.getElementById("formOk");
+    ok.textContent = "✓ سپرده و آینه‌سازی شد. فراداده‌ها زدوده شدند — ردیابیِ آن به شما ممکن نیست.";
+    setTimeout(function(){ ok.textContent = ""; }, 6000);
+    setTimeout(function(){ store.forEach(function(e){ e._fresh=false; }); renderGrid(); }, 4000);
+  });
+
+  renderChips();
+  renderGrid();
+
+  // auto-height for parent embed
+  function post(){ try{ parent.postMessage({__gosanEmbed:1,h:document.documentElement.scrollHeight},'*'); }catch(e){} }
+  addEventListener('load',post); addEventListener('resize',post);
+  if (window.ResizeObserver){ new ResizeObserver(post).observe(document.body); }
+  [300,1000,2500].forEach(function(t){ setTimeout(post,t); });
+})();
+</script>
+</body>
+</html>

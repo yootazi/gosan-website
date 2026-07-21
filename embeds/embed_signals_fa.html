@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>اطلس فرهنگی ایران — ده نشانگر</title>
+<style>
+  @font-face{font-family:'IRANSansX';src:url('../assets/fonts/IRANSansX-Regular.woff2') format('woff2');font-weight:100 500;font-display:swap}
+  @font-face{font-family:'IRANSansX';src:url('../assets/fonts/IRANSansX-Bold.woff2') format('woff2');font-weight:600 900;font-display:swap}
+  :root{
+    --bg:transparent; --paper:#F7F6F2; --card:#FFFFFF; --panel:#FFFFFF; --line:#E3E0D8;
+    --ink:#1A1A1A; --txt:#1A1A1A; --muted:#6E6A61; --accent:#46707F;
+    --mus:#6B5E8E; --kan:#B08A3E; --thr:#46707F; --lib:#4F7A5E; --cin:#A64B3C;
+    --bad:#A64B3C; --good:#4F7A5E; --track:#EFEDE7;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:transparent;color:var(--ink);
+    font-family:'IRANSansX',sans-serif;
+    font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent)}
+  .wrap{max-width:1180px;margin:0 auto;padding:30px 26px 80px}
+  header.top{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;
+    padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:30px}
+  header.top h1{margin:0;font-size:23px;font-weight:700}
+  header.top h1 span{color:var(--accent)}
+  header.top .fa{font-size:13px;color:var(--muted);margin-top:3px}
+  .nav{font-size:12.5px}
+  .nav a{margin-left:14px;text-decoration:none;color:var(--muted)}
+  .nav a:hover{color:var(--ink)}
+  .nav a.cur{color:var(--accent)}
+  section{margin:0 0 46px}
+  .sec-h{font-size:11px;color:var(--muted);margin:0 0 4px}
+  .sec-t{font-size:19px;font-weight:700;margin:0 0 4px}
+  .sec-d{color:var(--muted);font-size:13px;margin:0 0 20px;max-width:760px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px 20px}
+  .grid{display:grid;gap:16px}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g2{grid-template-columns:1fr 1fr}
+  @media(max-width:860px){.g4,.g3,.g2{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.g4,.g3,.g2{grid-template-columns:1fr}.wrap{padding:20px 16px 60px}}
+  /* KPI */
+  .kpi .v{font-size:30px;font-weight:800;line-height:1.2}
+  .kpi .l{font-size:12px;color:var(--muted);margin-top:7px}
+  .kpi .s{font-size:11px;color:var(--muted);margin-top:5px;opacity:.9}
+  .dotc{display:inline-block;width:9px;height:9px;border-radius:50%;margin-left:6px;vertical-align:middle}
+  /* bars */
+  .barrow{display:grid;grid-template-columns:150px 1fr 64px;align-items:center;gap:10px;margin:7px 0;font-size:12.5px}
+  .barrow .nm{color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .barrow .nm small{color:var(--muted);font-size:10px}
+  .track{height:13px;background:var(--track);border-radius:7px;overflow:hidden}
+  .fill{height:100%;border-radius:7px}
+  .barrow .vv{text-align:left;font-variant-numeric:tabular-nums;color:var(--muted)}
+  .barrow.bad .vv{color:var(--bad);font-weight:700}
+  /* table */
+  table{border-collapse:collapse;width:100%;font-size:12.5px}
+  th,td{padding:8px 9px;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+  th{position:sticky;top:0;background:#F1EFE9;color:var(--muted);font-weight:600;font-size:11px;
+    border-bottom:1px solid var(--line);cursor:pointer}
+  th.sorted{color:var(--accent)}
+  tbody tr{border-bottom:1px solid #ECEAE2}
+  tbody tr:hover{background:#F5F3EC}
+  td .pfa{color:var(--muted);font-size:10px}
+  .scrollbox{max-height:520px;overflow:auto;border-radius:8px}
+  table.srctbl{font-size:12px}
+  table.srctbl th,table.srctbl td{white-space:normal;text-align:right;vertical-align:top;line-height:1.45}
+  table.srctbl td:nth-child(4),table.srctbl th:nth-child(4){white-space:nowrap}
+  table.srctbl td:first-child{min-width:170px;color:var(--ink)}
+  table.srctbl a{white-space:nowrap}
+  .pill{display:inline-block;font-size:10px;padding:1px 7px;border-radius:20px;border:1px solid var(--line);color:var(--muted)}
+  .pill.bad{color:var(--bad);border-color:rgba(166,75,60,.4)}
+  .pill.good{color:var(--good);border-color:rgba(79,122,94,.4)}
+  .note{font-size:11px;color:var(--muted);line-height:1.6;margin-top:12px}
+  .note b{color:var(--ink)}
+  .src{font-size:10.5px;color:var(--muted);margin-top:6px}
+  .tier1{color:var(--good)} .tierp{color:#8A6A2F}
+  /* svg chart */
+  .chart-cap{font-size:12px;color:var(--muted);margin:2px 0 14px}
+  svg text{font-family:inherit}
+  .lead{font-size:14px;color:var(--ink)}
+  .big-stat{font-size:46px;font-weight:800;line-height:1}
+  .gapbar{position:relative;height:46px;border-radius:8px;background:var(--track);overflow:hidden;margin:14px 0 6px}
+  .gapbar i{position:absolute;top:0;bottom:0;right:0;border-radius:8px}
+  .gapbar .lbl{position:absolute;top:50%;transform:translateY(-50%);font-size:12px;font-weight:700;padding:0 12px}
+  .legend-inline{display:flex;gap:16px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);margin-top:10px}
+  .legend-inline span{display:flex;align-items:center}
+  /* disclaimer banner */
+  .disclaimer{display:flex;gap:14px;align-items:flex-start;background:rgba(176,138,62,.07);
+    border:1px solid rgba(176,138,62,.3);border-radius:8px;padding:14px 18px;margin:0 0 28px;
+    font-size:12.5px;color:var(--ink);line-height:1.6}
+  .disclaimer .dl-icon{font-size:20px;line-height:1;color:var(--accent);flex:none;margin-top:1px}
+  .disclaimer b{color:var(--ink)}
+  /* signal cards */
+  .sig{position:relative;display:flex;flex-direction:column}
+  .sig .num{position:absolute;top:14px;left:16px;font-size:30px;font-weight:800;color:rgba(0,0,0,.07);line-height:1}
+  .sig .tag{font-size:10px;color:var(--muted);margin-bottom:6px}
+  .sig h4{margin:0 0 8px;font-size:15px;font-weight:700;max-width:88%}
+  .sig .hero{font-size:32px;font-weight:800;line-height:1.2;margin:2px 0 8px}
+  .sig p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.55}
+  .sig .mini{margin:10px 0 2px}
+  .sig .src2{font-size:10px;color:var(--muted);margin-top:auto;padding-top:10px;opacity:.9}
+  footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:11px;color:var(--muted);line-height:1.7}
+</style>
+<style>
+  /* embed-friendly: no viewport assumptions, fits its iframe/container */
+  html,body{height:auto;overflow:visible}
+  body{background:transparent}
+  .wrap{padding:22px 20px 30px}
+  /* hide cross-panel nav since each panel is embedded separately */
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div style="margin-bottom:18px">
+    <div class="sec-h" style="margin-bottom:2px">اندیشکدهٔ فرهنگ و هنر گوسان — اطلس فرهنگی ایران</div>
+  </div>
+<section id="signals">
+  <div class="sec-h">تابلوی ۳ — ده نشانگر</div>
+  <div class="sec-t">ده یافته که وضعیت فرهنگی ایران را از نو قاب می‌گیرند</div>
+  <p class="sec-d">مجموعه‌ای آغازین از آماره‌های درنگ‌انگیز — برخی مستقیماً از کاتالوگ دادهٔ گوسان محاسبه شده‌اند و برخی
+  از تلفیق داده‌های عمومی به دست آمده‌اند. هر کارت با ردهٔ شواهدش نشانه‌گذاری شده است: <span class="pill good">محاسبه‌شده</span> از
+  داده‌های خود ما، <span class="pill">رسمی</span> از منبع دست‌اول، یا <span class="pill bad">⚠ مطبوعاتی</span> — یافته‌شده در رسانه‌ها،
+  در انتظار تأیید منبع دست‌اول.</p>
+
+  <div class="grid g2" id="signalGrid"></div>
+
+  <div class="note" style="margin-top:14px">کارت‌های نشان‌دار با <span class="pill bad">⚠ مطبوعاتی</span> یا <i>برآورد</i> در حد
+  مرتبهٔ بزرگی‌اند و بنا بر قاعدهٔ منبع‌گزینی اندیشکده، پیش از انتشار باید به منابع ردهٔ ۱ بازآوری شوند. ارجاع‌های کامل و خلأها در
+  <a href="Data_Gaps_Register.md">دفترِ خلأهای داده</a>.</div>
+</section>
+</div>
+<script>
+window.STATS={"provinces": [{"en": "Yazd", "fa": "یزد", "rank": 1, "index": 59.5, "pop": 1156000, "lib": 124, "lib_pc": 10.727, "cin": 4, "cin_pc": 0.346, "seats": 1380, "seats_pc": 119.4, "kan": 26, "kan_pc": 2.249, "mus": 39.0}, {"en": "Ilam", "fa": "ایلام", "rank": 2, "index": 54.3, "pop": 591000, "lib": 49, "lib_pc": 8.291, "cin": 1, "cin_pc": 0.1692, "seats": 474, "seats_pc": 80.2, "kan": 22, "kan_pc": 3.723, "mus": 6.0}, {"en": "South Khorasan", "fa": "خراسان جنوبی", "rank": 3, "index": 53.2, "pop": 786000, "lib": 45, "lib_pc": 5.725, "cin": 4, "cin_pc": 0.5089, "seats": 1329, "seats_pc": 169.1, "kan": 15, "kan_pc": 1.908, "mus": null}, {"en": "Tehran", "fa": "تهران", "rank": 4, "index": 51.5, "pop": 13323000, "lib": 196, "lib_pc": 1.471, "cin": 111, "cin_pc": 0.8331, "seats": 37337, "seats_pc": 280.2, "kan": 57, "kan_pc": 0.428, "mus": 193.0}, {"en": "Kohgiluyeh and Boyer-Ahmad", "fa": "کهگیلویه و بویراحمد", "rank": 5, "index": 49.7, "pop": 728000, "lib": 56, "lib_pc": 7.692, "cin": 3, "cin_pc": 0.4121, "seats": 760, "seats_pc": 104.4, "kan": 14, "kan_pc": 1.923, "mus": 3.0}, {"en": "Gilan", "fa": "گیلان", "rank": 6, "index": 47.9, "pop": 2546000, "lib": 88, "lib_pc": 3.456, "cin": 11, "cin_pc": 0.4321, "seats": 6190, "seats_pc": 243.1, "kan": 36, "kan_pc": 1.414, "mus": null}, {"en": "Semnan", "fa": "سمنان", "rank": 7, "index": 46.9, "pop": 715000, "lib": 52, "lib_pc": 7.273, "cin": 2, "cin_pc": 0.2797, "seats": 381, "seats_pc": 53.3, "kan": 21, "kan_pc": 2.937, "mus": null}, {"en": "Markazi", "fa": "مرکزی", "rank": 8, "index": 45.2, "pop": 1436000, "lib": 75, "lib_pc": 5.223, "cin": 3, "cin_pc": 0.2089, "seats": 1178, "seats_pc": 82.0, "kan": 49, "kan_pc": 3.412, "mus": null}, {"en": "Hamadan", "fa": "همدان", "rank": 9, "index": 38.4, "pop": 1756000, "lib": 68, "lib_pc": 3.872, "cin": 6, "cin_pc": 0.3417, "seats": 1902, "seats_pc": 108.3, "kan": 36, "kan_pc": 2.05, "mus": null}, {"en": "Bushehr", "fa": "بوشهر", "rank": 10, "index": 37.5, "pop": 1174000, "lib": 67, "lib_pc": 5.707, "cin": 4, "cin_pc": 0.3407, "seats": 925, "seats_pc": 78.8, "kan": 19, "kan_pc": 1.618, "mus": null}, {"en": "Chaharmahal and Bakhtiari", "fa": "چهارمحال و بختیاری", "rank": 11, "index": 35.6, "pop": 973000, "lib": 62, "lib_pc": 6.372, "cin": 1, "cin_pc": 0.1028, "seats": 600, "seats_pc": 61.7, "kan": 23, "kan_pc": 2.364, "mus": null}, {"en": "Isfahan", "fa": "اصفهان", "rank": 12, "index": 33.3, "pop": 5136000, "lib": 260, "lib_pc": 5.062, "cin": 13, "cin_pc": 0.2531, "seats": 6000, "seats_pc": 116.8, "kan": 60, "kan_pc": 1.168, "mus": 51.0}, {"en": "Lorestan", "fa": "لرستان", "rank": 13, "index": 33.2, "pop": 1784000, "lib": 56, "lib_pc": 3.139, "cin": 5, "cin_pc": 0.2803, "seats": 2983, "seats_pc": 167.2, "kan": 20, "kan_pc": 1.121, "mus": null}, {"en": "Mazandaran", "fa": "مازندران", "rank": 14, "index": 31.5, "pop": 3302000, "lib": 92, "lib_pc": 2.786, "cin": 10, "cin_pc": 0.3028, "seats": 5759, "seats_pc": 174.4, "kan": 27, "kan_pc": 0.818, "mus": null}, {"en": "Ardabil", "fa": "اردبیل", "rank": 15, "index": 31.5, "pop": 1284000, "lib": 65, "lib_pc": 5.062, "cin": 2, "cin_pc": 0.1558, "seats": 500, "seats_pc": 38.9, "kan": 30, "kan_pc": 2.336, "mus": null}, {"en": "Fars", "fa": "فارس", "rank": 16, "index": 30.1, "pop": 4904000, "lib": 183, "lib_pc": 3.732, "cin": 11, "cin_pc": 0.2243, "seats": 7208, "seats_pc": 147.0, "kan": 47, "kan_pc": 0.958, "mus": 46.0}, {"en": "Khuzestan", "fa": "خوزستان", "rank": 17, "index": 29.4, "pop": 4725000, "lib": 173, "lib_pc": 3.661, "cin": 11, "cin_pc": 0.2328, "seats": 6026, "seats_pc": 127.5, "kan": 52, "kan_pc": 1.101, "mus": null}, {"en": "Kurdistan", "fa": "کردستان", "rank": 18, "index": 28.7, "pop": 1614000, "lib": 88, "lib_pc": 5.452, "cin": 3, "cin_pc": 0.1859, "seats": 1320, "seats_pc": 81.8, "kan": 18, "kan_pc": 1.115, "mus": null}, {"en": "Qom", "fa": "قم", "rank": 19, "index": 27.8, "pop": 1300000, "lib": 53, "lib_pc": 4.077, "cin": 4, "cin_pc": 0.3077, "seats": 1200, "seats_pc": 92.3, "kan": 11, "kan_pc": 0.846, "mus": 6.0}, {"en": "North Khorasan", "fa": "خراسان شمالی", "rank": 20, "index": 26.5, "pop": 868000, "lib": 65, "lib_pc": 7.488, "cin": 1, "cin_pc": 0.1152, "seats": 480, "seats_pc": 55.3, "kan": 6, "kan_pc": 0.691, "mus": null}, {"en": "Golestan", "fa": "گلستان", "rank": 21, "index": 26.2, "pop": 1893000, "lib": 61, "lib_pc": 3.222, "cin": 6, "cin_pc": 0.317, "seats": 1827, "seats_pc": 96.5, "kan": 16, "kan_pc": 0.845, "mus": null}, {"en": "Zanjan", "fa": "زنجان", "rank": 22, "index": 26.1, "pop": 1103000, "lib": 67, "lib_pc": 6.074, "cin": 1, "cin_pc": 0.0907, "seats": 232, "seats_pc": 21.0, "kan": 19, "kan_pc": 1.723, "mus": null}, {"en": "Razavi Khorasan", "fa": "خراسان رضوی", "rank": 23, "index": 25.2, "pop": 6444000, "lib": 176, "lib_pc": 2.731, "cin": 20, "cin_pc": 0.3104, "seats": 7534, "seats_pc": 116.9, "kan": 43, "kan_pc": 0.667, "mus": 76.0}, {"en": "Kermanshah", "fa": "کرمانشاه", "rank": 24, "index": 24.7, "pop": 2003000, "lib": 82, "lib_pc": 4.094, "cin": 2, "cin_pc": 0.0999, "seats": 1330, "seats_pc": 66.4, "kan": 33, "kan_pc": 1.648, "mus": null}, {"en": "East Azarbaijan", "fa": "آذربایجان شرقی", "rank": 25, "index": 23.3, "pop": 3925000, "lib": 126, "lib_pc": 3.21, "cin": 8, "cin_pc": 0.2038, "seats": 4504, "seats_pc": 114.8, "kan": 28, "kan_pc": 0.713, "mus": 41.0}, {"en": "Qazvin", "fa": "قزوین", "rank": 26, "index": 22.8, "pop": 1284000, "lib": 51, "lib_pc": 3.972, "cin": 2, "cin_pc": 0.1558, "seats": 550, "seats_pc": 42.8, "kan": 19, "kan_pc": 1.48, "mus": null}, {"en": "Kerman", "fa": "کرمان", "rank": 27, "index": 19.9, "pop": 3184000, "lib": 110, "lib_pc": 3.455, "cin": 4, "cin_pc": 0.1256, "seats": 1828, "seats_pc": 57.4, "kan": 39, "kan_pc": 1.225, "mus": null}, {"en": "West Azarbaijan", "fa": "آذربایجان غربی", "rank": 28, "index": 17.9, "pop": 3278000, "lib": 113, "lib_pc": 3.447, "cin": 3, "cin_pc": 0.0915, "seats": 2107, "seats_pc": 64.3, "kan": 33, "kan_pc": 1.007, "mus": null}, {"en": "Alborz", "fa": "البرز", "rank": 29, "index": 15.1, "pop": 2730000, "lib": 63, "lib_pc": 2.308, "cin": 6, "cin_pc": 0.2198, "seats": 2292, "seats_pc": 84.0, "kan": 6, "kan_pc": 0.22, "mus": null}, {"en": "Hormozgan", "fa": "هرمزگان", "rank": 30, "index": 12.9, "pop": 1806000, "lib": 60, "lib_pc": 3.322, "cin": 2, "cin_pc": 0.1107, "seats": 436, "seats_pc": 24.1, "kan": 14, "kan_pc": 0.775, "mus": null}, {"en": "Sistan and Baluchestan", "fa": "سیستان و بلوچستان", "rank": 31, "index": 7.0, "pop": 2777000, "lib": 58, "lib_pc": 2.089, "cin": 1, "cin_pc": 0.036, "seats": 200, "seats_pc": 7.2, "kan": 27, "kan_pc": 0.972, "mus": null}], "national": {"pop": 80528000, "lib": 2884, "cin": 265, "kan": 866, "seats": 106772, "lib_pc": 3.581363004172462, "cin_pc": 0.329078084641367, "kan_pc": 1.0754023445261276, "seats_pc": 132.58990661633223}};
+</script>
+<script>
+(function(){
+const S = window.STATS;
+  if(!S){ document.body.insertAdjacentHTML("afterbegin","<p style='padding:20px;color:#A64B3C'>بارگذاری داده‌ها ممکن نشد</p>"); return; }
+  const P = S.provinces, NAT = S.national;
+  const fd = s => String(s).replace(/[0-9]/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
+  const fmt = n => n.toLocaleString('fa-IR');
+  const f1 = n => (Math.round(n*10)/10).toLocaleString('fa-IR');
+  const f2 = n => (Math.round(n*100)/100).toLocaleString('fa-IR');
+  const f3 = n => (Math.round(n*1000)/1000).toLocaleString('fa-IR');
+
+
+/* ---------- Panel 3: ten signals ---------- */
+  // small inline bar helper
+  function miniBars(items,max,unit){ return items.map(b=>
+    `<div class="barrow" style="grid-template-columns:130px 1fr 60px"><div class="nm" style="font-size:11.5px">${b.l}</div>
+      <div class="track" style="height:11px"><div class="fill" style="width:${Math.max(2,b.v/max*100)}%;background:${b.c||'var(--accent)'}"></div></div>
+      <div class="vv" style="font-size:11px">${b.t!=null?b.t:fmt(b.v)}${unit||''}</div></div>`).join(""); }
+  function donut(pct,col,lab){ const r=34,c=2*Math.PI*r,off=c*(1-pct/100);
+    return `<svg viewBox="0 0 90 90" width="92" height="92"><circle cx="45" cy="45" r="${r}" fill="none" stroke="#EFEDE7" stroke-width="11"/>
+      <circle cx="45" cy="45" r="${r}" fill="none" stroke="${col}" stroke-width="11" stroke-linecap="round"
+        stroke-dasharray="${c}" stroke-dashoffset="${off}" transform="rotate(-90 45 45)"/>
+      <text x="45" y="42" text-anchor="middle" fill="#1A1A1A" font-size="17" font-weight="800">${fd(pct)}٪</text>
+      <text x="45" y="57" text-anchor="middle" fill="#6E6A61" font-size="8">${lab}</text></svg>`; }
+
+  const EXTRA = {gender:{F:106,M:209,known:315,fpct:33.7},carpet:{pct:92.9,basket_m:339.5},
+    heritage:{cultural:27,total:29},cinema:{total_screens:1272,nowruz_k:1358,no_cinema_cities:1047}};
+
+  const signals = [
+    { tag:"محاسبه‌شده · کاتالوگ", grade:"good",
+      title:"کویرهای سینما",
+      hero:"۱٬۰۴۷ شهر",
+      body:"هیچ سینمایی ندارند. سیستان و بلوچستان — با ۲٫۷۸ میلیون نفر جمعیت — تنها یک پرده دارد؛ حدود یک‌دهم نرخ سرانهٔ ملی. سینما نابرابرترین کالای فرهنگی ایران از نظر جغرافیایی است (ضریب جینی ۰٫۳۱).",
+      extra:()=>`<div class="mini">${miniBars([
+        {l:"سیستان و بلوچستان",v:0.036,t:'۰٫۰۴',c:'var(--cin)'},
+        {l:"زنجان",v:0.091,t:'۰٫۰۹',c:'var(--cin)'},
+        {l:"میانگین ملی",v:0.329,t:'۰٫۳۳',c:'var(--kan)'},
+        {l:"تهران",v:0.833,t:'۰٫۸۳',c:'var(--thr)'}],1,'')}<div style="font-size:10px;color:var(--muted);margin-top:4px">سینما به ازای هر ۱۰۰٬۰۰۰ نفر</div></div>`,
+      src:"آمار سینمای استان‌ها، مرکز آمار ایران؛ اطلس گوسان (شهرهای بدون سینما)." },
+
+    { tag:"رسمی · مرکز آمار ایران", grade:"plain",
+      title:"ملتی که از خواندن بازایستاد",
+      hero:"۱۰٫۹ دقیقه در روز",
+      body:"میانگین زمان کتاب‌خوانی هر ایرانی است (۲۰۲۵) — کاهش‌یافته از ۱۶٫۶ دقیقه در ۲۰۲۰. <b>۵۸٫۹٪</b> اصلاً کتاب نمی‌خوانند. افتی یک‌سومی در پنج سال.",
+      extra:()=>`<div class="mini">${miniBars([
+        {l:"۲۰۲۰",v:16.6,t:'۱۶٫۶',c:'var(--thr)'},
+        {l:"۲۰۲۵",v:10.9,t:'۱۰٫۹',c:'var(--cin)'}],18,' دقیقه')}</div>`,
+      src:"پیمایش رفتار مطالعه، مرکز آمار ایران، نوامبر ۲۰۲۵ (تلفنی، حجم نمونه ۱٬۲۳۴)؛ آمارگیری گذران وقت ۲۰۲۰. ⚠ بازتاب مطبوعاتی — نیازمند تطبیق با گزارش رسمی مرکز آمار." },
+
+    { tag:"⚠ مطبوعاتی · نیازمند راستی‌آزمایی", grade:"bad",
+      title:"فرهنگ، بیرون‌رانده از سبد خانوار",
+      hero:"۴۲–۵۳٪",
+      body:"تورم سالانه (اواخر ۲۰۲۵) خانواده‌های ایرانی را واداشته است نخست از تفریح و فرهنگ بکاهند — خوراک و مسکن، هزینه‌کرد فرهنگیِ اختیاری را بیرون می‌رانند؛ با کاهش‌هایی که ساختاری می‌نمایند، نه گذرا.",
+      extra:null,
+      src:"ایران اینترنشنال / پژوهش سری‌زمانی هزینهٔ خانوار. ⚠ مطبوعاتی — نیازمند تطبیق با طرح هزینه و درآمد خانوار مرکز آمار ایران (طبقهٔ کوی‌کاپ ۰۹)." },
+
+    { tag:"محاسبه‌شده · کاتالوگ", grade:"good",
+      title:"اقتصادِ ۹۳درصدی فرش",
+      hero:"۹۲٫۹٪",
+      body:"از صادرات کالاهای فرهنگی ایران فرش است — یک خط تولید واحد. همهٔ بقیه (کتاب، سفال، نقاشی، سازها) تنها ۷٪ است. و کل سبد از اوجِ بیش از ۲ میلیارد دلار به ۳۴۰ میلیون دلار فروافتاده است.",
+      extra:()=>`<div style="display:flex;align-items:center;gap:14px;margin-top:8px">${donut(93,'var(--kan)','فرش')}
+        <div style="font-size:12px;color:var(--muted)">کل سبد <b style="color:var(--ink)">۳۳۹٫۵ میلیون دلار</b> (۲۰۲۲)<br>فرش <b style="color:var(--ink)">۳۱۵٫۶ میلیون دلار</b><br>سایر اقلام <b style="color:var(--ink)">۲۴ میلیون دلار</b></div></div>`,
+      src:"کام‌ترید سازمان ملل، ۲۰۲۲ (ردهٔ ۱)؛ کشور گزارشگر: ایران (کد ۳۶۴)، طرف تجاری: جهان." },
+
+    { tag:"محاسبه‌شده · کاتالوگ", grade:"good",
+      title:"پارادوکس جنسیتی",
+      hero:"۳۴٪ / ۷۰٪",
+      body:"زنان حدود یک‌سوم مدیریت نهادهای فرهنگی را در دست دارند (۳۴٪ از مدیران قابل‌طبقه‌بندی تهران)، اما حدود ۷۰٪ نیروی کار صنایع‌دستی را تشکیل می‌دهند. مشارکتِ بالا، قدرتِ اندک.",
+      extra:()=>`<div style="display:flex;align-items:center;gap:14px;margin-top:8px">${donut(34,'var(--mus)','مدیران زن')}
+        <div style="font-size:12px;color:var(--muted)">از ۳۱۵ مدیر قابل‌طبقه‌بندی تهران:<br><b style="color:var(--ink)">۱۰۶ زن</b> · <b style="color:var(--ink)">۲۰۹ مرد</b><br><span style="font-size:10px">برآورد مبتنی بر نام</span></div></div>`,
+      src:"محاسبهٔ گوسان بر پایهٔ سیاههٔ نهادهای فرهنگی تهران؛ ۷۰٪ صنایع‌دستی — وزارت میراث فرهنگی، گردشگری و صنایع‌دستی/رسانه‌های دولتی (⚠ نیازمند تأیید)." },
+
+    { tag:"رسمی · یونسکو", grade:"plain",
+      title:"میراثی در تراز جهانی",
+      hero:"۲۷ از ۲۹",
+      body:"محوطهٔ میراث جهانی یونسکو در ایران فرهنگی‌اند (۹۳٪) — از انبوه‌ترین سبدهای میراث فرهنگی روی زمین. پرسش گشودهٔ سیاست‌گذاری: بودجهٔ حفاظت به ازای هر محوطه، در سنجش با هم‌ترازان منطقه‌ای.",
+      extra:()=>`<div class="mini">${miniBars([
+        {l:"فرهنگی",v:27,t:'۲۷',c:'var(--mus)'},
+        {l:"طبیعی",v:2,t:'۲',c:'var(--lib)'}],29,'')}</div>`,
+      src:"مرکز میراث جهانی یونسکو — ایران (فهرست ثبت‌شده)." },
+
+    { tag:"برآورد · کلان", grade:"bad",
+      title:"ایران فرهنگ‌سازانش را صادر می‌کند",
+      hero:"خروج خالص",
+      body:"ایران هنرمندان، فیلم‌سازان، موسیقی‌دانان و نویسندگانش را با آهنگی تندتر از آنکه کارشان را در خانه به ارزش بدل کند به مهاجرت وامی‌نهد — دیاسپورا فرهنگ ایرانیِ جایزه‌بَر را در بیرون می‌آفریند و ارزش داخلی ناشمرده می‌ماند. جهت‌گیری دفاع‌پذیر است؛ اندازه‌اش داده‌های دست‌اول می‌خواهد.",
+      extra:null,
+      src:"جهت‌نما، بر پایهٔ شواهد دیاسپورا و جشنواره‌ها. در ردهٔ برآورد — تا کمّی‌شدن با داده‌های مهاجرت مرکز آمار ایران و اسناد جشنواره‌ها، قابل انتشار نیست." },
+
+    { tag:"رسمی · تاریخی", grade:"plain",
+      title:"پرده‌هایی کمتر از دو نسل پیش",
+      hero:"یک‌سوم سوخته، ۱۹۷۹",
+      body:"حدود یک‌سوم سینماهای ایران در ۱۹۷۹ ویران شد؛ کشور هرگز به تراکم پردهٔ پیش از انقلاب بازنگشت. ۱٬۲۷۲ پردهٔ امروز به جمعیتی ۲٫۴ برابرِ دههٔ ۱۹۷۰ خدمت می‌رسانند — انقباضی بلنددامنه در دسترسی.",
+      extra:null,
+      src:"منابع تاریخ سینما (ویکی‌پدیا/آف‌اسکرین) + شمار کنونی پرده‌ها از مرکز آمار ایران. سری پیش از ۱۹۷۹ باید از سالنامه‌های آماری مرکز آمار بازسازی شود." },
+
+    { tag:"⚠ مطبوعاتی · ساختاری", grade:"bad",
+      title:"مالیاتِ مجوز بر کلمه",
+      hero:"از ماه‌ها تا سال‌ها",
+      body:"هر کتاب پیش از چاپ به مجوز وزارت فرهنگ و ارشاد اسلامی نیاز دارد. بررسی به‌طور معمول ماه‌ها به درازا می‌کشد؛ برخی عنوان‌ها بیش از ۱۸ ماه معطل می‌مانند یا بی‌صدا کنار گذاشته می‌شوند. اصطکاکی ساختاری و سنجیدنی که بخش آن را حس می‌کند اما کسی به عدد درنیاورده است.",
+      extra:null,
+      src:"رادیو فردا (رادیو اروپای آزاد)، مرکز حقوق بشر در ایران، ایران‌وایر. ⚠ مطبوعاتی — زمان صدور مجوز و نرخ رد باید از داده‌های ارشاد/اتحادیهٔ ناشران کمّی شود." },
+
+    { tag:"برآورد · سیاستی", grade:"bad",
+      title:"فرهنگ: هزینه یا سرمایه‌گذاری؟",
+      hero:"۸٪ مشاغل · ۰٫۳٪ تولید",
+      body:"بخش خلاق ایران حدود ۸٪ شاغلان را به کار می‌گیرد اما تنها حدود ۰٫۳٪ از تولید ناخالص داخلیِ سنجیده‌شده را ثبت می‌کند. بازقاب‌گیری برای وزارت اقتصاد و دارایی: بستن این شکاف به سوی هنجار جهانی ۳٫۱٪ یعنی حدود ۱۳ میلیارد دلار ارزشِ ناشمرده و مالیات‌نگرفته — فرهنگ به‌مثابهٔ سرمایه‌گذاری، نه یارانه.",
+      extra:()=>`<div class="mini">${miniBars([
+        {l:"اکنون (هنرها)",v:0.3,t:'۰٫۳٪',c:'var(--cin)'},
+        {l:"هنجار جهانی",v:3.1,t:'۳٫۱٪',c:'var(--kan)'}],3.5,'')}</div><div style="font-size:10px;color:var(--muted);margin-top:4px">سهم فرهنگ از تولید ناخالص داخلی، به درصد</div>`,
+      src:"بانک جهانی (تولید ناخالص داخلی)؛ یونسکو (۳٫۱٪)؛ اشتغال ⚠ مطبوعاتی — نیازمند راستی‌آزمایی با آمارگیری نیروی کار مرکز آمار ایران." },
+  ];
+
+  const gradeClass = g => g==="good"?"good":g==="bad"?"bad":"";
+  document.getElementById("signalGrid").innerHTML = signals.map((s,i)=>
+    `<div class="card sig"><div class="num">${fd(String(i+1).padStart(2,'0'))}</div>
+      <div class="tag"><span class="pill ${gradeClass(s.grade)}">${s.tag}</span></div>
+      <h4>${s.title}</h4>
+      <div class="hero" style="color:${s.grade==='good'?'var(--accent)':s.grade==='bad'?'var(--cin)':'var(--thr)'}">${s.hero}</div>
+      <p>${s.body}</p>
+      ${s.extra?s.extra():""}
+      <div class="src2">${s.src}</div></div>`).join("");
+
+
+})();
+
+// post height to parent for auto-resizing iframes (optional consumer-side)
+(function(){
+  function ph(){ try{ var h=document.documentElement.scrollHeight;
+    parent.postMessage({gosanHeight:h},"*"); }catch(e){} }
+  window.addEventListener("load",ph); window.addEventListener("resize",ph);
+  setTimeout(ph,400); setTimeout(ph,1200);
+})();
+
+</script>
+<script>
+(function(){function p(){try{parent.postMessage({__gosanEmbed:1,h:document.documentElement.scrollHeight},'*')}catch(e){}}addEventListener('load',p);addEventListener('resize',p);if(window.ResizeObserver){new ResizeObserver(p).observe(document.body)}setTimeout(p,300);setTimeout(p,1000);setTimeout(p,2500)})();
+</script>
+</body>
+</html>

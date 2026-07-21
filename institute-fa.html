@@ -4,477 +4,392 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>گوسان — اندیشکدهٔ فرهنگ و هنر</title>
-<meta name="description" content="اندیشکدهٔ فرهنگ و هنر گوسان — یک اندیشکدهٔ سیاست‌گذاری داده‌محور که زیرساخت‌های نهادی، اقتصادی و دیجیتالِ اقتصاد خلاقِ ایرانِ آزاد را طراحی می‌کند.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Doto:wght@500;700;900&display=swap" rel="stylesheet">
+<meta name="description" content="اندیشکدهٔ فرهنگ و هنر گوسان — اندیشکده‌ای سیاست‌پژوه و داده‌محور که زیرساخت‌های نهادی، اقتصادی و دیجیتالِ اقتصادِ خلاقِ ایرانِ آزاد را طراحی می‌کند.">
 <style>
 @font-face{font-family:'IRANSansX';src:url('assets/fonts/IRANSansX-Regular.woff2') format('woff2'),url('assets/fonts/IRANSansX-Regular.woff') format('woff');font-weight:100 500;font-style:normal;font-display:swap}
 @font-face{font-family:'IRANSansX';src:url('assets/fonts/IRANSansX-Bold.woff2') format('woff2'),url('assets/fonts/IRANSansX-Bold.woff') format('woff');font-weight:600 900;font-style:normal;font-display:swap}
 :root{
-  --bg:#0B1B33;           /* corporate think-tank navy */
-  --panel:#0F2342;
-  --panel2:#143052;
-  --line:#1E3A5C;
-  --grid:#13294A;
-  --ink:#EAF0F6;
-  --soft:#8896A8;
-  --soft2:#46586E;
-  --accent:#FF4D23;       /* signal orange-red */
-  --data:#46D6C9;         /* instrument cyan */
-  --maxw:1360px;
-  --pad:clamp(18px,4.5vw,64px);
+  --paper:#F7F6F2;          /* warm paper ground */
+  --card:#FFFFFF;
+  --ink:#1C1C1A;
+  --soft:#4A4843;
+  --muted:#807B72;
+  --line:#E3E0D8;
+  --line-soft:#EDEBE4;
+  --teal:#46707F;           /* the institute's calm accent */
+  --teal-deep:#385A66;
+  --teal-soft:#EEF2F1;
+  --gold:#B08A3E;           /* secondary, sparingly (in-development) */
+  --dark:#2B383E;           /* footer slate */
+  --maxw:1120px;
+  --pad:clamp(18px,4.5vw,56px);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:60px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-body{
-  background:var(--bg);color:var(--ink);
-  font-family:'IRANSansX','Vazirmatn','Tahoma',sans-serif;font-weight:400;line-height:1.75;overflow-x:hidden;
-}
-.gridbg{position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-  background-size:64px 64px;background-position:center top}
-::selection{background:var(--accent);color:#0B1B33}
+html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{background:var(--paper);color:var(--ink);font-family:'IRANSansX','Vazirmatn','Tahoma',sans-serif;
+  font-weight:400;font-size:15.5px;line-height:2.05;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
-.mono{font-family:'JetBrains Mono',monospace}
-.lcd{font-family:'Doto','JetBrains Mono',monospace;font-weight:900;font-variant-numeric:tabular-nums}
-.ltr{direction:ltr;unicode-bidi:isolate}
-.acc{color:var(--accent)}
-.data{color:var(--data)}
-
-/* ---------- HEADER ---------- */
-header.site{
-  position:fixed;top:0;left:0;right:0;z-index:60;height:54px;
-  display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);
-  background:color-mix(in srgb,var(--bg) 92%,transparent);
-  border-bottom:1px solid transparent;transition:border-color .4s,background .4s;
-}
-header.site.scrolled{border-bottom-color:var(--line)}
-.backlink{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);transition:color .25s;white-space:nowrap}
-.backlink:hover{color:var(--accent)}
-nav.main{display:flex;align-items:center;gap:clamp(9px,1.3vw,18px)}
-nav.main a{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);position:relative;padding:4px 0;transition:color .25s}
-nav.main a:hover{color:var(--ink)}
-nav.main a span.ix{color:var(--soft2);margin-left:5px}
-nav.main a:hover span.ix{color:var(--accent)}
-.hclock{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;color:var(--soft);display:flex;gap:14px;align-items:center;white-space:nowrap}
-.hclock b{color:var(--data);font-weight:500}
-.langsw{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:var(--ink);border:1px solid var(--line);padding:4px 9px;transition:color .25s,border-color .25s,background .25s}
-.langsw:hover{color:var(--accent);border-color:var(--accent)}
-.navtoggle{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
-.navtoggle span{width:20px;height:1.5px;background:var(--ink);display:block;transition:.3s}
-
-/* ---------- shared section ---------- */
+::selection{background:var(--teal);color:#fff}
 .wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
-section.block{padding:clamp(64px,11vh,128px) 0}
-.seclabel{display:flex;align-items:center;gap:14px;margin-bottom:40px;
-  font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--soft)}
-.seclabel .num{color:var(--accent)}
-.seclabel::after{content:"";flex:1;height:1px;background:var(--line)}
-.seclabel .rt{color:var(--soft2);letter-spacing:.16em}
+b,strong{font-weight:700}
 
-/* ---------- HERO ---------- */
-.hero{position:relative;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;justify-content:center;
-  gap:clamp(10px,3vh,40px);padding:clamp(80px,11vh,128px) var(--pad) 0}
-.hero-top{position:absolute;top:74px;left:var(--pad);right:var(--pad);display:flex;justify-content:space-between;
-  font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
-.hero-kick{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--soft);margin-bottom:clamp(12px,2.4vh,24px);display:flex;align-items:center;gap:12px}
-.hero-kick::before{content:"";width:9px;height:9px;background:var(--accent);border-radius:50%;box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 24%,transparent);animation:pulse 2.4s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
-.hero h1{font-weight:900;font-size:clamp(72px,18vw,260px);line-height:.84;letter-spacing:-.03em;margin:0}
-.hero h1 .dot{color:var(--accent)}
-.hero-logo{display:block;width:min(660px,82vw);height:auto;margin:0 auto;filter:drop-shadow(0 0 1px rgba(255,255,255,.4))}
-.hero-sub{max-width:34ch;margin:clamp(4px,1.4vh,18px) max(0px,calc((100vw - var(--maxw)) / 2)) 0 0;font-size:clamp(16px,1.7vw,21px);font-weight:400;color:#BCC8D6;line-height:1.9}
-.hero-sub b{color:var(--ink);font-weight:600}
-.hero-strip{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);
-  font-family:'JetBrains Mono',monospace}
-@media(max-height:680px){.hero-kick{margin-bottom:8px}.hero h1{line-height:.82}}
-.hero-strip>div{padding:18px 18px 22px;border-left:1px solid var(--line)}
-.hero-strip>div:last-child{border-left:0}
-.hero-strip .k{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-bottom:8px}
-.hero-strip .v{font-size:13px;color:var(--ink);letter-spacing:.04em}
-.hero-strip .v b{color:var(--data);font-weight:500}
+/* ---------- header ---------- */
+header.site{position:fixed;top:0;left:0;right:0;z-index:60;height:64px;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;padding:0 var(--pad);
+  background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(8px);
+  border-bottom:1px solid transparent;transition:border-color .35s}
+header.site.scrolled{border-bottom-color:var(--line)}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand img{height:34px;width:auto;display:block}
+.brand .t{font-size:14px;font-weight:800;white-space:nowrap}
+.brand .t small{display:block;font-size:10.5px;font-weight:400;color:var(--muted);line-height:1.6}
+nav.main{display:flex;align-items:center;gap:clamp(10px,1.6vw,22px)}
+nav.main a{font-size:13px;color:var(--soft);padding:4px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+nav.main a:hover{color:var(--teal-deep);border-bottom-color:var(--teal)}
+.hd-side{display:flex;align-items:center;gap:14px;white-space:nowrap}
+.backlink{font-size:12.5px;color:var(--muted);transition:color .2s}
+.backlink:hover{color:var(--teal-deep)}
+.langsw{font-size:11.5px;color:var(--soft);border:1px solid var(--line);border-radius:3px;padding:3px 9px;transition:.2s;direction:ltr;unicode-bidi:isolate}
+.langsw:hover{color:var(--teal-deep);border-color:var(--teal)}
+@media(max-width:1080px){nav.main{display:none}}
+@media(max-width:560px){.brand .t small{display:none}.backlink{display:none}}
 
-/* ---------- METRICS BAND ---------- */
-.metrics{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--panel)}
-.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr)}
-.metric{padding:clamp(28px,4vw,48px) clamp(20px,2.5vw,38px);border-left:1px solid var(--line);position:relative}
-.metric:last-child{border-left:0}
-.metric .mk{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);display:flex;justify-content:space-between}
-.metric .mk .ix{color:var(--soft2)}
-.metric .mv{font-family:'Doto',monospace;font-weight:900;font-size:clamp(46px,6vw,84px);line-height:1;margin:18px 0 8px;letter-spacing:.01em;color:var(--ink)}
-.metric .mv .u{font-size:.42em;color:var(--accent);margin-right:4px;letter-spacing:0}
-.metric.is-accent .mv{color:var(--accent)}
-.metric .mc{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--soft);letter-spacing:.04em;line-height:1.5}
-
-/* ---------- THESIS ---------- */
-.thesis{font-weight:700;font-size:clamp(23px,2.9vw,40px);line-height:1.75;letter-spacing:0;max-width:26ch}
-.thesis .muted{color:var(--soft)}
-.thesis em{font-style:normal;color:var(--accent)}
-.read{display:inline-flex;align-items:center;gap:10px;margin-top:42px;font-family:'JetBrains Mono',monospace;
-  font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--accent);padding-bottom:5px;transition:gap .3s}
-.read:hover{gap:18px}
-
-/* ---------- PILLARS ---------- */
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);background:var(--line);gap:1px}
-.pillar{background:var(--bg);padding:30px 28px 40px;position:relative;transition:background .35s}
-.pillar:hover{background:var(--panel)}
-.pillar .ptop{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:34px}
-.pillar .pn{font-family:'Doto',monospace;font-weight:900;font-size:40px;line-height:1;color:var(--accent)}
-.pillar .pid{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--soft2);text-align:left}
-.pillar .tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);margin-bottom:12px}
-.pillar h3{font-weight:700;font-size:22px;line-height:1.6;margin-bottom:14px;letter-spacing:0}
-.pillar p{font-size:14px;color:#94A3B4;line-height:1.9;font-weight:400}
-.pillar .bar{height:3px;background:var(--grid);margin-top:26px;overflow:hidden}
-.pillar .bar i{display:block;height:100%;background:var(--accent);width:0;transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
-.pillar.in .bar i{width:var(--w,70%)}
-
-/* ---------- DATA ATLAS (drawing block) ---------- */
-.drawing{border:1px solid var(--line);background:var(--panel);position:relative}
-.drawing-top{display:grid;grid-template-columns:1.1fr 1fr;gap:0;border-bottom:1px solid var(--line)}
-.dt-left{padding:clamp(28px,3.5vw,52px);border-left:1px solid var(--line)}
-.dt-left h2{font-weight:800;font-size:clamp(26px,3.4vw,44px);line-height:1.5;letter-spacing:0;margin-bottom:20px}
-.dt-left h2 em{font-style:normal;color:var(--accent)}
-.dt-left p{font-size:14.5px;line-height:1.95;color:#94A3B4;max-width:42ch}
-.dt-stats{display:flex;gap:30px;margin-top:30px;flex-wrap:wrap}
-.dt-stat .n{font-family:'Doto',monospace;font-weight:900;font-size:34px;color:var(--data);line-height:1}
-.dt-stat .l{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-top:6px}
-.dt-chart{padding:clamp(22px,2.5vw,34px);display:flex;flex-direction:column}
-.chart-head{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:14px}
-.chart svg{width:100%;height:auto;display:block}
-/* title block strip */
-.titleblock{display:grid;grid-template-columns:auto repeat(3,1fr);font-family:'JetBrains Mono',monospace;font-size:10px}
-.tb-cell{padding:14px 18px;border-left:1px solid var(--line)}
-.tb-cell:last-child{border-left:0}
-.tb-cell .k{color:var(--soft);letter-spacing:.12em;text-transform:uppercase;font-size:9px;margin-bottom:5px}
-.tb-cell .v{color:var(--ink);letter-spacing:.06em}
-.tb-logo{display:flex;align-items:center;justify-content:center;padding:10px 22px;border-left:1px solid var(--line)}
-.tb-logo svg{width:34px;height:34px;display:block}
-
-/* ---------- REVIEW INDEX ---------- */
-.index{border-top:1px solid var(--ink)}
-.irow{display:grid;grid-template-columns:42px 1fr auto;gap:22px;align-items:baseline;padding:24px 6px;
-  border-bottom:1px solid var(--line);transition:padding .35s,background .35s}
-.irow:hover{padding-left:18px;padding-right:18px;background:var(--panel)}
-.irow .ix{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:.06em}
-.irow .it{font-weight:600;font-size:clamp(18px,2.2vw,28px);line-height:1.6;letter-spacing:0}
-.irow:hover .it{color:var(--accent)}
-.irow .ib{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--soft);margin-top:8px;letter-spacing:.02em}
-.irow .ik{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);white-space:nowrap;border:1px solid var(--line);padding:5px 10px}
-.note-line{margin-top:26px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--soft);letter-spacing:.04em}
-
-/* ---------- ADVISORS ---------- */
-.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);background:var(--line);gap:1px}
-.adv{background:var(--bg);padding:26px 24px;min-height:130px;display:flex;flex-direction:column;justify-content:space-between;transition:background .35s}
-.adv:hover{background:var(--panel)}
-.adv .aix{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--soft2);letter-spacing:.12em}
-.adv .an{font-weight:700;font-size:18px;letter-spacing:0;margin-top:auto}
-.adv .af{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-top:8px}
-
-/* ---------- SUPPORT ---------- */
-.support{text-align:center}
-.support .big{font-weight:800;font-size:clamp(30px,5.4vw,76px);line-height:1.5;letter-spacing:0;max-width:15ch;margin:0 auto}
-.support .big em{font-style:normal;color:var(--accent)}
-.support .cta{display:inline-flex;align-items:center;gap:12px;margin-top:46px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
-  border:1px solid var(--accent);color:var(--ink);padding:16px 34px;transition:background .3s,color .3s}
-.support .cta:hover{background:var(--accent);color:#0B1B33}
-/* contact form */
-.cform{max-width:560px;margin:44px auto 0;text-align:right;display:grid;gap:16px}
-.cform .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:560px){.cform .row2{grid-template-columns:1fr}}
-.cform .fld{display:flex;flex-direction:column;gap:8px}
-.cform label{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
-.cform input,.cform textarea{width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:3px;color:var(--ink);font-family:'IRANSansX','Vazirmatn',sans-serif;font-size:14px;padding:12px 13px}
-.cform textarea{resize:vertical;min-height:120px;line-height:1.8}
-.cform input:focus,.cform textarea:focus{outline:none;border-color:var(--accent)}
-.cform button{justify-self:center;margin-top:6px;background:var(--accent);color:#0B1B33;border:0;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:16px 40px;cursor:pointer;transition:transform .2s,box-shadow .3s}
-.cform button:hover{transform:translateY(-1px);box-shadow:0 10px 30px -10px color-mix(in srgb,var(--accent) 70%,transparent)}
-
-/* ---------- FOOTER ---------- */
-footer{border-top:1px solid var(--line);background:var(--panel)}
-.foot{max-width:var(--maxw);margin:0 auto;padding:54px var(--pad) 30px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
-.foot .fb{font-weight:900;font-size:30px;letter-spacing:.02em}
-.foot .fb-logo{display:block;height:58px;width:auto}
-.foot .fb .dot{color:var(--accent)}
-.fcol strong{display:block;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-bottom:12px}
-.fcol p{font-size:13px;color:#A9B6C4;line-height:1.9;margin-bottom:3px}
-.fcol a{border-bottom:1px solid var(--line)}
-.fcol a:hover{border-bottom-color:var(--accent);color:var(--accent)}
-.colophon{border-top:1px solid var(--line)}
-.colophon-in{max-width:var(--maxw);margin:0 auto;padding:14px var(--pad);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
-  font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
-.colophon-in b{color:var(--data);font-weight:500}
+/* ---------- section scaffold ---------- */
+section.block{padding:clamp(56px,9vh,104px) 0}
+.sechead{display:flex;align-items:baseline;gap:14px;margin-bottom:clamp(26px,4vh,44px)}
+.sechead .no{font-size:12px;font-weight:700;color:var(--teal);letter-spacing:0}
+.sechead .tt{font-size:clamp(20px,2.6vw,27px);font-weight:800;line-height:1.6}
+.sechead::after{content:"";flex:1;height:1px;background:var(--line);transform:translateY(-6px)}
+.lede{color:var(--soft);max-width:64ch;font-size:15px}
 
 /* reveal */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .85s cubic-bezier(.2,.7,.2,1),transform .85s cubic-bezier(.2,.7,.2,1)}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.hero-kick::before{animation:none}}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
-/* ============ PROGRAMS — podcast / talks / events / panels / videos ============ */
-/* ---- PODCAST ---- */
-.podcast{border:1px solid var(--line);background:var(--panel)}
-.pod-main{display:flex;align-items:center;gap:clamp(16px,2vw,26px);padding:clamp(22px,3vw,40px);border-bottom:1px solid var(--line)}
-.pod-play{flex-shrink:0;width:64px;height:64px;border-radius:50%;background:var(--accent);color:#0B1B33;border:0;cursor:pointer;display:grid;place-items:center;transition:transform .25s,box-shadow .35s}
-.pod-play:hover{transform:scale(1.06);box-shadow:0 0 34px -6px rgba(255,77,35,.55)}
-.pod-play svg{width:20px;height:20px;margin-right:3px}
+/* ---------- hero ---------- */
+.hero{padding:clamp(120px,18vh,190px) 0 clamp(40px,7vh,72px)}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:700;color:var(--teal-deep);
+  background:var(--teal-soft);border:1px solid color-mix(in srgb,var(--teal) 25%,transparent);border-radius:999px;padding:5px 16px;margin-bottom:26px}
+.hero .eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--teal);display:block}
+.hero h1{font-size:clamp(30px,4.6vw,54px);font-weight:800;line-height:1.65;letter-spacing:0;max-width:21ch;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--teal)}
+.hero .sub{margin-top:22px;max-width:52ch;color:var(--soft);font-size:clamp(15px,1.5vw,17.5px)}
+.hero .sub b{color:var(--ink)}
+.hero-meta{display:flex;flex-wrap:wrap;gap:0 34px;margin-top:clamp(30px,5vh,52px);padding-top:22px;border-top:1px solid var(--line)}
+.hero-meta div{padding:4px 0}
+.hero-meta .k{font-size:11.5px;color:var(--muted);margin-bottom:2px}
+.hero-meta .v{font-size:13.5px;font-weight:700;color:var(--ink)}
+.hero-meta .v span{color:var(--teal-deep)}
+
+/* ---------- metrics ---------- */
+.metrics{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--card)}
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.metric{padding:clamp(26px,3.5vw,40px) clamp(18px,2.4vw,34px);border-left:1px solid var(--line-soft)}
+.metric:last-child{border-left:0}
+.metric .mv{font-size:clamp(30px,3.6vw,46px);font-weight:800;color:var(--teal-deep);line-height:1.4;font-variant-numeric:tabular-nums}
+.metric .mk{font-size:13px;font-weight:700;margin-top:2px}
+.metric .mc{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.9}
+@media(max-width:900px){.metrics-grid{grid-template-columns:1fr 1fr}
+  .metric:nth-child(2){border-left:0}.metric:nth-child(1),.metric:nth-child(2){border-bottom:1px solid var(--line-soft)}}
+@media(max-width:480px){.metrics-grid{grid-template-columns:1fr}.metric{border-left:0;border-bottom:1px solid var(--line-soft)}.metric:last-child{border-bottom:0}}
+
+/* ---------- thesis ---------- */
+.thesis{font-size:clamp(21px,2.7vw,32px);font-weight:700;line-height:1.95;max-width:30ch}
+.thesis em{font-style:normal;color:var(--teal)}
+.thesis .muted{color:var(--muted);font-weight:400}
+.read{display:inline-block;margin-top:34px;font-size:13.5px;font-weight:700;color:var(--teal-deep);border-bottom:1px solid var(--teal);padding-bottom:3px;transition:opacity .2s}
+.read:hover{opacity:.7}
+
+/* ---------- vision ---------- */
+.vision-lead{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(22px,4vw,54px);align-items:start;margin-bottom:clamp(28px,5vh,46px)}
+@media(max-width:860px){.vision-lead{grid-template-columns:1fr}}
+.vision-lead h2{font-size:clamp(23px,3vw,36px);font-weight:800;line-height:1.75}
+.vision-lead h2 em{font-style:normal;color:var(--teal)}
+.vl-side p{color:var(--soft);font-size:14.5px}
+.vl-side p b{color:var(--ink)}
+.vision-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.vision-meta span{font-size:12px;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:4px 14px;background:var(--card)}
+.vision-meta b{color:var(--teal-deep)}
+.goals-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:820px){.goals-grid{grid-template-columns:1fr}}
+.goal{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px 24px 22px;
+  display:flex;flex-direction:column;gap:12px;transition:border-color .25s}
+.goal:hover{border-color:color-mix(in srgb,var(--teal) 45%,var(--line))}
+.goal-head{display:flex;gap:14px;align-items:flex-start}
+.goal-n{font-size:13px;font-weight:800;color:var(--teal);background:var(--teal-soft);border-radius:7px;
+  width:34px;height:34px;display:grid;place-items:center;flex:none;font-variant-numeric:tabular-nums}
+.goal-tag{display:block;font-size:11.5px;font-weight:700;color:var(--muted);margin-bottom:4px}
+.goal-head h3{font-size:16.5px;font-weight:800;line-height:1.8}
+.goal-obj{font-size:13.5px;color:var(--soft);line-height:2}
+.goal-link{margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:var(--muted);transition:color .2s}
+.goal-link .gl-dot{width:7px;height:7px;border-radius:50%;background:var(--line)}
+.goal-link.is-live{color:var(--teal-deep)}
+.goal-link.is-live .gl-dot{background:var(--teal)}
+.goal:hover .goal-link{color:var(--teal-deep)}
+
+/* ---------- projects ---------- */
+.proj-intro{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:22px}
+.proj-intro p{max-width:58ch;color:var(--soft);font-size:14.5px}
+.proj-intro p b{color:var(--ink)}
+.proj-stats{display:flex;gap:26px}
+.proj-stats span{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:2px}
+.proj-stats b{font-size:24px;font-weight:800;color:var(--ink);line-height:1.4;font-variant-numeric:tabular-nums}
+.proj-filter{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.pjf{font-family:inherit;font-size:12.5px;color:var(--soft);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 16px;cursor:pointer;transition:.18s}
+.pjf:hover{border-color:var(--teal);color:var(--teal-deep)}
+.pjf.on{color:#fff;background:var(--teal);border-color:var(--teal)}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:12px;
+  transition:border-color .25s;animation:rise .45s both}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}}
+.pcard:hover{border-color:color-mix(in srgb,var(--st,var(--teal)) 55%,var(--line))}
+.pc-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.pc-status{font-size:11.5px;font-weight:700;display:flex;align-items:center;gap:7px;color:var(--st,var(--muted))}
+.pc-status .sdot{width:8px;height:8px;border-radius:50%;background:var(--st,var(--muted))}
+.pc-g{font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.pc-tag{font-size:11.5px;font-weight:700;color:var(--muted);margin-bottom:3px}
+.pc-name{font-size:17px;font-weight:800;line-height:1.7}
+.pc-desc{font-size:13px;color:var(--soft);line-height:2}
+.pc-act{margin-top:auto;align-self:flex-start;font-family:inherit;font-size:12.5px;font-weight:700;border:1px solid var(--line);
+  background:none;color:var(--soft);border-radius:7px;padding:8px 16px;cursor:pointer;transition:.2s;display:inline-block}
+.pc-act:hover{border-color:var(--teal);color:var(--teal-deep)}
+.pc-act.is-live{border-color:var(--teal);color:var(--teal-deep)}
+.pc-act.is-live:hover{background:var(--teal);color:#fff}
+.pc-act.done{border-color:var(--teal);color:var(--teal-deep);pointer-events:none;background:var(--teal-soft)}
+.proj-stage{margin-top:28px;scroll-margin-top:76px}
+
+/* ---------- pillars ---------- */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:760px){.pillars{grid-template-columns:1fr}}
+.pillar{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:26px 24px;display:flex;flex-direction:column;transition:border-color .25s}
+.pillar:hover{border-color:color-mix(in srgb,var(--teal) 45%,var(--line))}
+.pillar .pn{font-size:13px;font-weight:800;color:var(--teal);background:var(--teal-soft);border-radius:7px;width:34px;height:34px;display:grid;place-items:center;margin-bottom:18px}
+.pillar .tag{font-size:11.5px;font-weight:700;color:var(--muted);margin-bottom:6px}
+.pillar h3{font-size:18px;font-weight:800;line-height:1.7;margin-bottom:10px}
+.pillar p{font-size:13.5px;color:var(--soft);line-height:2}
+.pillar .bar{height:3px;background:var(--line-soft);margin-top:22px;border-radius:2px;overflow:hidden}
+.pillar .bar i{display:block;height:100%;background:var(--teal);width:0;border-radius:2px;transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+.pillar.in .bar i{width:var(--w,70%)}
+
+/* ---------- atlas drawing ---------- */
+.drawing{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.drawing-top{display:grid;grid-template-columns:1.1fr 1fr}
+@media(max-width:920px){.drawing-top{grid-template-columns:1fr}}
+.dt-left{padding:clamp(24px,3.4vw,44px);border-left:1px solid var(--line-soft)}
+@media(max-width:920px){.dt-left{border-left:0;border-bottom:1px solid var(--line-soft)}}
+.dt-left h2{font-size:clamp(21px,2.7vw,30px);font-weight:800;line-height:1.7;margin-bottom:14px}
+.dt-left h2 em{font-style:normal;color:var(--teal)}
+.dt-left p{font-size:14px;color:var(--soft);max-width:44ch}
+.dt-stats{display:flex;gap:30px;margin-top:26px;flex-wrap:wrap}
+.dt-stat .n{font-size:26px;font-weight:800;color:var(--teal-deep);line-height:1.4;font-variant-numeric:tabular-nums}
+.dt-stat .l{font-size:11.5px;color:var(--muted)}
+.dt-chart{padding:clamp(20px,2.4vw,32px);display:flex;flex-direction:column}
+.chart-head{display:flex;justify-content:space-between;gap:10px;font-size:11.5px;color:var(--muted);margin-bottom:12px}
+.chart svg{width:100%;height:auto;display:block}
+.drawing-cap{border-top:1px solid var(--line-soft);padding:12px clamp(20px,2.4vw,32px);font-size:11.5px;color:var(--muted);
+  display:flex;flex-wrap:wrap;gap:6px 28px}
+.embed-wrap{margin-top:34px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.embed-head{display:flex;align-items:center;gap:12px;padding:13px 20px;border-bottom:1px solid var(--line-soft)}
+.embed-head .eh-k{font-size:11.5px;font-weight:800;color:var(--teal-deep)}
+.embed-head .eh-t{font-size:12.5px;color:var(--muted)}
+.embed-frame{display:block;width:100%;border:0;background:var(--card);height:900px;transition:height .25s ease}
+.embed-frame.embed-fixed{transition:none;background:#0B1B33}
+
+/* ---------- podcast ---------- */
+.podcast{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.pod-main{display:flex;align-items:center;gap:clamp(14px,2vw,24px);padding:clamp(20px,3vw,34px);border-bottom:1px solid var(--line-soft)}
+.pod-play{flex-shrink:0;width:58px;height:58px;border-radius:50%;background:var(--teal);color:#fff;border:0;cursor:pointer;display:grid;place-items:center;transition:background .25s}
+.pod-play:hover{background:var(--teal-deep)}
+.pod-play svg{width:18px;height:18px;margin-right:2px}
 .pod-meta{flex:1;min-width:0}
-.pod-kick{font-size:11px;color:var(--data);margin-bottom:9px;font-family:'JetBrains Mono',monospace;letter-spacing:.06em}
-.pod-title{font-weight:800;font-size:clamp(20px,2.4vw,30px);line-height:1.65;letter-spacing:0}
-.pod-sub{font-size:13px;color:var(--soft);margin-top:9px}
-.pod-wave{display:flex;align-items:center;gap:3px;height:46px;flex-shrink:0}
-.pod-wave span{width:3px;border-radius:2px;background:linear-gradient(var(--data),var(--accent));height:35%}
+.pod-kick{font-size:12px;font-weight:700;color:var(--teal-deep);margin-bottom:6px}
+.pod-title{font-weight:800;font-size:clamp(17px,2vw,23px);line-height:1.7}
+.pod-sub{font-size:12.5px;color:var(--muted);margin-top:5px}
+.pod-wave{display:flex;align-items:center;gap:3px;height:40px;flex-shrink:0}
+.pod-wave span{width:3px;border-radius:2px;background:var(--teal);opacity:.5;height:35%}
 .pod-wave.on span{animation:podbar .9s ease-in-out infinite}
 @keyframes podbar{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
 .pod-list{list-style:none}
-.pod-row{width:100%;display:grid;grid-template-columns:auto 1fr auto auto;gap:18px;align-items:center;background:none;border:0;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;color:inherit;padding:18px clamp(18px,2.5vw,30px);text-align:right;transition:background .3s}
+.pod-row{width:100%;display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;align-items:center;background:none;border:0;
+  border-bottom:1px solid var(--line-soft);cursor:pointer;font-family:inherit;color:inherit;padding:15px clamp(16px,2.4vw,26px);text-align:right;transition:background .2s;font-size:14px}
 .pod-row:last-child{border-bottom:0}
-.pod-row:hover{background:var(--panel2)}
-.pod-row.on{background:color-mix(in srgb,var(--accent) 12%,transparent)}
-.pod-n{color:var(--accent);font-size:13px;font-family:'JetBrains Mono',monospace}
-.pod-rt{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:15px}
-.pod-tag{font-size:10px;color:var(--soft);border:1px solid var(--line);padding:4px 10px;white-space:nowrap;font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
-.pod-len{font-size:13px;color:var(--soft);font-family:'JetBrains Mono',monospace}
+.pod-row:hover{background:var(--paper)}
+.pod-row.on{background:var(--teal-soft)}
+.pod-n{color:var(--teal);font-size:12.5px;font-weight:700;font-variant-numeric:tabular-nums}
+.pod-rt{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.pod-tag{font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 11px;white-space:nowrap}
+.pod-len{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}
 @media(max-width:620px){.pod-wave{display:none}.pod-row{grid-template-columns:auto 1fr auto}.pod-tag{display:none}}
 
-/* ---- CONVERSATIONS ---- */
-.talks{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);background:var(--line);gap:1px}
-.talk{background:var(--bg);padding:30px 28px 32px;display:flex;flex-direction:column;gap:20px;transition:background .35s}
-.talk:hover{background:var(--panel)}
-.talk-ix{font-size:11px;color:var(--soft2);display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;letter-spacing:.1em}
-.talk-q{font-weight:700;font-size:20px;line-height:1.9;letter-spacing:0}
-.talk-q b{color:var(--accent);font-weight:700}
-.talk-by{margin-top:auto}
-.talk-name{font-weight:700;font-size:15px}
-.talk-role{font-size:11px;color:var(--soft);margin-top:7px;font-family:'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
+/* ---------- talks ---------- */
+.talks{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 @media(max-width:860px){.talks{grid-template-columns:1fr}}
+.talk{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:18px;transition:border-color .25s}
+.talk:hover{border-color:color-mix(in srgb,var(--teal) 45%,var(--line))}
+.talk-q{font-weight:700;font-size:16.5px;line-height:2}
+.talk-q b{color:var(--teal-deep)}
+.talk-by{margin-top:auto}
+.talk-name{font-weight:700;font-size:13.5px}
+.talk-role{font-size:11.5px;color:var(--muted);margin-top:3px}
 
-/* ---- EVENTS ---- */
-.events{border-top:1px solid var(--ink)}
-.evrow{display:grid;grid-template-columns:130px 1fr auto auto;gap:24px;align-items:center;padding:24px 6px;border-bottom:1px solid var(--line);transition:padding .35s,background .35s}
-.evrow:hover{padding-left:18px;padding-right:18px;background:var(--panel)}
-.ev-date{font-family:'Doto',monospace;font-weight:900;color:var(--data);font-size:34px;line-height:.9;letter-spacing:.02em}
-.ev-date small{display:block;font-family:'IRANSansX','Vazirmatn',sans-serif;font-weight:500;font-size:11px;color:var(--soft);margin-top:8px;letter-spacing:normal;text-transform:none}
-.ev-title{font-weight:600;font-size:clamp(17px,2vw,24px);line-height:1.7}
-.ev-loc{font-size:12px;color:var(--soft);white-space:nowrap;font-family:'JetBrains Mono',monospace;letter-spacing:.06em}
-.ev-cta{font-size:11px;border:1px solid var(--accent);color:var(--ink);padding:8px 16px;white-space:nowrap;transition:background .3s,color .3s;font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
-.ev-cta:hover{background:var(--accent);color:#0B1B33}
-.ev-cta.past{border-color:var(--line);color:var(--soft);pointer-events:none}
-@media(max-width:760px){.evrow{grid-template-columns:84px 1fr;row-gap:10px}.ev-loc,.ev-cta{grid-column:2;justify-self:start}}
+/* ---------- events ---------- */
+.events{border-top:1px solid var(--line)}
+.evrow{display:grid;grid-template-columns:112px 1fr auto auto;gap:22px;align-items:center;padding:20px 4px;border-bottom:1px solid var(--line);transition:background .2s}
+.evrow:hover{background:var(--card)}
+.ev-date{line-height:1.3}
+.ev-date b{font-size:26px;font-weight:800;color:var(--teal-deep);font-variant-numeric:tabular-nums}
+.ev-date small{display:block;font-size:11.5px;color:var(--muted);margin-top:2px}
+.ev-title{font-weight:700;font-size:clamp(15px,1.8vw,19px);line-height:1.8}
+.ev-loc{font-size:12px;color:var(--muted);white-space:nowrap}
+.ev-cta{font-size:12.5px;font-weight:700;border:1px solid var(--teal);color:var(--teal-deep);border-radius:7px;padding:7px 16px;white-space:nowrap;transition:.2s}
+.ev-cta:hover{background:var(--teal);color:#fff}
+.ev-cta.past{border-color:var(--line);color:var(--muted);pointer-events:none}
+@media(max-width:760px){.evrow{grid-template-columns:84px 1fr;row-gap:8px}.ev-loc,.ev-cta{grid-column:2;justify-self:start}}
 
-/* ---- PANELS ---- */
-.panels{list-style:none}
-.panel{display:grid;grid-template-columns:96px 1fr auto auto;gap:24px;align-items:center;padding:22px 6px;border-top:1px solid var(--line);transition:padding .35s}
-.panel:last-child{border-bottom:1px solid var(--line)}
-.panel:hover{padding-right:14px}
-.panel-no{color:var(--accent);font-size:13px;font-family:'JetBrains Mono',monospace;letter-spacing:.08em}
-.panel-title{font-weight:600;font-size:clamp(16px,1.9vw,21px);line-height:1.75}
-.panel-by{font-size:12px;color:var(--soft);margin-top:8px}
-.panel-tag{font-size:11px;color:var(--data);border:1px solid color-mix(in srgb,var(--data) 40%,transparent);border-radius:999px;padding:5px 14px;white-space:nowrap;font-family:'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
-.panel-cta{font-size:11px;color:var(--soft);opacity:0;transition:opacity .3s,color .3s;white-space:nowrap;font-family:'JetBrains Mono',monospace;letter-spacing:.08em}
-.panel:hover .panel-cta{opacity:1;color:var(--accent)}
-@media(max-width:760px){.panel{grid-template-columns:70px 1fr}.panel-tag{grid-column:2;justify-self:start;margin-top:8px}.panel-cta{display:none}}
+/* ---------- panels ---------- */
+.panels{list-style:none;border-top:1px solid var(--line)}
+.panel{display:grid;grid-template-columns:64px 1fr auto;gap:20px;align-items:center;padding:20px 4px;border-bottom:1px solid var(--line);transition:background .2s}
+.panel:hover{background:var(--card)}
+.panel-no{color:var(--teal);font-size:12.5px;font-weight:800;font-variant-numeric:tabular-nums}
+.panel-title{font-weight:700;font-size:clamp(14.5px,1.7vw,18px);line-height:1.8}
+.panel-by{font-size:12px;color:var(--muted);margin-top:3px}
+.panel-tag{font-size:11.5px;color:var(--teal-deep);border:1px solid color-mix(in srgb,var(--teal) 35%,transparent);border-radius:999px;padding:4px 13px;white-space:nowrap;background:var(--teal-soft)}
+@media(max-width:600px){.panel{grid-template-columns:44px 1fr}.panel-tag{grid-column:2;justify-self:start;margin-top:6px}}
 
-/* ---- EDUCATIONAL VIDEOS ---- */
-.videos{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;border:1px solid var(--line);background:var(--line)}
-.vid{background:var(--bg);display:flex;flex-direction:column;cursor:pointer;transition:background .35s}
-.vid:hover{background:var(--panel)}
-.vid-thumb{position:relative;aspect-ratio:16/10;background:var(--panel2);overflow:hidden}
-.vid-thumb image-slot{display:block;width:100%;height:100%}
-.vid-dur{position:absolute;bottom:8px;left:8px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink);background:color-mix(in srgb,#0B1B33 78%,transparent);padding:3px 8px}
-.vid-pl{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:color-mix(in srgb,var(--accent) 92%,transparent);display:grid;place-items:center;transition:transform .3s}
-.vid:hover .vid-pl{transform:translate(-50%,-50%) scale(1.12)}
-.vid-pl svg{width:16px;height:16px;margin-right:2px;color:#0B1B33}
-.vid-body{padding:18px 18px 22px;display:flex;flex-direction:column;gap:9px}
-.vid-lesson{font-size:11px;color:var(--soft);font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
-.vid-title{font-weight:700;font-size:16px;line-height:1.65}
-@media(max-width:980px){.videos{grid-template-columns:repeat(2,1fr)}}
+/* ---------- videos ---------- */
+.videos{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:980px){.videos{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.videos{grid-template-columns:1fr}}
+.vid{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:border-color .25s}
+.vid:hover{border-color:color-mix(in srgb,var(--teal) 45%,var(--line))}
+.vid-thumb{position:relative;aspect-ratio:16/10;background:var(--teal-soft);overflow:hidden}
+.vid-thumb image-slot{display:block;width:100%;height:100%}
+.vid-dur{position:absolute;bottom:8px;left:8px;font-size:10.5px;color:#fff;background:rgba(28,28,26,.72);border-radius:4px;padding:2px 8px;font-variant-numeric:tabular-nums;direction:ltr}
+.vid-pl{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:color-mix(in srgb,var(--teal) 94%,transparent);display:grid;place-items:center;transition:transform .25s}
+.vid:hover .vid-pl{transform:translate(-50%,-50%) scale(1.08)}
+.vid-pl svg{width:14px;height:14px;margin-right:2px;color:#fff}
+.vid-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px}
+.vid-lesson{font-size:11.5px;font-weight:700;color:var(--teal-deep)}
+.vid-title{font-weight:700;font-size:14.5px;line-height:1.8}
 
-/* responsive */
-@media(max-width:980px){
-  .hero-strip{grid-template-columns:repeat(2,1fr)}
-  .hero-strip>div:nth-child(2){border-left:0}
-  .metrics-grid{grid-template-columns:repeat(2,1fr)}
-  .metric:nth-child(2){border-left:0}
-  .metric:nth-child(1),.metric:nth-child(2){border-bottom:1px solid var(--line)}
-  .drawing-top{grid-template-columns:1fr}
-  .dt-left{border-left:0;border-bottom:1px solid var(--line)}
-  .foot{grid-template-columns:1fr 1fr}
-}
-@media(max-width:1080px){
-  nav.main{display:none}
-  .hclock span.coord{display:none}
-}
-@media(max-width:760px){
-  .pillars{grid-template-columns:1fr}
-  .adv-grid{grid-template-columns:1fr 1fr}
-  .titleblock{grid-template-columns:1fr 1fr}
-  .tb-cell:nth-child(3){border-left:0}
-  .foot{grid-template-columns:1fr}
-  .irow{grid-template-columns:30px 1fr}
-  .irow .ik{grid-column:2;justify-self:start;margin-top:10px}
-}
-@media(max-width:480px){.metrics-grid{grid-template-columns:1fr}.metric{border-left:0;border-bottom:1px solid var(--line)}.adv-grid{grid-template-columns:1fr}}
-.embed-wrap{margin-top:42px;border:1px solid var(--line);background:var(--panel)}
-.embed-head{display:flex;align-items:center;gap:14px;padding:13px 18px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace}
-.embed-head .eh-k{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
-.embed-head .eh-t{font-size:12px;letter-spacing:.02em;color:var(--soft)}
-.embed-frame{display:block;width:100%;border:0;background:var(--bg);height:900px;transition:height .25s ease}
-.embed-frame.embed-fixed{transition:none}
-/* ---------- VISION 2600 ---------- */
-.vision-lead{display:grid;grid-template-columns:1.25fr 1fr;gap:34px;align-items:end;margin-bottom:38px}
-@media(max-width:860px){.vision-lead{grid-template-columns:1fr;gap:18px}}
-.vision-lead h2{font-size:clamp(28px,3.7vw,54px);font-weight:900;line-height:1.55;letter-spacing:0}
-.vision-lead h2 em{font-style:normal;color:var(--accent)}
-.vision-lead .vl-side p{color:#BCC8D6;font-size:14.5px;line-height:1.95}
-.vision-lead .vl-side p b{color:var(--ink);font-weight:600}
-.vision-meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.04em}
-.vision-meta span{border:1px solid var(--line);border-radius:999px;padding:6px 13px;color:var(--soft)}
-.vision-meta span b{color:var(--data);font-weight:500}
-.goals-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-@media(max-width:820px){.goals-grid{grid-template-columns:1fr}}
-.goal{background:var(--bg);padding:28px 26px 30px;display:flex;flex-direction:column;gap:15px;transition:background .3s}
-.goal:hover{background:var(--panel)}
-.goal-head{display:flex;gap:16px;align-items:flex-start}
-.goal-n{font-family:'Doto','JetBrains Mono',monospace;font-weight:900;font-size:36px;line-height:.9;color:var(--accent);flex:none}
-.goal-tag{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);display:block;margin-bottom:7px}
-.goal-head h3{font-size:18px;font-weight:700;line-height:1.75;letter-spacing:0}
-.goal-obj{font-size:13.5px;color:#AEBBCB;line-height:1.9}
-.goal-rows{display:flex;flex-direction:column;gap:13px;margin-top:auto}
-.grow{border-right:2px solid var(--line);padding-right:14px}
-.grow-now{border-right-color:var(--accent)}
-.grow-pol{border-right-color:var(--data)}
-.grk{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);display:block;margin-bottom:6px}
-.grow-now .grk{color:var(--accent)}
-.grow-pol .grk{color:var(--data)}
-.grow p{font-size:12.5px;color:#B8C4D2;line-height:1.9}
-.grow p b{color:var(--ink);font-weight:600}
-.grow-cta{display:inline-block;margin-top:9px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:3px}
-.goal-link{margin-top:auto;display:inline-flex;align-items:center;gap:9px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:var(--soft);transition:color .25s}
-.goal-link .gl-dot{width:7px;height:7px;border-radius:50%;background:var(--soft2)}
-.goal-link.is-live{color:var(--data)}
-.goal-link.is-live .gl-dot{background:var(--data);box-shadow:0 0 0 3px color-mix(in srgb,var(--data) 22%,transparent)}
-.goal:hover .goal-link{color:var(--accent)}
-.goal:hover .goal-link.is-live{color:var(--data)}
-/* ---------- PROJECTS PLATFORM ---------- */
-.proj-intro{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:26px;margin-bottom:24px}
-.proj-intro p{max-width:58ch;color:#BCC8D6;font-size:15px;line-height:1.95}
-.proj-intro p b{color:var(--ink);font-weight:600}
-.proj-stats{display:flex;gap:28px}
-.proj-stats span{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);display:flex;flex-direction:column;gap:4px}
-.proj-stats b{font-family:'Doto','JetBrains Mono',monospace;font-size:28px;font-weight:900;color:var(--ink);letter-spacing:.02em;line-height:.9}
-.proj-filter{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
-.pjf{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:var(--soft);background:none;border:1px solid var(--line);border-radius:999px;padding:7px 15px;cursor:pointer;transition:.18s}
-.pjf:hover{color:var(--ink);border-color:var(--soft)}
-.pjf.on{color:var(--ink);background:var(--panel2);border-color:transparent}
-.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(292px,1fr));gap:14px}
-.pcard{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:20px 20px 22px;display:flex;flex-direction:column;gap:13px;border-top:3px solid var(--st,var(--soft2));transition:transform .2s,background .25s;animation:rise .5s both}
-@keyframes rise{from{opacity:0;transform:translateY(14px)}}
-.pcard:hover{transform:translateY(-3px);background:var(--panel2)}
-.pc-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.pc-status{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:8px;color:var(--st)}
-.pc-status .sdot{width:8px;height:8px;border-radius:50%;background:var(--st)}
-.pc-status.live .sdot{box-shadow:0 0 0 4px color-mix(in srgb,var(--data) 22%,transparent)}
-.pc-g{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--soft2)}
-.pc-tag{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:5px}
-.pc-name{font-size:19px;font-weight:800;letter-spacing:0;line-height:1.6}
-.pc-desc{font-size:13px;color:#AEBBCB;line-height:1.9}
-.pc-act{margin-top:auto;align-self:flex-start;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;border:1px solid var(--line);background:none;color:var(--ink);border-radius:3px;padding:9px 15px;cursor:pointer;transition:.2s;text-decoration:none;display:inline-block}
-.pc-act:hover{border-color:var(--accent);color:var(--accent)}
-.pc-act.is-live{border-color:var(--data);color:var(--data)}
-.pc-act.is-live:hover{background:var(--data);color:#0B1B33}
-.pc-act.done{border-color:var(--data);color:var(--data);pointer-events:none}
-.proj-stage{margin-top:30px;border:1px solid var(--line);background:var(--panel);scroll-margin-top:70px}
+/* ---------- review ---------- */
+.index{border-top:1px solid var(--line)}
+.irow{display:grid;grid-template-columns:40px 1fr auto;gap:20px;align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--line);transition:background .2s}
+.irow:hover{background:var(--card)}
+.irow .ix{font-size:12.5px;color:var(--teal);font-weight:800;font-variant-numeric:tabular-nums}
+.irow .it{font-weight:700;font-size:clamp(16px,2vw,22px);line-height:1.8}
+.irow:hover .it{color:var(--teal-deep)}
+.irow .ib{font-size:12.5px;color:var(--muted);margin-top:4px}
+.irow .ik{font-size:11.5px;color:var(--muted);white-space:nowrap;border:1px solid var(--line);border-radius:999px;padding:4px 13px;background:var(--card)}
+.note-line{margin-top:22px;font-size:12.5px;color:var(--muted)}
+@media(max-width:600px){.irow{grid-template-columns:30px 1fr}.irow .ik{grid-column:2;justify-self:start;margin-top:8px}}
 
-/* ============ Persian typography normalization ============ */
-/* Arabic-script joining breaks under letter-spacing / uppercase — strip them from Persian labels */
-.seclabel,.seclabel .lab,.hero-top .fa,.hero-kick,.hero-strip .k,.hero-strip .v,.metric .mk,.metric .mc,
-nav.main a,.chart-head .fa,.pillar .tag,.dt-stat .l,.irow .ik,.irow .ib,.note-line,.adv .an,.adv .af,
-.fcol strong,.tb-cell .k,.tb-cell .v,.pod-kick,.pod-tag,.vid-lesson,.panel-by,.ev-loc,.talk-role,.read,.support .cta,.colophon-in,
-.goal-tag,.goal-link,.proj-stats span,.pjf,.pc-status,.pc-g,.pc-tag,.pc-act,.embed-head .eh-k,.embed-head .eh-t,
-.panel-tag,.panel-cta,.ev-cta,.vision-meta span,.grk,.grow-cta,.cform label,.cform button
-{font-family:'IRANSansX','Vazirmatn',sans-serif;letter-spacing:normal;text-transform:none}
-.seclabel{font-size:13px;font-weight:700}
-.fa{font-family:'IRANSansX','Vazirmatn',sans-serif;letter-spacing:normal;text-transform:none}
-.seclabel .lab{color:var(--ink);font-weight:800}
-.hero-kick{font-size:12px}
-nav.main a{font-size:12px}
-.metric .mc{line-height:1.9}
-.embed-head .eh-t{font-size:12.5px}
-.proj-stats span{font-size:11px}
-.colophon-in{line-height:1.9}
-/* re-assert the Latin instrument look on explicitly-LTR codes */
-.mono,.ltr{font-family:'JetBrains Mono',monospace}
-.ltr{letter-spacing:.04em}
-.lcd{font-family:'Doto','JetBrains Mono',monospace}
-.seclabel .num,.seclabel .rt{font-family:'JetBrains Mono',monospace;letter-spacing:.14em}
-nav.main a span.ix{font-family:'JetBrains Mono',monospace;margin-right:0;margin-left:6px;letter-spacing:.06em}
+/* ---------- advisors ---------- */
+.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:760px){.adv-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.adv-grid{grid-template-columns:1fr}}
+.adv{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;min-height:112px;display:flex;flex-direction:column;justify-content:flex-end;transition:border-color .25s}
+.adv:hover{border-color:color-mix(in srgb,var(--teal) 45%,var(--line))}
+.adv .an{font-weight:800;font-size:15.5px;line-height:1.7}
+.adv .af{font-size:12px;color:var(--muted);margin-top:5px}
+
+/* ---------- support ---------- */
+.support{text-align:center;background:var(--card);border-top:1px solid var(--line)}
+.support .sechead{justify-content:center}
+.support .sechead::after{display:none}
+.support .big{font-weight:800;font-size:clamp(24px,3.8vw,44px);line-height:1.8;max-width:20ch;margin:0 auto}
+.support .big em{font-style:normal;color:var(--teal)}
+.cform{max-width:540px;margin:38px auto 0;text-align:right;display:grid;gap:14px}
+.cform .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.cform .row2{grid-template-columns:1fr}}
+.cform .fld{display:flex;flex-direction:column;gap:6px}
+.cform label{font-size:12px;font-weight:700;color:var(--soft)}
+.cform input,.cform textarea{width:100%;background:var(--paper);border:1px solid var(--line);border-radius:8px;color:var(--ink);
+  font-family:inherit;font-size:14px;padding:11px 13px}
+.cform textarea{resize:vertical;min-height:120px;line-height:1.9}
+.cform input:focus,.cform textarea:focus{outline:none;border-color:var(--teal)}
+.cform button{justify-self:center;margin-top:8px;background:var(--teal);color:#fff;border:0;border-radius:8px;
+  font-family:inherit;font-size:14px;font-weight:700;padding:13px 42px;cursor:pointer;transition:background .2s}
+.cform button:hover{background:var(--teal-deep)}
+
+/* ---------- footer ---------- */
+footer{background:var(--dark);color:#E8ECEC}
+.foot{max-width:var(--maxw);margin:0 auto;padding:52px var(--pad) 28px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
+@media(max-width:900px){.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.foot{grid-template-columns:1fr}}
+.foot .fb-logo{display:block;height:52px;width:auto;opacity:.95}
+.fcol strong{display:block;font-size:12px;font-weight:800;color:#9FB3B8;margin-bottom:10px}
+.fcol p{font-size:13px;color:#C9D2D3;line-height:2;margin-bottom:2px}
+.fcol a{border-bottom:1px solid rgba(255,255,255,.25)}
+.fcol a:hover{border-bottom-color:#fff;color:#fff}
+.colophon{border-top:1px solid rgba(255,255,255,.12)}
+.colophon-in{max-width:var(--maxw);margin:0 auto;padding:14px var(--pad);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  font-size:11.5px;color:#9FB3B8}
+.ltr{direction:ltr;unicode-bidi:isolate}
 </style>
 </head>
 <body>
-<div class="gridbg" aria-hidden="true"></div>
 
 <header class="site" id="hdr">
-  <a href="index.html#/" target="_top" class="backlink fa" onclick="if(window.parent!==window){window.parent.postMessage({type:'gosan-nav',hash:'#/'},'*');return false;}">بازگشت به وبلاگ گوسان</a>
+  <a class="brand" href="index.html#/" target="_top" onclick="if(window.parent!==window){window.parent.postMessage({type:'gosan-nav',hash:'#/'},'*');return false;}">
+    <img src="assets/logo-gosan.png" alt="گوسان">
+    <span class="t">اندیشکدهٔ فرهنگ و هنر گوسان<small>سیاست‌گذاریِ فرهنگیِ مبتنی بر شواهد</small></span>
+  </a>
   <nav class="main" id="nav">
     <a href="#thesis">دیدگاه</a>
     <a href="#vision">چشم‌انداز</a>
     <a href="#projects">پروژه‌ها</a>
     <a href="#mission">مأموریت</a>
-    <a href="#atlas">اطلس</a>
-    <a href="#podcast">پادکست</a>
-    <a href="#talks">گفتگو</a>
-    <a href="#events">رویدادها</a>
-    <a href="#panels">نشست‌ها</a>
-    <a href="#videos">ویدیوها</a>
+    <a href="#atlas">داده‌ها</a>
+    <a href="#podcast">برنامه‌ها</a>
     <a href="#review">فصلنامه</a>
-    <a href="#support">حمایت</a>
+    <a href="#support">تماس</a>
   </nav>
-  <div class="hclock"><a href="institute.html" class="langsw ltr" title="English version">EN</a><span class="coord ltr" id="coord">52.52°N · 13.40°E</span><span class="ltr" id="clock">--:--:--</span></div>
+  <div class="hd-side">
+    <a href="index.html#/" target="_top" class="backlink" onclick="if(window.parent!==window){window.parent.postMessage({type:'gosan-nav',hash:'#/'},'*');return false;}">بازگشت به گاهنامه</a>
+    <a href="institute.html" class="langsw" title="English version">EN</a>
+  </div>
 </header>
 
 <main id="top">
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-top">
-      <span class="fa">اندیشکدهٔ فرهنگ و هنر گوسان</span>
-      <span class="ltr">FILE / 00 — INDEX</span>
-    </div>
-    <div>
-      <div class="hero-kick">سیاست‌گذاریِ فرهنگیِ مبتنی بر شواهد</div>
-      <img class="hero-logo" src="assets/logo-gosan-white.png" alt="گوسان">
-      <p class="hero-sub">اندیشکده‌ای داده‌محور که <b>زیرساختِ نهادی، اقتصادی و دیجیتالِ</b> اقتصادِ خلاقِ ایرانِ آزاد را طراحی می‌کند.</p>
-    </div>
-    <div class="hero-strip">
-      <div style="padding: 1px 18px 22px"><div class="k">محل فعالیت</div><div class="v">برلین · واشینگتن، دی.سی.</div></div>
-      <div><div class="k">تأسیس</div><div class="v">تیرگان <b>۲۵۸۵</b></div></div>
-      <div><div class="k">حوزه</div><div class="v">اقتصادِ کلانِ فرهنگ</div></div>
-      <div><div class="k">وضعیت</div><div class="v"><b>فعال</b> · فازِ بنیان‌گذاری</div></div>
+    <div class="wrap">
+      <span class="eyebrow"><i></i>اندیشکده‌ای مستقل، داده‌محور و برون‌مرزی</span>
+      <h1>زیرساختِ فرهنگیِ <em>ایرانِ فردا</em> را امروز طراحی می‌کنیم.</h1>
+      <p class="sub">اندیشکدهٔ فرهنگ و هنر گوسان، <b>زیرساخت‌های نهادی، اقتصادی و دیجیتالِ</b> اقتصادِ خلاقِ ایرانِ آزاد را — بر پایهٔ داده و شواهد — پژوهش و طراحی می‌کند.</p>
+      <div class="hero-meta">
+        <div><div class="k">محلِ فعالیت</div><div class="v">برلین · واشینگتن، دی.سی.</div></div>
+        <div><div class="k">بنیان‌گذاری</div><div class="v">تیرگان <span>۲۵۸۵</span></div></div>
+        <div><div class="k">حوزهٔ کار</div><div class="v">اقتصادِ کلانِ فرهنگ</div></div>
+        <div><div class="k">وضعیت</div><div class="v"><span>فعال</span> · مرحلهٔ بنیان‌گذاری</div></div>
+      </div>
     </div>
   </section>
 
   <!-- METRICS -->
   <section class="metrics" id="metrics">
     <div class="metrics-grid">
-      <div class="metric is-accent reveal">
-        <div class="mk"><span>نهادهای نقشه‌برداری‌شده</span><span class="ix ltr">/ 01</span></div>
-        <div class="mv lcd" data-count="1536">0</div>
-        <div class="mc">موزه‌ها، مراکز فرهنگی و تماشاخانه‌ها در مختصاتِ واقعیِ جغرافیایی</div>
+      <div class="metric reveal">
+        <div class="mv" data-count="1536">۰</div>
+        <div class="mk">نهادِ نقشه‌برداری‌شده</div>
+        <div class="mc">موزه‌ها، مراکزِ فرهنگی و تماشاخانه‌ها در مختصاتِ واقعیِ جغرافیایی</div>
       </div>
       <div class="metric reveal">
-        <div class="mk"><span>استان‌های تحلیل‌شده</span><span class="ix ltr">/ 02</span></div>
-        <div class="mv lcd" data-count="31">0</div>
+        <div class="mv" data-count="31">۰</div>
+        <div class="mk">استانِ تحلیل‌شده</div>
         <div class="mc">رتبه‌بندیِ خدماتِ فرهنگی بر پایهٔ شاخصِ برابری</div>
       </div>
       <div class="metric reveal">
-        <div class="mk"><span>هدف‌های راهبردی</span><span class="ix ltr">/ 03</span></div>
-        <div class="mv lcd" data-count="8" data-pad="2">0</div>
+        <div class="mv" data-count="8">۰</div>
+        <div class="mk">هدفِ راهبردی</div>
         <div class="mc">نقشهٔ راهِ پانزده‌سالهٔ «چشم‌اندازِ ۲۶۰۰»</div>
       </div>
       <div class="metric reveal">
-        <div class="mk"><span>نشانگرهای فرهنگی</span><span class="ix ltr">/ 04</span></div>
-        <div class="mv lcd" data-count="10">0</div>
+        <div class="mv" data-count="10">۰</div>
+        <div class="mk">نشانگرِ فرهنگی</div>
         <div class="mc">سنجه‌های اندازه‌گیری‌شدهٔ سلامتِ فرهنگی</div>
       </div>
     </div>
@@ -483,7 +398,7 @@ nav.main a span.ix{font-family:'JetBrains Mono',monospace;margin-right:0;margin-
   <!-- THESIS -->
   <section class="block" id="thesis">
     <div class="wrap">
-      <div class="seclabel"><span class="num">01</span><span class="lab">دیدگاهِ ما</span><span class="rt ltr">REF&nbsp;001.00</span></div>
+      <div class="sechead"><span class="no">۰۱</span><span class="tt">دیدگاهِ ما</span></div>
       <p class="thesis reveal">ما فرهنگ را نه یک تزئین، که یک <em>محرکِ اقتصادِ کلان</em>، ابزارِ قدرتِ نرم و <em>ستونِ ثباتِ ملی</em> می‌دانیم. <span class="muted">گوسان نقشه‌های نهادی، اقتصادی و دیجیتالِ گذارِ ایران به‌سوی آینده‌ای باز را طراحی می‌کند.</span></p>
       <a class="read reveal" href="#support">متنِ کامل را بخوانید ←</a>
     </div>
@@ -492,13 +407,13 @@ nav.main a span.ix{font-family:'JetBrains Mono',monospace;margin-right:0;margin-
   <!-- VISION 2600 -->
   <section class="block" id="vision" style="padding-top:0">
     <div class="wrap">
-      <div class="seclabel"><span class="num">02</span><span class="lab">چشم‌اندازِ ۲۶۰۰ — نقشهٔ راه</span><span class="rt ltr">REF&nbsp;002.00</span></div>
+      <div class="sechead"><span class="no">۰۲</span><span class="tt">چشم‌اندازِ ۲۶۰۰ — نقشهٔ راه</span></div>
       <div class="vision-lead reveal">
         <h2>نقشهٔ راهی پانزده‌ساله برای <em>احیا و شکوفاییِ</em> فرهنگ و هنرِ ایران.</h2>
         <div class="vl-side">
           <p><b>دستورِ کارِ محوری:</b> عمل‌کردن به‌مثابهٔ گنجینهٔ دیجیتالِ سانسورناپذیر، پرورشگاهِ حقوقی و معمارِ اقتصادیِ آیندهٔ فرهنگِ ایران — بر عهده گرفتنِ تمامِ خطر در دیاسپورا، همراه با صیانت از آفرینشگرانِ داخل و گردآوریِ داده از آنان.</p>
           <div class="vision-meta">
-            <span>وضعیت <b>فعال</b> · برون‌مرزی</span>
+            <span>وضعیت: <b>فعال · برون‌مرزی</b></span>
             <span><b>۸</b> هدفِ راهبردی</span>
             <span>نقشهٔ راهِ <b>۱۵</b>ساله</span>
           </div>
@@ -507,49 +422,49 @@ nav.main a span.ix{font-family:'JetBrains Mono',monospace;margin-right:0;margin-
 
       <div class="goals-grid reveal">
         <article class="goal">
-          <div class="goal-head"><span class="goal-n">01</span><div><span class="goal-tag">هویت</span><h3>حقیقتِ فرهنگی، آشتیِ ملی و احیای هویت</h3></div></div>
+          <div class="goal-head"><span class="goal-n">۰۱</span><div><span class="goal-tag">هویت</span><h3>حقیقتِ فرهنگی، آشتیِ ملی و احیای هویت</h3></div></div>
           <p class="goal-obj">بازیابی، مستندسازی و احیای هویتِ ملیِ اصیل و میراث‌های منطقه‌ای که رژیم سرکوب، بازنویسی یا جرم‌انگاری کرده است.</p>
           <a class="goal-link is-live" href="#projects"><span class="gl-dot"></span>پروژه · نمایهٔ میراثِ زدوده</a>
         </article>
 
         <article class="goal">
-          <div class="goal-head"><span class="goal-n">02</span><div><span class="goal-tag">آزادیِ بیان</span><h3>نهادینه‌سازیِ آزادیِ بیان و قانونِ ضدسانسور</h3></div></div>
+          <div class="goal-head"><span class="goal-n">۰۲</span><div><span class="goal-tag">آزادیِ بیان</span><h3>نهادینه‌سازیِ آزادیِ بیان و قانونِ ضدسانسور</h3></div></div>
           <p class="goal-obj">برپاییِ موانعِ خلل‌ناپذیرِ قانونِ اساسی و حقوقی، تا بیانِ خلاق دیگر هرگز به دستِ هیچ مرجعی ابزارِ سرکوب یا موضوعِ نظارتِ پلیسی نشود.</p>
           <a class="goal-link" href="#projects"><span class="gl-dot"></span>پروژه · آزمایشگاهِ منشور</a>
         </article>
 
         <article class="goal">
-          <div class="goal-head"><span class="goal-n">03</span><div><span class="goal-tag">حکمرانی</span><h3>حکمرانیِ فرهنگیِ مستقل بر پایهٔ اصلِ «فاصلهٔ بازو»</h3></div></div>
+          <div class="goal-head"><span class="goal-n">۰۳</span><div><span class="goal-tag">حکمرانی</span><h3>حکمرانیِ فرهنگیِ مستقل بر پایهٔ اصلِ «فاصلهٔ بازو»</h3></div></div>
           <p class="goal-obj">مصون‌سازیِ کاملِ تأمینِ مالی، مدیریت و راهبریِ فرهنگ از رژیم‌های سیاسی — الگویی متخصص‌محور و مبتنی بر داوریِ همتایان.</p>
           <a class="goal-link" href="#projects"><span class="gl-dot"></span>پروژه · کتابخانهٔ حکمرانی</a>
         </article>
 
         <article class="goal">
-          <div class="goal-head"><span class="goal-n">04</span><div><span class="goal-tag">هنرمندان</span><h3>ارتقای منزلتِ اجتماعی–اقتصادیِ کارورزانِ خلاق</h3></div></div>
+          <div class="goal-head"><span class="goal-n">۰۴</span><div><span class="goal-tag">هنرمندان</span><h3>ارتقای منزلتِ اجتماعی–اقتصادیِ کارورزانِ خلاق</h3></div></div>
           <p class="goal-obj">تضمینِ امنیتِ مالی، کرامت و حقوقِ کارِ هنرمندانِ مستقل — تا هنر از قماری پرمخاطره به حرفه‌ای پایدار بدل شود.</p>
           <a class="goal-link" href="#projects"><span class="gl-dot"></span>پروژه · نبضِ هنرمند</a>
         </article>
 
         <article class="goal">
-          <div class="goal-head"><span class="goal-n">05</span><div><span class="goal-tag">اقتصاد</span><h3>فعال‌سازیِ اقتصادِ خلاق و زیرساخت‌ها</h3></div></div>
+          <div class="goal-head"><span class="goal-n">۰۵</span><div><span class="goal-tag">اقتصاد</span><h3>فعال‌سازیِ اقتصادِ خلاق و زیرساخت‌ها</h3></div></div>
           <p class="goal-obj">گذارِ فرهنگ از دستگاهِ تبلیغاتیِ متکی بر یارانهٔ دولتی به موتوری سودآور و خوداتکا که شغل می‌آفریند و تولیدِ ناخالصِ داخلی را پیش می‌برد.</p>
           <a class="goal-link" href="#projects"><span class="gl-dot"></span>پروژه · مرکزِ رشدِ خلاق</a>
         </article>
 
         <article class="goal">
-          <div class="goal-head"><span class="goal-n">06</span><div><span class="goal-tag">قدرتِ نرم</span><h3>قدرتِ نرمِ جهانی و دیپلماسیِ فرهنگی</h3></div></div>
+          <div class="goal-head"><span class="goal-n">۰۶</span><div><span class="goal-tag">قدرتِ نرم</span><h3>قدرتِ نرمِ جهانی و دیپلماسیِ فرهنگی</h3></div></div>
           <p class="goal-obj">بازآفرینیِ چهرهٔ ایران در صحنهٔ جهانی — نشاندنِ تمدنی پویا و ۲۶۰۰ساله، پیشتازِ نوزاییِ مدرن، به جای تصویرِ یک حکومتِ بنیادگرا.</p>
           <a class="goal-link" href="#projects"><span class="gl-dot"></span>پروژه · نگارخانهٔ گوسان</a>
         </article>
 
         <article class="goal">
-          <div class="goal-head"><span class="goal-n">07</span><div><span class="goal-tag">منطقه‌ها</span><h3>تمرکززدایی و حاکمیتِ فرهنگیِ منطقه‌ای</h3></div></div>
+          <div class="goal-head"><span class="goal-n">۰۷</span><div><span class="goal-tag">منطقه‌ها</span><h3>تمرکززدایی و حاکمیتِ فرهنگیِ منطقه‌ای</h3></div></div>
           <p class="goal-obj">برچیدنِ انحصارِ فرهنگیِ متمرکز و تهران‌محور و توانمندسازیِ استان‌های ایران برای اداره، تأمینِ مالی و پاسداشتِ سرمایه‌های بومیِ خود.</p>
           <a class="goal-link" href="#projects"><span class="gl-dot"></span>پروژه · درگاه‌های منطقه‌ای</a>
         </article>
 
         <article class="goal">
-          <div class="goal-head"><span class="goal-n">08</span><div><span class="goal-tag">دیجیتال</span><h3>حاکمیتِ دیجیتال، فناوریِ خلاق و تاب‌آوریِ سایبری</h3></div></div>
+          <div class="goal-head"><span class="goal-n">۰۸</span><div><span class="goal-tag">دیجیتال</span><h3>حاکمیتِ دیجیتال، فناوریِ خلاق و تاب‌آوریِ سایبری</h3></div></div>
           <p class="goal-obj">ساختِ زیرساختِ دیجیتالِ امن و پیشرفته برای صیانت از اقتصادِ خلاق در برابرِ نظارتِ دولتیِ امروز و انحصارهای شرکتیِ فردا.</p>
           <a class="goal-link" href="#projects"><span class="gl-dot"></span>پروژه · توزیعِ تاب‌آور</a>
         </article>
@@ -557,16 +472,16 @@ nav.main a span.ix{font-family:'JetBrains Mono',monospace;margin-right:0;margin-
     </div>
   </section>
 
-  <!-- THE PROJECTS PLATFORM -->
+  <!-- PROJECTS -->
   <section class="block" id="projects" style="padding-top:0">
     <div class="wrap">
-      <div class="seclabel"><span class="num">03</span><span class="lab">پروژه‌ها — سکوی ساخت</span><span class="rt ltr">REF&nbsp;002.10</span></div>
+      <div class="sechead"><span class="no">۰۳</span><span class="tt">پروژه‌ها — سکوی ساخت</span></div>
       <div class="proj-intro reveal">
         <p>هر هدفِ راهبردی به سکویی عملیاتی بدل می‌شود. این همان است که هم‌اکنون می‌سازیم — عرضه‌شده و میزبانی‌شده از برون‌مرز، تا <b>آفرینشگرانِ داخل هیچ سهمی از خطر بر دوش نگیرند</b>. برای هر هدف یک برنامه؛ نخستینِ آن‌ها هم‌اکنون فعال است.</p>
         <div class="proj-stats">
-          <span><b id="pjLive">1</b>فعال</span>
-          <span><b id="pjDev">4</b>در حالِ ساخت</span>
-          <span><b id="pjPlan">3</b>برنامه‌ریزی‌شده</span>
+          <span><b id="pjLive">۱</b>فعال</span>
+          <span><b id="pjDev">۴</b>در حالِ ساخت</span>
+          <span><b id="pjPlan">۳</b>برنامه‌ریزی‌شده</span>
         </div>
       </div>
       <div class="proj-filter reveal" id="pjFilter">
@@ -577,38 +492,39 @@ nav.main a span.ix{font-family:'JetBrains Mono',monospace;margin-right:0;margin-
       </div>
       <div class="proj-grid reveal" id="pjGrid"></div>
 
-      <!-- live project surface -->
       <div class="proj-stage reveal" id="erased">
-        <div class="embed-head"><span class="eh-k">فعال · هدفِ ۰۱</span><span class="eh-t">نمایهٔ میراثِ زدوده — بایگانیِ امنِ مردم‌سپار</span></div>
-        <iframe class="embed-frame" src="embeds/index-erased-heritage.html" title="نمایهٔ میراثِ زدوده"></iframe>
+        <div class="embed-wrap" style="margin-top:0">
+          <div class="embed-head"><span class="eh-k">فعال · هدفِ ۰۱</span><span class="eh-t">نمایهٔ میراثِ زدوده — بایگانیِ امنِ مردم‌سپار</span></div>
+          <iframe class="embed-frame" src="embeds/index-erased-heritage_fa.html" title="نمایهٔ میراثِ زدوده"></iframe>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- MISSION / PILLARS -->
+  <!-- MISSION -->
   <section class="block" id="mission" style="padding-top:0">
     <div class="wrap">
-      <div class="seclabel"><span class="num">04</span><span class="lab">مأموریت — سه ستون</span><span class="rt ltr">REF&nbsp;003.00</span></div>
+      <div class="sechead"><span class="no">۰۴</span><span class="tt">مأموریت — سه ستون</span></div>
       <div class="pillars reveal">
         <div class="pillar">
-          <div class="ptop"><div class="pn ltr">A</div><div class="pid ltr">PLR-A<br>158.01</div></div>
+          <div class="pn">الف</div>
           <div class="tag">زدودنِ افراط‌گرایی</div>
           <h3>منشورهای نهادی</h3>
           <p>منشورهای حقوقیِ آمادهٔ بهره‌برداری که دستگاه‌های تبلیغاتیِ دولتی را به نهادهایی مستقل و در خدمتِ منافعِ عمومی بدل می‌کنند — آماده از روزِ نخست.</p>
           <div class="bar" style="--w:88%"><i></i></div>
         </div>
         <div class="pillar">
-          <div class="ptop"><div class="pn ltr">B</div><div class="pid ltr">PLR-B<br>158.02</div></div>
+          <div class="pn">ب</div>
           <div class="tag">اقتصادِ کلانِ خلاق</div>
           <h3>یک بازارِ رسمی</h3>
-          <p>قوانینِ مالیاتی، چارچوب‌های کپی‌رایت و پیمان‌های هم‌تولید که طبقهٔ خلاقِ زیرزمینی و دیاسپورا را وارد بازاری می‌کند که تولیدِ ناخالصِ داخلی را پیش می‌برد.</p>
+          <p>قوانینِ مالیاتی، چارچوب‌های حقِ مؤلف و پیمان‌های هم‌تولید که طبقهٔ خلاقِ زیرزمینی و دیاسپورا را وارد بازاری می‌کند که تولیدِ ناخالصِ داخلی را پیش می‌برد.</p>
           <div class="bar" style="--w:72%"><i></i></div>
         </div>
         <div class="pillar">
-          <div class="ptop"><div class="pn ltr">C</div><div class="pid ltr">PLR-C<br>158.03</div></div>
+          <div class="pn">پ</div>
           <div class="tag">زیرساختِ دیجیتال</div>
           <h3>وبی پساسانسور</h3>
-          <p>سیاست‌گذاری برای عدالتِ الگوریتمیِ کپی‌رایت، صیانت از دارایی‌های دیجیتال و فناوریِ ثبت و حفاظت از میراثِ فیزیکی در دورانِ گذار.</p>
+          <p>سیاست‌گذاری برای عدالتِ الگوریتمیِ حقِ مؤلف، صیانت از دارایی‌های دیجیتال و فناوریِ ثبت و حفاظت از میراثِ کالبدی در دورانِ گذار.</p>
           <div class="bar" style="--w:64%"><i></i></div>
         </div>
       </div>
@@ -618,70 +534,59 @@ nav.main a span.ix{font-family:'JetBrains Mono',monospace;margin-right:0;margin-
   <!-- DATA ATLAS -->
   <section class="block" id="atlas" style="padding-top:0">
     <div class="wrap">
-      <div class="seclabel"><span class="num">05</span><span class="lab">اطلسِ داده</span><span class="rt ltr">DWG&nbsp;158.04.00</span></div>
+      <div class="sechead"><span class="no">۰۵</span><span class="tt">اطلسِ داده</span></div>
       <div class="drawing reveal">
         <div class="drawing-top">
           <div class="dt-left">
             <h2>اطلسِ <em>بازدهِ</em> سرمایه‌گذاریِ فرهنگی</h2>
             <p>ما هر واحدِ عمومیِ هزینه‌شده برای فرهنگ را در برابرِ شاخص‌های اقتصادیِ بلادرنگ نقشه‌برداری می‌کنیم — و آشکار می‌کنیم کدام محله‌ها بیابانِ فرهنگی‌اند و کدام، موتورِ اقتصادی. متن‌باز، تعاملی، و به زبانی که وزارت‌خانه‌های دارایی واقعاً به کار می‌برند.</p>
             <div class="dt-stats">
-              <div class="dt-stat"><div class="n lcd ltr">×4.2</div><div class="l">بازدهِ میانگین</div></div>
-              <div class="dt-stat"><div class="n lcd ltr">128</div><div class="l">محله</div></div>
-              <div class="dt-stat"><div class="n lcd ltr">+38%</div><div class="l">اختلافِ رشد</div></div>
+              <div class="dt-stat"><div class="n">×۴٫۲</div><div class="l">بازدهِ میانگین</div></div>
+              <div class="dt-stat"><div class="n">۱۲۸</div><div class="l">محله</div></div>
+              <div class="dt-stat"><div class="n">+۳۸٪</div><div class="l">اختلافِ رشد</div></div>
             </div>
           </div>
           <div class="dt-chart">
-            <div class="chart-head"><span class="fa">نمودار ۰۴ — سرمایه‌گذاری در برابرِ رشدِ محلی</span><span class="ltr">2585 / Q1–Q8</span></div>
+            <div class="chart-head"><span>نمودار ۴ — سرمایه‌گذاری در برابرِ رشدِ محلی</span><span>۲۵۸۵ / فصل‌های ۱ تا ۸</span></div>
             <div class="chart">
               <svg viewBox="0 0 480 300" role="img" aria-label="نمودارِ شکوفاییِ فرهنگی: ستون‌های سرمایه‌گذاری در برابرِ خطِ رشد">
-                <!-- grid -->
-                <g stroke="#1E3A5C" stroke-width="1">
+                <g stroke="#EDEBE4" stroke-width="1">
                   <line x1="34" y1="40" x2="470" y2="40"/><line x1="34" y1="100" x2="470" y2="100"/>
                   <line x1="34" y1="160" x2="470" y2="160"/><line x1="34" y1="220" x2="470" y2="220"/>
                   <line x1="34" y1="262" x2="470" y2="262"/>
                 </g>
-                <!-- y labels -->
-                <g fill="#5b5a55" font-family="'JetBrains Mono',monospace" font-size="9">
-                  <text x="6" y="44">100</text><text x="10" y="104">75</text><text x="10" y="164">50</text><text x="14" y="224">25</text><text x="18" y="266">0</text>
+                <g fill="#807B72" font-family="IRANSansX,sans-serif" font-size="9">
+                  <text x="6" y="44">۱۰۰</text><text x="10" y="104">۷۵</text><text x="10" y="164">۵۰</text><text x="14" y="224">۲۵</text><text x="18" y="266">۰</text>
                 </g>
-                <!-- investment bars -->
-                <g fill="#1B3450">
+                <g fill="#DAD5C8">
                   <rect x="44" y="206" width="30" height="56"/><rect x="98" y="196" width="30" height="66"/>
                   <rect x="152" y="178" width="30" height="84"/><rect x="206" y="170" width="30" height="92"/>
                   <rect x="260" y="150" width="30" height="112"/><rect x="314" y="138" width="30" height="124"/>
                   <rect x="368" y="120" width="30" height="142"/><rect x="422" y="104" width="30" height="158"/>
                 </g>
-                <!-- accent bar (peak) -->
-                <rect x="422" y="104" width="30" height="158" fill="#FF4D23"/>
-                <!-- growth line (cyan) -->
-                <polyline fill="none" stroke="#46D6C9" stroke-width="2"
+                <rect x="422" y="104" width="30" height="158" fill="#46707F"/>
+                <polyline fill="none" stroke="#385A66" stroke-width="2"
                   points="59,236 113,224 167,206 221,184 275,150 329,142 383,96 437,58"/>
-                <g fill="#0B1B33" stroke="#46D6C9" stroke-width="2">
+                <g fill="#F7F6F2" stroke="#385A66" stroke-width="2">
                   <circle cx="221" cy="184" r="3.4"/><circle cx="329" cy="142" r="3.4"/><circle cx="437" cy="58" r="3.4"/>
                 </g>
-                <!-- callout -->
-                <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#46D6C9">
-                  <text x="372" y="48">PEAK +38%</text>
+                <g font-family="IRANSansX,sans-serif" font-size="9.5" fill="#385A66">
+                  <text x="381" y="48">اوج +۳۸٪</text>
                 </g>
               </svg>
             </div>
           </div>
         </div>
-        <!-- title block -->
-        <div class="titleblock">
-          <div class="tb-logo">
-            <svg viewBox="0 0 40 40" aria-hidden="true"><g fill="#FF4D23"><rect x="6" y="9" width="28" height="6" transform="skewX(-18)"/><rect x="9" y="19" width="28" height="6" transform="skewX(-18)"/><rect x="12" y="29" width="28" height="6" transform="skewX(-18)"/></g></svg>
-          </div>
-          <div class="tb-cell"><div class="k">شمارهٔ نقشه</div><div class="v ltr">158.04.00</div></div>
-          <div class="tb-cell"><div class="k">مقیاس</div><div class="v ltr">1 : 100</div></div>
-          <div class="tb-cell"><div class="k">روش</div><div class="v">باز · قابلِ‌حسابرسی</div></div>
+        <div class="drawing-cap">
+          <span>روش: باز · حسابرسی‌پذیر</span>
+          <span>مقیاس: ۱ به ۱۰۰</span>
+          <span>سند شمارهٔ ۱۵۸/۴</span>
         </div>
       </div>
 
-      <!-- embedded interactive atlas -->
       <div class="embed-wrap reveal">
         <div class="embed-head"><span class="eh-k">تعاملی</span><span class="eh-t">نقشهٔ نقطه‌ایِ نهادها — ۱٬۵۳۶ نهاد در مختصاتِ واقعی</span></div>
-        <iframe class="embed-frame embed-fixed" src="embeds/embed_map.html" title="اطلسِ فرهنگیِ ایران — نقشهٔ نقطه‌ایِ نهادها" style="height:660px"></iframe>
+        <iframe class="embed-frame embed-fixed" src="embeds/embed_map_fa.html" title="اطلسِ فرهنگیِ ایران — نقشهٔ نقطه‌ایِ نهادها" style="height:660px"></iframe>
       </div>
     </div>
   </section>
@@ -689,21 +594,21 @@ nav.main a span.ix{font-family:'JetBrains Mono',monospace;margin-right:0;margin-
   <!-- DISTRIBUTION -->
   <section class="block" id="distribution" style="padding-top:0">
     <div class="wrap">
-      <div class="seclabel"><span class="num">06</span><span class="lab">آمارِ توزیع</span><span class="rt ltr">DAT&nbsp;158.05.00</span></div>
-      <div class="embed-wrap reveal">
+      <div class="sechead"><span class="no">۰۶</span><span class="tt">آمارِ توزیع</span></div>
+      <div class="embed-wrap reveal" style="margin-top:0">
         <div class="embed-head"><span class="eh-k">مجموعه‌داده</span><span class="eh-t">نهادها به تفکیکِ رده و استان</span></div>
-        <iframe class="embed-frame" src="embeds/embed_distribution.html" title="آمارِ توزیع"></iframe>
+        <iframe class="embed-frame" src="embeds/embed_distribution_fa.html" title="آمارِ توزیع"></iframe>
       </div>
     </div>
   </section>
 
-  <!-- GLOBAL COMPARISON -->
+  <!-- GLOBAL -->
   <section class="block" id="global" style="padding-top:0">
     <div class="wrap">
-      <div class="seclabel"><span class="num">07</span><span class="lab">مقایسهٔ جهانی</span><span class="rt ltr">DAT&nbsp;158.06.00</span></div>
-      <div class="embed-wrap reveal">
+      <div class="sechead"><span class="no">۰۷</span><span class="tt">مقایسهٔ جهانی</span></div>
+      <div class="embed-wrap reveal" style="margin-top:0">
         <div class="embed-head"><span class="eh-k">محک</span><span class="eh-t">ایران در برابرِ اقتصادِ فرهنگیِ جهان</span></div>
-        <iframe class="embed-frame" src="embeds/embed_global.html" title="مقایسهٔ جهانی"></iframe>
+        <iframe class="embed-frame" src="embeds/embed_global_fa.html" title="مقایسهٔ جهانی"></iframe>
       </div>
     </div>
   </section>
@@ -711,10 +616,10 @@ nav.main a span.ix{font-family:'JetBrains Mono',monospace;margin-right:0;margin-
   <!-- SIGNALS -->
   <section class="block" id="signals" style="padding-top:0">
     <div class="wrap">
-      <div class="seclabel"><span class="num">08</span><span class="lab">ده نشانگر</span><span class="rt ltr">DAT&nbsp;158.07.00</span></div>
-      <div class="embed-wrap reveal">
+      <div class="sechead"><span class="no">۰۸</span><span class="tt">ده نشانگر</span></div>
+      <div class="embed-wrap reveal" style="margin-top:0">
         <div class="embed-head"><span class="eh-k">شاخص‌ها</span><span class="eh-t">ده نشانگرِ اندازه‌گیری‌شدهٔ سلامتِ فرهنگی</span></div>
-        <iframe class="embed-frame" src="embeds/embed_signals.html" title="ده نشانگر"></iframe>
+        <iframe class="embed-frame" src="embeds/embed_signals_fa.html" title="ده نشانگر"></iframe>
       </div>
     </div>
   </section>
@@ -722,7 +627,7 @@ nav.main a span.ix{font-family:'JetBrains Mono',monospace;margin-right:0;margin-
   <!-- PODCAST -->
   <section class="block" id="podcast" style="padding-top:0">
     <div class="wrap">
-      <div class="seclabel"><span class="num">09</span><span class="lab">پادکستِ گوسان — صدای سیاست</span><span class="rt ltr">AUD&nbsp;051.00</span></div>
+      <div class="sechead"><span class="no">۰۹</span><span class="tt">پادکستِ گوسان — صدای سیاست</span></div>
       <div class="podcast reveal">
         <div class="pod-main">
           <button class="pod-play" id="podPlay" aria-label="پخش / توقف"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg></button>
@@ -736,34 +641,31 @@ nav.main a span.ix{font-family:'JetBrains Mono',monospace;margin-right:0;margin-
           </div>
         </div>
         <ul class="pod-list">
-          <li><button class="pod-row on" data-title="فرهنگ به‌مثابهٔ زیرساختِ حیاتی" data-sub="با یلدا زمانی · ۴۲ دقیقه"><span class="pod-n ltr">01</span><span class="pod-rt">فرهنگ به‌مثابهٔ زیرساختِ حیاتی</span><span class="pod-tag">جستار</span><span class="pod-len ltr">42:10</span></button></li>
-          <li><button class="pod-row" data-title="ضریبِ فزاینده: یک واحد، چهار بازگشت" data-sub="گزارشِ سیاستی · ۳۶ دقیقه"><span class="pod-n ltr">02</span><span class="pod-rt">ضریبِ فزاینده: یک واحد، چهار بازگشت</span><span class="pod-tag">گزارش</span><span class="pod-len ltr">35:48</span></button></li>
-          <li><button class="pod-row" data-title="گوسان‌ها و تخیلِ ملی" data-sub="یادداشت · ۲۹ دقیقه"><span class="pod-n ltr">03</span><span class="pod-rt">گوسان‌ها و تخیلِ ملی</span><span class="pod-tag">یادداشت</span><span class="pod-len ltr">28:33</span></button></li>
-          <li><button class="pod-row" data-title="طراحیِ پخشِ همگانی برای ایرانِ آزاد" data-sub="گفت‌وگو · ۵۱ دقیقه"><span class="pod-n ltr">04</span><span class="pod-rt">طراحیِ پخشِ همگانی برای ایرانِ آزاد</span><span class="pod-tag">گفت‌وگو</span><span class="pod-len ltr">51:02</span></button></li>
+          <li><button class="pod-row on" data-title="فرهنگ به‌مثابهٔ زیرساختِ حیاتی" data-sub="با یلدا زمانی · ۴۲ دقیقه"><span class="pod-n">۰۱</span><span class="pod-rt">فرهنگ به‌مثابهٔ زیرساختِ حیاتی</span><span class="pod-tag">جستار</span><span class="pod-len">۴۲:۱۰</span></button></li>
+          <li><button class="pod-row" data-title="ضریبِ فزاینده: یک واحد، چهار بازگشت" data-sub="گزارشِ سیاستی · ۳۶ دقیقه"><span class="pod-n">۰۲</span><span class="pod-rt">ضریبِ فزاینده: یک واحد، چهار بازگشت</span><span class="pod-tag">گزارش</span><span class="pod-len">۳۵:۴۸</span></button></li>
+          <li><button class="pod-row" data-title="گوسان‌ها و تخیلِ ملی" data-sub="یادداشت · ۲۹ دقیقه"><span class="pod-n">۰۳</span><span class="pod-rt">گوسان‌ها و تخیلِ ملی</span><span class="pod-tag">یادداشت</span><span class="pod-len">۲۸:۳۳</span></button></li>
+          <li><button class="pod-row" data-title="طراحیِ پخشِ همگانی برای ایرانِ آزاد" data-sub="گفت‌وگو · ۵۱ دقیقه"><span class="pod-n">۰۴</span><span class="pod-rt">طراحیِ پخشِ همگانی برای ایرانِ آزاد</span><span class="pod-tag">گفت‌وگو</span><span class="pod-len">۵۱:۰۲</span></button></li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- CONVERSATIONS -->
+  <!-- TALKS -->
   <section class="block" id="talks" style="padding-top:0">
     <div class="wrap">
-      <div class="seclabel"><span class="num">10</span><span class="lab">گفتگو</span><span class="rt ltr">INT&nbsp;052.00</span></div>
+      <div class="sechead"><span class="no">۱۰</span><span class="tt">گفتگو</span></div>
       <div class="talks reveal">
         <div class="talk">
-          <div class="talk-ix"><span class="ltr">CONV / 01</span><span class="ltr">↗</span></div>
-          <p class="talk-q">وقتی فرهنگ را <b>اندازه</b> می‌گیریم، بودجه در پیِ آن می‌آید.</p>
+          <p class="talk-q">«وقتی فرهنگ را <b>اندازه</b> می‌گیریم، بودجه در پیِ آن می‌آید.»</p>
           <div class="talk-by"><div class="talk-name">با یک اقتصاددانِ فرهنگ</div><div class="talk-role">اقتصادِ کلان · برلین</div></div>
         </div>
         <div class="talk">
-          <div class="talk-ix"><span class="ltr">CONV / 02</span><span class="ltr">↗</span></div>
-          <p class="talk-q">منشورِ عمومی یعنی رسانه از روزِ نخست به <b>مردم</b> تعلق دارد.</p>
-          <div class="talk-by"><div class="talk-name">با یک حقوق‌دانِ رسانه</div><div class="talk-role">حقوقِ رسانه · گذار</div></div>
+          <p class="talk-q">«منشورِ عمومی یعنی رسانه از روزِ نخست به <b>مردم</b> تعلق دارد.»</p>
+          <div class="talk-by"><div class="talk-name">با یک حقوق‌دانِ رسانه</div><div class="talk-role">حقوقِ رسانه · دورانِ گذار</div></div>
         </div>
         <div class="talk">
-          <div class="talk-ix"><span class="ltr">CONV / 03</span><span class="ltr">↗</span></div>
-          <p class="talk-q">هر بنای ثبت‌نشده، <b>حافظه‌ای</b> است که می‌تواند پاک شود.</p>
-          <div class="talk-by"><div class="talk-name">با یک پژوهشگرِ میراث</div><div class="talk-role">میراث و سامانهٔ مکانی</div></div>
+          <p class="talk-q">«هر بنای ثبت‌نشده، <b>حافظه‌ای</b> است که می‌تواند پاک شود.»</p>
+          <div class="talk-by"><div class="talk-name">با یک پژوهشگرِ میراث</div><div class="talk-role">میراثِ فرهنگی · سامانهٔ اطلاعاتِ مکانی</div></div>
         </div>
       </div>
     </div>
@@ -772,30 +674,30 @@ nav.main a span.ix{font-family:'JetBrains Mono',monospace;margin-right:0;margin-
   <!-- EVENTS -->
   <section class="block" id="events" style="padding-top:0">
     <div class="wrap">
-      <div class="seclabel"><span class="num">11</span><span class="lab">رویدادها</span><span class="rt ltr">EVT&nbsp;053.00</span></div>
+      <div class="sechead"><span class="no">۱۱</span><span class="tt">رویدادها</span></div>
       <div class="events reveal">
         <div class="evrow">
-          <div class="ev-date">12<small>مهر ۲۵۸۵</small></div>
+          <div class="ev-date"><b>۱۲</b><small>مهر ۲۵۸۵</small></div>
           <div class="ev-title">نشستِ افتتاحیه: اقتصادِ خلاقِ ایران</div>
           <div class="ev-loc">برلین · حضوری</div>
           <a class="ev-cta" href="#support">ثبت‌نام</a>
         </div>
         <div class="evrow">
-          <div class="ev-date">28<small>آبان ۲۵۸۵</small></div>
+          <div class="ev-date"><b>۲۸</b><small>آبان ۲۵۸۵</small></div>
           <div class="ev-title">کارگاهِ منشورِ رسانهٔ عمومی</div>
-          <div class="ev-loc">آنلاین · زندهٔ تصویری</div>
+          <div class="ev-loc">برخط · پخشِ زنده</div>
           <a class="ev-cta" href="#support">ثبت‌نام</a>
         </div>
         <div class="evrow">
-          <div class="ev-date">09<small>آذر ۲۵۸۵</small></div>
+          <div class="ev-date"><b>۹</b><small>آذر ۲۵۸۵</small></div>
           <div class="ev-title">رونماییِ نخستین شمارهٔ فصلنامهٔ گوسان</div>
           <div class="ev-loc">واشینگتن، دی.سی. · حضوری</div>
           <a class="ev-cta" href="#support">ثبت‌نام</a>
         </div>
         <div class="evrow">
-          <div class="ev-date">02<small>مرداد ۲۵۸۵</small></div>
+          <div class="ev-date"><b>۲</b><small>مرداد ۲۵۸۵</small></div>
           <div class="ev-title">میزگردِ بازدهِ سرمایه‌گذاریِ فرهنگی</div>
-          <div class="ev-loc">برگزارشده · آرشیو</div>
+          <div class="ev-loc">برگزارشده · بایگانی</div>
           <a class="ev-cta past">پایان‌یافته</a>
         </div>
       </div>
@@ -805,89 +707,86 @@ nav.main a span.ix{font-family:'JetBrains Mono',monospace;margin-right:0;margin-
   <!-- PANELS -->
   <section class="block" id="panels" style="padding-top:0">
     <div class="wrap">
-      <div class="seclabel"><span class="num">12</span><span class="lab">نشست‌ها و پنل‌ها</span><span class="rt ltr">PNL&nbsp;054.00</span></div>
+      <div class="sechead"><span class="no">۱۲</span><span class="tt">نشست‌ها و میزگردها</span></div>
       <ul class="panels reveal">
         <li class="panel">
-          <span class="panel-no ltr">P/01</span>
+          <span class="panel-no">۰۱</span>
           <div><div class="panel-title">آیندهٔ رسانهٔ عمومی پس از گذار</div><div class="panel-by">با حضورِ پژوهشگرانِ حقوق، رسانه و اقتصاد</div></div>
           <span class="panel-tag">حضوری</span>
-          <span class="panel-cta">جزئیات ←</span>
         </li>
         <li class="panel">
-          <span class="panel-no ltr">P/02</span>
+          <span class="panel-no">۰۲</span>
           <div><div class="panel-title">اقتصادِ خلاق و اشتغالِ نسلِ جوان</div><div class="panel-by">میزگردِ سیاستی با مشارکتِ بخشِ خصوصی</div></div>
-          <span class="panel-tag">آنلاین</span>
-          <span class="panel-cta">جزئیات ←</span>
+          <span class="panel-tag">برخط</span>
         </li>
         <li class="panel">
-          <span class="panel-no ltr">P/03</span>
-          <div><div class="panel-title">میراثِ دیجیتال و مالکیتِ فکری</div><div class="panel-by">پنلِ تخصصیِ حقوقِ دیجیتال</div></div>
+          <span class="panel-no">۰۳</span>
+          <div><div class="panel-title">میراثِ دیجیتال و مالکیتِ فکری</div><div class="panel-by">نشستِ تخصصیِ حقوقِ دیجیتال</div></div>
           <span class="panel-tag">ضبط‌شده</span>
-          <span class="panel-cta">جزئیات ←</span>
         </li>
       </ul>
     </div>
   </section>
 
-  <!-- EDUCATIONAL VIDEOS -->
+  <!-- VIDEOS -->
   <section class="block" id="videos" style="padding-top:0">
     <div class="wrap">
-      <div class="seclabel"><span class="num">13</span><span class="lab">ویدیوهای آموزشی</span><span class="rt ltr">EDU&nbsp;055.00</span></div>
+      <div class="sechead"><span class="no">۱۳</span><span class="tt">ویدیوهای آموزشی</span></div>
       <div class="videos reveal">
         <div class="vid">
-          <div class="vid-thumb"><image-slot id="vid-1" placeholder="تصویرِ درس ۱"></image-slot><div class="vid-pl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg></div><div class="vid-dur">14:22</div></div>
+          <div class="vid-thumb"><image-slot id="vid-1" placeholder="تصویرِ درس ۱"></image-slot><div class="vid-pl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg></div><div class="vid-dur">۱۴:۲۲</div></div>
           <div class="vid-body"><div class="vid-lesson">درس ۰۱</div><div class="vid-title">مبانیِ اقتصادِ فرهنگ</div></div>
         </div>
         <div class="vid">
-          <div class="vid-thumb"><image-slot id="vid-2" placeholder="تصویرِ درس ۲"></image-slot><div class="vid-pl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg></div><div class="vid-dur">19:05</div></div>
+          <div class="vid-thumb"><image-slot id="vid-2" placeholder="تصویرِ درس ۲"></image-slot><div class="vid-pl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg></div><div class="vid-dur">۱۹:۰۵</div></div>
           <div class="vid-body"><div class="vid-lesson">درس ۰۲</div><div class="vid-title">چگونه بازدهِ سرمایه‌گذاریِ فرهنگی را اندازه بگیریم</div></div>
         </div>
         <div class="vid">
-          <div class="vid-thumb"><image-slot id="vid-3" placeholder="تصویرِ درس ۳"></image-slot><div class="vid-pl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg></div><div class="vid-dur">22:40</div></div>
+          <div class="vid-thumb"><image-slot id="vid-3" placeholder="تصویرِ درس ۳"></image-slot><div class="vid-pl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg></div><div class="vid-dur">۲۲:۴۰</div></div>
           <div class="vid-body"><div class="vid-lesson">درس ۰۳</div><div class="vid-title">طراحیِ منشورِ نهادی، گام‌به‌گام</div></div>
         </div>
         <div class="vid">
-          <div class="vid-thumb"><image-slot id="vid-4" placeholder="تصویرِ درس ۴"></image-slot><div class="vid-pl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg></div><div class="vid-dur">17:30</div></div>
-          <div class="vid-body"><div class="vid-lesson">درس ۰۴</div><div class="vid-title">کپی‌رایت در عصرِ دیجیتال</div></div>
+          <div class="vid-thumb"><image-slot id="vid-4" placeholder="تصویرِ درس ۴"></image-slot><div class="vid-pl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg></div><div class="vid-dur">۱۷:۳۰</div></div>
+          <div class="vid-body"><div class="vid-lesson">درس ۰۴</div><div class="vid-title">حقِ مؤلف در عصرِ دیجیتال</div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- THE REVIEW -->
+  <!-- REVIEW -->
   <section class="block" id="review" style="padding-top:0">
     <div class="wrap">
-      <div class="seclabel"><span class="num">14</span><span class="lab">فصلنامهٔ گوسان</span><span class="rt ltr">ISSN&nbsp;FORTHCOMING</span></div>
+      <div class="sechead"><span class="no">۱۴</span><span class="tt">فصلنامهٔ گوسان</span></div>
       <div class="index reveal">
-        <div class="irow"><span class="ix ltr">01</span><div><div class="it">فرهنگ به‌مثابهٔ زیرساختِ حیاتی</div><div class="ib">جستارِ بنیادین</div></div><div class="ik">جستار</div></div>
-        <div class="irow"><span class="ix ltr">02</span><div><div class="it">ضریبِ فزاینده: یک واحد، چهار بازگشت</div><div class="ib">دربارهٔ اقتصادِ سرریزِ محله‌های هنری</div></div><div class="ik">گزارشِ سیاستی</div></div>
-        <div class="irow"><span class="ix ltr">03</span><div><div class="it">گوسان‌ها و تخیلِ ملی</div><div class="ib">دربارهٔ خنیاگرانِ اشکانی و حافظهٔ فرهنگی</div></div><div class="ik">یادداشت</div></div>
-        <div class="irow"><span class="ix ltr">04</span><div><div class="it">طراحیِ پخشِ همگانی برای ایرانِ آزاد</div><div class="ib">یک منشورِ عمومیِ نمونه، حاشیه‌نویسی‌شده</div></div><div class="ik">قانون‌گذاری</div></div>
+        <div class="irow"><span class="ix">۰۱</span><div><div class="it">فرهنگ به‌مثابهٔ زیرساختِ حیاتی</div><div class="ib">جستارِ بنیادین</div></div><div class="ik">جستار</div></div>
+        <div class="irow"><span class="ix">۰۲</span><div><div class="it">ضریبِ فزاینده: یک واحد، چهار بازگشت</div><div class="ib">دربارهٔ اقتصادِ سرریزِ محله‌های هنری</div></div><div class="ik">گزارشِ سیاستی</div></div>
+        <div class="irow"><span class="ix">۰۳</span><div><div class="it">گوسان‌ها و تخیلِ ملی</div><div class="ib">دربارهٔ خنیاگرانِ اشکانی و حافظهٔ فرهنگی</div></div><div class="ik">یادداشت</div></div>
+        <div class="irow"><span class="ix">۰۴</span><div><div class="it">طراحیِ پخشِ همگانی برای ایرانِ آزاد</div><div class="ib">یک منشورِ عمومیِ نمونه، حاشیه‌نویسی‌شده</div></div><div class="ik">قانون‌گذاری</div></div>
       </div>
-      <div class="note-line">// نخستین شماره — مهرگان ۲۵۸۵، همراه با شاپا.</div>
+      <div class="note-line">نخستین شماره — مهرگان ۲۵۸۵، همراه با شاپا.</div>
     </div>
   </section>
 
   <!-- ADVISORS -->
   <section class="block" id="advisors" style="padding-top:0">
     <div class="wrap">
-      <div class="seclabel"><span class="num">15</span><span class="lab">هیئت مشاوران</span><span class="rt ltr">REF&nbsp;006.00</span></div>
+      <div class="sechead"><span class="no">۱۵</span><span class="tt">هیئتِ مشاوران</span></div>
       <div class="adv-grid reveal">
-        <div class="adv"><div class="aix ltr">A/01</div><div class="an">بنیان‌گذار و مدیر</div><div class="af">یلدا زمانی</div></div>
-        <div class="adv"><div class="aix ltr">A/02</div><div class="an">مشاورِ ارشدِ علمی</div><div class="af">اقتصاد · با دعوت</div></div>
-        <div class="adv"><div class="aix ltr">A/03</div><div class="an">سیاستِ فرهنگی</div><div class="af">با دعوت</div></div>
-        <div class="adv"><div class="aix ltr">A/04</div><div class="an">میراث و سامانهٔ مکانی</div><div class="af">با دعوت</div></div>
-        <div class="adv"><div class="aix ltr">A/05</div><div class="an">حقوقِ دیجیتال</div><div class="af">با دعوت</div></div>
-        <div class="adv"><div class="aix ltr">A/06</div><div class="an">مدیریتِ هنری</div><div class="af">با دعوت</div></div>
+        <div class="adv"><div class="an">بنیان‌گذار و مدیر</div><div class="af">یلدا زمانی</div></div>
+        <div class="adv"><div class="an">مشاورِ ارشدِ علمی</div><div class="af">اقتصاد · با دعوت</div></div>
+        <div class="adv"><div class="an">سیاست‌گذاریِ فرهنگی</div><div class="af">با دعوت</div></div>
+        <div class="adv"><div class="an">میراث و سامانهٔ اطلاعاتِ مکانی</div><div class="af">با دعوت</div></div>
+        <div class="adv"><div class="an">حقوقِ دیجیتال</div><div class="af">با دعوت</div></div>
+        <div class="adv"><div class="an">مدیریتِ هنری</div><div class="af">با دعوت</div></div>
       </div>
-      <div class="note-line">// هیئت مشاوران با دعوت تشکیل می‌شود. برای پیشنهادِ نام، به دفترِ مدیریت بنویسید.</div>
+      <div class="note-line">هیئتِ مشاوران با دعوت تشکیل می‌شود. برای پیشنهادِ نام، به دفترِ مدیریت بنویسید.</div>
     </div>
   </section>
 
   <!-- SUPPORT -->
   <section class="block support" id="support">
     <div class="wrap">
-      <div class="seclabel" style="justify-content:center"><span class="num">16</span><span class="lab">حمایت</span></div>
+      <div class="sechead"><span class="no">۱۶</span><span class="tt">تماس و حمایت</span></div>
       <p class="big reveal">با <em>گوسان</em> در تماس باشید.</p>
       <form class="cform reveal" action="https://formsubmit.co/info@gosan.org" method="POST">
         <input type="hidden" name="_subject" value="پیامِ تازه از وب‌سایتِ گوسان">
@@ -896,11 +795,11 @@ nav.main a span.ix{font-family:'JetBrains Mono',monospace;margin-right:0;margin-
         <input type="text" name="_honey" style="display:none">
         <div class="row2">
           <div class="fld"><label for="cf-name">نام</label><input id="cf-name" type="text" name="name" required></div>
-          <div class="fld"><label for="cf-email">رایانامه</label><input id="cf-email" type="email" name="email" required></div>
+          <div class="fld"><label for="cf-email">رایانامه</label><input id="cf-email" type="email" name="email" required dir="ltr"></div>
         </div>
         <div class="fld"><label for="cf-subject">موضوع</label><input id="cf-subject" type="text" name="subject"></div>
         <div class="fld"><label for="cf-msg">پیام</label><textarea id="cf-msg" name="message" required></textarea></div>
-        <button type="submit">ارسالِ پیام ←</button>
+        <button type="submit">ارسالِ پیام</button>
       </form>
     </div>
   </section>
@@ -909,14 +808,14 @@ nav.main a span.ix{font-family:'JetBrains Mono',monospace;margin-right:0;margin-
 
 <footer>
   <div class="foot">
-    <div class="fb ltr"><img class="fb-logo" src="assets/logo-gosan-white.png" alt="Gōsān"></div>
-    <div class="fcol"><strong>اندیشکده</strong><p>اندیشکدهٔ فرهنگ و هنر</p><p class="ltr">Berlin · Washington, D.C.</p></div>
-    <div class="fcol"><strong>فصلنامه</strong><p>فصلی · شاپا به‌زودی</p><p>مهرگان ۲۵۸۵ ←</p></div>
+    <div><img class="fb-logo" src="assets/logo-gosan-white.png" alt="گوسان"></div>
+    <div class="fcol"><strong>اندیشکده</strong><p>اندیشکدهٔ فرهنگ و هنر گوسان</p><p>برلین · واشینگتن، دی.سی.</p></div>
+    <div class="fcol"><strong>فصلنامه</strong><p>فصلی · شاپا به‌زودی</p><p>نخستین شماره: مهرگان ۲۵۸۵</p></div>
     <div class="fcol"><strong>تماس</strong><p><a href="mailto:hello@gosan.institute" class="ltr">hello@gosan.institute</a></p><p>دفترِ مدیریت</p></div>
   </div>
   <div class="colophon"><div class="colophon-in">
-    <span class="ltr">© <span id="yr"></span> Gōsān Culture &amp; Arts Institute</span>
-    <span>زمان <b class="ltr" id="clock2">--:--:--</b> · سیاست‌گذاریِ فرهنگیِ مبتنی بر شواهد</span>
+    <span>© اندیشکدهٔ فرهنگ و هنر گوسان · ۲۵۸۵</span>
+    <span>سیاست‌گذاریِ فرهنگیِ مبتنی بر شواهد</span>
   </div></div>
 </footer>
 
@@ -926,18 +825,7 @@ nav.main a span.ix{font-family:'JetBrains Mono',monospace;margin-right:0;margin-
   var $=function(s,c){return (c||document).querySelector(s);};
   var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s));};
 
-  /* year */
-  var y=$('#yr'); if(y) y.textContent=new Date().getFullYear();
-
-  /* live clock */
-  function tick(){
-    var d=new Date();
-    var s=[d.getHours(),d.getMinutes(),d.getSeconds()].map(function(n){return (n<10?'0':'')+n;}).join(':');
-    var c1=$('#clock'), c2=$('#clock2'); if(c1)c1.textContent=s; if(c2)c2.textContent=s;
-  }
-  tick(); setInterval(tick,1000);
-
-  /* sticky header border (rAF-throttled) */
+  /* sticky header border */
   var hdr=$('#hdr');
   var ticking=false;
   function onScroll(){
@@ -949,30 +837,21 @@ nav.main a span.ix{font-family:'JetBrains Mono',monospace;margin-right:0;margin-
     });
   }
 
-  /* count-up for metric numerals */
+  /* count-up (Persian digits) */
+  function faNum(n){ return n.toLocaleString('fa-IR'); }
   function countUp(el){
     var target=parseFloat(el.getAttribute('data-count'));
-    var dec=parseInt(el.getAttribute('data-dec')||'0',10);
-    var pad=parseInt(el.getAttribute('data-pad')||'0',10);
-    var unit=el.querySelector('.u'); var unitHTML=unit?unit.outerHTML:'';
     var start=null, dur=1100;
-    function fmt(v){
-      var n=dec?v.toFixed(dec):Math.round(v).toString();
-      if(pad){while(n.length<pad)n='0'+n; return n;}
-      var parts=n.split('.');
-      parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,',');
-      return parts.join('.');
-    }
     function step(ts){
       if(!start)start=ts; var p=Math.min(1,(ts-start)/dur);
       var e=1-Math.pow(1-p,3);
-      el.innerHTML=unitHTML+fmt(target*e);
-      if(p<1)requestAnimationFrame(step); else el.innerHTML=unitHTML+fmt(target);
+      el.textContent=faNum(Math.round(target*e));
+      if(p<1)requestAnimationFrame(step); else el.textContent=faNum(target);
     }
     requestAnimationFrame(step);
   }
 
-  /* reveal + trigger counters — IO plus scroll/timer fallback (IO can be inert in frames) */
+  /* reveal + counters — IO plus scroll/timer fallback (IO can be inert in frames) */
   function revealEl(el){
     if(el.classList.contains('in'))return;
     el.classList.add('in');
@@ -996,6 +875,8 @@ nav.main a span.ix{font-family:'JetBrains Mono',monospace;margin-right:0;margin-
     },{threshold:.15});
     $$('.reveal').forEach(function(el){io.observe(el);});
   }
+  /* metrics sit outside .reveal cards on mobile: also observe .metric blocks */
+  $$('.metric').forEach(function(m){ if(!m.classList.contains('reveal')) m.classList.add('reveal'); });
   window.addEventListener('scroll',onScroll,{passive:true});
   window.addEventListener('resize',check,{passive:true});
   window.addEventListener('load',check);
@@ -1006,16 +887,16 @@ nav.main a span.ix{font-family:'JetBrains Mono',monospace;margin-right:0;margin-
 <script>
 (function(){
   var PROJECTS = [
-    {g:"01", name:"نمایهٔ میراثِ زدوده", tag:"هویت", status:"live", desc:"بایگانیِ امن و بی‌نامی برای سپردنِ تاریخِ پیشااسلامی، ادبیاتِ ممنوع، موسیقیِ قدغن و سنت‌های سرکوب‌شدهٔ منطقه‌ای.", action:"گشودنِ بایگانی ↓", href:"#erased"},
-    {g:"02", name:"آزمایشگاهِ منشور", tag:"آزادیِ بیان", status:"dev", desc:"هکاتون‌های حقوقیِ مشارکتی که حقوق‌دانانِ تبعیدیِ حقوقِ بشر را با آفرینشگران همراه می‌کند تا منشورِ آیندهٔ آزادی‌های هنری را تدوین کنند.", action:"به ساخت بپیوندید"},
-    {g:"03", name:"کتابخانهٔ حکمرانی", tag:"حکمرانی", status:"dev", desc:"پژوهشِ باز و نقشه‌های تعاملی دربارهٔ الگوهای جهانیِ حکمرانیِ فرهنگیِ متخصص‌محور و مبتنی بر اصلِ فاصلهٔ بازو.", action:"به ساخت بپیوندید"},
-    {g:"04", name:"نبضِ هنرمند", tag:"هنرمندان", status:"dev", desc:"ریزپیمایش‌های رمزگذاری‌شده و پیراسته از فراداده که نیازهای اقتصادی، مسکن و سلامتِ هنرمندانِ درونِ ایران را ترسیم می‌کند.", action:"به ساخت بپیوندید"},
-    {g:"05", name:"مرکزِ رشدِ خلاق", tag:"اقتصاد", status:"planned", desc:"پلی میانِ سرمایه‌گذارانِ دیاسپورا و آفرینشگرانِ زیرزمینی برای طراحیِ بنگاه‌های مستقلِ پخشِ برخط، طراحی و توزیع.", action:"باخبرم کنید"},
-    {g:"06", name:"نگارخانهٔ گوسان", tag:"قدرتِ نرم", status:"planned", desc:"ویترین‌های دیجیتالِ جهانی و نگارخانه‌های برخط برای معرفیِ آفرینشگرانِ مستقلِ ایرانی به مخاطبانِ بین‌المللی.", action:"باخبرم کنید"},
-    {g:"07", name:"درگاه‌های منطقه‌ای", tag:"منطقه‌ها", status:"dev", desc:"درگاه‌های ویژهٔ کردستان، بلوچستان، خوزستان و آذربایجان برای مستندسازیِ امنِ زبان‌ها، موسیقی و صنایعِ دستی.", action:"به ساخت بپیوندید"},
-    {g:"08", name:"توزیعِ تاب‌آور", tag:"دیجیتال", status:"planned", desc:"زیرساختِ نامتمرکزِ همتابه‌همتا و IPFS که به هنرمندان امکان می‌دهد آثارشان را دور از دست‌اندازیِ رژیم منتشر کنند و از آن درآمد بسازند.", action:"باخبرم کنید"}
+    {g:"۰۱", name:"نمایهٔ میراثِ زدوده", tag:"هویت", status:"live", desc:"بایگانیِ امن و بی‌نامی برای سپردنِ تاریخِ پیشااسلامی، ادبیاتِ ممنوع، موسیقیِ قدغن و سنت‌های سرکوب‌شدهٔ منطقه‌ای.", action:"گشودنِ بایگانی ↓", href:"#erased"},
+    {g:"۰۲", name:"آزمایشگاهِ منشور", tag:"آزادیِ بیان", status:"dev", desc:"هکاتون‌های حقوقیِ مشارکتی که حقوق‌دانانِ تبعیدیِ حقوقِ بشر را با آفرینشگران همراه می‌کند تا منشورِ آیندهٔ آزادی‌های هنری را تدوین کنند.", action:"به ساخت بپیوندید"},
+    {g:"۰۳", name:"کتابخانهٔ حکمرانی", tag:"حکمرانی", status:"dev", desc:"پژوهشِ باز و نقشه‌های تعاملی دربارهٔ الگوهای جهانیِ حکمرانیِ فرهنگیِ متخصص‌محور و مبتنی بر اصلِ فاصلهٔ بازو.", action:"به ساخت بپیوندید"},
+    {g:"۰۴", name:"نبضِ هنرمند", tag:"هنرمندان", status:"dev", desc:"ریزپیمایش‌های رمزگذاری‌شده و پیراسته از فراداده که نیازهای اقتصادی، مسکن و سلامتِ هنرمندانِ درونِ ایران را ترسیم می‌کند.", action:"به ساخت بپیوندید"},
+    {g:"۰۵", name:"مرکزِ رشدِ خلاق", tag:"اقتصاد", status:"planned", desc:"پلی میانِ سرمایه‌گذارانِ دیاسپورا و آفرینشگرانِ زیرزمینی برای طراحیِ بنگاه‌های مستقلِ پخشِ برخط، طراحی و توزیع.", action:"باخبرم کنید"},
+    {g:"۰۶", name:"نگارخانهٔ گوسان", tag:"قدرتِ نرم", status:"planned", desc:"ویترین‌های دیجیتالِ جهانی و نگارخانه‌های برخط برای معرفیِ آفرینشگرانِ مستقلِ ایرانی به مخاطبانِ بین‌المللی.", action:"باخبرم کنید"},
+    {g:"۰۷", name:"درگاه‌های منطقه‌ای", tag:"منطقه‌ها", status:"dev", desc:"درگاه‌های ویژهٔ کردستان، بلوچستان، خوزستان و آذربایجان برای مستندسازیِ امنِ زبان‌ها، موسیقی و صنایعِ دستی.", action:"به ساخت بپیوندید"},
+    {g:"۰۸", name:"توزیعِ تاب‌آور", tag:"دیجیتال", status:"planned", desc:"زیرساختِ نامتمرکزِ همتابه‌همتا (آی‌پی‌اف‌اس) که به هنرمندان امکان می‌دهد آثارشان را دور از دست‌اندازیِ رژیم منتشر کنند و از آن درآمد بسازند.", action:"باخبرم کنید"}
   ];
-  var ST = { live:{label:"فعال", v:"--data"}, dev:{label:"در حالِ ساخت", v:"--accent"}, planned:{label:"برنامه‌ریزی‌شده", v:"--soft"} };
+  var ST = { live:{label:"فعال", v:"#46707F"}, dev:{label:"در حالِ ساخت", v:"#B08A3E"}, planned:{label:"برنامه‌ریزی‌شده", v:"#807B72"} };
   var KEY = "gosan-project-signups-v1";
   var signed = {}; try{ signed = JSON.parse(localStorage.getItem(KEY) || "{}"); }catch(e){ signed = {}; }
   var grid = document.getElementById("pjGrid");
@@ -1028,8 +909,8 @@ nav.main a span.ix{font-family:'JetBrains Mono',monospace;margin-right:0;margin-
     var act = p.status==="live"
       ? '<a class="pc-act is-live" href="'+p.href+'">'+esc(p.action)+'</a>'
       : '<button class="pc-act'+(done?' done':'')+'" data-g="'+p.g+'">'+(done?'✓ در فهرست‌اید':esc(p.action))+'</button>';
-    return '<article class="pcard" data-status="'+p.status+'" style="--st:var('+st.v+')">'+
-      '<div class="pc-top"><span class="pc-status '+p.status+'"><span class="sdot"></span>'+st.label+'</span><span class="pc-g">هدفِ <span class="ltr">'+p.g+'</span></span></div>'+
+    return '<article class="pcard" data-status="'+p.status+'" style="--st:'+st.v+'">'+
+      '<div class="pc-top"><span class="pc-status '+p.status+'"><span class="sdot"></span>'+st.label+'</span><span class="pc-g">هدفِ '+p.g+'</span></div>'+
       '<div><div class="pc-tag">'+esc(p.tag)+'</div><div class="pc-name">'+esc(p.name)+'</div></div>'+
       '<div class="pc-desc">'+esc(p.desc)+'</div>'+act+'</article>';
   }
