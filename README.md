@@ -2,8 +2,6 @@
 
 Website of **Gosan** (گوسان), a Persian-language cultural and arts magazine published by the Gosan Institute for Culture and Art.
 
-Live site: https://yootazi.github.io/gosan-website/
-
 ## Structure
 
 - `index.html` — homepage entry point
