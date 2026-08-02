@@ -1015,6 +1015,15 @@ function EssayAzarkeyvaniCreationMyth() {
   );
 }
 
+/* announced essays — the bodies arrive later; pages stay intentionally empty */
+function ComingSoonBody() {
+  return (
+    <React.Fragment>
+      <p className="essay-lede" style={{ color: 'var(--text-muted)' }}>متن این جستار پس از دریافت از نویسنده، در همین‌جا منتشر می‌شود.</p>
+    </React.Fragment>
+  );
+}
+
 const GOSAN_ARTICLE_BODIES = {
   'manichaean-music-terms': EssayManichaeanMusicTerms,
   'herzfeld-german-archives': EssayHerzfeldGermanArchives,
@@ -1026,6 +1035,8 @@ const GOSAN_ARTICLE_BODIES = {
   'beyzaie-myth-symbolic-action': EssayBeyzaieMythSymbolicAction,
   'between-two-defeats': EssayBetweenTwoDefeats,
   'azarkeyvani-creation-myth': EssayAzarkeyvaniCreationMyth,
+  'who-is-the-gosan': ComingSoonBody,
+  'farabi-music-politics': ComingSoonBody,
 };
 
 Object.assign(window, { GOSAN_ARTICLE_BODIES });
