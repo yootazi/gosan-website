@@ -6,7 +6,7 @@
 |---|---|---|---|---|---|
 | `beyzaie-myth-symbolic-action` | man | ۱۴۰۵/۵/۱۱، ۱۸:۴۰ | ۲ | ردشده | [دیدن](rejected/beyzaie-myth-symbolic-action.md) |
 | `interview-farnaz-modarresifar` | ehsann | ۱۴۰۵/۵/۱۱، ۱۸:۳۵ | ۲ | ردشده | [دیدن](rejected/interview-farnaz-modarresifar.md) |
-| `between-two-defeats` | yoota |  | ۷۴ | [در انتظار بازبینی ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/between-two-defeats.md) |
+| `between-two-defeats` | yoota |  | ۷۴ | ردشده | [دیدن](rejected/between-two-defeats.md) |
 
 ---
 
