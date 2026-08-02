@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>میز ویرایش — گاهنامهٔ گوسان</title>
+<style>
+  @font-face{font-family:'IRANSansX';src:url('assets/fonts/IRANSansX-Regular.woff2') format('woff2');font-weight:100 500;font-display:swap}
+  @font-face{font-family:'IRANSansX';src:url('assets/fonts/IRANSansX-Bold.woff2') format('woff2');font-weight:600 900;font-display:swap}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'IRANSansX',Tahoma,sans-serif;background:#1A1A1A;color:#EDEDEA;
+       display:flex;flex-direction:column;height:100vh;font-size:13.5px}
+  header{flex:none;display:flex;align-items:center;gap:12px;padding:10px 16px;
+         background:#111;border-bottom:1px solid #333;flex-wrap:wrap}
+  header .ttl{font-weight:800;font-size:14.5px;color:#D9B35A}
+  header .warn{font-size:11px;color:#B9B9B9;border:1px solid #3a3a3a;border-radius:3px;
+         padding:4px 9px;background:#1e1e1e}
+  header .warn b{color:#E8A0A0;font-weight:700}
+  select,input[type=text]{font-family:inherit;font-size:12.5px;padding:6px 9px;border-radius:3px;
+         border:1px solid #444;background:#222;color:#EDEDEA;min-width:120px}
+  select{max-width:330px}
+  button{font-family:inherit;font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:3px;
+         border:1px solid transparent;cursor:pointer;transition:.15s}
+  .b-edit{background:#1D92B4;color:#04222C}
+  .b-edit.on{background:#D9B35A;color:#241a02}
+  .b-save{background:#4F7A5E;color:#fff}
+  .b-save:disabled{opacity:.4;cursor:default}
+  .b-ghost{background:none;color:#B9B9B9;border-color:#444}
+  .b-ghost:hover{color:#fff;border-color:#777}
+  .status{font-size:11.5px;color:#8fbf9f;min-width:150px}
+  .status.err{color:#E8A0A0}
+  main{flex:1;display:flex;min-height:0}
+  iframe{flex:1;border:0;background:#fff}
+  aside#diff{display:none;flex:none;width:420px;border-inline-start:1px solid #333;
+        background:#141414;overflow:auto;padding:16px 18px;line-height:2.1;font-size:12.5px}
+  aside#diff.show{display:block}
+  aside#diff h3{font-size:12px;color:#D9B35A;margin:0 0 10px;letter-spacing:.02em}
+  aside#diff ins{background:rgba(79,122,94,.35);color:#c9e8d2;text-decoration:none;
+        border-radius:2px;padding:0 2px}
+  aside#diff del{background:rgba(166,75,60,.35);color:#f0c0b6;border-radius:2px;padding:0 2px}
+  aside#diff .meta{font-size:11px;color:#8a8a8a;margin-bottom:12px}
+  .pill{display:inline-block;font-size:10.5px;padding:2px 8px;border-radius:99px;
+        background:#2a2a2a;color:#B9B9B9;margin-inline-start:6px}
+</style>
+</head>
+<body>
+
+<header>
+  <span class="ttl">میز ویرایش گاهنامه</span>
+  <span class="warn"><b>ویرایش فقط صوری است</b> — شیوه‌نامه: رسم‌الخط، نیم‌فاصله، نشانه‌گذاری، پانویس. متن نویسنده تغییرِ محتوایی نمی‌کند؛ نسخهٔ اصلی دست‌نخورده می‌ماند.</span>
+  <select id="essay"><option value="">— انتخاب جستار —</option></select>
+  <input type="text" id="who" placeholder="نام ویراستار (لازم)">
+  <input type="password" id="tok" placeholder="توکن گیت‌هاب" style="display:none;direction:ltr;min-width:170px">
+  <button class="b-edit" id="toggle">آغاز ویرایش</button>
+  <button class="b-save" id="save" disabled>ذخیره</button>
+  <button class="b-ghost" id="dl" disabled>دریافت JSON</button>
+  <button class="b-ghost" id="review">حالت بازبینی</button>
+  <span class="status" id="st"></span>
+</header>
+
+<div id="inbox" style="display:none;flex:none;background:#161616;border-bottom:1px solid #333;
+     padding:8px 16px;font-size:12px;color:#B9B9B9">
+  <span style="color:#D9B35A;font-weight:700;margin-inline-end:10px">تغییرهای تازه:</span>
+  <span id="inbox-items"></span>
+</div>
+
+<main>
+  <div id="empty" style="flex:1;display:grid;place-items:center;background:#F9F9F9;color:#6B6B6B;font-size:14px">
+    <div style="text-align:center"><div style="font-size:34px;color:#D4AF37;margin-bottom:10px">✻</div>
+    جستاری را از فهرستِ بالا انتخاب کنید</div>
+  </div>
+  <iframe id="site" src="about:blank" style="display:none"></iframe>
+  <aside id="diff"></aside>
+</main>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var frame=$('site'), sel=$('essay'), st=$('st');
+  var editing=false, originalHTML=null, currentSlug='';
+  var GH = !/^(localhost|127\.|192\.168\.|10\.)/.test(location.hostname);
+  var GH_REPO='yootazi/gosan-website', GH_BRANCH='web-edits';
+  if (GH){
+    var tk=$('tok'); tk.style.display='inline-block';
+    tk.value=localStorage.getItem('gosan_edit_token')||'';
+    tk.addEventListener('change',function(){ localStorage.setItem('gosan_edit_token',tk.value.trim()); });
+  }
+  function b64utf8(str){
+    return btoa(String.fromCharCode.apply(null,
+      Array.prototype.slice.call(new TextEncoder().encode(str))));
+  }
+  function ghHeaders(){
+    return {'Authorization':'Bearer '+$('tok').value.trim(),
+            'Accept':'application/vnd.github+json',
+            'X-GitHub-Api-Version':'2022-11-28'};
+  }
+  function ghSave(rec, done){
+    var pathq='web-edits/pending/'+rec.slug+'.json';
+    var url='https://api.github.com/repos/'+GH_REPO+'/contents/'+pathq;
+    fetch(url+'?ref='+GH_BRANCH,{headers:ghHeaders()})
+      .then(function(r){ return r.ok? r.json(): null; })
+      .then(function(existing){
+        var body={ message:'web-edit: '+rec.slug+' \u00b7 '+rec.editor,
+                   branch:GH_BRANCH,
+                   content:b64utf8(JSON.stringify(rec,null,1)) };
+        if(existing && existing.sha) body.sha=existing.sha;
+        return fetch(url,{method:'PUT',headers:ghHeaders(),body:JSON.stringify(body)});
+      })
+      .then(function(r){ return r.json().then(function(j){ done(r.ok, j); }); })
+      .catch(function(e){ done(false,{message:String(e)}); });
+  }
+
+  function status(msg,err){ st.textContent=msg; st.className='status'+(err?' err':''); }
+
+  /* essay list — parsed from the site's own registry */
+  fetch('gosan-components.jsx').then(function(r){return r.text()}).then(function(src){
+    var re=/slug:\s*['"]([^'"]+)['"][^}]*?title:\s*['"]([^'"]+)['"]/g, m, seen={};
+    var re2=/title:\s*['"]([^'"]+)['"][^}]*?slug:\s*['"]([^'"]+)['"]/g;
+    var found=[];
+    while((m=re.exec(src)))  found.push([m[1],m[2]]);
+    while((m=re2.exec(src))) found.push([m[2],m[1]]);
+    found.forEach(function(p){
+      if(seen[p[0]])return; seen[p[0]]=1;
+      var o=document.createElement('option'); o.value=p[0]; o.textContent=p[1];
+      sel.appendChild(o);
+    });
+    status(Object.keys(seen).length+' جستار در فهرست');
+  });
+
+  function article(){ try{return frame.contentDocument.querySelector('article')}catch(e){return null} }
+
+  function stripChrome(){
+    try{
+      var d=frame.contentDocument;
+      if(!d || d.getElementById('ed-strip')) return;
+      var css=d.createElement('style'); css.id='ed-strip';
+      css.textContent='header,footer,.site-header,.site-footer,.scroll-progress,'+
+        '.back-to-top,.backtotop,.search-overlay,.tweaks-panel,.tweaks-toggle,'+
+        '.share-card,.listen-bar,.nc-editors{display:none!important}'+
+        'body{padding-top:0!important}';
+      d.head.appendChild(css);
+    }catch(e){}
+  }
+  frame.addEventListener('load',function(){ setTimeout(stripChrome,400); setTimeout(stripChrome,1500); });
+
+  sel.onchange=function(){
+    if(editing) stopEdit();
+    currentSlug=sel.value;
+    if(currentSlug){
+      document.getElementById('empty').style.display='none';
+      frame.style.display='block';
+      frame.src='index.html#/article/'+encodeURIComponent(currentSlug);
+    } else {
+      frame.style.display='none'; frame.src='about:blank';
+      document.getElementById('empty').style.display='grid';
+    }
+  };
+
+  function startEdit(){
+    var art=article();
+    if(!art){ status('جستار هنوز بار نشده است؛ چند لحظه صبر کنید','err'); return; }
+    if(!$('who').value.trim()){ status('نام ویراستار را بنویسید','err'); $('who').focus(); return; }
+    originalHTML=art.innerHTML;
+    var d=frame.contentDocument;
+    // caret sanity: no multi-column text, no live widgets under the cursor
+    if(!d.getElementById('ed-editmode')){
+      var css=d.createElement('style'); css.id='ed-editmode';
+      css.textContent=
+        'article, article .essay-cols{column-count:1!important;columns:auto!important;'+
+        'column-gap:normal!important}'+
+        'article .fn-ref{pointer-events:none!important}'+
+        'article .fn-card{display:none!important}'+
+        'article [contenteditable=false]{user-select:none}'+
+        'article{caret-color:#0E7D99}'+
+        'article p{min-height:1em}';
+      d.head.appendChild(css);
+    }
+    // widgets are not text: the caret must never enter them
+    art.querySelectorAll('.fn, .fn-ref, .fn-card, button, figure, img, iframe, .essay-figure, .essay-figure-pair')
+      .forEach(function(el){ el.setAttribute('contenteditable','false'); });
+    art.setAttribute('spellcheck','false');
+    art.contentEditable='true';
+    art.style.outline='3px dashed #D9B35A'; art.style.outlineOffset='8px';
+    d.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(e){ if(editing) e.preventDefault(); });
+    });
+    // place the caret at the start of the first paragraph
+    try{
+      var p0=art.querySelector('p'), r=d.createRange(), selq=frame.contentWindow.getSelection();
+      r.setStart(p0.firstChild||p0,0); r.collapse(true);
+      selq.removeAllRanges(); selq.addRange(r); p0.scrollIntoView({block:'center'});
+    }catch(e){}
+    editing=true;
+    $('toggle').textContent='پایان ویرایش'; $('toggle').classList.add('on');
+    $('save').disabled=false; $('dl').disabled=false;
+    status('در حال ویرایش — تغییرها هنوز ذخیره نشده');
+  }
+  function stopEdit(){
+    var art=article();
+    if(art){ art.contentEditable='false'; art.style.outline=''; }
+    try{
+      var em=frame.contentDocument.getElementById('ed-editmode');
+      if(em) em.remove();
+    }catch(e){}
+    editing=false;
+    $('toggle').textContent='آغاز ویرایش'; $('toggle').classList.remove('on');
+  }
+  $('toggle').onclick=function(){ editing?stopEdit():startEdit(); };
+
+  function payload(){
+    var art=article();
+    return { slug: currentSlug, editor: $('who').value.trim(),
+             html: art?art.innerHTML:'', original_html: originalHTML||'' };
+  }
+  $('save').onclick=function(){
+    if(!currentSlug){ status('جستاری انتخاب نشده','err'); return; }
+    if(GH){
+      if(!$('tok').value.trim()){ status('توکن گیت‌هاب را وارد کنید (یک‌بار؛ ذخیره می‌شود)','err'); $('tok').focus(); return; }
+      status('در حال ارسال به گیت‌هاب…');
+      ghSave(payload(), function(ok, j){
+        status(ok ? 'در گیت‌هاب ثبت شد — '+new Date().toLocaleTimeString('fa-IR')
+                  : 'خطای گیت‌هاب: '+(j&&j.message||'نامشخص'), !ok);
+      });
+      return;
+    }
+    fetch('/api/save-edit',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload())})
+      .then(function(r){return r.json()})
+      .then(function(d){
+        if(!d.ok){ status('خطا: '+d.error,true); return; }
+        var t=new Date().toLocaleTimeString('fa-IR');
+        status(d.pushed ? 'ذخیره و در گیت‌هاب ثبت شد — '+t
+             : d.committed ? 'ذخیره و کامیت شد؛ ارسال به گیت‌هاب ناموفق (بعداً ارسال می‌شود) — '+t
+             : 'ذخیره شد (فقط محلی) — '+t, !d.committed);
+      })
+      .catch(function(){ status('سرور در دسترس نیست؛ از «دریافت JSON» استفاده کنید','err'); });
+  };
+  $('dl').onclick=function(){
+    var blob=new Blob([JSON.stringify(payload(),null,1)],{type:'application/json'});
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download='gosan-webedit-'+currentSlug+'.json';
+    a.click();
+  };
+
+  /* ── review mode: word-level diff for the editor-in-chief ── */
+  function textOf(html){
+    var d=document.createElement('div'); d.innerHTML=html;
+    return (d.textContent||'').replace(/\s+/g,' ').trim();
+  }
+  function diffWords(a,b){
+    a=a.split(' '); b=b.split(' ');
+    var n=a.length,mn=b.length,i,j;
+    var L=[]; for(i=0;i<=n;i++){L.push(new Int32Array(mn+1));}
+    for(i=n-1;i>=0;i--)for(j=mn-1;j>=0;j--)
+      L[i][j]=a[i]===b[j]?L[i+1][j+1]+1:Math.max(L[i+1][j],L[i][j+1]);
+    var out=[];i=0;j=0;
+    while(i<n&&j<mn){
+      if(a[i]===b[j]){out.push([' ',a[i]]);i++;j++;}
+      else if(L[i+1][j]>=L[i][j+1]){out.push(['-',a[i]]);i++;}
+      else {out.push(['+',b[j]]);j++;}
+    }
+    while(i<n){out.push(['-',a[i]]);i++;}
+    while(j<mn){out.push(['+',b[j]]);j++;}
+    return out;
+  }
+  $('review').onclick=function(){
+    var box=$('diff');
+    if(box.classList.contains('show')){ box.classList.remove('show'); return; }
+    if(!currentSlug){ status('اول جستار را انتخاب کنید','err'); return; }
+    fetch('/api/edit/'+currentSlug).then(function(r){
+      if(!r.ok) throw new Error('nofile');
+      return r.json();
+    }).then(function(d){
+      var parts=diffWords(textOf(d.original_html), textOf(d.html));
+      var changed=parts.filter(function(p){return p[0]!==' '}).length;
+      var html='<h3>تفاوت‌ها — '+sel.options[sel.selectedIndex].text+'</h3>'
+        +'<div class="meta">ویراستار: '+d.editor+' · '+new Date(d.saved_at).toLocaleString('fa-IR')
+        +'<span class="pill">'+changed+' واژه تغییر</span></div><p>';
+      parts.forEach(function(p){
+        var w=p[1].replace(/</g,'&lt;');
+        html+= p[0]===' ' ? w+' ' : p[0]==='-' ? '<del>'+w+'</del> ' : '<ins>'+w+'</ins> ';
+      });
+      box.innerHTML=html+'</p>'; box.classList.add('show');
+      status('بازبینی: سبز = افزوده، سرخ = حذف‌شده. تأیید نهایی در گفتگو با دستیار انجام می‌شود.');
+    }).catch(function(){ status('برای این جستار ویرایشِ ذخیره‌شده‌ای نیست','err'); });
+  };
+
+  /* ── inbox: pending edits with approve / reject ── */
+  function loadInbox(){
+    fetch('/api/edits').then(function(r){return r.json()}).then(function(list){
+      var bar=$('inbox'), holder=$('inbox-items');
+      if(!list.length){ bar.style.display='none'; return; }
+      holder.innerHTML='';
+      list.forEach(function(e){
+        var chip=document.createElement('span');
+        chip.style.cssText='display:inline-flex;align-items:center;gap:7px;background:#222;'+
+          'border:1px solid #3a3a3a;border-radius:3px;padding:4px 9px;margin-inline-end:9px';
+        var name=document.createElement('a');
+        name.textContent=e.slug+' · '+e.editor;
+        name.href='#'; name.style.cssText='color:#EDEDEA;text-decoration:none;font-weight:700';
+        name.onclick=function(ev){ ev.preventDefault();
+          for(var i=0;i<sel.options.length;i++) if(sel.options[i].value===e.slug){ sel.value=e.slug; break; }
+          sel.onchange(); currentSlug=e.slug;
+          setTimeout(function(){ if(!$('diff').classList.contains('show')) $('review').click(); },1600);
+        };
+        var ok=document.createElement('button');
+        ok.textContent='تأیید'; ok.className='b-save'; ok.style.padding='3px 10px';
+        ok.onclick=function(){ decide('approve', e.slug); };
+        var no=document.createElement('button');
+        no.textContent='رد'; no.className='b-ghost'; no.style.padding='3px 10px';
+        no.onclick=function(){ decide('reject', e.slug); };
+        chip.appendChild(name); chip.appendChild(ok); chip.appendChild(no);
+        holder.appendChild(chip);
+      });
+      bar.style.display='block';
+    }).catch(function(){});
+  }
+  function decide(action, slug){
+    if(action==='approve' && !confirm('این ویرایش تأیید شود؟ پس از تأیید، تغییرها روی وب‌سایت اصلی اعمال خواهد شد.')) return;
+    if(action==='reject' && !confirm('این ویرایش رد شود؟')) return;
+    fetch('/api/'+action,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({slug:slug})})
+      .then(function(r){return r.json()})
+      .then(function(d){
+        status(d.ok ? (action==='approve'
+            ? 'تأیید شد و در گیت‌هاب ثبت شد — اعمال روی سایت اصلی از راه گفتگو با دستیار انجام می‌شود'
+            : 'رد شد و بایگانی شد') : ('خطا: '+d.error), !d.ok);
+        $('diff').classList.remove('show');
+        loadInbox();
+      });
+  }
+  if(!GH){ loadInbox(); setInterval(loadInbox, 30000); }
+  else { $('review').style.display='none'; }
+
+  /* deep link: editor.html?review=<slug> opens straight into the review */
+  var q=new URLSearchParams(location.search);
+  if(q.get('review')){
+    var slug=q.get('review');
+    var t=setInterval(function(){
+      for(var i=0;i<sel.options.length;i++){
+        if(sel.options[i].value===slug){
+          clearInterval(t); sel.value=slug; sel.onchange();
+          setTimeout(function(){ currentSlug=slug; $('review').click(); },1400);
+          return;
+        }
+      }
+    },300);
+  }
+})();
+</script>
+</body>
+</html>
