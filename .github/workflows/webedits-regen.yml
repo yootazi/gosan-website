@@ -1,0 +1,28 @@
+name: web-edits regen
+# When a remote editor saves through the GitHub API, only the .json record
+# lands on this branch. This workflow rebuilds the word-diff .md files and
+# the README dashboard, exactly as the local desk server does.
+on:
+  push:
+    branches: [web-edits]
+    paths: ['web-edits/**/*.json']
+permissions:
+  contents: write
+concurrency:
+  group: webedits-regen
+  cancel-in-progress: false
+jobs:
+  regen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 web-edits/_regen.py
+      - name: commit refreshed index
+        run: |
+          git config user.name "gosan-desk"
+          git config user.email "actions@users.noreply.github.com"
+          git add web-edits
+          git diff --cached --quiet && exit 0
+          git commit -m "web-edits: refresh index"
+          git pull --rebase origin web-edits
+          git push origin web-edits
