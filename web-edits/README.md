@@ -4,7 +4,8 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
-| `interview-farnaz-modarresifar` | ehsann | ۲۰۲۶-۰۸-۰۲ ۱۸:۳۵ | 2 | ردشده | [دیدن](rejected/interview-farnaz-modarresifar.md) |
+| `beyzaie-myth-symbolic-action` | man | ۱۴۰۵/۵/۱۱, ۲۰:۴۰:۴۸ | 2 | در انتظار بازبینی | [دیدن](pending/beyzaie-myth-symbolic-action.md) |
+| `interview-farnaz-modarresifar` | ehsann | ۱۴۰۵/۵/۱۱, ۲۰:۳۵:۴۷ | 2 | ردشده | [دیدن](rejected/interview-farnaz-modarresifar.md) |
 
 ---
 
