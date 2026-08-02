@@ -28,6 +28,7 @@
   .b-save:disabled{opacity:.4;cursor:default}
   .b-ghost{background:none;color:#B9B9B9;border-color:#444}
   .b-ghost:hover{color:#fff;border-color:#777}
+  .fmtb{padding:5px 9px;font-size:12px}
   .status{font-size:11.5px;color:#8fbf9f;min-width:150px}
   .status.err{color:#E8A0A0}
   main{flex:1;display:flex;min-height:0}
@@ -56,6 +57,14 @@
   <button class="b-save" id="save" disabled>ذخیره</button>
   <button class="b-ghost" id="dl" disabled>دریافت JSON</button>
   <button class="b-ghost" id="review">حالت بازبینی</button>
+  <span id="fmt" style="display:none;gap:4px;align-items:center">
+    <button class="b-ghost fmtb" data-cmd="bold" title="پررنگ"><b>ب</b></button>
+    <button class="b-ghost fmtb" data-cmd="italic" title="ایتالیک"><i>ا</i></button>
+    <button class="b-ghost fmtb" data-cmd="zwnj" title="نیم‌فاصله">نیم‌فاصله</button>
+    <button class="b-ghost fmtb" data-cmd="removeFormat" title="حذف قالب">×قالب</button>
+    <button class="b-ghost fmtb" data-cmd="undo" title="واگرد">↶</button>
+    <button class="b-ghost fmtb" data-cmd="redo" title="ازنو">↷</button>
+  </span>
   <span class="status" id="st"></span>
 </header>
 
@@ -79,6 +88,7 @@
   var $=function(id){return document.getElementById(id)};
   var frame=$('site'), sel=$('essay'), st=$('st');
   var editing=false, originalHTML=null, currentSlug='';
+  var resumedOriginal=null, resumedSummaryOriginal=null, originalSummary=null;
   var GH = !/^(localhost|127\.|192\.168\.|10\.)/.test(location.hostname);
   var GH_REPO='yootazi/gosan-website', GH_BRANCH='web-edits';
   if (GH){
@@ -118,6 +128,54 @@
 
   function status(msg,err){ st.textContent=msg; st.className='status'+(err?' err':''); }
 
+  function b64dec(b64){
+    var bin=atob(String(b64).replace(/\s/g,'')), bytes=new Uint8Array(bin.length);
+    for(var i=0;i<bin.length;i++) bytes[i]=bin.charCodeAt(i);
+    return new TextDecoder('utf-8').decode(bytes);
+  }
+  function fetchPending(slug, cb){
+    if(!GH){
+      fetch('/api/edit/'+encodeURIComponent(slug))
+        .then(function(r){ return r.ok? r.json(): null; })
+        .then(cb).catch(function(){ cb(null); });
+      return;
+    }
+    var url='https://api.github.com/repos/'+GH_REPO+'/contents/web-edits/pending/'+slug+'.json?ref='+GH_BRANCH;
+    var opts=$('tok').value.trim()? {headers:ghHeaders()} : {};
+    fetch(url,opts)
+      .then(function(r){ return r.ok? r.json(): null; })
+      .then(function(j){
+        if(!j) return cb(null);
+        if(j.content) return cb(JSON.parse(b64dec(j.content)));
+        if(j.download_url)
+          return fetch(j.download_url).then(function(r){return r.ok?r.json():null}).then(cb);
+        cb(null);
+      })
+      .catch(function(){ cb(null); });
+  }
+  /* resume: if a saved (pending) edit exists, load it into the article
+     so the editor continues across sessions */
+  function armResume(slug){
+    fetchPending(slug, function(rec){
+      if(!rec || !rec.html || slug!==currentSlug) return;
+      var tries=0;
+      (function put(){
+        if(slug!==currentSlug || editing) return;
+        var art=article();
+        if(art && art.querySelector('p')){
+          art.innerHTML=rec.html;
+          resumedOriginal=rec.original_html||null;
+          var sm=summaryEl();
+          if(sm && rec.summary_html){
+            sm.innerHTML=rec.summary_html;
+            resumedSummaryOriginal=rec.original_summary_html||null;
+          }
+          status('ویرایش ذخیره‌شدهٔ پیشین ('+(rec.editor||'')+') بارگذاری شد؛ می‌توانید ادامه دهید');
+        } else if(++tries<25){ setTimeout(put,400); }
+      })();
+    });
+  }
+
   /* essay list — parsed from the site's own registry */
   var allowP = fetch('editor-allowlist.json').then(function(r){ return r.ok? r.json(): null; }).catch(function(){ return null; });
   Promise.all([allowP, fetch('gosan-components.jsx').then(function(r){return r.text()})]).then(function(res){
@@ -140,7 +198,19 @@
   function captureHTML(art){
     var c=art.cloneNode(true);
     c.querySelectorAll('nav.article-toc').forEach(function(n){ n.remove(); });
+    // footnote text lives twice (inline hover card + end list); the end list
+    // is the editable one — mirror it back into the cards
+    var lis=c.querySelectorAll('.fn-list li'), cards=c.querySelectorAll('.fn-card-text');
+    for(var i=0;i<lis.length && i<cards.length;i++){
+      var li=lis[i].cloneNode(true);
+      li.querySelectorAll('.fn-list-num').forEach(function(n){ n.remove(); });
+      cards[i].innerHTML=li.innerHTML;
+    }
     return c.innerHTML;
+  }
+  function summaryEl(){
+    try{ return frame.contentDocument.querySelector('.summary-card .summary-text'); }
+    catch(e){ return null; }
   }
 
   function stripChrome(){
@@ -160,10 +230,12 @@
   sel.onchange=function(){
     if(editing) stopEdit();
     currentSlug=sel.value;
+    resumedOriginal=null; resumedSummaryOriginal=null; originalSummary=null;
     if(currentSlug){
       document.getElementById('empty').style.display='none';
       frame.style.display='block';
       frame.src='index.html#/article/'+encodeURIComponent(currentSlug);
+      armResume(currentSlug);
     } else {
       frame.style.display='none'; frame.src='about:blank';
       document.getElementById('empty').style.display='grid';
@@ -174,7 +246,7 @@
     var art=article();
     if(!art){ status('جستار هنوز بار نشده است؛ چند لحظه صبر کنید','err'); return; }
     if(!$('who').value.trim()){ status('نام ویراستار را بنویسید','err'); $('who').focus(); return; }
-    originalHTML=captureHTML(art);
+    originalHTML=resumedOriginal || captureHTML(art);
     var d=frame.contentDocument;
     // caret sanity: no multi-column text, no live widgets under the cursor
     if(!d.getElementById('ed-editmode')){
@@ -190,11 +262,19 @@
       d.head.appendChild(css);
     }
     // widgets are not text: the caret must never enter them
-    art.querySelectorAll('.fn, .fn-ref, .fn-card, button, figure, img, iframe, .essay-figure, .essay-figure-pair')
+    art.querySelectorAll('.fn, .fn-ref, .fn-card, button, figure, img, iframe, .essay-figure, .essay-figure-pair, nav.article-toc, .fn-list-num')
       .forEach(function(el){ el.setAttribute('contenteditable','false'); });
     art.setAttribute('spellcheck','false');
     art.contentEditable='true';
     art.style.outline='3px dashed #D9B35A'; art.style.outlineOffset='8px';
+    var sm=summaryEl();
+    if(sm){
+      if(originalSummary===null) originalSummary=resumedSummaryOriginal||sm.innerHTML;
+      sm.setAttribute('spellcheck','false');
+      sm.contentEditable='true';
+      sm.style.outline='2px dashed #D9B35A'; sm.style.outlineOffset='5px';
+    }
+    $('fmt').style.display='inline-flex';
     d.querySelectorAll('a').forEach(function(a){
       a.addEventListener('click',function(e){ if(editing) e.preventDefault(); });
     });
@@ -212,6 +292,9 @@
   function stopEdit(){
     var art=article();
     if(art){ art.contentEditable='false'; art.style.outline=''; }
+    var sm=summaryEl();
+    if(sm){ sm.contentEditable='false'; sm.style.outline=''; }
+    $('fmt').style.display='none';
     try{
       var em=frame.contentDocument.getElementById('ed-editmode');
       if(em) em.remove();
@@ -221,11 +304,25 @@
   }
   $('toggle').onclick=function(){ editing?stopEdit():startEdit(); };
 
+  document.querySelectorAll('.fmtb').forEach(function(b){
+    b.addEventListener('mousedown',function(e){ e.preventDefault(); });
+    b.addEventListener('click',function(){
+      if(!editing) return;
+      try{
+        var d=frame.contentDocument;
+        if(b.dataset.cmd==='zwnj') d.execCommand('insertText',false,'\u200c');
+        else d.execCommand(b.dataset.cmd,false,null);
+      }catch(e){}
+    });
+  });
+
   function payload(){
     var art=article();
+    var sm=summaryEl();
     return { slug: currentSlug, editor: $('who').value.trim(),
              saved_at: new Date().toISOString(),
-             html: art?captureHTML(art):'', original_html: originalHTML||'' };
+             html: art?captureHTML(art):'', original_html: originalHTML||'',
+             summary_html: sm?sm.innerHTML:'', original_summary_html: originalSummary||'' };
   }
   $('save').onclick=function(){
     if(!currentSlug){ status('جستاری انتخاب نشده','err'); return; }

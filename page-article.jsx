@@ -394,7 +394,22 @@ function ShareRow({ post }) {
 }
 
 /* ---------- summary aside (چکیده) — always visible ---------- */
-function SummaryAside({ post, getText }) {
+/* ---------- approved web-edits override the JSX content (content-overrides/<slug>.json) ---------- */
+function useContentOverride(slug) {
+  const [ov, setOv] = React.useState(null);
+  React.useEffect(() => {
+    let on = true;
+    setOv(null);
+    fetch('content-overrides/' + slug + '.json', { cache: 'no-cache' })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((j) => { if (on && j && (j.body || j.summary)) setOv(j); })
+      .catch(() => {});
+    return () => { on = false; };
+  }, [slug]);
+  return ov;
+}
+
+function SummaryAside({ post, getText, ov }) {
   return (
     <aside className="article-aside">
       <ListenBar getText={getText} />
@@ -402,7 +417,9 @@ function SummaryAside({ post, getText }) {
         <span className="summary-head">چکیده</span>
         <hr className="summary-rule" />
         <span className="summary-meta">مقاله از شمارهٔ یکم گوسان، {post.date}</span>
-        <p className="summary-text">{(window.GOSAN_SUMMARIES && window.GOSAN_SUMMARIES[post.slug]) || post.summary || post.excerpt}</p>
+        {ov && ov.summary
+          ? <p className="summary-text" dangerouslySetInnerHTML={{ __html: ov.summary }} />
+          : <p className="summary-text">{(window.GOSAN_SUMMARIES && window.GOSAN_SUMMARIES[post.slug]) || post.summary || post.excerpt}</p>}
       </div>
       <div className="share-card">
         <ShareRow post={post} />
@@ -547,6 +564,41 @@ function TemplateEssayBody({ post }) {
 function ArticleView({ slug }) {
   const post = GOSAN_POSTS.find((p) => p.slug === slug) || GOSAN_POSTS[0];
   const articleRef = React.useRef(null);
+  const ov = useContentOverride(post.slug);
+  /* override HTML has no React handlers — delegate the footnote-card behaviour */
+  React.useEffect(() => {
+    if (!(ov && ov.body) || !articleRef.current) return;
+    const root = articleRef.current;
+    const closeAll = () => root.querySelectorAll('.fn-card.is-open, .fn-ref.is-open')
+      .forEach((n) => n.classList.remove('is-open'));
+    const openFor = (btn) => {
+      closeAll();
+      btn.classList.add('is-open');
+      const card = btn.parentElement && btn.parentElement.querySelector('.fn-card');
+      if (card) card.classList.add('is-open');
+    };
+    const onOver = (e) => {
+      const btn = e.target.closest && e.target.closest('.fn-ref');
+      if (btn && root.contains(btn) && !btn.classList.contains('is-open')) openFor(btn);
+    };
+    const onOut = (e) => {
+      const card = e.target.closest && e.target.closest('.fn-card');
+      if (card && !(e.relatedTarget && card.contains(e.relatedTarget))) closeAll();
+    };
+    const onClick = (e) => {
+      const btn = e.target.closest && e.target.closest('.fn-ref');
+      if (btn && root.contains(btn)) { openFor(btn); return; }
+      if (!(e.target.closest && e.target.closest('.fn'))) closeAll();
+    };
+    root.addEventListener('mouseover', onOver);
+    root.addEventListener('mouseout', onOut);
+    document.addEventListener('click', onClick);
+    return () => {
+      root.removeEventListener('mouseover', onOver);
+      root.removeEventListener('mouseout', onOut);
+      document.removeEventListener('click', onClick);
+    };
+  }, [ov]);
   const getText = React.useCallback(() => {
     const el = articleRef.current;
     if (!el) return '';
@@ -574,8 +626,10 @@ function ArticleView({ slug }) {
 
       <div className="article-layout">
         <article ref={articleRef}>
-          <TableOfContents articleRef={articleRef} slug={post.slug} />
-          {post.full ? (
+          <TableOfContents articleRef={articleRef} slug={post.slug + (ov && ov.body ? '-ov' : '')} />
+          {ov && ov.body ? (
+            <div dangerouslySetInnerHTML={{ __html: ov.body }} />
+          ) : post.full ? (
             <FullEssayBody />
           ) : (window.GOSAN_ARTICLE_BODIES && window.GOSAN_ARTICLE_BODIES[post.slug]) ? (
             React.createElement(window.GOSAN_ARTICLE_BODIES[post.slug])
@@ -583,7 +637,7 @@ function ArticleView({ slug }) {
             <TemplateEssayBody post={post} />
           )}
         </article>
-        <SummaryAside post={post} getText={getText} />
+        <SummaryAside post={post} getText={getText} ov={ov} />
       </div>
 
       <AuthorBioBlock post={post} />
