@@ -75,6 +75,13 @@
   <span class="status" id="st"></span>
 </header>
 
+<div id="tokGuide" style="display:none;background:#1d2b1f;border-bottom:1px solid #3a5c40;padding:12px 18px;font-size:13px;line-height:2.1;color:#dfe8df">
+  <b style="color:#a5d6a7">ویراستار گرامی، پیش از آغاز کار یک گام کوتاه لازم است:</b><br>
+  ۱) توکنی را که از تحریریه دریافت کرده‌اید کپی کنید و در کادر <b>«توکن گیت‌هاب»</b> در نوار بالا بچسبانید — همین‌جا خودبه‌خود بررسی و ذخیره می‌شود و فقط یک‌بار لازم است.<br>
+  ۲) سپس جستار را از فهرست انتخاب کنید، نام‌تان را بنویسید و <b>«آغاز ویرایش»</b> را بزنید.<br>
+  ۳) «ذخیره» پیش‌نویس شماست و هر ۱۰ دقیقه هم خودکار ذخیره می‌شود؛ وقتی کار جستار تمام شد <b>«پایان ویرایش»</b> را بزنید تا برای تأیید سردبیر فرستاده شود.
+  <span id="tokState" style="display:block;margin-top:4px;font-weight:700"></span>
+</div>
 <div id="inbox" style="display:none;flex:none;background:#161616;border-bottom:1px solid #333;
      padding:8px 16px;font-size:12px;color:#B9B9B9">
   <span style="color:#D9B35A;font-weight:700;margin-inline-end:10px">تغییرهای تازه:</span>
@@ -102,10 +109,35 @@
   if (GH){
     var tk=$('tok'); tk.style.display='inline-block';
     tk.value=localStorage.getItem('gosan_edit_token')||'';
+    var guide=document.getElementById('tokGuide'), tokState=document.getElementById('tokState');
+    function verifyToken(silent){
+      var v=tk.value.trim();
+      if(!v){
+        guide.style.display='block'; tk.style.borderColor='#D9B35A';
+        tokState.textContent=''; return;
+      }
+      tokState.style.color='#B9B9B9'; tokState.textContent='در حال بررسی توکن…';
+      fetch('https://api.github.com/repos/'+GH_REPO,{headers:{'Authorization':'Bearer '+v,'Accept':'application/vnd.github+json'}})
+        .then(function(r){
+          if(r.ok){
+            tk.style.borderColor='#4F7A5E';
+            tokState.style.color='#a5d6a7';
+            tokState.textContent='✓ توکن معتبر است و ذخیره شد. حالا جستار را انتخاب کنید و کار را آغاز کنید.';
+            status('توکن معتبر است ✓');
+            setTimeout(function(){ guide.style.display='none'; }, 6000);
+          } else {
+            guide.style.display='block'; tk.style.borderColor='#E8A0A0';
+            tokState.style.color='#E8A0A0';
+            tokState.textContent='✗ این توکن پذیرفته نشد؛ لطفاً دوباره کامل کپی و جای‌گذاری کنید یا با تحریریه تماس بگیرید.';
+          }
+        })
+        .catch(function(){ if(!silent){ tokState.style.color='#E8A0A0'; tokState.textContent='اتصال به گیت‌هاب برقرار نشد؛ اینترنت را بررسی کنید.'; } });
+    }
     tk.addEventListener('input',function(){
       localStorage.setItem('gosan_edit_token',tk.value.trim());
-      if(tk.value.trim()) status('توکن ذخیره شد؛ در همین مرورگر می‌ماند');
+      clearTimeout(tk._vt); tk._vt=setTimeout(function(){ verifyToken(false); }, 700);
     });
+    verifyToken(true);
   }
   function b64utf8(str){
     var bytes=new TextEncoder().encode(str), bin='';
