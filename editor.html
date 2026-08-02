@@ -441,6 +441,11 @@
     if(captureHTML(art)!==(originalHTML||'')) return true;
     return originalSummary!==null && sm && sm.innerHTML!==originalSummary;
   }
+  var lastSaveSig='';
+  function saveSig(){
+    var art=article(); var sm=summaryEl();
+    return (art?captureHTML(art):'')+'|'+(sm?sm.innerHTML:'');
+  }
   function doSave(finished){
     if(!currentSlug){ status('جستاری انتخاب نشده','err'); return; }
     var okMsg = finished
@@ -448,6 +453,7 @@
       : 'پیش‌نویس ذخیره شد — بدون درخواست تأیید';
     var rec=payload(); rec.finished=!!finished;
     sessionDrafts[rec.slug]=rec;
+    lastSaveSig=saveSig();
     if(GH){
       if(!$('tok').value.trim()){ status('توکن گیت‌هاب را وارد کنید (یک‌بار؛ ذخیره می‌شود)','err'); $('tok').focus(); return; }
       status('در حال ارسال به گیت‌هاب…');
@@ -475,6 +481,17 @@
       .catch(function(){ status('سرور در دسترس نیست؛ از «دریافت JSON» استفاده کنید','err'); });
   }
   $('save').onclick=function(){ doSave(false); };
+
+  /* auto-save: every 10 minutes while an essay is open in edit mode */
+  setInterval(function(){
+    if(!editing || !currentSlug) return;
+    if(!$('who').value.trim()) return;
+    if(GH && !$('tok').value.trim()) return;
+    if(!hasChanges()) return;
+    if(saveSig()===lastSaveSig) return;   /* nothing new since the last save */
+    doSave(false);
+    status('ذخیرهٔ خودکار انجام شد — '+new Date().toLocaleTimeString('fa-IR'));
+  }, 600000);
   $('dl').onclick=function(){
     var blob=new Blob([JSON.stringify(payload(),null,1)],{type:'application/json'});
     var a=document.createElement('a');
