@@ -180,15 +180,16 @@
   var allowP = fetch('editor-allowlist.json').then(function(r){ return r.ok? r.json(): null; }).catch(function(){ return null; });
   Promise.all([allowP, fetch('gosan-components.jsx').then(function(r){return r.text()})]).then(function(res){
     var allow=res[0], src=res[1];
-    var re=/slug:\s*['"]([^'"]+)['"][^}]*?title:\s*['"]([^'"]+)['"]/g, m, seen={};
-    var re2=/title:\s*['"]([^'"]+)['"][^}]*?slug:\s*['"]([^'"]+)['"]/g;
-    var found=[];
-    while((m=re.exec(src)))  found.push([m[1],m[2]]);
-    while((m=re2.exec(src))) found.push([m[2],m[1]]);
-    found.forEach(function(p){
-      if(seen[p[0]])return; seen[p[0]]=1;
-      if(allow && allow.indexOf(p[0])===-1) return;
-      var o=document.createElement('option'); o.value=p[0]; o.textContent=p[1];
+    var seen={};
+    (src.match(/\{[^{}]*slug:\s*['"][^'"]+['"][^{}]*\}/g)||[]).forEach(function(bl){
+      var sm=/slug:\s*['"]([^'"]+)['"]/.exec(bl);
+      var tm=/title:\s*['"]([^'"]+)['"]/.exec(bl);
+      var am=/author:\s*['"]([^'"]+)['"]/.exec(bl);
+      if(!sm || !tm) return;
+      if(seen[sm[1]]) return; seen[sm[1]]=1;
+      if(allow && allow.indexOf(sm[1])===-1) return;
+      var o=document.createElement('option'); o.value=sm[1];
+      o.textContent=(am? am[1]+' — ' : '')+tm[1];
       sel.appendChild(o);
     });
     status((sel.options.length-1)+' جستار در فهرست');
