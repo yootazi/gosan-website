@@ -97,13 +97,13 @@ function EssayManichaeanMusicTerms() {
     <React.Fragment>
       <p className="essay-lede">تا آن جا که نویسنده می‌داند، فهرستی از اصطلاحات و آلات موسیقی به زبان‌های ایرانی به دست نیست. در متون مانوی، به واسطۀ آنکه مانویان سرودهای دینی بسیاری سروده‌اند و این سرودها را به نواهای گوناگون در دیرهای خود می‌خوانده‌اند و این سرودخوانیِ خود را با نواختن سازها همراه می‌کرده‌اند، شمار قابل توجهی از این اصطلاحات می‌توان یافت. در این نوشته شماری از این اصطلاحاتِ آنان در متون پارسی (فارسی میانه) و پهلوانی (پهلوی اشکانی) را فهرست می‌کنیم و از آنها شواهدی به دست می‌دهیم. این فهرست مشتمل است بر نام سازها، اصطلاحاتِ رسانندۀ معنای سرود و نوا و آهنگ، کلمات دال بر خوانندگان و نوازندگان، و افعالی که دلالت بر معنای خواندن و نواختن می‌کنند، تا آن جا که به نظر نویسنده رسیده است.</p>
       <AP>الف. نام سازها و ابزارهای نواختن:</AP>
-      <AP>cmb (?), qws (?), n’y, nd, pndwrg, šng, šyfwr, tbyl.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left' }}>cmb (?), qws (?), n’y, nd, pndwrg, šng, šyfwr, tbyl.</AP>
       <AP>ب. نام اصطلاحات رسانندۀ معنای سرود و نوا و نغمه:</AP>
-      <AP>’fwryšn, ’’hng, ’w’z, b’š’h, b’š’hs’rg, frsr’yyšn, hj’n, mhr (cf. mhrn’mg), mhrs’rg, nw’g/nw’k, pdw’g, sr’wyšn, srwd, zgr.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left' }}>’fwryšn, ’’hng, ’w’z, b’š’h, b’š’hs’rg, frsr’yyšn, hj’n, mhr (cf. mhrn’mg), mhrs’rg, nw’g/nw’k, pdw’g, sr’wyšn, srwd, zgr.</AP>
       <AP>ج. کلمات دال بر خوانندگان و نوازندگان:</AP>
-      <AP> ’bysrwg, ’frywnsr, gws’n, h’mnw’g, h’mw’g, mhrsr’y, n’ypzd, zgrw’z.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left' }}> ’bysrwg, ’frywnsr, gws’n, h’mnw’g, h’mw’g, mhrsr’y, n’ypzd, zgrw’z.</AP>
       <AP>د. افعال دال بر معنای خواندن و نواختن:</AP>
-      <AP>b’š-, dm-, frsr’y-, jn-/zn-, pdw’c-, pdxwn-, prxw’n, pzd, sr’w-/sr’y-, xrwh-/xrws-, zxs-.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left' }}>b’š-, dm-, frsr’y-, jn-/zn-, pdw’c-, pdxwn-, prxw’n, pzd, sr’w-/sr’y-, xrwh-/xrws-, zxs-.</AP>
       <AH>الف. نام سازها و ابزارهای نواختن</AH>
       <AP>• <b>camb (یا cemb؟):</b> ظاهراً نوعی ساز مانند عود (Henning 1940, pp. 36, 38; MMP, p. 125).</AP>
       <AP>در یک لغت‌نامۀ پارسی-سغدی که هنینگ نشر کرده معادل cmb پارسی در سغدی wyn’h است. اگر این کلمۀ سغدی به معنای «ون» (ساز معروف هندی که در سنسکریت vīnā است و صورت‌های دیگری نیز دارد) باشد، آن گاه cmb نیز سازی است مانند عود یا طنبور یا شاید نوعی «هارپ». چون تنها شاهد ما از یک لغت‌نامه است، در این باره نمی‌توان به اطمینان رسید. آن سازی که به نام چنگ نامبردار شده در ادوار و مناطق مختلف طبعاً شکل یکسان نداشته و گفته‌اند که بعضی چنگ‌ها مانند ون بوده‌اند (دهخدا و دیگران 1377، ذیل «چنگ»؛ قس کریستنسن 1370، ص 627–628). با توجه به آنکه <i>چنگ</i> را لغتی چینی (از čeṅ) می‌دانند که سازی با دوازده تار بوده (Laufer 1919, p. 565)، آیا ممکن است این cmb نیز صورتی از همان لغت باشد ولی مصداقی دیگر، غیر از چنگ، از میان سازهای ذوات الاوتار داشته باشد؟ (نیز رجوع شود به Azarnouche 2013, pp. 91–92 و ذیل šang)</AP>
@@ -111,27 +111,27 @@ function EssayManichaeanMusicTerms() {
       <AP>در مورد این کلمه نیز همان ابهام هست، چون تنها شاهد آن در یک لغت‌نامه آمده. معلوم نیست که این کلمه همان <i>کوسِ</i> فارسی، که نوعی طبل است، باشد. اگر چنین نباشد، از دایرۀ اصطلاحات موسیقی بیرون است.</AP>
       <AP>• <b>nāy و naδ:</b> نای و نی (MMP, pp. 238, 240)</AP>
       <AP>nāy برابر با <i>نای</i> فارسی است و شواهد آن در متون مانوی به ایرانی میانۀ غربی محدود است به متون پارسی. در متون پهلوانی naδ به کار رفته که با <i>نیِ</i> فارسی قابل مقایسه است. شاهد از nāy (Sundermann 1973, pp. 85, 128):</AP>
-      <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>ka rahīg ō uš āmad, nāy zad.</i></AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>ka rahīg ō uš āmad, nāy zad.</i></AP>
       <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}>«چون آن کودک به هوش آمد، نای زد.»</AP>
       <AP>از این عبارت معلوم می‌شود که <i>نای</i> را مانند فارسی با فعل <i>زدن</i> به کار می‌برده‌اند. با این حال، جز <i>زدن</i>، فعل pazd- نیز با <i>نای</i> کاربرد داشته که آن نیز در معنای اصلیش باید مفهوم ضربه و زخم وجود داشته باشد (مقایسه شود با معنای «راندنِ» این فعل: Reck 2004, p. 191). مؤیّد این کاربرد کلمۀ nāypazd است به معنای «نی‌نواز». در متنی پارسی دربارۀ مراتب و طبقات مانویان آمده است (Andreas/Henning 1933, p. 324; Boyce 1975, p. 145):</AP>
-      <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>xrōh-xwānān zīrān, srōbarān ud abhumāgān ī rāzān ī wahy, nāypazdān ī wahman narēmān pad nišān ī xwandag naxustēn.</i></AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>xrōh-xwānān zīrān, srōbarān ud abhumāgān ī rāzān ī wahy, nāypazdān ī wahman narēmān pad nišān ī xwandag naxustēn.</i></AP>
       <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}>«واعظان دانا، پیامبران و آشکارکنندگان رازهای حکمت (یعنی دین مانوی)، نی‌نوازانِ بهمنِ نریمان، همچون (یا مطابق سرمشقِ) ندای نخستین.»<ArtFn n={1} notes={MANICHAEAN_NOTES} /></AP>
       <AP>از نواختن نی در <i>یادگار زریران</i> نیز با همین فعل تعبیر شده (Jamasp-Asana 1897, p. 3; cf. Henning 1937a, p. 112):</AP>
-      <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>ud tumbag +zanēnd ud nāy pazdēnd ud gāw-dumb wāng kunēnd.</i></AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>ud tumbag +zanēnd ud nāy pazdēnd ud gāw-dumb wāng kunēnd.</i></AP>
       <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}>«و تنبک زنند و نای زنند و در گاودم دمند.»</AP>
       <AP>پیداست که از <i>نای </i>در این جا شیپور جنگ مراد است. اصل لغت مقایسه شود با nāḍī سنسکریت.</AP>
       <AP>شاهد از naδ در وصفی از بهشت برین (cf. Boyce 1975, p. 105):</AP>
-      <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>tabīl, šang ud naδ padxunād, srōdān niwāg až harw āγōž.</i></AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>tabīl, šang ud naδ padxunād, srōdān niwāg až harw āγōž.</i></AP>
       <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}>«نوای تبیره و چنگ و نی به گوش می‌رسد و نوای سرود از هر سو.»</AP>
       <AP>اصل لغت مقایسه شود با naḍá- سنسکریت.</AP>
       <AP>• <b>pandūrag:</b> نوعی ساز از ذوات الاوتار مانند طنبور (MMP, p. 276):</AP>
       <AP>در سرودی ابجدی به زبان پهلوانی آمده است (Andreas/Henning 1934, p. 870; Boyce 1975, p. 107):</AP>
-      <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>pawāžēd ō grīw rōšn ku wxad ō išmāh bōžāh. bāšēd bāšāh wilāstēn, pad drōd, rām ud wišīdax gyānēn. pandūrag rōšn wxašmed ud wxaš srāwēd. damēd šēfōr šādgar … hurāmēn sayēnd baγpuhrān pad im wažan niwāg ramanīg, wāžēd kādūš kādūš, āmēn āmēn xrōšēd. zaxsed žīrīft rōšn, wiyāwarēd wiyāwar pawāgēn</i><ArtFn n={2} notes={MANICHAEAN_NOTES} /><i> … hāmwāg rist istāwēd, kē bāšēd ud kē padwāg dārēd.</i></AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>pawāžēd ō grīw rōšn ku wxad ō išmāh bōžāh. bāšēd bāšāh wilāstēn, pad drōd, rām ud wišīdax gyānēn. pandūrag rōšn wxašmed ud wxaš srāwēd. damēd šēfōr šādgar … hurāmēn sayēnd baγpuhrān pad im wažan niwāg ramanīg, wāžēd kādūš kādūš, āmēn āmēn xrōšēd. zaxsed žīrīft rōšn, wiyāwarēd wiyāwar pawāgēn</i><ArtFn n={2} notes={MANICHAEAN_NOTES} /><i> … hāmwāg rist istāwēd, kē bāšēd ud kē padwāg dārēd.</i></AP>
       <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}>«پاک کنید جان روشن را که خود شما را رهاند.<ArtFn n={3} notes={MANICHAEAN_NOTES} /> سرود شکوهمند بخوانید به درود و آرام و آرامش روحانی.<ArtFn n={4} notes={MANICHAEAN_NOTES} /> پندورک روشنِ (یعنی روحانیِ) خوشایندِ خوش سرایید. دمید در شیپور شادی‌آور .... ساکنان ملأ اعلی به این آوا و نوای خوشِ آرامبخش بیارامند. بگویید (یا بخوانید): قدّوس قدّوس و بخروشید: آمین آمین. بشنوید نوای «حکمت نورانی» را و بر زبان آرید سخن پاک را ... به یک صدا راست بستایید، هر که می‌سراید و هر که پاسخ می‌گوید.»</AP>
       <AP>در این عبارت، جز pandūrag که باید نام سازی مانند طنبور باشد،<ArtFn n={5} notes={MANICHAEAN_NOTES} /> چند اصطلاح موسیقایی دیگر نیز به کار رفته: فعل bāš- سرود خواندن است و āšā(h) سرودی است که می‌خوانده‌اند؛<ArtFn n={6} notes={MANICHAEAN_NOTES} /> فعل srāw- (مانند معادل پارسی آن، srāy-) هم بر سرودن و خواندن نواها دلالت دارد هم بر نواختن سازها؛<ArtFn n={7} notes={MANICHAEAN_NOTES} /> <i>شیپور</i> (šēfōr)، که لغتی است دخیل از زبان‌های سامی (قس šypwr’ سریانی)، با فعل <i>دمیدن</i> (dam-) به کار رفته؛ فعل wāž-، مانند <i>گفتن</i> فارسی و <i>قول</i> عربی، احتمالاً معنای «آواز خواندن» نیز داشته و wažan (از همان ریشه) نیز، که در این جا به niwāg (<i>نوا</i>) عطف شده، ظاهراً معنای «آواز» دارد؛ niwāg همان <i>نوا</i>ی فارسی است و دلالت موسیقایی آن آشکار است (نیز رجوع شود به صفحات بعد)؛ xrōs-، که به معنای «خروشیدن» و «بانگ کردن» است، یک معنای «آواز خواندن» هم گویا دارد؛ فعل zaxs- نیز به معنای «به گوش رسیدن نوا» است و پیداست که در مورد مجالس سرودخوانی دیرهای مانویان استعمال داشته (cf. MMP, p. 386)؛ hāmwāg، به معنای «به یک صدا» و «به یک نوا»، دلالت بر همنوایی خوانندگان می‌کند؛ و padwāg «همخوانی» همنوایان است در «پاسخ» به کسی که سرودخوان اصلی است (نیز رجوع شود به صفحات بعد).<ArtFn n={8} notes={MANICHAEAN_NOTES} /></AP>
       <AP>• <b>šang:</b> چنگ (MMP, p. 319)</AP>
       <AP>سازی است از ذوات الاوتار (رجوع شود به سطور قبل)؛ احتمالاً نوعی «هارپ» کوچک (cf. Azarnouche 2013, p. 142) یا شاید چیزی مانند قیچک/غژک یا کمانچه و غیر از هارپ. در مورد شاهد رجوع شود به ذیل pandūrag و سرودی در رثای مانی به پهلوانی (Boyce 1975, p. 47):</AP>
-      <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>pad šang ud srōd cē šādīft frawašt … ō māh wardiyūn, amwardan baγānīg, ud angūd aδ pidar Ohrmizdbaγ.</i></AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>pad šang ud srōd cē šādīft frawašt … ō māh wardiyūn, amwardan baγānīg, ud angūd aδ pidar Ohrmizdbaγ.</i></AP>
       <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}>«به نوای چنگ و سرود شادی ... عروج کرد به گردونۀ ماه، انجمن بغانی، و آسود با پدر (خویش)، هرمزدبغ.»<ArtFn n={9} notes={MANICHAEAN_NOTES} /></AP>
       <AP>نام این ساز فقط در متون پهلوانی مانوی آمده است. صامت c/č در پهلوانی tš تلفظ می‌شده و به همین جهت است که در کتیبه‌های پهلوانی مثلاً حرف اولِ کلمۀ cihr را به š نوشته‌اند. در مناطق غربی‌تر تلفظ ts (مانند <b>چ</b> در اصفهانی) بسیار شیوع داشته. صورت <i>شنگ</i> به جای <i>چنگ</i> را ظاهراً با توجه به این اختلاف گویشی باید توجیه کرد.</AP>
       <AP>• <b>šēfōr:</b> شیپور (MMP, p. 320)</AP>
@@ -145,7 +145,7 @@ function EssayManichaeanMusicTerms() {
       <AP>اگر بتوان به تک شاهد قطعۀ M195 اعتماد کرد، <i>آهنگ</i> در معنای موسیقایی یک شاهد در متون پارسی مانوی دارد. ولی عبارت روشن نیست.</AP>
       <AP>• <b>āwāz:</b> آواز (MMP, p. 65; cf. p. 64)</AP>
       <AP><i>آواز</i> البته کلمه‌ای است با معنای عام، ولی مانند فارسی، āwāz پارسی میانه نیز، اگر بازسازی این متن درست باشد (کلمۀ āwāz در نسخه درست آشکار نیست)، معنای موسیقایی داشته است (cf. Sundermann 2001, p. 203):</AP>
-      <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>imīn mahrān ī pārag ruwānagān rāy. ka pēš sārārān āwarēnd, srāyēnd pad āwāz ī xwaš pad padwāž ī friyānagān.</i></AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>imīn mahrān ī pārag ruwānagān rāy. ka pēš sārārān āwarēnd, srāyēnd pad āwāz ī xwaš pad padwāž ī friyānagān.</i></AP>
       <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}>«این سرودها به جهت صدقات؛ آن هنگام که پیش سالاران (دین) آورند، سرایند به آواز خوش، به پاسخِ<ArtFn n={10} notes={MANICHAEAN_NOTES} /> عزیزان.» (؟)</AP>
       <AP>در رسالۀ <i>خسرو قبادان و ریدک</i> نیز āwāz با صفت <i>خوش</i> در مورد کنیزکان خواننده به کار رفته (بند 63؛ cf. Azarnouche 2013, p. 57).</AP>
       <AP>• <b>bāšā(h):</b> سرود (MMP, p. 105)</AP>
@@ -164,7 +164,7 @@ function EssayManichaeanMusicTerms() {
       <AP>این کلمه شاید مهم‌ترین اصطلاح موسیقایی متون مانوی به زبان‌های ایرانی باشد. مکرراً در عنوان سرودهای مانوی نام «نوای» آنها ذکر شده. نوا را در این عنوان‌ها شاید بتوان به «نغمه» ترجمه کرد یا شاید گاه معادل اصطلاحاتی مانند «دستگاه» یا «آواز» یا «گوشه» در موسیقی دستگاهی ایران دانست. آن عنوانِ سرودها معمولاً این چنین نوشته شده: pad niwag ī … («به نوایِ ...»)، مانند pad Pancixazān niwāg (cf. Henning 1937a, p. 31)؛ نیز رجوع شود به ذیل āfrurišn و bāšāh و mahr و z(a)gar.</AP>
       <AP>• <b>padwāg:</b> پاسخ (MMP, p. 271)</AP>
       <AP>معنای لغت البته «پاسخ» است، ولی گاه مقصود از آن پاسخی است که همنوایان به خوانندۀ اصلی می‌دهند (رجوع شود به ذیل pandūrag)؛ نیز مقایسه شود با این عبارت از همان متنی که ذیل pandūrag نقل شد (Andreas/Henning 1934, p. 870, with note 3; cf. p. 867, n. 8):</AP>
-      <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>padwāg ī kirbag ō išmāh kē bāšēd.</i></AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>padwāg ī kirbag ō išmāh kē bāšēd.</i></AP>
       <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}>«پاسخ نیک به شما که می‌سرایید.»</AP>
       <AP>فعل آن، padwāž-، نیز گاهی چنین معنایی دارد (رجوع شود به ذیل āwāz). این کلمه در متون پهلوانی مانوی به کار رفته است. احتمال دارد که پاسخ گفتن با ساز را نیز با همین کلمه بیان می‌کرده‌اند، یعنی نظیر آنچه امروز در موسیقی ایرانی «جواب آواز» می‌گویند. در رسالۀ <i>خسرو قبادان و ریدگ</i> در یک جا (بند 13) گویندۀ متن، که از پسران اشراف است، می‌گوید که در نواختن سازهایی مانند طنبور و بربط و کنّار و هر سرود و چگامه و در <b>paywāzag</b> guftan استاد است (cf. Azarnouche 2013, pp. 46, 95). بنابراین، کاربرد کلمه در ایران ساسانی محدود به زبان پهلوانی نبوده است.</AP>
       <AP>• <b>srāwišn:</b> سرایش، سرود، ستایش (MMP, p. 308)</AP>
@@ -173,12 +173,12 @@ function EssayManichaeanMusicTerms() {
       <AP>این کلمه هم در متون پارسی به کار رفته هم در متون پهلوانی؛ به عنوان مثال رجوع شود به ذیل šang.</AP>
       <AP>• <b>z(a)gar:</b> نوا (Henning 1937a, p. 117; MMP, p. 381)</AP>
       <AP>این کلمه در متون پارسی به ندرت به معنای «نوا» به کار رفته و کاربردی مانند niwāg دارد، چنانکه از این عبارت بر می‌آید: ēn pad suγlī z(a)gar، یعنی «این را باید به نوای سغدی خواند». چنین عبارتی در آغاز یک سرود می‌آمده و راهنمای خوانندگان بوده برای اینکه بدانند آن سرود را به چه نوایی باید خواند (cf. Henning 1937a, p. 32)، ظاهراً مانند آن که در آغاز یک آهنگِ امروزی بنویسند «آهنگ ... در آواز بیات اصفهان». z(a)garwāz به معنای «سرودخوان» اسمی است مشتق از همین کلمه و مادّۀ wāz- که کاربرد آن در معنای سرودن و خواندن طبیعی است، مانند</AP>
-      <AP><i>nambarēm ō ispasagān zōrmandān, nambarēm ō mānsārān zīrān, nambarēm ō dibīrān nēwān, nambarēm ō mahrsrāyān z(a)garwāzān …</i></AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left' }}><i>nambarēm ō ispasagān zōrmandān, nambarēm ō mānsārān zīrān, nambarēm ō dibīrān nēwān, nambarēm ō mahrsrāyān z(a)garwāzān …</i></AP>
       <AP>«می‌ستاییم اسقفان توانا را، می‌ستاییم کشیشان دانا را، می‌ستاییم دبیران دلیر (یا نیک) را، می‌ستاییم سرایندگان سرودخوان (یا خوش‌نوا) را.»<ArtFn n={11} notes={MANICHAEAN_NOTES} /></AP>
       <AH>ج. کلمات دال بر خوانندگان و نوازندگان</AH>
       <AP>• <b>abesrōg:</b> خوانندۀ زن (MMP, p. 17)</AP>
       <AP>تنها شاهد این کلمه عبارتی است از متنی پهلوانی که از «بزرگترین خوانندۀ زنِ شاپور شاه» یاد می‌کند (Sundermann 1981, p. 59):</AP>
-      <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>aδyān žan ēw kē Šābuhr šāh abesrōgān masišt būd padiž hō angad.</i></AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>aδyān žan ēw kē Šābuhr šāh abesrōgān masišt būd padiž hō angad.</i></AP>
       <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}>«پس زنی که بزرگترینِ خوانندگان شاپور شاه بود به او رسید.»</AP>
       <AP>چنانکه زوندرمان گفته (Sundermann 1981, p. 149)، این کلمه همان ’psrwkyh سغدی است به همین معنی.</AP>
       <AP>• <b>āfrīwansar:</b> رئیس همنوایان (MMP, p. 28)</AP>
@@ -202,7 +202,7 @@ function EssayManichaeanMusicTerms() {
       <AP>با <i>شیپور</i> در یک متن پهلوانی به کار رفته است؛ رجوع شود به ذیل pandūrag.</AP>
       <AP>• <b>fraxwān:</b> نواختن (MMP, p. 281)</AP>
       <AP>یک شاهد از متنی پارسی دارد (Henning 1937b, p. 87):</AP>
-      <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>… nāy pēšy fraxwānēnd</i></AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>… nāy pēšy fraxwānēnd</i></AP>
       <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}>«پیش او نای زنند.»</AP>
       <AP>• <b>frasrāy:</b> سرودنِ (سرودهای ستایش) (MMP, p. 156)</AP>
       <AP>در متون پارسی شواهدی دارد؛ رجوع شود به ذیل frasrāyišn.</AP>
@@ -220,7 +220,7 @@ function EssayManichaeanMusicTerms() {
       <AP>هم در پارسی و هم در متون پهلوانی با ابزارهای موسیقی کاربرد داشته؛ رجوع شود به ذیل nāy.</AP>
       <AP>• <b>zaxs-:</b> به گوش رسیدن نوای موسیقی (MMP, p. 386)</AP>
       <AP>فعلی است کم‌کاربرد در متون پهلوانی در مانندِ این عبارت (Andreas/Henning 1934, pp. 887–888; Boyce 1975, p. 117):</AP>
-      <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>reh rōšn ahēnd bar ō šahrdārīft, šādcan niwāg cē až hawīn zaxsēd.</i></AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '2.0cm', marginRight: '2.0cm' }}><i>reh rōšn ahēnd bar ō šahrdārīft, šādcan niwāg cē až hawīn zaxsēd.</i></AP>
       <AP style={{ marginLeft: '2.0cm', marginRight: '2.0cm' }}>«گردونه‌های روشن (ماه و خورشید) دروازۀ ملکوتند؛ خوش است نوایی که از آن به گوش می‌رسد.»</AP>
       <AP>این کلمه احتمالاً با z(a)gar سابق‌الذّکر از یک ریشه است. در این صورت آن کلمه را باید zagar خواند.</AP>
       <AP>این بود فهرستی موقّت از اصطلاحات موسیقایی در متون مانوی به پارسی و پهلوانی با چند شاهد اندک‌شمار.</AP>
@@ -231,25 +231,25 @@ function EssayManichaeanMusicTerms() {
       <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>فره‌وشی 1378: بهرام فره‌وشی، <i>کارنامۀ اردشیر بابکان</i>، تهران: انتشارات دانشگاه تهران، 1378.</AP>
       <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>کریستنسن 1370: آرتور کریستنسن، <i>ایران در زمان ساسانیان</i>، ترجمۀ رشید یاسمی، تهران: صدای معاصر، 1370.</AP>
       <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>کریمی‌نیا 1400: مرتضی کریمی‌نیا، «نسخه‌هایی تازه‌یاب از تفسیر قرآن خواجه عبداللّه انصاری در ترکیه و نجف»، <i>آینۀ پژوهش</i>، شمارۀ 187، ص 5–62.</AP>
-      <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>Andreas/Henning 1933: Friedrich Carl Andreas &amp; Walter Bruno Henning, “Mitteliranische Manichaica aus Chinesisch-Turkestan II”, <i>Sitzungsberichte der Preussischen Akademie der Wissenschaften, phil.-hist. Klasse</i>, 1933, pp. 294–363.</AP>
-      <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>Andreas/Henning 1934: Friedrich Carl Andreas &amp; Walter Bruno Henning, “Mitteliranische Manichaica aus Chinesisch-Turkestan III”, <i>Sitzungsberichte der Preussischen Akademie der Wissenschaften, phil.-hist. Klasse</i>, 1934, pp. 848-912.</AP>
-      <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>Azarnouche 2013: Samra Azarnouche, <i>Husraw ī Kawādān ud Rēdag-ē (Khosrow fils de Kawād et un page)</i>, Studia Iranica. Cahier 49, Paris: Association pour l’avancement des études iraniennes, 2013.</AP>
-      <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>Boyce 1975: Mary Boyce, <i>A Reader in Manichaean Middle Persian and Parthian</i>, Acta Iranica 9, Leiden: Brill, 1975.</AP>
-      <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>Durkin-Meisterernst 2004: Desmond Durkin-Meisterernst, <i>Dictionary of Manichaean Middle Persian and Parthian</i>, Turnhout: Brepols, 2004.</AP>
-      <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>Ghilain 1939: Antoine Ghilain, <i>Essai sur la langue parthe. Son système verbal d’après les textes manichéens du Turkestan oriental</i>, Louvain: Bureaux du Muséon, 1939.</AP>
-      <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>Henning 1937a: Walter Bruno Henning, <i>Ein manichäisches Bet- und Beichtbuch</i>, Berlin: Walter de Gruyter, 1937.</AP>
-      <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>Henning 1937b: Walter Bruno Henning, “A List of Middle-Persian and Parthian Words”, <i>Bulletin of the School of Oriental Studies</i>, Vol. 9, pp. 79–92.</AP>
-      <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>Henning 1940: Walter Bruno Henning, <i>Sogdica</i>, London: The Royal Asiatic Society, 1940.</AP>
-      <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>Jamasp-Asana 1897: Dastur Jamaspji Minocheherji Jamasp-Asana, <i>Pahlavi Texts</i>, Vol. I, Bombay: Fort Printing Press, 1897.</AP>
-      <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>Laufer 1919: Berthold Laufer, <i>Sino-Iranica: Chinese Contributions to the History of Civilization in Ancient Iran</i>, Chicago: Field Museum of Natural History, 1919.</AP>
-      <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>MMP = Durkin-Meisterernst 2004.</AP>
-      <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>Müller 1913: Friedrich Wilhelm Karl Müller, <i>Ein Doppelblatt aus einem manichäischen Hymnenbuch (Mahrnâmag)</i>, Abhandlungen der Preussischen Akademie der Wissenschaften, Berlin: Verlag der Königlichen Akademie der Wissenschaften, 1913.</AP>
-      <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>Reck 2004: Christiane Reck, <i>Gesegnet sei dieser Tag. Manichäische Festtagshymnen. Edition der mittelpersischen und parthischen Sonntags-, Montags- und Bemahymnen</i>, Turnhout: Brepols, 2004.</AP>
-      <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>Sundermann 1973: Werner Sundermann, <i>Mittelpersische und parthische kosmogonische und Parabeltexte der Manichäer</i>, mit einigen Bemerkungen zu Motiven der Parabeltexte von Friedmar Geissler, Berliner Turfantexte IV, Berlin: Akademie-Verlag, 1973.</AP>
-      <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>Sundermann 1981: Werner Sundermann, <i>Mitteliranische manichäische Texte kirchengeschichtlichen Inhalts</i>, mit einem Appendix von Nicholas Sims-Williams, Berliner Turfantexte XI, Berlin: Akademie-Verlag, 1981.</AP>
-      <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>Sundermann 1992: Werner Sundermann, <i>Der Sermon vom Licht-Nous. Eine Lehrschrift des östlichen Manichäismus. Edition der parthischen und sogdischen Version</i>, Berliner Turfantexte XVII, Berlin: Akademie-Verlag, 1992.</AP>
-      <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>Sundermann 1997: Werner Sundermann, <i>Der Sermon von der Seele. Eine Lehrschrift des östlichen Manichäismus. Edition der parthischen und sogdischen Version</i>, mit einem Anhang von Peter Zieme: Die türkischen Fragmente des “Sermons von der Seele”, Berliner Turfantexte XIX, Turnhout: Brepols, 1997.</AP>
-      <AP style={{ marginLeft: '1.5cm', paddingRight: '1.5cm', textIndent: '-1.5cm' }}>Sundermann 2001: Werner Sundermann, “On Human Races, Semi-Human Beings and Monsters”, in: Paul Mirecki &amp; Jason BeDuhn (eds.), <i>The Light and the Darkness. Studies in Manichaeism and its World</i>, Leiden: Brill, 2001, pp. 181–199.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '1.5cm', paddingLeft: '1.5cm', textIndent: '-1.5cm' }}>Andreas/Henning 1933: Friedrich Carl Andreas &amp; Walter Bruno Henning, “Mitteliranische Manichaica aus Chinesisch-Turkestan II”, <i>Sitzungsberichte der Preussischen Akademie der Wissenschaften, phil.-hist. Klasse</i>, 1933, pp. 294–363.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '1.5cm', paddingLeft: '1.5cm', textIndent: '-1.5cm' }}>Andreas/Henning 1934: Friedrich Carl Andreas &amp; Walter Bruno Henning, “Mitteliranische Manichaica aus Chinesisch-Turkestan III”, <i>Sitzungsberichte der Preussischen Akademie der Wissenschaften, phil.-hist. Klasse</i>, 1934, pp. 848-912.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '1.5cm', paddingLeft: '1.5cm', textIndent: '-1.5cm' }}>Azarnouche 2013: Samra Azarnouche, <i>Husraw ī Kawādān ud Rēdag-ē (Khosrow fils de Kawād et un page)</i>, Studia Iranica. Cahier 49, Paris: Association pour l’avancement des études iraniennes, 2013.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '1.5cm', paddingLeft: '1.5cm', textIndent: '-1.5cm' }}>Boyce 1975: Mary Boyce, <i>A Reader in Manichaean Middle Persian and Parthian</i>, Acta Iranica 9, Leiden: Brill, 1975.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '1.5cm', paddingLeft: '1.5cm', textIndent: '-1.5cm' }}>Durkin-Meisterernst 2004: Desmond Durkin-Meisterernst, <i>Dictionary of Manichaean Middle Persian and Parthian</i>, Turnhout: Brepols, 2004.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '1.5cm', paddingLeft: '1.5cm', textIndent: '-1.5cm' }}>Ghilain 1939: Antoine Ghilain, <i>Essai sur la langue parthe. Son système verbal d’après les textes manichéens du Turkestan oriental</i>, Louvain: Bureaux du Muséon, 1939.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '1.5cm', paddingLeft: '1.5cm', textIndent: '-1.5cm' }}>Henning 1937a: Walter Bruno Henning, <i>Ein manichäisches Bet- und Beichtbuch</i>, Berlin: Walter de Gruyter, 1937.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '1.5cm', paddingLeft: '1.5cm', textIndent: '-1.5cm' }}>Henning 1937b: Walter Bruno Henning, “A List of Middle-Persian and Parthian Words”, <i>Bulletin of the School of Oriental Studies</i>, Vol. 9, pp. 79–92.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '1.5cm', paddingLeft: '1.5cm', textIndent: '-1.5cm' }}>Henning 1940: Walter Bruno Henning, <i>Sogdica</i>, London: The Royal Asiatic Society, 1940.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '1.5cm', paddingLeft: '1.5cm', textIndent: '-1.5cm' }}>Jamasp-Asana 1897: Dastur Jamaspji Minocheherji Jamasp-Asana, <i>Pahlavi Texts</i>, Vol. I, Bombay: Fort Printing Press, 1897.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '1.5cm', paddingLeft: '1.5cm', textIndent: '-1.5cm' }}>Laufer 1919: Berthold Laufer, <i>Sino-Iranica: Chinese Contributions to the History of Civilization in Ancient Iran</i>, Chicago: Field Museum of Natural History, 1919.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '1.5cm', paddingLeft: '1.5cm', textIndent: '-1.5cm' }}>MMP = Durkin-Meisterernst 2004.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '1.5cm', paddingLeft: '1.5cm', textIndent: '-1.5cm' }}>Müller 1913: Friedrich Wilhelm Karl Müller, <i>Ein Doppelblatt aus einem manichäischen Hymnenbuch (Mahrnâmag)</i>, Abhandlungen der Preussischen Akademie der Wissenschaften, Berlin: Verlag der Königlichen Akademie der Wissenschaften, 1913.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '1.5cm', paddingLeft: '1.5cm', textIndent: '-1.5cm' }}>Reck 2004: Christiane Reck, <i>Gesegnet sei dieser Tag. Manichäische Festtagshymnen. Edition der mittelpersischen und parthischen Sonntags-, Montags- und Bemahymnen</i>, Turnhout: Brepols, 2004.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '1.5cm', paddingLeft: '1.5cm', textIndent: '-1.5cm' }}>Sundermann 1973: Werner Sundermann, <i>Mittelpersische und parthische kosmogonische und Parabeltexte der Manichäer</i>, mit einigen Bemerkungen zu Motiven der Parabeltexte von Friedmar Geissler, Berliner Turfantexte IV, Berlin: Akademie-Verlag, 1973.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '1.5cm', paddingLeft: '1.5cm', textIndent: '-1.5cm' }}>Sundermann 1981: Werner Sundermann, <i>Mitteliranische manichäische Texte kirchengeschichtlichen Inhalts</i>, mit einem Appendix von Nicholas Sims-Williams, Berliner Turfantexte XI, Berlin: Akademie-Verlag, 1981.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '1.5cm', paddingLeft: '1.5cm', textIndent: '-1.5cm' }}>Sundermann 1992: Werner Sundermann, <i>Der Sermon vom Licht-Nous. Eine Lehrschrift des östlichen Manichäismus. Edition der parthischen und sogdischen Version</i>, Berliner Turfantexte XVII, Berlin: Akademie-Verlag, 1992.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '1.5cm', paddingLeft: '1.5cm', textIndent: '-1.5cm' }}>Sundermann 1997: Werner Sundermann, <i>Der Sermon von der Seele. Eine Lehrschrift des östlichen Manichäismus. Edition der parthischen und sogdischen Version</i>, mit einem Anhang von Peter Zieme: Die türkischen Fragmente des “Sermons von der Seele”, Berliner Turfantexte XIX, Turnhout: Brepols, 1997.</AP>
+      <AP style={{ direction: 'ltr', textAlign: 'left', marginLeft: '1.5cm', paddingLeft: '1.5cm', textIndent: '-1.5cm' }}>Sundermann 2001: Werner Sundermann, “On Human Races, Semi-Human Beings and Monsters”, in: Paul Mirecki &amp; Jason BeDuhn (eds.), <i>The Light and the Darkness. Studies in Manichaeism and its World</i>, Leiden: Brill, 2001, pp. 181–199.</AP>
 
       <ArtFnList notes={MANICHAEAN_NOTES} />
     </React.Fragment>
