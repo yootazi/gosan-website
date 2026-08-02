@@ -184,8 +184,8 @@
   }
 
   /* essay list — parsed from the site's own registry */
-  var allowP = fetch('editor-allowlist.json').then(function(r){ return r.ok? r.json(): null; }).catch(function(){ return null; });
-  Promise.all([allowP, fetch('gosan-components.jsx').then(function(r){return r.text()})]).then(function(res){
+  var allowP = fetch('editor-allowlist.json', {cache:'no-cache'}).then(function(r){ return r.ok? r.json(): null; }).catch(function(){ return null; });
+  Promise.all([allowP, fetch('gosan-components.jsx', {cache:'no-cache'}).then(function(r){return r.text()})]).then(function(res){
     var allow=res[0], src=res[1];
     var seen={};
     (src.match(/\{[^{}]*slug:\s*['"][^'"]+['"][^{}]*\}/g)||[]).forEach(function(bl){

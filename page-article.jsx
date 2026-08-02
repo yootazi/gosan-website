@@ -66,8 +66,13 @@ function toFa(n) {
 }
 
 /* two-part titles: the part after «:» or «؛» drops to the next line */
+const ART_TITLE_BREAKS = {
+  'تأویلی آذرکیوانی از اسطورۀ آفرینش زردشتی در کتاب دبستان مذاهب':
+    ['تأویلی آذرکیوانی از اسطورۀ آفرینش زردشتی', 'در کتاب دبستان مذاهب'],
+};
 function splitTitle(t) {
   const s = String(t == null ? '' : t);
+  if (ART_TITLE_BREAKS[s]) return ART_TITLE_BREAKS[s];
   const m = s.match(/^(.+?)\s*[:؛—–]\s*(.+)$/);
   return m ? [m[1].trim(), m[2].trim()] : [s, null];
 }

@@ -76,9 +76,15 @@ const GOSAN_COVERS = {
      the photos remain inside the essay pages themselves. */
 };
 
-/* split a two-part title at «:» or «؛» and drop the second part to a new line */
+/* split a two-part title at «:» or «؛» and drop the second part to a new line.
+   Some titles have no separator but still need a fixed break point. */
+const TITLE_BREAKS = {
+  'تأویلی آذرکیوانی از اسطورۀ آفرینش زردشتی در کتاب دبستان مذاهب':
+    ['تأویلی آذرکیوانی از اسطورۀ آفرینش زردشتی', 'در کتاب دبستان مذاهب'],
+};
 function splitTitle(t) {
   const s = String(t == null ? '' : t);
+  if (TITLE_BREAKS[s]) return TITLE_BREAKS[s];
   const m = s.match(/^(.+?)\s*[:؛—–]\s*(.+)$/);
   return m ? [m[1].trim(), m[2].trim()] : [s, null];
 }
