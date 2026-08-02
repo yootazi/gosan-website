@@ -4,10 +4,7 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
-| `between-two-defeats` | test | ۱۴۰۵/۵/۱۱، ۱۹:۵۴ | ۶ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/between-two-defeats.md) |
-| `beyzaie-myth-symbolic-action` | man | ۱۴۰۵/۵/۱۱، ۱۸:۴۰ | ۲ | ردشده | [دیدن](rejected/beyzaie-myth-symbolic-action.md) |
-| `interview-farnaz-modarresifar` | ehsann | ۱۴۰۵/۵/۱۱، ۱۸:۳۵ | ۲ | ردشده | [دیدن](rejected/interview-farnaz-modarresifar.md) |
-| `between-two-defeats` | yoota |  | ۷۴ | ردشده | [دیدن](rejected/between-two-defeats.md) |
+
 
 ---
 
