@@ -163,7 +163,9 @@
         if(slug!==currentSlug || editing) return;
         var art=article();
         if(art && art.querySelector('p')){
+          var toc=art.querySelector('nav.article-toc');   /* auto-built; records exclude it */
           art.innerHTML=rec.html;
+          if(toc) art.insertBefore(toc, art.firstChild);
           resumedOriginal=rec.original_html||null;
           var sm=summaryEl();
           if(sm && rec.summary_html){
