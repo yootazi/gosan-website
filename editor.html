@@ -51,9 +51,11 @@
   <span class="ttl">میز ویرایش گاهنامه</span>
   <span class="warn"><b>ویرایش فقط صوری است</b> — شیوه‌نامه: رسم‌الخط، نیم‌فاصله، نشانه‌گذاری، پانویس. متن نویسنده تغییرِ محتوایی نمی‌کند؛ نسخهٔ اصلی دست‌نخورده می‌ماند.</span>
   <select id="essay"><option value="">— انتخاب جستار —</option></select>
-  <input type="text" id="who" placeholder="نام ویراستار (لازم)">
   <input type="password" id="tok" placeholder="توکن گیت‌هاب" style="display:none;direction:ltr;min-width:170px">
-  <button class="b-edit" id="toggle">آغاز ویرایش</button>
+  <span style="display:inline-flex;align-items:center;gap:6px;border:1px solid #444;border-radius:3px;padding:3px 3px 3px 3px;background:#191919">
+    <input type="text" id="who" placeholder="نام ویراستار" style="border:none;background:#222">
+    <button class="b-edit" id="toggle">آغاز ویرایش</button>
+  </span>
   <button class="b-save" id="save" disabled>ذخیره</button>
   <button class="b-ghost" id="dl" disabled>دریافت JSON</button>
   <button class="b-ghost" id="review">حالت بازبینی</button>
