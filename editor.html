@@ -331,6 +331,20 @@
       try{
         var d=frame.contentDocument, cmd=b.dataset.cmd;
         if(cmd==='zwnj'){ d.execCommand('insertText',false,'\u200c'); return; }
+        if(cmd==='indent'||cmd==='outdent'){
+          var sq2=frame.contentWindow.getSelection();
+          if(!sq2.rangeCount) return;
+          var nd=sq2.getRangeAt(0).startContainer;
+          if(nd.nodeType!==1) nd=nd.parentElement;
+          var blk2=nd.closest('p,h2,h3,h4,li,blockquote,figcaption,div');
+          if(!blk2) return;
+          var dir2=frame.contentWindow.getComputedStyle(blk2).direction;
+          var prop=(dir2==='rtl')?'marginRight':'marginLeft';
+          var mm=/^([\d.]+)cm$/.exec(blk2.style[prop]||'');
+          var val=(mm?parseFloat(mm[1]):0) + (cmd==='indent'?1:-1);
+          blk2.style[prop] = val>0 ? val+'cm' : '';
+          return;
+        }
         if(cmd==='rtl'||cmd==='ltr'){
           var sq=frame.contentWindow.getSelection();
           if(!sq.rangeCount) return;
