@@ -137,6 +137,11 @@
   });
 
   function article(){ try{return frame.contentDocument.querySelector('article')}catch(e){return null} }
+  function captureHTML(art){
+    var c=art.cloneNode(true);
+    c.querySelectorAll('nav.article-toc').forEach(function(n){ n.remove(); });
+    return c.innerHTML;
+  }
 
   function stripChrome(){
     try{
@@ -169,7 +174,7 @@
     var art=article();
     if(!art){ status('جستار هنوز بار نشده است؛ چند لحظه صبر کنید','err'); return; }
     if(!$('who').value.trim()){ status('نام ویراستار را بنویسید','err'); $('who').focus(); return; }
-    originalHTML=art.innerHTML;
+    originalHTML=captureHTML(art);
     var d=frame.contentDocument;
     // caret sanity: no multi-column text, no live widgets under the cursor
     if(!d.getElementById('ed-editmode')){
@@ -219,7 +224,8 @@
   function payload(){
     var art=article();
     return { slug: currentSlug, editor: $('who').value.trim(),
-             html: art?art.innerHTML:'', original_html: originalHTML||'' };
+             saved_at: new Date().toISOString(),
+             html: art?captureHTML(art):'', original_html: originalHTML||'' };
   }
   $('save').onclick=function(){
     if(!currentSlug){ status('جستاری انتخاب نشده','err'); return; }
