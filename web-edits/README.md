@@ -4,8 +4,8 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
+| `crossroads-ahead` | آزمایش تأیید | ۱۴۰۵/۵/۱۱, ۲۰:۳۵:۴۹ | — | در انتظار بازبینی | [دیدن](pending/crossroads-ahead.md) |
 | `interview-farnaz-modarresifar` | ehsann | ۱۴۰۵/۵/۱۱, ۲۰:۳۵:۴۷ | 2 | در انتظار بازبینی | [دیدن](pending/interview-farnaz-modarresifar.md) |
-| `crossroads-ahead` | آزمایش تأیید | ۱۴۰۵/۵/۱۱, ۲۰:۳۲:۳۷ | — | در انتظار بازبینی | — |
 
 ---
 
