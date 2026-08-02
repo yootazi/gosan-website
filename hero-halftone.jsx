@@ -86,7 +86,7 @@ function HalftoneHero() {
         <HalftoneLogo />
         <p className="hero-halftone-tagline">روایتگرِ فرهنگ و هنرِ ایران</p>
         <div className="hero-halftone-actions">
-          <a className="hero-halftone-btn" href="#/article/gosan-narrators">خواندن شمارهٔ یکم</a>
+          <a className="hero-halftone-btn" href="#/article/between-two-defeats">خواندن شمارهٔ یکم</a>
           <a className="hero-halftone-btn is-ghost" href="#/archive">بایگانی ←</a>
         </div>
       </div>

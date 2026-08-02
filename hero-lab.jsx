@@ -51,7 +51,7 @@ function HeroLab() {
             نهفته در ژرفای هزاران سال. با گوسان، پرده از خاکِ زمان کنار می‌رود.
           </p>
           <div className="hl-actions">
-            <Button href="#/article/gosan-narrators">خواندن شمارهٔ یکم</Button>
+            <Button href="#/article/between-two-defeats">خواندن شمارهٔ یکم</Button>
             <a className="hl-ghost" href="#/archive">بایگانی ←</a>
           </div>
         </div>

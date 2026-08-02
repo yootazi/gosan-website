@@ -37,7 +37,6 @@ const AUTHOR_PHOTOS = {
 /* interview guests — the bio block shows the interviewee, not the interviewer */
 const GUEST_BY_SLUG = {
   'interview-farnaz-modarresifar': 'فرناز مدرسی‌فر',
-  'interview-armin-sanayei': 'آرمین صنایعی',
 };
 
 const AUTHOR_BIOS = {

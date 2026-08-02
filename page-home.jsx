@@ -4,19 +4,6 @@
 
 /* English mirror of GOSAN_POSTS (same slugs, translated) */
 const GOSAN_POSTS_EN = {
-  'gosan-narrators': { tag: 'Essay', title: 'The Gōsān: Forgotten Narrators of Iran’s History & Myth', author: 'Hafez Babashahi', excerpt: 'A search into the minstrels and singers of ancient Iran, who kept history and legend safe from oblivion in the brocade of verse and music.' },
-  'miniature-narrative': { tag: 'Essay', title: 'Miniature & Narrative: From Illuminated Manuscripts to Today', author: 'Amin Nayebpour', excerpt: 'On the bond between image and story in the Persian painting tradition, and what of it survives in today’s visual language.' },
-  'music-interview': { tag: 'Interview', title: 'A Conversation with a Scholar of Ancient Persian Music', author: 'Yalda Zamani', excerpt: 'On the union of poetry and music in the Iranian storytelling tradition, and what reached us from the melodies of antiquity.' },
-  'calligraphy-talk': { tag: 'Interview', title: 'On Calligraphy & the Iranian Visual Identity', author: 'Sohrab Labib', excerpt: 'From the reed pen to today’s letterforms — how calligraphy stays alive in our everyday life.' },
-  'memorial': { tag: 'Memoriam', title: 'In Memory of the Masters of Iranian Culture & Art', author: 'Ehsan Shavarbi', excerpt: 'Remembering those who labored to preserve Iran’s language, letters, and art, and left a lasting legacy.' },
-  'cypress-memory': { tag: 'Memoriam', title: 'Ancient Cypresses: A Memoriam of the Persian Garden', author: 'Hafez Babashahi', excerpt: 'On the place of the cypress in the Iranian visual memory, from the reliefs of Persepolis to the gardens of Kashan.' },
-  'nowruz-rites': { tag: 'Essay', title: 'Nowruz & the Ancient Rite of the New Year', author: 'Amin Nayebpour', excerpt: 'From the fires of Chaharshanbe Suri to the Haft-Sin table — the ritual roots of Nowruz and its bond with the myth of creation.' },
-  'modern-poetry': { tag: 'Essay', title: 'Modern Poetry & the Classical Inheritance', author: 'Sohrab Labib', excerpt: 'On the hidden dialogue of new poets with the thousand-year tradition of Persian verse, from Nima to today.' },
-  'painter-talk': { tag: 'Interview', title: 'A Conversation with a Contemporary Miniaturist', author: 'Yalda Zamani', excerpt: 'On the place of traditional painting in Iran’s art today and the challenge of joining the old and the new.' },
-  'radif-memorial': { tag: 'Memoriam', title: 'In Memoriam: A Master of the Musical Radif', author: 'Ehsan Shavarbi', excerpt: 'Honoring a figure who spent a life preserving the radif of Iranian classical music and raised a generation.' },
-  'silence-music': { tag: 'Notes', title: 'On Silence in Persian Music', author: 'Yalda Zamani', excerpt: 'A short note on the role of silence and pause in song and radif — where stillness is itself a melody.' },
-  'city-memory': { tag: 'Notes', title: 'City, Memory & Architecture', author: 'Hafez Babashahi', excerpt: 'Walking the old alleys, and the question of how a city keeps the collective memory of a people.' },
-  'letter-future': { tag: 'Notes', title: 'A Letter to the Future Reader', author: 'Amin Nayebpour', excerpt: 'A note addressed to whoever reads these lines years hence — of the hopes and fears of our today.' },
 };
 
 const HOME_T = {
@@ -185,16 +172,16 @@ function HomePage({ lang = 'fa', onToggleLang }) {
 
   /* real pieces of issue no. 1 — hero switcher, featured strip and popular list
      are curated from the eleven received essays (no demo posts left up top). */
-  const latest = ['music-totalitarian-regimes', 'interview-farnaz-modarresifar', 'herzfeld-german-archives', 'between-two-defeats', 'beyzaie-myth-symbolic-action', 'interview-armin-sanayei'].map(P);
-  const featured = ['manichaean-music-terms', 'voice-of-the-council', 'oil-to-narrative'].map(P);
-  const notes = ['silence-music', 'city-memory', 'letter-future'].map(P);
-  const features = ['manichaean-music-terms', 'herzfeld-german-archives', 'voice-of-the-council', 'music-totalitarian-regimes'].map(P);
+  const latest = ['music-totalitarian-regimes', 'interview-farnaz-modarresifar', 'herzfeld-german-archives', 'between-two-defeats', 'beyzaie-myth-symbolic-action'].map(P);
+  const featured = ['manichaean-music-terms', 'note-for-gosan', 'oil-to-narrative'].map(P);
+  const notes = [].map(P);
+  const features = ['manichaean-music-terms', 'herzfeld-german-archives', 'music-totalitarian-regimes'].map(P);
   const viewpoints = ['note-for-gosan', 'crossroads-ahead'].map(P);
-  const interviews = ['interview-farnaz-modarresifar', 'interview-armin-sanayei'].map(P);
+  const interviews = ['interview-farnaz-modarresifar'].map(P);
   const reviews = [].map(P);
   const policyDossier = ['between-two-defeats'].map(P);
   const economyDossier = ['oil-to-narrative'].map(P);
-  const reflections = ['beyzaie-myth-symbolic-action', 'cypress-memory', 'radif-memorial'].map(P);
+  const reflections = ['beyzaie-myth-symbolic-action'].map(P);
   const popular = ['music-totalitarian-regimes', 'interview-farnaz-modarresifar', 'note-for-gosan', 'between-two-defeats', 'crossroads-ahead'].map(P);
 
   /* the magazine's section taxonomy. populated categories reuse the sample
