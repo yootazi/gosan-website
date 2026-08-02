@@ -4,8 +4,7 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
-| `crossroads-ahead` | آزمایش تأیید | ۱۴۰۵/۵/۱۱, ۲۰:۳۵:۴۹ | — | ردشده | [دیدن](rejected/crossroads-ahead.md) |
-| `interview-farnaz-modarresifar` | ehsann | ۱۴۰۵/۵/۱۱, ۲۰:۳۵:۴۷ | 2 | ردشده | [دیدن](rejected/interview-farnaz-modarresifar.md) |
+| `interview-farnaz-modarresifar` | ehsann | ۲۰۲۶-۰۸-۰۲ ۱۸:۳۵ | 2 | ردشده | [دیدن](rejected/interview-farnaz-modarresifar.md) |
 
 ---
 
