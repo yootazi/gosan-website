@@ -57,13 +57,17 @@
   <button class="b-save" id="save" disabled>ذخیره</button>
   <button class="b-ghost" id="dl" disabled>دریافت JSON</button>
   <button class="b-ghost" id="review">حالت بازبینی</button>
-  <span id="fmt" style="display:none;gap:4px;align-items:center">
-    <button class="b-ghost fmtb" data-cmd="bold" title="پررنگ"><b>ب</b></button>
-    <button class="b-ghost fmtb" data-cmd="italic" title="ایتالیک"><i>ا</i></button>
-    <button class="b-ghost fmtb" data-cmd="zwnj" title="نیم‌فاصله">نیم‌فاصله</button>
-    <button class="b-ghost fmtb" data-cmd="removeFormat" title="حذف قالب">×قالب</button>
-    <button class="b-ghost fmtb" data-cmd="undo" title="واگرد">↶</button>
-    <button class="b-ghost fmtb" data-cmd="redo" title="ازنو">↷</button>
+  <span id="fmt" style="display:none;gap:4px;align-items:center;flex-wrap:wrap">
+    <button class="b-ghost fmtb" data-cmd="bold" title="Bold — متن انتخاب‌شده پررنگ می‌شود"><b>Bold</b></button>
+    <button class="b-ghost fmtb" data-cmd="italic" title="Italic — متن انتخاب‌شده ایتالیک می‌شود"><i>Italic</i></button>
+    <button class="b-ghost fmtb" data-cmd="zwnj" title="Half-space — نیم‌فاصله در محل مکان‌نما">Half-space</button>
+    <button class="b-ghost fmtb" data-cmd="indent" title="Indent — تورفتگی خط/بند">Indent +</button>
+    <button class="b-ghost fmtb" data-cmd="outdent" title="Outdent — برداشتن تورفتگی">Indent −</button>
+    <button class="b-ghost fmtb" data-cmd="rtl" title="RTL — راست‌به‌چپ کردن بند">RTL</button>
+    <button class="b-ghost fmtb" data-cmd="ltr" title="LTR — چپ‌به‌راست کردن بند">LTR</button>
+    <button class="b-ghost fmtb" data-cmd="removeFormat" title="Clear format — حذف قالب‌بندی">Clear</button>
+    <button class="b-ghost fmtb" data-cmd="undo" title="Undo — واگرد">Undo</button>
+    <button class="b-ghost fmtb" data-cmd="redo" title="Redo — ازنو">Redo</button>
   </span>
   <span class="status" id="st"></span>
 </header>
@@ -325,9 +329,21 @@
     b.addEventListener('click',function(){
       if(!editing) return;
       try{
-        var d=frame.contentDocument;
-        if(b.dataset.cmd==='zwnj') d.execCommand('insertText',false,'\u200c');
-        else d.execCommand(b.dataset.cmd,false,null);
+        var d=frame.contentDocument, cmd=b.dataset.cmd;
+        if(cmd==='zwnj'){ d.execCommand('insertText',false,'\u200c'); return; }
+        if(cmd==='rtl'||cmd==='ltr'){
+          var sq=frame.contentWindow.getSelection();
+          if(!sq.rangeCount) return;
+          var node=sq.getRangeAt(0).startContainer;
+          if(node.nodeType!==1) node=node.parentElement;
+          var blk=node.closest('p,h2,h3,h4,li,blockquote,figcaption,div');
+          if(blk){
+            blk.setAttribute('dir',cmd);
+            blk.style.textAlign = (cmd==='ltr') ? 'left' : '';
+          }
+          return;
+        }
+        d.execCommand(cmd,false,null);
       }catch(e){}
     });
   });
