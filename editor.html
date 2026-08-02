@@ -50,9 +50,9 @@
 <header>
   <span class="ttl">میز ویرایش گاهنامه</span>
   <span class="warn"><b>ویرایش فقط صوری است</b> — شیوه‌نامه: رسم‌الخط، نیم‌فاصله، نشانه‌گذاری، پانویس. متن نویسنده تغییرِ محتوایی نمی‌کند؛ نسخهٔ اصلی دست‌نخورده می‌ماند.</span>
-  <select id="essay"><option value="">— انتخاب جستار —</option></select>
   <input type="password" id="tok" placeholder="توکن گیت‌هاب" style="display:none;direction:ltr;min-width:170px">
-  <span style="display:inline-flex;align-items:center;gap:6px;border:1px solid #444;border-radius:3px;padding:3px 3px 3px 3px;background:#191919">
+  <span style="display:inline-flex;align-items:center;gap:6px;border:1px solid #444;border-radius:3px;padding:3px;background:#191919">
+    <select id="essay" style="border:none"><option value="">— انتخاب جستار —</option></select>
     <input type="text" id="who" placeholder="نام ویراستار" style="border:none;background:#222">
     <button class="b-edit" id="toggle">آغاز ویرایش</button>
   </span>
@@ -200,6 +200,9 @@
   function captureHTML(art){
     var c=art.cloneNode(true);
     c.querySelectorAll('nav.article-toc').forEach(function(n){ n.remove(); });
+    c.querySelectorAll('[contenteditable],[spellcheck]').forEach(function(el){
+      el.removeAttribute('contenteditable'); el.removeAttribute('spellcheck');
+    });
     // footnote text lives twice (inline hover card + end list); the end list
     // is the editable one — mirror it back into the cards
     var lis=c.querySelectorAll('.fn-list li'), cards=c.querySelectorAll('.fn-card-text');
@@ -230,7 +233,7 @@
   frame.addEventListener('load',function(){ setTimeout(stripChrome,400); setTimeout(stripChrome,1500); });
 
   sel.onchange=function(){
-    if(editing) stopEdit();
+    if(editing){ if(hasChanges()) doSave(false); stopEdit(); }
     currentSlug=sel.value;
     resumedOriginal=null; resumedSummaryOriginal=null; originalSummary=null;
     if(currentSlug){
@@ -304,7 +307,12 @@
     editing=false;
     $('toggle').textContent='آغاز ویرایش'; $('toggle').classList.remove('on');
   }
-  $('toggle').onclick=function(){ editing?stopEdit():startEdit(); };
+  $('toggle').onclick=function(){
+    if(!editing){ startEdit(); return; }
+    if(hasChanges()) doSave(true);          /* finish -> save + review PR */
+    else status('تغییری نسبت به متن اصلی نیست؛ درخواست تأیید فرستاده نشد');
+    stopEdit();
+  };
 
   document.querySelectorAll('.fmtb').forEach(function(b){
     b.addEventListener('mousedown',function(e){ e.preventDefault(); });
@@ -326,34 +334,45 @@
              html: art?captureHTML(art):'', original_html: originalHTML||'',
              summary_html: sm?sm.innerHTML:'', original_summary_html: originalSummary||'' };
   }
-  $('save').onclick=function(){
+  function hasChanges(){
+    var art=article(); if(!art) return false;
+    var sm=summaryEl();
+    if(captureHTML(art)!==(originalHTML||'')) return true;
+    return originalSummary!==null && sm && sm.innerHTML!==originalSummary;
+  }
+  function doSave(finished){
     if(!currentSlug){ status('جستاری انتخاب نشده','err'); return; }
+    var okMsg = finished
+      ? 'ویرایش پایان یافت و برای تأیید سردبیر فرستاده شد ✓'
+      : 'پیش‌نویس ذخیره شد — بدون درخواست تأیید';
+    var rec=payload(); rec.finished=!!finished;
     if(GH){
       if(!$('tok').value.trim()){ status('توکن گیت‌هاب را وارد کنید (یک‌بار؛ ذخیره می‌شود)','err'); $('tok').focus(); return; }
       status('در حال ارسال به گیت‌هاب…');
-      ghSave(payload(), function(ok, j){
+      ghSave(rec, function(ok, j){
         var msg=j&&j.message||'نامشخص';
         if(/Resource not accessible|Not Found/i.test(msg))
           msg='توکن اجازهٔ نوشتن ندارد. توکن باید «Contents: Read and write» و دسترسی به مخزن gosan-website داشته باشد.';
         else if(/Bad credentials/i.test(msg))
           msg='توکن نادرست است یا باطل شده؛ آن را دوباره وارد کنید.';
-        status(ok ? 'در گیت‌هاب ثبت شد — '+new Date().toLocaleTimeString('fa-IR')
+        status(ok ? okMsg+' — '+new Date().toLocaleTimeString('fa-IR')
                   : 'خطای گیت‌هاب: '+msg, !ok);
       });
       return;
     }
     fetch('/api/save-edit',{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(payload())})
+      body:JSON.stringify(rec)})
       .then(function(r){return r.json()})
       .then(function(d){
         if(!d.ok){ status('خطا: '+d.error,true); return; }
         var t=new Date().toLocaleTimeString('fa-IR');
-        status(d.pushed ? 'ذخیره و در گیت‌هاب ثبت شد — '+t
+        status(d.pushed ? okMsg+' — '+t
              : d.committed ? 'ذخیره و کامیت شد؛ ارسال به گیت‌هاب ناموفق (بعداً ارسال می‌شود) — '+t
              : 'ذخیره شد (فقط محلی) — '+t, !d.committed);
       })
       .catch(function(){ status('سرور در دسترس نیست؛ از «دریافت JSON» استفاده کنید','err'); });
-  };
+  }
+  $('save').onclick=function(){ doSave(false); };
   $('dl').onclick=function(){
     var blob=new Blob([JSON.stringify(payload(),null,1)],{type:'application/json'});
     var a=document.createElement('a');
