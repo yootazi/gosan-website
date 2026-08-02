@@ -97,6 +97,13 @@ def diff_md(rec):
     body = hunks_html(parts)
     if sum_block:
         body = sum_block + (body or '_تغییری در متن یافت نشد_')
+    if not changed:
+        norm = lambda h: re.sub(r'\s*(?:contenteditable|spellcheck)="[^"]*"', '',
+                                re.sub(r'\s+', ' ', str(h)))
+        if (norm(rec.get('original_html', '')) != norm(rec.get('html', '')) or
+            norm(rec.get('original_summary_html', '')) != norm(rec.get('summary_html', ''))):
+            body = ('_واژه‌ای تغییر نکرده، اما قالب‌بندی (پررنگ/ایتالیک/نیم‌فاصله) '
+                    'تغییر کرده است؛ برای دیدن جزئیات، پروندهٔ JSON را ببینید._\n\n') + (body or '')
     md = ('# ویرایش: ' + rec['slug'] + '\n\n| | |\n|---|---|\n'
           '| ویراستار | ' + rec.get('editor', '') + ' |\n'
           '| زمان ذخیره | ' + fa_date(rec.get('saved_at')) + ' |\n'

@@ -29,6 +29,8 @@ jobs:
           git cat-file -e "$BEFORE" 2>/dev/null || BEFORE="${{ github.sha }}~1"
           for f in $(git diff --name-only --diff-filter=AM "$BEFORE" "${{ github.sha }}" -- 'web-edits/pending/*.json'); do
             slug=$(basename "$f" .json)
+            fin=$(python3 -c "import json;print(json.load(open('$f',encoding='utf-8')).get('finished') is True)")
+            if [ "$fin" != "True" ]; then echo "skip $slug — draft save"; continue; fi
             git checkout -B "review/$slug" "${{ github.sha }}"
             git mv "web-edits/pending/$slug.json" "web-edits/approved/$slug.json"
             git commit -m "review: $slug — merge to approve"

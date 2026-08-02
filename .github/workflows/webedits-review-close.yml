@@ -34,10 +34,11 @@ jobs:
             git checkout -B apply-edit origin/main
             mkdir -p content-overrides
             python3 - "$slug" <<'PY'
-          import json, sys
+          import json, re, sys
           slug = sys.argv[1]
           rec = json.load(open('/tmp/rec.json', encoding='utf-8'))
-          ov = {'body': rec.get('html', ''), 'summary': rec.get('summary_html', ''),
+          clean = lambda h: re.sub(r'\s*(?:contenteditable|spellcheck)="[^"]*"', '', h)
+          ov = {'body': clean(rec.get('html', '')), 'summary': clean(rec.get('summary_html', '')),
                 'editor': rec.get('editor', ''), 'saved_at': rec.get('saved_at', '')}
           json.dump(ov, open('content-overrides/%s.json' % slug, 'w', encoding='utf-8'),
                     ensure_ascii=False, indent=1)
