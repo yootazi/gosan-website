@@ -87,8 +87,10 @@
     tk.addEventListener('change',function(){ localStorage.setItem('gosan_edit_token',tk.value.trim()); });
   }
   function b64utf8(str){
-    return btoa(String.fromCharCode.apply(null,
-      Array.prototype.slice.call(new TextEncoder().encode(str))));
+    var bytes=new TextEncoder().encode(str), bin='';
+    for(var i=0;i<bytes.length;i+=8192)
+      bin+=String.fromCharCode.apply(null, Array.prototype.slice.call(bytes.subarray(i,i+8192)));
+    return btoa(bin);
   }
   function ghHeaders(){
     return {'Authorization':'Bearer '+$('tok').value.trim(),
