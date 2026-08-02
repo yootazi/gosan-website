@@ -1,0 +1,53 @@
+name: web-edits review PR
+# Every new or updated saved edit (pending/*.json) gets a review Pull Request:
+# the PR body is the readable word-diff; Merge = approve, Close = reject.
+# The review branch holds ONE commit: the file move pending/ -> approved/.
+on:
+  push:
+    branches: [web-edits]
+    paths: ['web-edits/pending/*.json']
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: webedits-pr
+  cancel-in-progress: false
+jobs:
+  pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: open or refresh a review PR per edit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "gosan-desk"
+          git config user.email "actions@users.noreply.github.com"
+          BEFORE="${{ github.event.before }}"
+          git cat-file -e "$BEFORE" 2>/dev/null || BEFORE="${{ github.sha }}~1"
+          for f in $(git diff --name-only --diff-filter=AM "$BEFORE" "${{ github.sha }}" -- 'web-edits/pending/*.json'); do
+            slug=$(basename "$f" .json)
+            git checkout -B "review/$slug" "${{ github.sha }}"
+            git mv "web-edits/pending/$slug.json" "web-edits/approved/$slug.json"
+            git commit -m "review: $slug — merge to approve"
+            git push -f origin "review/$slug"
+            python3 -c "
+          import sys, json
+          sys.path.insert(0, 'web-edits')
+          import _regen
+          rec = json.load(open('web-edits/approved/$slug.json', encoding='utf-8'))
+          changed, md = _regen.diff_md(rec)
+          body = md[:60000] + '\n\n---\n**Merge = تأیید ✓ · Close = رد ✗**\n'
+          open('/tmp/body.md', 'w', encoding='utf-8').write(body)
+          " || echo "دیدن تفاوت‌ها در داشبورد" > /tmp/body.md
+            state=$(gh pr view "review/$slug" --json state -q .state 2>/dev/null || echo NONE)
+            if [ "$state" = "OPEN" ]; then
+              gh pr edit "review/$slug" --body-file /tmp/body.md
+            else
+              gh pr create --base web-edits --head "review/$slug" \
+                --title "ویرایش: $slug" --body-file /tmp/body.md
+            fi
+            git checkout "${{ github.sha }}"
+          done

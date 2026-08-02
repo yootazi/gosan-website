@@ -1,0 +1,59 @@
+name: web-edits review close
+# Merge = approve: the approved edit is APPLIED TO THE LIVE SITE — the record's
+# html/summary are written to content-overrides/<slug>.json on main, which the
+# article page renders in place of its built-in content.
+# Close without merging = reject: the record moves pending/ -> rejected/.
+on:
+  pull_request:
+    types: [closed]
+permissions:
+  contents: write
+concurrency:
+  group: webedits-regen
+  cancel-in-progress: false
+jobs:
+  closed:
+    if: startsWith(github.event.pull_request.head.ref, 'review/') && github.event.pull_request.base.ref == 'web-edits'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: web-edits
+          fetch-depth: 0
+      - env:
+          MERGED: ${{ github.event.pull_request.merged }}
+          HEADREF: ${{ github.event.pull_request.head.ref }}
+        run: |
+          git config user.name "gosan-desk"
+          git config user.email "actions@users.noreply.github.com"
+          slug="${HEADREF#review/}"
+          if [ "$MERGED" = "true" ]; then
+            # publish the approved edit onto the live site (main branch)
+            git fetch origin web-edits main
+            git show "origin/web-edits:web-edits/approved/$slug.json" > /tmp/rec.json
+            git checkout -B apply-edit origin/main
+            mkdir -p content-overrides
+            python3 - "$slug" <<'PY'
+          import json, sys
+          slug = sys.argv[1]
+          rec = json.load(open('/tmp/rec.json', encoding='utf-8'))
+          ov = {'body': rec.get('html', ''), 'summary': rec.get('summary_html', ''),
+                'editor': rec.get('editor', ''), 'saved_at': rec.get('saved_at', '')}
+          json.dump(ov, open('content-overrides/%s.json' % slug, 'w', encoding='utf-8'),
+                    ensure_ascii=False, indent=1)
+          PY
+            git add content-overrides
+            git commit -m "apply web-edit: $slug (approved on GitHub)"
+            git push origin apply-edit:main || {
+              git fetch origin main && git rebase origin/main && git push origin apply-edit:main
+            }
+          elif [ -f "web-edits/pending/$slug.json" ]; then
+            mkdir -p web-edits/rejected
+            git mv "web-edits/pending/$slug.json" "web-edits/rejected/$slug.json"
+            python3 web-edits/_regen.py
+            git add web-edits
+            git commit -m "web-edit: $slug · rejected by editor-in-chief"
+            git pull --rebase origin web-edits
+            git push origin web-edits
+          fi
+          git push origin --delete "$HEADREF" || true

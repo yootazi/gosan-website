@@ -6,8 +6,8 @@
 |---|---|---|---|---|---|
 | `beyzaie-myth-symbolic-action` | man | ۱۴۰۵/۵/۱۱، ۱۸:۴۰ | ۲ | ردشده | [دیدن](rejected/beyzaie-myth-symbolic-action.md) |
 | `interview-farnaz-modarresifar` | ehsann | ۱۴۰۵/۵/۱۱، ۱۸:۳۵ | ۲ | ردشده | [دیدن](rejected/interview-farnaz-modarresifar.md) |
-| `between-two-defeats` | yoota |  | ۷۴ | در انتظار بازبینی | [دیدن](pending/between-two-defeats.md) |
+| `between-two-defeats` | yoota |  | ۷۴ | [در انتظار بازبینی ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/between-two-defeats.md) |
 
 ---
 
-گردش کار: ویراستار در «میز ویرایش» ذخیره می‌کند ← این‌جا در `pending` می‌نشیند ← سردبیر در میز ویرایش (حالت بازبینی) تأیید یا رد می‌کند ← تأییدشده‌ها با گفتگو با دستیار روی سایت اصلی اعمال و به `applied` منتقل می‌شوند. نسخهٔ اصلیِ نویسنده هرگز در این چرخه تغییر نمی‌کند.
+گردش کار: ویراستار در «میز ویرایش» ذخیره می‌کند ← برای هر ذخیره یک [Pull Request](https://github.com/yootazi/gosan-website/pulls) ساخته می‌شود ← سردبیر همان‌جا تفاوت‌ها را می‌بیند و تصمیم می‌گیرد: **Merge = تأیید ✓** و **Close = رد ✗** ← تأییدشده‌ها با گفتگو با دستیار روی سایت اصلی اعمال و به `applied` منتقل می‌شوند. نسخهٔ اصلیِ نویسنده هرگز در این چرخه تغییر نمی‌کند.

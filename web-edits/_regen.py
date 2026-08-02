@@ -62,10 +62,7 @@ def fa_date(iso):
 def esc(w):
     return w.replace('&', '&amp;').replace('<', '&lt;')
 
-def diff_md(rec):
-    parts = word_diff(text_of_html(rec.get('original_html', '')),
-                      text_of_html(rec.get('html', '')))
-    changed = sum(1 for p in parts if p[0] != ' ')
+def hunks_html(parts):
     keep = set()
     for idx, p in enumerate(parts):
         if p[0] != ' ':
@@ -80,10 +77,26 @@ def diff_md(rec):
         cur.append(p); last = idx
     if cur:
         hunks.append(cur)
-    body = '\n>\n> …\n>\n'.join(
+    return '\n>\n> …\n>\n'.join(
         '> ' + ' '.join(esc(w) if s == ' ' else
                         ('<del>' + esc(w) + '</del>' if s == '-' else '<ins>' + esc(w) + '</ins>')
                         for s, w in h) for h in hunks)
+
+def diff_md(rec):
+    parts = word_diff(text_of_html(rec.get('original_html', '')),
+                      text_of_html(rec.get('html', '')))
+    changed = sum(1 for p in parts if p[0] != ' ')
+    sum_block = ''
+    if rec.get('original_summary_html') or rec.get('summary_html'):
+        sparts = word_diff(text_of_html(rec.get('original_summary_html', '')),
+                           text_of_html(rec.get('summary_html', '')))
+        schanged = sum(1 for p in sparts if p[0] != ' ')
+        if schanged:
+            changed += schanged
+            sum_block = ('**چکیده**\n\n' + hunks_html(sparts) + '\n\n**متن**\n\n')
+    body = hunks_html(parts)
+    if sum_block:
+        body = sum_block + (body or '_تغییری در متن یافت نشد_')
     md = ('# ویرایش: ' + rec['slug'] + '\n\n| | |\n|---|---|\n'
           '| ویراستار | ' + rec.get('editor', '') + ' |\n'
           '| زمان ذخیره | ' + fa_date(rec.get('saved_at')) + ' |\n'
@@ -97,7 +110,10 @@ def main():
         d = os.path.join(ROOT, st)
         if not os.path.isdir(d):
             continue
+        jsons = {f[:-5] for f in os.listdir(d) if f.endswith('.json')}
         for f in sorted(os.listdir(d)):
+            if f.endswith('.md') and f[:-3] not in jsons:
+                os.remove(os.path.join(d, f))
             if not f.endswith('.json'):
                 continue
             try:
@@ -115,14 +131,18 @@ def main():
           'این فهرست با هر ذخیره به‌روز می‌شود. ستون «تفاوت‌ها» متن خوانا با افزوده‌ها و حذف‌ها است.\n\n'
           '| جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |\n'
           '|---|---|---|---|---|---|\n')
+    PRS = 'https://github.com/yootazi/gosan-website/pulls'
     md += '\n'.join('| `%s` | %s | %s | %s | %s | [دیدن](%s) |' %
                     (r['slug'], r['editor'], fa_date(r['at']),
-                     str(r['changed']).translate(FA_DIGITS), r['label'], r['md'])
+                     str(r['changed']).translate(FA_DIGITS),
+                     ('[%s ← PR](%s)' % (r['label'], PRS)) if 'انتظار' in r['label'] else r['label'],
+                     r['md'])
                     for r in rows)
     md += ('\n\n---\n\n'
-           'گردش کار: ویراستار در «میز ویرایش» ذخیره می‌کند ← این‌جا در `pending` می‌نشیند ← '
-           'سردبیر در میز ویرایش (حالت بازبینی) تأیید یا رد می‌کند ← تأییدشده‌ها با گفتگو با دستیار '
-           'روی سایت اصلی اعمال و به `applied` منتقل می‌شوند. نسخهٔ اصلیِ نویسنده هرگز در این چرخه تغییر نمی‌کند.\n')
+           'گردش کار: ویراستار در «میز ویرایش» ذخیره می‌کند ← برای هر ذخیره یک '
+           '[Pull Request](%s) ساخته می‌شود ← سردبیر همان‌جا تفاوت‌ها را می‌بیند و تصمیم می‌گیرد: '
+           '**Merge = تأیید ✓** و **Close = رد ✗** ← تأییدشده‌ها با گفتگو با دستیار '
+           'روی سایت اصلی اعمال و به `applied` منتقل می‌شوند. نسخهٔ اصلیِ نویسنده هرگز در این چرخه تغییر نمی‌کند.\n' % PRS)
     with open(os.path.join(ROOT, 'README.md'), 'w', encoding='utf-8') as fh:
         fh.write(md)
     print('regen: %d records' % len(rows))
