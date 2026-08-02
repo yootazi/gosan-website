@@ -130,6 +130,8 @@ def main():
             changed, md = diff_md(rec)
             with open(os.path.join(d, rec['slug'] + '.md'), 'w', encoding='utf-8') as fh:
                 fh.write(md)
+            if st == 'pending':
+                label = 'در انتظار تأیید سردبیر' if rec.get('finished') else 'پیش‌نویس؛ ویراستار در حال کار'
             rows.append({'label': label, 'slug': rec['slug'],
                          'editor': rec.get('editor', ''), 'at': rec.get('saved_at', ''),
                          'changed': changed, 'md': st + '/' + rec['slug'] + '.md'})
@@ -142,7 +144,7 @@ def main():
     md += '\n'.join('| `%s` | %s | %s | %s | %s | [دیدن](%s) |' %
                     (r['slug'], r['editor'], fa_date(r['at']),
                      str(r['changed']).translate(FA_DIGITS),
-                     ('[%s ← PR](%s)' % (r['label'], PRS)) if 'انتظار' in r['label'] else r['label'],
+                     ('[%s ← PR](%s)' % (r['label'], PRS)) if 'تأیید سردبیر' in r['label'] else r['label'],
                      r['md'])
                     for r in rows)
     md += ('\n\n---\n\n'
