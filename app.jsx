@@ -49,6 +49,31 @@ const PAGE_TITLES = {
   impressum: 'گوسان — اطلاعات ناشر (Impressum)',
 };
 
+// The think tank is its own multi-page site (institute-v3*), but the link is
+// DISCONNECTED for now (editor-in-chief, 2 Aug 2026): the button stays visible,
+// visitors land on this placeholder until the pages are ready to show.
+function ThinktankRedirect({ lang }) {
+  const en = lang === 'en';
+  return (
+    <main style={{ minHeight: '60vh', display: 'grid', placeItems: 'center', padding: '4rem 2rem' }}>
+      <div style={{ textAlign: 'center', maxWidth: '32rem' }}>
+        <div style={{ fontSize: '2rem', color: 'var(--gold-deep)', marginBottom: '1rem' }}>✻</div>
+        <h1 className="gsn-display" style={{ fontSize: '1.6rem', margin: '0 0 0.8rem' }}>
+          {en ? 'Gōsān Institute' : 'اندیشکدهٔ گوسان'}
+        </h1>
+        <p style={{ color: 'var(--text-muted)', lineHeight: 2 }}>
+          {en
+            ? 'The Institute’s pages are being prepared and will open here soon.'
+            : 'صفحه‌های اندیشکده در دست آماده‌سازی است و به‌زودی همین‌جا گشوده می‌شود.'}
+        </p>
+        <p style={{ marginTop: '1.6rem' }}>
+          <a href="#/" style={{ color: 'var(--accent)' }}>{en ? '← Back to the magazine' : 'بازگشت به گاهنامه ←'}</a>
+        </p>
+      </div>
+    </main>
+  );
+}
+
 const NAV_ACTIVE = { home: 'خانه', archive: 'بایگانی', about: 'دربارهٔ ما', contact: 'تماس با ما', shivenameh: 'شیوه‌نامه', thinktank: 'اندیشکده' };
 
 function App() {
@@ -107,7 +132,7 @@ function App() {
          route.page === 'contact' ? <ContactPage /> :
          route.page === 'shivenameh' ? <ShivenamehPage /> :
          route.page === 'impressum' ? <ImpressumPage /> :
-         route.page === 'thinktank' ? <iframe src="institute-fa.html" title="اندیشکدهٔ فرهنگ و هنر گوسان" className="inst-frame" style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', border: 0, zIndex: 40, background: '#0B1B33' }} /> :
+         route.page === 'thinktank' ? <ThinktankRedirect lang={lang} /> :
          <HomePage lang={lang} />}
       </div>
       <SiteFooter route={route.page} />

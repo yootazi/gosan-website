@@ -89,6 +89,7 @@
   var frame=$('site'), sel=$('essay'), st=$('st');
   var editing=false, originalHTML=null, currentSlug='';
   var resumedOriginal=null, resumedSummaryOriginal=null, originalSummary=null;
+  var sessionDrafts={};   /* latest state per essay in THIS session — survives quick switches */
   var GH = !/^(localhost|127\.|192\.168\.|10\.)/.test(location.hostname);
   var GH_REPO='yootazi/gosan-website', GH_BRANCH='web-edits';
   if (GH){
@@ -156,7 +157,12 @@
   /* resume: if a saved (pending) edit exists, load it into the article
      so the editor continues across sessions */
   function armResume(slug){
+    if(sessionDrafts[slug]){ applyResume(slug, sessionDrafts[slug]); return; }
     fetchPending(slug, function(rec){
+      applyResume(slug, rec);
+    });
+  }
+  function applyResume(slug, rec){
       if(!rec || !rec.html || slug!==currentSlug) return;
       var tries=0;
       (function put(){
@@ -175,7 +181,6 @@
           status('ویرایش ذخیره‌شدهٔ پیشین ('+(rec.editor||'')+') بارگذاری شد؛ می‌توانید ادامه دهید');
         } else if(++tries<25){ setTimeout(put,400); }
       })();
-    });
   }
 
   /* essay list — parsed from the site's own registry */
@@ -347,6 +352,7 @@
       ? 'ویرایش پایان یافت و برای تأیید سردبیر فرستاده شد ✓'
       : 'پیش‌نویس ذخیره شد — بدون درخواست تأیید';
     var rec=payload(); rec.finished=!!finished;
+    sessionDrafts[rec.slug]=rec;
     if(GH){
       if(!$('tok').value.trim()){ status('توکن گیت‌هاب را وارد کنید (یک‌بار؛ ذخیره می‌شود)','err'); $('tok').focus(); return; }
       status('در حال ارسال به گیت‌هاب…');

@@ -72,8 +72,8 @@ function postFor(slug, lang) {
 /* Home-page cover photos use a black-and-white halftone treatment (separate
    files); the same photos appear inside the articles in their original form. */
 const GOSAN_COVERS = {
-  'herzfeld-german-archives': 'uploads/cover-herzfeld.jpg',
-  'interview-farnaz-modarresifar': 'uploads/cover-farnaz.jpg',
+  /* essay photos removed from the landing page by the editor-in-chief (2 Aug 2026);
+     the photos remain inside the essay pages themselves. */
 };
 
 /* split a two-part title at «:» or «؛» and drop the second part to a new line */
@@ -172,10 +172,10 @@ function HomePage({ lang = 'fa', onToggleLang }) {
 
   /* real pieces of issue no. 1 — hero switcher, featured strip and popular list
      are curated from the eleven received essays (no demo posts left up top). */
-  const latest = ['music-totalitarian-regimes', 'interview-farnaz-modarresifar', 'herzfeld-german-archives', 'between-two-defeats', 'beyzaie-myth-symbolic-action'].map(P);
+  const latest = ['azarkeyvani-creation-myth', 'music-totalitarian-regimes', 'interview-farnaz-modarresifar', 'herzfeld-german-archives', 'between-two-defeats', 'beyzaie-myth-symbolic-action'].map(P);
   const featured = ['manichaean-music-terms', 'note-for-gosan', 'oil-to-narrative'].map(P);
   const notes = [].map(P);
-  const features = ['manichaean-music-terms', 'herzfeld-german-archives', 'music-totalitarian-regimes'].map(P);
+  const features = ['azarkeyvani-creation-myth', 'manichaean-music-terms', 'herzfeld-german-archives', 'music-totalitarian-regimes'].map(P);
   const viewpoints = ['note-for-gosan', 'crossroads-ahead'].map(P);
   const interviews = ['interview-farnaz-modarresifar'].map(P);
   const reviews = [].map(P);
