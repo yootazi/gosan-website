@@ -60,9 +60,12 @@
   <span id="fmt" style="display:none;gap:4px;align-items:center;flex-wrap:wrap">
     <button class="b-ghost fmtb" data-cmd="bold" title="Bold — متن انتخاب‌شده پررنگ می‌شود"><b>Bold</b></button>
     <button class="b-ghost fmtb" data-cmd="italic" title="Italic — متن انتخاب‌شده ایتالیک می‌شود"><i>Italic</i></button>
-    <button class="b-ghost fmtb" data-cmd="zwnj" title="Half-space — نیم‌فاصله در محل مکان‌نما">Half-space</button>
     <button class="b-ghost fmtb" data-cmd="indent" title="Indent — تورفتگی خط/بند">Indent +</button>
     <button class="b-ghost fmtb" data-cmd="outdent" title="Outdent — برداشتن تورفتگی">Indent −</button>
+    <button class="b-ghost fmtb" data-cmd="spaceBefore+" title="Space before — افزودن فاصله پیش از بند">↑Space +</button>
+    <button class="b-ghost fmtb" data-cmd="spaceBefore-" title="کاستن فاصله پیش از بند">↑Space −</button>
+    <button class="b-ghost fmtb" data-cmd="spaceAfter+" title="Space after — افزودن فاصله پس از بند">↓Space +</button>
+    <button class="b-ghost fmtb" data-cmd="spaceAfter-" title="کاستن فاصله پس از بند">↓Space −</button>
     <button class="b-ghost fmtb" data-cmd="rtl" title="RTL — راست‌به‌چپ کردن بند">RTL</button>
     <button class="b-ghost fmtb" data-cmd="ltr" title="LTR — چپ‌به‌راست کردن بند">LTR</button>
     <button class="b-ghost fmtb" data-cmd="removeFormat" title="Clear format — حذف قالب‌بندی">Clear</button>
@@ -300,6 +303,8 @@
       selq.removeAllRanges(); selq.addRange(r); p0.scrollIntoView({block:'center'});
     }catch(e){}
     editing=true;
+    undoStack=[]; redoStack=[]; typingBurst=false;
+    armTypingSnapshots();
     $('toggle').textContent='پایان ویرایش'; $('toggle').classList.add('on');
     $('save').disabled=false; $('dl').disabled=false;
     status('در حال ویرایش — تغییرها هنوز ذخیره نشده');
@@ -330,7 +335,22 @@
       if(!editing) return;
       try{
         var d=frame.contentDocument, cmd=b.dataset.cmd;
-        if(cmd==='zwnj'){ d.execCommand('insertText',false,'\u200c'); return; }
+        if(cmd==='undo'){ doUndo(); return; }
+        if(cmd==='redo'){ doRedo(); return; }
+        snapshot(); typingBurst=false;
+        if(cmd.indexOf('space')===0){
+          var sq3=frame.contentWindow.getSelection();
+          if(!sq3.rangeCount) return;
+          var nd3=sq3.getRangeAt(0).startContainer;
+          if(nd3.nodeType!==1) nd3=nd3.parentElement;
+          var blk3=nd3.closest('p,h2,h3,h4,li,blockquote,figcaption,div');
+          if(!blk3) return;
+          var prop3=(cmd.indexOf('Before')>-1)?'marginTop':'marginBottom';
+          var mm3=/^([\d.]+)rem$/.exec(blk3.style[prop3]||'');
+          var val3=(mm3?parseFloat(mm3[1]):0) + (cmd.slice(-1)==='+'?0.5:-0.5);
+          blk3.style[prop3] = val3>0 ? val3+'rem' : '';
+          return;
+        }
         if(cmd==='indent'||cmd==='outdent'){
           var sq2=frame.contentWindow.getSelection();
           if(!sq2.rangeCount) return;
@@ -370,6 +390,51 @@
              html: art?captureHTML(art):'', original_html: originalHTML||'',
              summary_html: sm?sm.innerHTML:'', original_summary_html: originalSummary||'' };
   }
+  /* one undo system for everything: typing, formatting, indents, direction, spacing */
+  var undoStack=[], redoStack=[], typingBurst=false;
+  function captureState(){
+    var art=article(); if(!art) return null;
+    var sm=summaryEl();
+    return { body: art.innerHTML, summary: sm? sm.innerHTML : null };
+  }
+  function restoreState(st){
+    if(!st) return;
+    var art=article(); if(art) art.innerHTML=st.body;
+    var sm=summaryEl();
+    if(sm && st.summary!=null) sm.innerHTML=st.summary;
+    typingBurst=false;
+  }
+  function snapshot(){
+    var st=captureState(); if(!st) return;
+    undoStack.push(st);
+    if(undoStack.length>150) undoStack.shift();
+    redoStack=[];
+  }
+  function doUndo(){
+    if(!undoStack.length){ status('چیزی برای واگرد نیست'); return; }
+    var cur=captureState();
+    if(cur) redoStack.push(cur);
+    restoreState(undoStack.pop());
+    status('واگرد شد');
+  }
+  function doRedo(){
+    if(!redoStack.length){ status('چیزی برای ازنو نیست'); return; }
+    var cur=captureState();
+    if(cur) undoStack.push(cur);
+    restoreState(redoStack.pop());
+    status('ازنو شد');
+  }
+  function armTypingSnapshots(){
+    var d=frame.contentDocument; if(!d || d._edSnapArmed) return;
+    d._edSnapArmed=true;
+    d.addEventListener('beforeinput', function(){
+      if(!editing) return;
+      if(!typingBurst){ snapshot(); typingBurst=true; }
+      clearTimeout(d._edSnapT);
+      d._edSnapT=setTimeout(function(){ typingBurst=false; }, 1200);
+    }, true);
+  }
+
   function hasChanges(){
     var art=article(); if(!art) return false;
     var sm=summaryEl();
