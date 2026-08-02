@@ -84,7 +84,10 @@
   if (GH){
     var tk=$('tok'); tk.style.display='inline-block';
     tk.value=localStorage.getItem('gosan_edit_token')||'';
-    tk.addEventListener('change',function(){ localStorage.setItem('gosan_edit_token',tk.value.trim()); });
+    tk.addEventListener('input',function(){
+      localStorage.setItem('gosan_edit_token',tk.value.trim());
+      if(tk.value.trim()) status('توکن ذخیره شد؛ در همین مرورگر می‌ماند');
+    });
   }
   function b64utf8(str){
     var bytes=new TextEncoder().encode(str), bin='';
@@ -224,8 +227,13 @@
       if(!$('tok').value.trim()){ status('توکن گیت‌هاب را وارد کنید (یک‌بار؛ ذخیره می‌شود)','err'); $('tok').focus(); return; }
       status('در حال ارسال به گیت‌هاب…');
       ghSave(payload(), function(ok, j){
+        var msg=j&&j.message||'نامشخص';
+        if(/Resource not accessible|Not Found/i.test(msg))
+          msg='توکن اجازهٔ نوشتن ندارد. توکن باید «Contents: Read and write» و دسترسی به مخزن gosan-website داشته باشد.';
+        else if(/Bad credentials/i.test(msg))
+          msg='توکن نادرست است یا باطل شده؛ آن را دوباره وارد کنید.';
         status(ok ? 'در گیت‌هاب ثبت شد — '+new Date().toLocaleTimeString('fa-IR')
-                  : 'خطای گیت‌هاب: '+(j&&j.message||'نامشخص'), !ok);
+                  : 'خطای گیت‌هاب: '+msg, !ok);
       });
       return;
     }
