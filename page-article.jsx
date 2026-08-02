@@ -72,11 +72,13 @@ const ART_TITLE_BREAKS = {
 };
 function splitTitle(t) {
   const s = String(t == null ? '' : t);
-  if (ART_TITLE_BREAKS[s]) return ART_TITLE_BREAKS[s];
   const m = s.match(/^(.+?)\s*[:؛—–]\s*(.+)$/);
   return m ? [m[1].trim(), m[2].trim()] : [s, null];
 }
 function TitleLines({ text }) {
+  /* long one-part titles wrap at a fixed point — same size, same colour */
+  const br = ART_TITLE_BREAKS[String(text)];
+  if (br) return <React.Fragment>{br[0]}<br />{br[1]}</React.Fragment>;
   const [main, sub] = splitTitle(text);
   return sub ? <React.Fragment>{main}<span className="title-sub">{sub}</span></React.Fragment> : <React.Fragment>{text}</React.Fragment>;
 }
