@@ -217,68 +217,21 @@ function FootnotesList() {
   );
 }
 
-/* ---------- listen bar (text-to-speech) ---------- */
+/* ---------- listen bar — placeholder only for now (editor-in-chief, 2 Aug 2026):
+   browser TTS reads Persian as gibberish, so playback is disabled until real
+   narration files are ready. The bar stays as a visual placeholder. ---------- */
 function ListenBar({ getText }) {
-  const supported = typeof window !== 'undefined' && 'speechSynthesis' in window;
-  const [state, setState] = React.useState('idle'); // idle | playing | paused
-  const [progress, setProgress] = React.useState(0);
-  const lenRef = React.useRef(1);
-
-  React.useEffect(() => () => { try { window.speechSynthesis.cancel(); } catch (e) {} }, []);
-
-  const start = () => {
-    const synth = window.speechSynthesis;
-    synth.cancel();
-    const text = (getText() || '').replace(/\s+/g, ' ').trim();
-    lenRef.current = Math.max(1, text.length);
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'fa-IR';
-    u.rate = 0.95;
-    u.pitch = 1;
-    const voices = synth.getVoices();
-    const fa = voices.find((v) => /fa|persian|farsi/i.test((v.lang || '') + ' ' + (v.name || '')));
-    if (fa) u.voice = fa;
-    u.onboundary = (e) => { if (typeof e.charIndex === 'number') setProgress(Math.min(1, e.charIndex / lenRef.current)); };
-    u.onend = () => { setState('idle'); setProgress(0); };
-    u.onerror = () => { setState('idle'); setProgress(0); };
-    synth.speak(u);
-    setState('playing');
-  };
-
-  const onPlayPause = () => {
-    if (!supported) return;
-    const synth = window.speechSynthesis;
-    if (state === 'playing') { synth.pause(); setState('paused'); }
-    else if (state === 'paused') { synth.resume(); setState('playing'); }
-    else { start(); }
-  };
-  const onStop = () => { try { window.speechSynthesis.cancel(); } catch (e) {} setState('idle'); setProgress(0); };
-
-  const label = !supported ? 'خواندن صوتی در این مرورگر در دسترس نیست'
-    : state === 'playing' ? 'در حال خواندن…'
-    : state === 'paused' ? 'مکث'
-    : 'به این نوشتار گوش کنید';
-
   return (
-    <div className={`listen-bar${!supported ? ' is-disabled' : ''}`}>
-      <button type="button" className="listen-play" onClick={onPlayPause} disabled={!supported} aria-label={state === 'playing' ? 'مکث' : 'پخش'}>
-        {state === 'playing' ? (
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1" /><rect x="14" y="5" width="4" height="14" rx="1" /></svg>
-        ) : (
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z" /></svg>
-        )}
+    <div className="listen-bar is-disabled">
+      <button type="button" className="listen-play" disabled aria-label="پخش (به‌زودی)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z" /></svg>
       </button>
       <div className="listen-body">
         <div className="listen-top">
-          <span className="listen-label">{label}</span>
-          {state !== 'idle' ? (
-            <button type="button" className="listen-stop" onClick={onStop} aria-label="توقف">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="1.5" /></svg>
-            </button>
-          ) : null}
+          <span className="listen-label">نسخهٔ صوتی این نوشتار به‌زودی</span>
         </div>
         <div className="listen-track">
-          <span className={`listen-fill${state === 'playing' ? ' is-live' : ''}`} style={{ width: `${Math.max(progress * 100, state !== 'idle' ? 3 : 0)}%` }}></span>
+          <span className="listen-fill" style={{ width: '0%' }}></span>
         </div>
       </div>
       <span className="listen-tag">AUDIO</span>
