@@ -144,9 +144,9 @@ function AuthorBioBlock({ post }) {
   const photo = AUTHOR_PHOTOS[person];
   const kind = isInterview ? 'مهمان' : 'نویسنده';
   const site = AUTHOR_SITES[person];
-  const nameStyle = { color: 'var(--accent)', fontWeight: 700, textDecoration: 'none' };
+  const nameStyle = { color: 'var(--accent)', fontWeight: 700 };
   const nameEl = site
-    ? <a href={site} target="_blank" rel="noopener noreferrer" style={nameStyle}>{person}</a>
+    ? <a href={site} target="_blank" rel="noopener noreferrer" style={{ ...nameStyle, textDecoration: 'underline', textUnderlineOffset: '3px' }}>{person}</a>
     : <span style={nameStyle}>{person}</span>;
   return (
     <div className="article-bio">
