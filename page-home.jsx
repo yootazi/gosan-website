@@ -95,13 +95,13 @@ const GOSAN_COVER_ALTS = {
   'oil-to-narrative': 'چاه نفت در ایران، حدود دههٔ ۱۹۱۰ — عکس A. P. Godber',
   'interview-farnaz-modarresifar': 'فرناز مدرسی‌فر در ویلای مدیچی، ۲۰۲۵ — عکس: فرید مدرسی‌فر',
   'music-totalitarian-regimes': 'ویلهلم فورتونگلر در کنسرت کارخانهٔ آ.ا.گ، برلین — Bundesarchiv Bild 183-L0607-504, CC BY-SA 3.0 DE',
-  'beyzaie-myth-symbolic-action': 'بهرام بیضایی — عکس: shaigan، خبرگزاری فارس، CC BY 4.0',
+  'beyzaie-myth-symbolic-action': 'پوستر چریکه تارا (۱۳۵۸)، ساختهٔ بهرام بیضایی',
   'between-two-defeats': 'خیابان چراغ‌گاز، تهران، حدود ۱۲۶۰ خورشیدی — عکس آنتوان سوریوگین',
   'azarkeyvani-creation-myth': 'برگ نخست دست‌نویس وندیداد — CC0',
-  'who-is-the-gosan': 'بشقاب سیمین ساسانی با نقش نوازندگان، سدهٔ هفتم میلادی',
+  'who-is-the-gosan': 'بشقاب سیمین ساسانی: شاه بر تخت در میان نوازندگان — ارمیتاژ؛ عکس: Darafsh، CC BY-SA 4.0',
   'farabi-music-politics': 'نگارهٔ ساز شاهرود از دست‌نویس کتاب الموسیقی الکبیر فارابی',
   'note-for-gosan': 'سرلوحهٔ شمارهٔ نخست مجلهٔ کاوه، برلین، ۱۹۱۶',
-  'crossroads-ahead': 'رضاشاه در راه‌آهن سراسری ایران',
+  'crossroads-ahead': 'دستهٔ موسیقی در اصفهان، دورهٔ قاجار — عکس آنتوان سوریوگین، موزهٔ ریتبرگ',
 };
 
 /* split a two-part title at «:» or «؛» and drop the second part to a new line.
