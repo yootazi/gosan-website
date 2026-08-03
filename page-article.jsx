@@ -133,18 +133,26 @@ function AuthorAvatar({ name }) {
 }
 
 /* compact writer / interviewee biography, shown at the end of the article */
+const AUTHOR_SITES = {
+  'فرناز مدرسی‌فر': 'https://www.farnazmodarresifar.com',
+};
+
 function AuthorBioBlock({ post }) {
   const isInterview = !!GUEST_BY_SLUG[post.slug];
   const person = isInterview ? GUEST_BY_SLUG[post.slug] : post.author;
   const bio = AUTHOR_BIOS[person];
   const photo = AUTHOR_PHOTOS[person];
   const kind = isInterview ? 'مهمان' : 'نویسنده';
+  const site = AUTHOR_SITES[person];
+  const nameStyle = { color: 'var(--accent)', fontWeight: 700, textDecoration: 'none' };
+  const nameEl = site
+    ? <a href={site} target="_blank" rel="noopener noreferrer" style={nameStyle}>{person}</a>
+    : <span style={nameStyle}>{person}</span>;
   return (
     <div className="article-bio">
       {photo ? <span className="article-bio-avatar"><img src={photo} alt={person} /></span> : null}
       <div className="article-bio-body">
-        <span className="article-bio-name" style={{ color: 'var(--accent)' }}>{person}</span>
-        <p className="article-bio-text">{bio ? bioWithLinks(bio) : ('معرفی کوتاه ' + kind + ' در دست تکمیل است.')}</p>
+        <p className="article-bio-text">{nameEl} {bio ? bioWithLinks(bio) : ('معرفی کوتاه ' + kind + ' در دست تکمیل است.')}</p>
       </div>
     </div>
   );
