@@ -143,8 +143,7 @@ function AuthorBioBlock({ post }) {
     <div className="article-bio">
       {photo ? <span className="article-bio-avatar"><img src={photo} alt={person} /></span> : null}
       <div className="article-bio-body">
-        <span className="article-bio-label">دربارهٔ {kind}</span>
-        <span className="article-bio-name">{person}</span>
+        <span className="article-bio-name" style={{ color: 'var(--accent)' }}>{person}</span>
         <p className="article-bio-text">{bio ? bioWithLinks(bio) : ('معرفی کوتاه ' + kind + ' در دست تکمیل است.')}</p>
       </div>
     </div>
@@ -573,7 +572,6 @@ function ArticleView({ slug }) {
 
       <div className="article-head">
         <DraftLineH top="2.4rem" right="-6rem" left="-6rem" />
-        <span className="gsn-technical" style={{ color: 'var(--gold-deep)' }}><a href="#/" className="article-cat-link" onClick={(e) => { e.preventDefault(); goToHomeSection(post.tag); }}>{post.tag}</a> · شمارهٔ یکم — پاییز ۲۵۸۵</span>
         <h1 className="gsn-display" style={{ fontSize: '2.4rem', margin: '0.6rem 0 1rem' }}><TitleLines text={post.title} /></h1>
         <div className="article-byline">
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem' }}>
