@@ -33,8 +33,8 @@ function ArchivePage({ tag }) {
 const GOSAN_BOARD = [
   { key: 'hafez', name: 'حافظ باباشاهی', role: 'هیئت تحریریه', craft: 'پیانیست، مدرس موسیقی', img: 'assets/board-hafez.png',
     bio: 'پیانیستِ تک‌نواز و همنواز، آموختهٔ دانشگاه موسیقی وین؛ بنیان‌گذار جشنوارهٔ آواز کلاسیک «وینر لیدر هربست» و مدرس کلاس پیانو در کنسرواتوار ریشارد واگنر وین. از بنیان‌گذاران گاهنامهٔ گوسان.' },
-  { key: 'yalda', name: 'یلدا زمانی', role: 'مدیرمسئول اندیشکدهٔ فرهنگ و هنر گوسان و سردبیر گاهنامهٔ گوسان', craft: 'رهبر ارکستر، آهنگساز', img: 'assets/board-yalda.png',
-    bio: 'رهبر ارکستر ایرانی–آلمانی مقیم برلین و متخصص موسیقی معاصر؛ دستیار رهبر ارکستر آنسامبل اینترکنتمپورن در فیلارمونی پاریس و بنیان‌گذار ارکستر مجلسی اِلبه در هامبورگ. مدیرمسئول اندیشکدهٔ فرهنگ و هنر گوسان و سردبیر گاهنامهٔ گوسان.' },
+  { key: 'yalda', name: 'یلدا زمانی', role: 'مدیرمسئول اندیشکدهٔ فرهنگ و هنر گوسان / سردبیر گاهنامهٔ گوسان', craft: 'رهبر ارکستر، آهنگساز', img: 'assets/board-yalda.png',
+    bio: 'رهبر ارکستر ایرانی–آلمانی مقیم برلین و متخصص موسیقی معاصر؛ دستیار رهبر ارکستر آنسامبل اینترکنتمپورن در فیلارمونی پاریس و بنیان‌گذار ارکستر مجلسی اِلبه در هامبورگ. مدیرمسئول اندیشکدهٔ فرهنگ و هنر گوسان / سردبیر گاهنامهٔ گوسان.' },
   { key: 'ehsan', name: 'احسان شواربی', role: 'مدیر بخش پژوهش', craft: 'باستان‌شناس، سکه‌شناس', img: 'assets/board-ehsan.png',
     bio: 'باستان‌شناس و سکه‌شناس؛ متصدی سکه‌های سدهٔ میانه و شرق در موزهٔ تاریخ هنر وین و پژوهشگر سکه‌شناسی ساسانی و زبان‌ها و کتیبه‌های ایران باستان.' },
   { key: 'sohrab', name: 'سهراب لبیب', role: 'هیئت تحریریه', craft: 'پیانیست، مدرس موسیقی', img: 'assets/board-sohrab.png',
@@ -93,7 +93,7 @@ function Credentials() {
       <h2 className="gsn-display cred-title">شناسنامهٔ شماره</h2>
       <dl className="cred-list">
         <div className="cred-row">
-          <dt>مدیرمسئول اندیشکدهٔ فرهنگ و هنر گوسان و سردبیر گاهنامهٔ گوسان</dt>
+          <dt>مدیرمسئول اندیشکدهٔ فرهنگ و هنر گوسان / سردبیر گاهنامهٔ گوسان</dt>
           <dd>یلدا زمانی</dd>
         </div>
         <div className="cred-row">
@@ -162,7 +162,7 @@ function AboutPage() {
               <dd>اندیشکدهٔ فرهنگ و هنر گوسان<br /><span style={{ direction: 'ltr', display: 'inline-block' }}>Gōsān Institute e.V.</span></dd>
             </div>
             <div className="cred-row">
-              <dt>مدیرمسئول اندیشکدهٔ فرهنگ و هنر گوسان و سردبیر گاهنامهٔ گوسان</dt>
+              <dt>مدیرمسئول اندیشکدهٔ فرهنگ و هنر گوسان / سردبیر گاهنامهٔ گوسان</dt>
               <dd>یلدا زمانی</dd>
             </div>
             <div className="cred-row">
@@ -178,6 +178,25 @@ function AboutPage() {
             </div>
           </dl>
           <span className="about-spine">گوسان، سال یکم، شمارهٔ یکم، پاییز ۲۵۸۵</span>
+        </Reveal>
+      </section>
+
+      <section className="wrap" style={{ maxWidth: '820px', paddingTop: '3.2rem', paddingBottom: '1.2rem' }}>
+        <Reveal>
+          <span className="gsn-technical" style={{ color: 'var(--gold-deep)', display: 'block', textAlign: 'right', marginBottom: '0.7rem' }}>IMAGE CREDITS // ISSUE 01</span>
+          <SectionHead title="اعتبار تصویرها" />
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 2, margin: '0.6rem 0 1.4rem', textAlign: 'justify' }}>
+            تصویرهای روی جلد نوشتارهای این شماره از مجموعه‌های دسترسی آزاد موزه‌ها و آرشیوهای عمومی برگزیده شده‌اند و همه با پردازش یکسان آرشیوی گاهنامه بازنشر می‌شوند.
+          </p>
+          <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+            {GOSAN_POSTS.filter((p) => (window.GOSAN_COVER_ALTS || {})[p.slug]).map((p) => (
+              <li key={p.slug} style={{ fontSize: '0.82rem', lineHeight: 1.95, color: 'var(--text-muted)', padding: '0.45rem 0', borderBottom: '1px dashed var(--line, #CFCCC3)' }}>
+                <a href={`#/article/${p.slug}`} style={{ color: 'var(--ink)', fontWeight: 600, textDecoration: 'none' }}>{p.title}</a>
+                <span style={{ margin: '0 0.4rem' }}>—</span>
+                {window.GOSAN_COVER_ALTS[p.slug]}
+              </li>
+            ))}
+          </ul>
         </Reveal>
       </section>
 

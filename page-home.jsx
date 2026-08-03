@@ -516,4 +516,4 @@ function NcNewsletter({ T }) {
   );
 }
 
-Object.assign(window, { HomePage });
+Object.assign(window, { HomePage, GOSAN_COVERS, GOSAN_COVER_ALTS });
