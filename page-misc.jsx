@@ -181,25 +181,6 @@ function AboutPage() {
         </Reveal>
       </section>
 
-      <section className="wrap" style={{ maxWidth: '820px', paddingTop: '3.2rem', paddingBottom: '1.2rem' }}>
-        <Reveal>
-          <span className="gsn-technical" style={{ color: 'var(--gold-deep)', display: 'block', textAlign: 'right', marginBottom: '0.7rem' }}>IMAGE CREDITS // ISSUE 01</span>
-          <SectionHead title="اعتبار تصویرها" />
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 2, margin: '0.6rem 0 1.4rem', textAlign: 'justify' }}>
-            تصویرهای روی جلد نوشتارهای این شماره از مجموعه‌های دسترسی آزاد موزه‌ها و آرشیوهای عمومی برگزیده شده‌اند و همه با پردازش یکسان آرشیوی گاهنامه بازنشر می‌شوند.
-          </p>
-          <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
-            {GOSAN_POSTS.filter((p) => (window.GOSAN_COVER_ALTS || {})[p.slug]).map((p) => (
-              <li key={p.slug} style={{ fontSize: '0.82rem', lineHeight: 1.95, color: 'var(--text-muted)', padding: '0.45rem 0', borderBottom: '1px dashed var(--line, #CFCCC3)' }}>
-                <a href={`#/article/${p.slug}`} style={{ color: 'var(--ink)', fontWeight: 600, textDecoration: 'none' }}>{p.title}</a>
-                <span style={{ margin: '0 0.4rem' }}>—</span>
-                {window.GOSAN_COVER_ALTS[p.slug]}
-              </li>
-            ))}
-          </ul>
-        </Reveal>
-      </section>
-
       <section className="board-section">
         <div className="wrap" style={{ maxWidth: '1100px', paddingTop: '4.5rem', paddingBottom: '4.5rem', position: 'relative', zIndex: 1 }}>
           <Reveal>
@@ -315,6 +296,20 @@ function ImpressumPage() {
           <div style={label}>مسئول محتوا · Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</div>
           <p style={line}>Yalda Zamani</p>
           <p style={line}>Friedrichstr. 155, 10117 Berlin, Germany</p>
+
+          <div style={label}>اعتبار تصویرها · Bildnachweise</div>
+          <p style={{ fontSize: '0.78rem', lineHeight: 1.95, color: 'var(--text-muted)', margin: '0 0 0.7rem', textAlign: 'justify' }}>
+            تصویرهای روی جلد نوشتارها از مجموعه‌های دسترسی آزاد موزه‌ها و آرشیوهای عمومی برگزیده شده‌اند و با پردازش یکسان آرشیوی گاهنامه بازنشر می‌شوند:
+          </p>
+          <ul style={{ listStyle: 'none', margin: '0 0 0.5rem', padding: 0 }}>
+            {GOSAN_POSTS.filter((p) => (window.GOSAN_COVER_ALTS || {})[p.slug]).map((p) => (
+              <li key={p.slug} style={{ fontSize: '0.72rem', lineHeight: 1.9, color: 'var(--text-muted)', padding: '0.28rem 0', borderBottom: '1px dashed var(--line, #CFCCC3)' }}>
+                <a href={`#/article/${p.slug}`} style={{ color: 'var(--ink)', textDecoration: 'none' }}>{p.title}</a>
+                <span style={{ margin: '0 0.35rem' }}>—</span>
+                {window.GOSAN_COVER_ALTS[p.slug]}
+              </li>
+            ))}
+          </ul>
 
           <MotifDivider style={{ margin: '2.6rem 0 1.4rem' }} />
           <p style={{ fontSize: '0.82rem', lineHeight: 1.95, color: 'var(--text-muted)', textAlign: 'justify' }}>
