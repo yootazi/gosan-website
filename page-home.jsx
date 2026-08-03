@@ -72,8 +72,36 @@ function postFor(slug, lang) {
 /* Home-page cover photos use a black-and-white halftone treatment (separate
    files); the same photos appear inside the articles in their original form. */
 const GOSAN_COVERS = {
-  /* essay photos removed from the landing page by the editor-in-chief (2 Aug 2026);
-     the photos remain inside the essay pages themselves. */
+  /* landing covers — archival duotone system, variant A (warm ink), approved by the
+     editor-in-chief 3 Aug 2026. All images public-domain/CC from museum open-access
+     collections; credits in GOSAN_COVER_ALTS. */
+  'manichaean-music-terms': 'uploads/covers/manichaean-music-terms.jpg',
+  'herzfeld-german-archives': 'uploads/covers/herzfeld-german-archives.jpg',
+  'oil-to-narrative': 'uploads/covers/oil-to-narrative.jpg',
+  'interview-farnaz-modarresifar': 'uploads/covers/interview-farnaz-modarresifar.jpg',
+  'music-totalitarian-regimes': 'uploads/covers/music-totalitarian-regimes.jpg',
+  'beyzaie-myth-symbolic-action': 'uploads/covers/beyzaie-myth-symbolic-action.jpg',
+  'between-two-defeats': 'uploads/covers/between-two-defeats.jpg',
+  'azarkeyvani-creation-myth': 'uploads/covers/azarkeyvani-creation-myth.jpg',
+  'who-is-the-gosan': 'uploads/covers/who-is-the-gosan.jpg',
+  'farabi-music-politics': 'uploads/covers/farabi-music-politics.jpg',
+  'note-for-gosan': 'uploads/covers/note-for-gosan.jpg',
+  'crossroads-ahead': 'uploads/covers/crossroads-ahead.jpg',
+};
+
+const GOSAN_COVER_ALTS = {
+  'manichaean-music-terms': 'برگ مصور مانوی-اویغوری، تورفان (MIK III 4959) — موزهٔ هنر آسیایی برلین، CC0',
+  'herzfeld-german-archives': 'پاسارگاد، کاخ P پیش از کاوش — عکس ارنست هرتسفلد، آرشیو فریر-سکلر',
+  'oil-to-narrative': 'چاه نفت در ایران، حدود دههٔ ۱۹۱۰ — عکس A. P. Godber',
+  'interview-farnaz-modarresifar': 'فرناز مدرسی‌فر در ویلای مدیچی، ۲۰۲۵ — عکس: فرید مدرسی‌فر',
+  'music-totalitarian-regimes': 'ویلهلم فورتونگلر در کنسرت کارخانهٔ آ.ا.گ، برلین — Bundesarchiv Bild 183-L0607-504, CC BY-SA 3.0 DE',
+  'beyzaie-myth-symbolic-action': 'بهرام بیضایی — عکس: shaigan، خبرگزاری فارس، CC BY 4.0',
+  'between-two-defeats': 'خیابان چراغ‌گاز، تهران، حدود ۱۲۶۰ خورشیدی — عکس آنتوان سوریوگین',
+  'azarkeyvani-creation-myth': 'برگ نخست دست‌نویس وندیداد — CC0',
+  'who-is-the-gosan': 'بشقاب سیمین ساسانی با نقش نوازندگان، سدهٔ هفتم میلادی',
+  'farabi-music-politics': 'نگارهٔ ساز شاهرود از دست‌نویس کتاب الموسیقی الکبیر فارابی',
+  'note-for-gosan': 'سرلوحهٔ شمارهٔ نخست مجلهٔ کاوه، برلین، ۱۹۱۶',
+  'crossroads-ahead': 'رضاشاه در راه‌آهن سراسری ایران',
 };
 
 /* split a two-part title at «:» or «؛» and drop the second part to a new line.
@@ -102,7 +130,7 @@ function Slot({ slug, lang, ph }) {
   return (
     <div className="nc-img-wrap">
       {cover
-        ? <img className="nc-cover-img" src={cover} alt="" loading="lazy" />
+        ? <img className="nc-cover-img" src={cover} alt={GOSAN_COVER_ALTS[slug] || ''} title={GOSAN_COVER_ALTS[slug] || ''} />
         : React.createElement('image-slot', { id: `slot-${lang}-${slug}`, placeholder: ph, shape: 'rect' })}
     </div>
   );
@@ -370,7 +398,7 @@ function NcCarousel({ slides, lang, T }) {
           {slides.map((s, i) => (
             <div key={s.slug} className={`nc-carousel-slide-media ${i === active ? 'is-active' : ''}`} aria-hidden={i !== active}>
               {GOSAN_COVERS[s.slug]
-                ? <img className="nc-cover-img" src={GOSAN_COVERS[s.slug]} alt="" loading="lazy" />
+                ? <img className="nc-cover-img" src={GOSAN_COVERS[s.slug]} alt={GOSAN_COVER_ALTS[s.slug] || ''} title={GOSAN_COVER_ALTS[s.slug] || ''} />
                 : React.createElement('image-slot', { id: `slot-carousel-${lang}-${s.slug}`, placeholder: T.slotPh, shape: 'rect' })}
             </div>
           ))}
