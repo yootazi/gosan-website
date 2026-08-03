@@ -1746,3 +1746,19 @@ body[data-motion="off"] .nc-carousel-slide-media img { transition: none !importa
   .nc-row:hover, .nc-popular li a:hover, .nc-mast-cover:hover, .nc-support-btn:hover, .nav-search:hover { transform: none; }
 }
 
+
+/* --- cover credit badge: tiny info circle on cover images (3 Aug 2026) --- */
+.nc-img-wrap { position: relative; }
+.cover-credit { position: absolute; bottom: 8px; left: 8px; z-index: 3; direction: ltr; }
+.cover-credit-btn { width: 17px; height: 17px; border-radius: 50%; border: none; cursor: help;
+  display: flex; align-items: center; justify-content: center; padding: 0;
+  background: rgba(24,23,20,0.28); color: rgba(255,255,255,0.85);
+  font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 10.5px; line-height: 1;
+  opacity: 0.45; transition: opacity 0.25s ease, background 0.25s ease; }
+.cover-credit:hover .cover-credit-btn, .cover-credit-btn:focus-visible { opacity: 1; background: rgba(24,23,20,0.55); outline: none; }
+.cover-credit-tip { position: absolute; bottom: 24px; left: 0; width: max-content; max-width: 265px;
+  background: rgba(28,26,23,0.93); color: #EAEAE6; font-size: 0.66rem; line-height: 1.85;
+  padding: 0.45rem 0.7rem; border-radius: 3px; direction: rtl; text-align: right;
+  opacity: 0; visibility: hidden; transform: translateY(3px); pointer-events: none; z-index: 4;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s; }
+.cover-credit:hover .cover-credit-tip, .cover-credit:focus-within .cover-credit-tip { opacity: 1; visibility: visible; transform: none; }

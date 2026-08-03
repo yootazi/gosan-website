@@ -125,12 +125,24 @@ function TitleLines({ text }) {
   return sub ? <React.Fragment>{main}<span className="title-sub">{sub}</span></React.Fragment> : <React.Fragment>{text}</React.Fragment>;
 }
 
+
+function CoverCredit({ slug }) {
+  const text = GOSAN_COVER_ALTS[slug];
+  if (!text) return null;
+  return (
+    <span className="cover-credit">
+      <button type="button" className="cover-credit-btn" aria-label={'اعتبار تصویر: ' + text}>i</button>
+      <span className="cover-credit-tip" role="tooltip">{text}</span>
+    </span>
+  );
+}
+
 function Slot({ slug, lang, ph }) {
   const cover = GOSAN_COVERS[slug];
   return (
     <div className="nc-img-wrap">
       {cover
-        ? <img className="nc-cover-img" src={cover} alt={GOSAN_COVER_ALTS[slug] || ''} title={GOSAN_COVER_ALTS[slug] || ''} />
+        ? <React.Fragment><img className="nc-cover-img" src={cover} alt={GOSAN_COVER_ALTS[slug] || ''} /><CoverCredit slug={slug} /></React.Fragment>
         : React.createElement('image-slot', { id: `slot-${lang}-${slug}`, placeholder: ph, shape: 'rect' })}
     </div>
   );
@@ -398,7 +410,7 @@ function NcCarousel({ slides, lang, T }) {
           {slides.map((s, i) => (
             <div key={s.slug} className={`nc-carousel-slide-media ${i === active ? 'is-active' : ''}`} aria-hidden={i !== active}>
               {GOSAN_COVERS[s.slug]
-                ? <img className="nc-cover-img" src={GOSAN_COVERS[s.slug]} alt={GOSAN_COVER_ALTS[s.slug] || ''} title={GOSAN_COVER_ALTS[s.slug] || ''} />
+                ? <React.Fragment><img className="nc-cover-img" src={GOSAN_COVERS[s.slug]} alt={GOSAN_COVER_ALTS[s.slug] || ''} /><CoverCredit slug={s.slug} /></React.Fragment>
                 : React.createElement('image-slot', { id: `slot-carousel-${lang}-${s.slug}`, placeholder: T.slotPh, shape: 'rect' })}
             </div>
           ))}
