@@ -22,6 +22,7 @@ function parseHash() {
   if (parts[0] === 'shivenameh') return { page: 'shivenameh', param: '' };
   if (parts[0] === 'thinktank') return { page: 'thinktank', param: '' };
   if (parts[0] === 'impressum') return { page: 'impressum', param: '' };
+  if (parts[0] === 'datenschutz') return { page: 'datenschutz', param: '' };
   return { page: 'home', param: '' };
 }
 
@@ -47,6 +48,7 @@ const PAGE_TITLES = {
   shivenameh: 'گوسان — شیوه‌نامه',
   thinktank: 'گوسان — اندیشکدهٔ فرهنگ و هنر',
   impressum: 'گوسان — اطلاعات ناشر (Impressum)',
+  datenschutz: 'گوسان — حفاظت از داده‌ها (Datenschutz)',
 };
 
 // The think tank is its own multi-page site (institute-v3*), but the link is
@@ -132,6 +134,7 @@ function App() {
          route.page === 'contact' ? <ContactPage /> :
          route.page === 'shivenameh' ? <ShivenamehPage /> :
          route.page === 'impressum' ? <ImpressumPage /> :
+         route.page === 'datenschutz' ? <DatenschutzPage /> :
          route.page === 'thinktank' ? <ThinktankRedirect lang={lang} /> :
          <HomePage lang={lang} />}
       </div>

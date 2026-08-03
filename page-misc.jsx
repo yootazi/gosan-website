@@ -326,4 +326,70 @@ function ImpressumPage() {
   );
 }
 
-Object.assign(window, { ArchivePage, AboutPage, ContactPage, ImpressumPage });
+function DatenschutzPage() {
+  const label = { fontSize: '0.72rem', letterSpacing: '0.09em', color: 'var(--gold-deep)', textTransform: 'uppercase', fontWeight: 700, margin: '1.9rem 0 0.55rem' };
+  const line = { fontSize: '0.98rem', lineHeight: 2, color: 'var(--ink)', margin: '0 0 0.3rem', direction: 'ltr', textAlign: 'right' };
+  const para = { fontSize: '0.92rem', lineHeight: 2.05, color: 'var(--ink)', margin: '0 0 1rem', textAlign: 'justify' };
+  const mail = { direction: 'ltr', display: 'inline-block', borderBottom: '1px solid var(--gold)', fontWeight: 500 };
+  const ext = { direction: 'ltr', display: 'inline-block', borderBottom: '1px solid var(--gold)', fontSize: '0.85rem', wordBreak: 'break-all' };
+  return (
+    <main data-screen-label="Datenschutz">
+      <PageTitle technical="DATENSCHUTZ // GOSAN" title="حفاظت از داده‌ها — Datenschutzerklärung" lede="پردازش داده‌ها در این وب‌سایت، بر پایهٔ DSGVO و TDDDG" />
+      <div className="wrap" style={{ maxWidth: '760px', paddingBottom: '5rem' }}>
+        <Reveal>
+          <p style={para}>
+            این صفحه شرح می‌دهد که هنگام بازدید از وب‌سایت گاهنامهٔ گوسان چه داده‌هایی پردازش می‌شود، به چه منظور و بر کدام مبنای حقوقی — و شما در برابر آن چه حقوقی دارید. مبنای این اعلامیه، مقررات عمومی حفاظت از داده‌های اتحادیهٔ اروپا (DSGVO) و قانون آلمانی TDDDG است.
+          </p>
+          <p style={para}>
+            این وب‌سایت یک سایت ایستاست: نه کوکی می‌گذارد، نه آمارگیری و ردیابی می‌کند و نه محتوایی از سرویس‌های ثالث بارگذاری می‌کند. قلم‌ها و پرونده‌های رسانه‌ای همگی از خود سایت بارگیری می‌شوند.
+          </p>
+
+          <div style={label}>مسئول پردازش داده‌ها · Verantwortlicher</div>
+          <p style={line}>Gōsān Institute e.V.</p>
+          <p style={line}>Friedrichstr. 155</p>
+          <p style={line}>10117 Berlin, Germany</p>
+          <p style={line}>Vertreten durch: Yalda Zamani</p>
+          <p style={line}>E-Mail: <a href="mailto:info@gosan.org" style={mail}>info@gosan.org</a></p>
+
+          <div style={label}>میزبانی وب‌سایت · Hosting (GitHub Pages)</div>
+          <p style={para}>
+            این وب‌سایت روی GitHub Pages میزبانی می‌شود؛ سرویسی از شرکت GitHub, Inc. (ایالات متحدهٔ آمریکا). با هر بار باز شدن صفحه، سرورهای GitHub به‌طور خودکار داده‌های فنی اتصال را دریافت می‌کنند: نشانی IP، شناسهٔ مرورگر (User-Agent) و زمان درخواست. این داده‌ها برای نمایش سایت و تأمین امنیت فنی آن لازم است. مبنای حقوقی: Art. 6 Abs. 1 lit. f DSGVO — منافع مشروع ما در ارائهٔ پایدار و امن وب‌سایت.
+          </p>
+          <p style={para}>
+            GitHub, Inc. زیر «چارچوب حریم دادهٔ اتحادیهٔ اروپا و آمریکا» (EU-US Data Privacy Framework) گواهی شده است؛ انتقال داده به آمریکا از این رو بر تصمیم کفایت کمیسیون اروپا (Art. 45 DSGVO) استوار است. جزئیات پردازش نزد GitHub در اعلامیهٔ حریم خصوصی خود GitHub آمده است:{' '}
+            <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer" style={ext}>docs.github.com/…/github-general-privacy-statement</a>
+          </p>
+
+          <div style={label}>تماس با ما · Kontakt per E-Mail</div>
+          <p style={para}>
+            فرم تماس این وب‌سایت تنها برنامهٔ ایمیل خود شما را باز می‌کند (پیوند mailto:)؛ خود وب‌سایت هیچ داده‌ای دریافت یا ذخیره نمی‌کند. آنچه با ایمیل برای ما بفرستید، تنها برای پاسخ‌گویی و پیگیری همان مکاتبه پردازش می‌شود (Art. 6 Abs. 1 lit. b und f DSGVO) و به کسی واگذار نمی‌شود. پس از پایان مکاتبه، ایمیل‌ها حذف می‌شوند، مگر آنکه نگهداری آنها تکلیف قانونی باشد.
+          </p>
+
+          <div style={label}>خبرنامه · Newsletter</div>
+          <p style={para}>
+            در وب‌سایت فرمی برای عضویت در خبرنامه هست. نشانی ایمیلی که ثبت می‌کنید تنها برای فرستادن خبرنامه ذخیره و به‌کار می‌رود و به هیچ منظور دیگری پردازش نمی‌شود. مبنای حقوقی: رضایت شما (Art. 6 Abs. 1 lit. a DSGVO). این رضایت را هر زمان می‌توانید پس بگیرید — با پیامی به info@gosan.org یا از راه لغو عضویت در خود خبرنامه. پس از آن، نشانی شما حذف می‌شود. پس گرفتن رضایت، به قانونی بودن پردازشی که پیش از آن انجام شده خدشه‌ای نمی‌زند.
+          </p>
+
+          <div style={label}>حافظهٔ مرورگر — بدون کوکی · Browser-Speicher (keine Cookies)</div>
+          <p style={para}>
+            این وب‌سایت کوکی نمی‌گذارد و هیچ ابزار آمارگیری یا ردیابی به‌کار نمی‌برد. تنها از حافظهٔ مرورگر شما (sessionStorage / localStorage) برای کارکردهای فنی استفاده می‌شود: نگه داشتن جای پیمایش صفحه و وضعیت ظاهری سایت. در این حافظه هیچ دادهٔ شخصی ذخیره نمی‌شود؛ محتوای آن در مرورگر خود شما می‌ماند و هرگز به ما یا دیگری فرستاده نمی‌شود. این ذخیره‌سازی برای کارکرد سایت ضروری است و بنابر § 25 Abs. 2 Nr. 2 TDDDG نیازی به رضایت ندارد؛ از همین روست که این سایت بنر کوکی ندارد.
+          </p>
+
+          <div style={label}>حقوق شما · Ihre Rechte als betroffene Person</div>
+          <p style={para}>
+            دربارهٔ داده‌های شخصی خود، این حقوق را دارید: دسترسی (Art. 15)، تصحیح (Art. 16)، حذف (Art. 17)، محدود کردن پردازش (Art. 18)، انتقال داده‌ها (Art. 20)، اعتراض به پردازشِ مبتنی بر منافع مشروع (Art. 21)، پس گرفتن رضایت در هر زمان بدون اثر بر پردازش پیشین (Art. 7 Abs. 3) و شکایت نزد مرجع نظارتی (Art. 77 DSGVO). برای به‌کار بستن این حقوق کافی است به <a href="mailto:info@gosan.org" style={mail}>info@gosan.org</a> بنویسید.
+          </p>
+          <p style={para}>
+            مرجع نظارتی صلاحیت‌دار برای شکایت: Berliner Beauftragte für Datenschutz und Informationsfreiheit (BlnBDI)، Alt-Moabit 59–61, 10555 Berlin —{' '}
+            <a href="https://www.datenschutz-berlin.de" target="_blank" rel="noopener noreferrer" style={ext}>datenschutz-berlin.de</a>
+          </p>
+
+          <MotifDivider style={{ margin: '2.6rem 0 1.4rem' }} />
+          <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>آخرین بازنگری: اوت ۲۰۲۶ · Stand: August 2026</p>
+        </Reveal>
+      </div>
+    </main>
+  );
+}
+
+Object.assign(window, { ArchivePage, AboutPage, ContactPage, ImpressumPage, DatenschutzPage });
