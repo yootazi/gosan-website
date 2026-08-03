@@ -159,7 +159,7 @@ function AboutPage() {
           <dl className="cred-list">
             <div className="cred-row">
               <dt>صاحب امتیاز</dt>
-              <dd>اندیشکدهٔ فرهنگ و هنر گوسان</dd>
+              <dd>اندیشکدهٔ فرهنگ و هنر گوسان<br /><span style={{ direction: 'ltr', display: 'inline-block' }}>Gōsān Institute e.V.</span></dd>
             </div>
             <div className="cred-row">
               <dt>مدیرمسئول اندیشکدهٔ فرهنگ و هنر گوسان و سردبیر گاهنامهٔ گوسان</dt>
