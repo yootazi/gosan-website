@@ -4,7 +4,7 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
-| `note-for-gosan` | احسان | ۱۴۰۵/۵/۱۳، ۲۲:۵۲ | ۸۹ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/note-for-gosan.md) |
+| `note-for-gosan` | احسان | ۱۴۰۵/۵/۱۳، ۲۳:۰۲ | ۱۴۰ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/note-for-gosan.md) |
 | `crossroads-ahead` | احسان | ۱۴۰۵/۵/۱۳، ۲۲:۴۴ | ۱۱۵ | تأییدشده | [دیدن](approved/crossroads-ahead.md) |
 | `manichaean-music-terms` | احسان | ۱۴۰۵/۵/۱۳، ۲۱:۴۵ | ۸۴ | تأییدشده | [دیدن](approved/manichaean-music-terms.md) |
 
