@@ -322,7 +322,7 @@ function TableOfContents({ articleRef, slug }) {
   return (
     <nav className="article-toc" aria-label="فهرست مطالب">
       <span className="article-toc-head">فهرست</span>
-      <ol style={items.some((it) => /^[\u0600-\u06FF]{1,3}[.)\u061B]\s/.test(it.text)) ? { listStyle: 'none', paddingRight: 0 } : undefined}>
+      <ol>
         {items.map((it) => (
           <li key={it.id}><a href={'#' + it.id} onClick={(e) => jump(e, it.id)}>{it.text}</a></li>
         ))}
