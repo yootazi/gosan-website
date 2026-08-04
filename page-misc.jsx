@@ -387,4 +387,74 @@ function DatenschutzPage() {
   );
 }
 
-Object.assign(window, { ArchivePage, AboutPage, ContactPage, ImpressumPage, DatenschutzPage });
+
+/* donation configuration — set the PayPal link to activate the button
+   (PayPal.Me link or hosted-button URL of the institute account) */
+const GOSAN_DONATE = {
+  paypal: '',            // e.g. 'https://www.paypal.com/donate/?hosted_button_id=…'
+  iban: '',              // filled after Registereintragung + bank account
+};
+
+function SupportPage() {
+  const label = { fontSize: '0.72rem', letterSpacing: '0.09em', color: 'var(--gold-deep)', textTransform: 'uppercase', fontWeight: 700, margin: '2rem 0 0.6rem' };
+  const para = { fontSize: '0.95rem', lineHeight: 2.05, color: 'var(--ink)', margin: '0 0 1rem', textAlign: 'justify' };
+  const note = { fontSize: '0.85rem', lineHeight: 2, color: 'var(--text-muted)', margin: '0 0 1rem', textAlign: 'justify' };
+  const payBtn = {
+    display: 'inline-block', padding: '0.7rem 2.2rem', border: '1px solid var(--ink)',
+    background: GOSAN_DONATE.paypal ? 'var(--ink)' : 'var(--surface-band)',
+    color: GOSAN_DONATE.paypal ? 'var(--paper, #EAEAE6)' : 'var(--text-muted)',
+    fontWeight: 600, textDecoration: 'none', cursor: GOSAN_DONATE.paypal ? 'pointer' : 'default',
+  };
+  return (
+    <main data-screen-label="حمایت از گوسان">
+      <PageTitle technical="SUPPORT // GOSAN" title="حمایت از گوسان" lede="گاهنامه و اندیشکده تنها با پشتیبانی خوانندگان سر پا می‌مانند" />
+      <div className="wrap" style={{ maxWidth: '760px', paddingBottom: '5rem' }}>
+        <Reveal>
+          <p style={para}>
+            گوسان نه آگهی می‌پذیرد و نه بودجه‌ای از جایی می‌گیرد. هزینهٔ گاهنامه و اندیشکده — حق‌التحریر نویسندگان و پژوهشگران، دستمزد تحریریه و هزینه‌های فنی — یکسره از کمک‌های مردمی تأمین می‌شود. هیچ حامی‌ای بر محتوا اثر نمی‌گذارد و هیچ یافته‌ای را پیش از انتشار نمی‌بیند.
+          </p>
+
+          <div style={{ border: '1px solid var(--gold)', padding: '1rem 1.3rem', margin: '1.4rem 0' }}>
+            <p style={{ ...note, margin: 0 }}>
+              انجمن گوسان (Gōsān Institute e.V.) در آستانهٔ ثبت رسمی در برلین است. دریافت کمک‌های مالی پس از ثبت انجمن و گشایش حساب بانکی آغاز می‌شود؛ این صفحه راه‌های کمک را از هم‌اکنون معرفی می‌کند.
+            </p>
+          </div>
+
+          <div style={label}>پی‌پال · PayPal</div>
+          {GOSAN_DONATE.paypal
+            ? <p style={para}><a href={GOSAN_DONATE.paypal} target="_blank" rel="noopener noreferrer" style={payBtn}>کمک از راه PayPal</a></p>
+            : <React.Fragment>
+                <p style={para}><span style={payBtn}>کمک از راه PayPal</span></p>
+                <p style={note}>پرداخت با PayPal و کارت‌های بانکی بین‌المللی از زمان راه‌اندازی رسمی فعال می‌شود.</p>
+              </React.Fragment>}
+
+          <div style={label}>انتقال بانکی · Überweisung</div>
+          <p style={note}>
+            شماره حساب انجمن (IBAN) پس از ثبت رسمی و گشایش حساب، در همین صفحه اعلام می‌شود.
+          </p>
+
+          <div style={label}>حامیان در آلمان</div>
+          <p style={note}>
+            پس از تأیید عام‌المنفعگی از سوی ادارهٔ دارایی (§ 60a AO)، برای کمک‌ها گواهی مالیاتی (Zuwendungsbestätigung) صادر خواهد شد. تا آن زمان کمک پذیرفته می‌شود، اما گواهی ندارد.
+          </p>
+
+          <div style={label}>حامیان در آمریکا · U.S. Donors</div>
+          <p style={note}>
+            کمک با کارت بانکی و PayPal از آمریکا بی‌دردسر ممکن است. کسر مالیاتی آمریکا (tax-deductible) هنوز برقرار نیست؛ پس از تأیید عام‌المنفعگی، مسیر کمک کسرپذیر از راه صندوق دوستان آمریکایی (American Friends Fund) برقرار و همین‌جا اعلام می‌شود.
+          </p>
+
+          <div style={label}>شفافیت · Transparenz</div>
+          <p style={note}>
+            برآورد نیاز سالانهٔ گاهنامه و اندیشکده حدود ۴۸ هزار یورو است: حق‌التحریر نوشتارها و مقاله‌های پژوهشی، دستمزد تحریریه و هزینه‌های فنی (میزبانی، ابزارها). منابع مالی سالانه اعلام می‌شود.
+          </p>
+
+          <MotifDivider style={{ margin: '2.4rem 0 1.2rem' }} />
+          <p style={note}>پرسش دربارهٔ حمایت، کمک نهادی یا همکاری: <a href="mailto:info@gosan.org" style={{ direction: 'ltr', display: 'inline-block', borderBottom: '1px solid var(--gold)', fontWeight: 500 }}>info@gosan.org</a></p>
+        </Reveal>
+      </div>
+    </main>
+  );
+}
+
+
+Object.assign(window, { ArchivePage, AboutPage, ContactPage, ImpressumPage, DatenschutzPage, SupportPage });

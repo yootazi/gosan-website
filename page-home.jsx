@@ -351,7 +351,7 @@ function HomePage({ lang = 'fa', onToggleLang }) {
             <span className="nc-kicker">{T.edK}</span>
             <h4>{T.edH}</h4>
             <p>{T.edP}</p>
-            <Button variant="gold" size="sm" href="#/about">{T.edBtn}</Button>
+            <Button variant="gold" size="sm" href="#/support">{T.edBtn}</Button>
           </div>
         </aside>
       </div>
@@ -382,7 +382,7 @@ function NcFloatingNav({ en }) {
         ))}
       </div>
       <div className="nc-topics-controls">
-        <a className="nc-support-btn" href="#/about">حمایت از ما</a>
+        <a className="nc-support-btn" href="#/support">حمایت از ما</a>
         <button
           className="nav-search"
           onClick={() => window.dispatchEvent(new Event('gosan:search'))}
