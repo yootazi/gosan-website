@@ -45,7 +45,7 @@ function SiteHeader({ active, lang = 'fa', onToggleLang }) {
               <a
                 href="#/thinktank"
                 className={`nav-think${isActive('#/thinktank') ? ' is-active' : ''}`}
-              >{en ? 'The Gosan Think Tank' : 'اندیشکدهٔ فرهنگ و هنر گوسان'}</a>
+              >{en ? 'The Gōsān Think Tank' : 'اندیشکدهٔ فرهنگ و هنر گوسان'}</a>
             </li>
           </ul>
         </nav>

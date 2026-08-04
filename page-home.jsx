@@ -43,15 +43,15 @@ const HOME_T = {
     interviews: 'Interviews', interviewsMore: 'All interviews →', poetry: 'Poetry',
     memoriam: 'Memoriam', memoriamMore: 'All memorials →', popular: 'Most Popular',
     coverH: 'Issue No. 1 is here', coverP: 'Essays, interviews, and memorials on the culture, art, and heritage of Iran.', coverBtn: 'Get the print edition',
-    newsK: 'NEWSLETTER', newsH: 'The Gosan Letter', newsP: 'A seasonal selection of essays and interviews, straight to your inbox.', newsBtn: 'Join', newsOk: 'Thank you — your address is registered.',
-    edK: 'A MESSAGE FROM THE EDITORS', edH: 'Join us in preserving the culture & art of Iran.', edP: 'Your support keeps Gosan’s storytelling alive.', edBtn: 'Support us',
+    newsK: 'NEWSLETTER', newsH: 'The Gōsān Letter', newsP: 'A seasonal selection of essays and interviews, straight to your inbox.', newsBtn: 'Join', newsOk: 'Thank you — your address is registered.',
+    edK: 'A MESSAGE FROM THE EDITORS', edH: 'Join us in preserving the culture & art of Iran.', edP: 'Your support keeps Gōsān’s storytelling alive.', edBtn: 'Support us',
     slotPh: 'Drop an image',
     latestK: 'Latest',
-    manK: 'The Gosan Manifesto',
+    manK: 'The Gōsān Manifesto',
     manLead: 'Gōsān is the name of those ancient minstrels and narrators who kept the history and legend of this land safe from oblivion, in the brocade of verse and song.',
     manBody: [
       'We took this name to carry the same charge: to tell the story of Iran’s culture, art, and heritage as it deserves to be told — not with a blind nostalgia for the past, but with a clear eye on the present.',
-      'Gosan is not a museum, nor a mourner of bygone days. It is a living review that bridges tradition and now — from the miniature to the new poetry, from the musical radif to the architecture of old alleys.',
+      'Gōsān is not a museum, nor a mourner of bygone days. It is a living review that bridges tradition and now — from the miniature to the new poetry, from the musical radif to the architecture of old alleys.',
       'Our belief is simple: a culture that is not narrated is forgotten. And we have come to narrate it.',
     ],
     topics: [['Essays', '#/archive/جستار'], ['Interviews', '#/archive/گفتگو'], ['Memoriam', '#/archive/یادمان'], ['Notes', '#/archive/یادداشت آزاد'], ['Style', '#/shivenameh'], ['Think Tank', '#/thinktank']],
@@ -339,7 +339,7 @@ function HomePage({ lang = 'fa', onToggleLang }) {
           </div>
 
           <div className="nc-aside-block nc-cover-card">
-            <img src="assets/issue-cover.jpg" alt={en ? 'Gosan, Issue No. 1' : 'جلد شمارهٔ یکم گوسان'} />
+            <img src="assets/issue-cover.jpg" alt={en ? 'Gōsān, Issue No. 1' : 'جلد شمارهٔ یکم گوسان'} />
             <h4>{T.coverH}</h4>
             <p>{T.coverP}</p>
             <Button>{T.coverBtn}</Button>
@@ -371,7 +371,7 @@ function NcFloatingNav({ en }) {
   return (
     <nav className={`nc-topics${navStuck ? ' is-stuck' : ''}`}>
       <div className="nc-topics-main">
-        <a href="#/thinktank" className="nav-think">{en ? 'The Gosan Think Tank' : 'اندیشکدهٔ فرهنگ و هنر گوسان'}</a>
+        <a href="#/thinktank" className="nav-think">{en ? 'The Gōsān Think Tank' : 'اندیشکدهٔ فرهنگ و هنر گوسان'}</a>
         <span className="nc-topics-sep"></span>
         {NAV_ITEMS.map((it) => (
           <a
