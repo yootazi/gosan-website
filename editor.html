@@ -239,6 +239,17 @@
       sel.appendChild(o);
     });
     status((sel.options.length-1)+' جستار در فهرست');
+    /* mark essays whose edit has been finished (approved override on the site) —
+       re-editing stays possible; a second پایان ویرایش simply opens a new PR */
+    Array.prototype.forEach.call(sel.options, function(o){
+      if(!o.value) return;
+      fetch('content-overrides/'+o.value+'.json', {cache:'no-cache'}).then(function(r){
+        if(r.ok){ if(o.textContent.indexOf('✓ ')!==0) o.textContent='✓ '+o.textContent; return null; }
+        return fetch('web-edits/pending/'+o.value+'.json', {cache:'no-cache'});
+      }).then(function(r2){
+        if(r2 && r2.ok && o.textContent.indexOf('✓ ')!==0 && o.textContent.indexOf('● ')!==0) o.textContent='● '+o.textContent;
+      }).catch(function(){});
+    });
   });
 
   function article(){ try{return frame.contentDocument.querySelector('article')}catch(e){return null} }
