@@ -263,7 +263,7 @@ function ListenBar({ getText }) {
       </button>
       <div className="listen-body">
         <div className="listen-top">
-          <span className="listen-label">نسخهٔ صوتی این نوشتار به‌زودی</span>
+          <span className="listen-label">نسخهٔ صوتی</span>
         </div>
         <div className="listen-track">
           <span className="listen-fill" style={{ width: '0%' }}></span>
@@ -322,7 +322,7 @@ function TableOfContents({ articleRef, slug }) {
   return (
     <nav className="article-toc" aria-label="فهرست مطالب">
       <span className="article-toc-head">فهرست</span>
-      <ol>
+      <ol style={items.some((it) => /^[\u0600-\u06FF]{1,3}[.)\u061B]\s/.test(it.text)) ? { listStyle: 'none', paddingRight: 0 } : undefined}>
         {items.map((it) => (
           <li key={it.id}><a href={'#' + it.id} onClick={(e) => jump(e, it.id)}>{it.text}</a></li>
         ))}
