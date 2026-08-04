@@ -1336,12 +1336,12 @@ body[data-motion="off"] .tt-wave span { animation: none !important; }
 .nc-topic-link.is-active { font-weight: 700; }
 
 /* --- latest-articles carousel (hero) --- */
-.nc-carousel { max-width: 1180px; margin: 0 auto; padding-top: 2rem; }
-.nc-carousel-inner { display: grid; grid-template-columns: 1.9fr 1fr; gap: 1.3rem; align-items: start; }
+.nc-carousel { max-width: 1000px; margin: 0 auto; padding-top: 2rem; }
+.nc-carousel-inner { display: grid; grid-template-columns: 1.9fr 1fr; gap: 1rem; align-items: start; border-top: 3px solid var(--ink); padding-top: 1rem; }
 .nc-carousel-text {
   position: relative; min-width: 0;
   display: flex; flex-direction: column; justify-content: flex-start;
-  padding: 1rem 0 0; border-top: 3px solid var(--ink);
+  padding: 0;
 }
 .nc-carousel-eyebrow { display: block; margin-bottom: 0.9rem; }
 .nc-carousel-copy { animation: ncCopyIn 0.6s var(--ease-out); }
@@ -1385,7 +1385,7 @@ body[data-motion="off"] .nc-carousel-slide-media { transition: none; }
 @media (max-width: 820px) {
   .nc-carousel-inner { grid-template-columns: 1fr; }
   .nc-carousel-media { min-height: 0; aspect-ratio: 16 / 10; order: -1; }
-  .nc-carousel-text { padding: 1rem 0 0; margin-top: 1rem; }
+  .nc-carousel-text { padding: 0; margin-top: 1rem; }
 }
 
 /* --- manifesto (two-column composition: statement + branding) --- */
