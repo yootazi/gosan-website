@@ -398,7 +398,6 @@ const GOSAN_DONATE = {
 };
 
 function SupportPage() {
-  const [openTier, setOpenTier] = React.useState(null);
   const label = { fontSize: '0.72rem', letterSpacing: '0.09em', color: 'var(--gold-deep)', textTransform: 'uppercase', fontWeight: 700, margin: '2rem 0 0.6rem' };
   const para = { fontSize: '0.95rem', lineHeight: 2.05, color: 'var(--ink)', margin: '0 0 1rem', textAlign: 'justify' };
   const note = { fontSize: '0.85rem', lineHeight: 2, color: 'var(--text-muted)', margin: '0 0 1rem', textAlign: 'justify' };
@@ -426,7 +425,7 @@ function SupportPage() {
 
           <div style={label}>حلقهٔ دوستان گوسان · Freundeskreis</div>
           <p style={para}>
-            نهادهای فرهنگی ماندگار را همیشه حلقه‌ای از دوستان برپا نگه داشته است — کسانی که چیزی برای خود نمی‌خرند و به نهادی که دوستش دارند نزدیک می‌مانند. محتوای گوسان برای همه آزاد می‌ماند؛ دوستان گوسان با پرداخت ماهانهٔ خود این نهاد را سر پا نگه می‌دارند.
+            نهادهای فرهنگی ماندگار را همیشه حلقه‌ای از دوستان برپا نگه داشته است.
           </p>
           <p style={para}>
             دوستان گوسان جایگاهی ویژه نزد ما دارند و گوسان سپاسگزاری از آنان را به شیوه‌های شایسته به جا می‌آورد. محتوای گوسان برای همه آزاد می‌ماند؛ حمایت دوستان نه خریدن امتیازی برای خود، که سهم داشتن در ماندگاری نهادی است که دوستش دارند.
@@ -438,7 +437,6 @@ function SupportPage() {
               { amt: 50, what: 'هر سال هزینهٔ یک مقالهٔ پژوهشی اندیشکده و بخشی از یک جستار.' },
               { amt: 100, what: 'هر سال یک مقالهٔ کامل اندیشکده را با هر سه پژوهشگرش برپا می‌دارد.' },
             ].map((t) => {
-              const open = openTier === t.amt;
               const yLink = GOSAN_DONATE.yearly[t.amt];
               const mLink = GOSAN_DONATE.monthly[t.amt];
               const optStyle = (primary, active) => ({
@@ -449,26 +447,17 @@ function SupportPage() {
                 color: primary ? 'var(--paper, #EAEAE6)' : 'var(--ink)',
               });
               return (
-                <div
-                  key={t.amt}
-                  onClick={() => setOpenTier(open ? null : t.amt)}
-                  role="button"
-                  aria-expanded={open}
-                  style={{ border: '1px solid ' + (open ? 'var(--ink)' : 'var(--line, #CFCCC3)'), background: 'var(--surface-band)', padding: '1rem 1.1rem', display: 'flex', flexDirection: 'column', gap: '0.45rem', cursor: 'pointer' }}
-                >
+                <div key={t.amt} style={{ border: '1px solid var(--line, #CFCCC3)', background: 'var(--surface-band)', padding: '1rem 1.1rem', display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
                   <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', fontWeight: 700, color: 'var(--ink)' }}>{'\u20AC'}{t.amt}<span style={{ fontSize: '0.72rem', fontWeight: 400, color: 'var(--text-muted)' }}> در ماه</span></span>
-                  <span style={{ fontSize: '0.76rem', lineHeight: 1.8, color: 'var(--text-muted)' }}>{t.what}</span>
-                  {open ? (
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginTop: '0.4rem', borderTop: '1px dashed var(--line, #CFCCC3)', paddingTop: '0.7rem' }} onClick={(e) => e.stopPropagation()}>
-                      {yLink
-                        ? <a href={yLink} target="_blank" rel="noopener noreferrer" style={optStyle(true, true)}>پرداخت سالانه {'\u20AC'}{t.amt * 12} — پیشنهاد ما</a>
-                        : <span style={optStyle(true, false)}>پرداخت سالانه {'\u20AC'}{t.amt * 12} — پیشنهاد ما</span>}
-                      {mLink
-                        ? <a href={mLink} target="_blank" rel="noopener noreferrer" style={optStyle(false, true)}>پرداخت ماهانه {'\u20AC'}{t.amt}</a>
-                        : <span style={optStyle(false, false)}>پرداخت ماهانه {'\u20AC'}{t.amt}</span>}
-                      {!yLink && !mLink ? <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textAlign: 'center' }}>پرداخت از زمان راه‌اندازی رسمی فعال می‌شود.</span> : null}
-                    </div>
-                  ) : null}
+                  <span style={{ fontSize: '0.76rem', lineHeight: 1.8, color: 'var(--text-muted)', minHeight: '3.6em' }}>{t.what}</span>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginTop: 'auto', borderTop: '1px dashed var(--line, #CFCCC3)', paddingTop: '0.7rem' }}>
+                    {yLink
+                      ? <a href={yLink} target="_blank" rel="noopener noreferrer" style={optStyle(true, true)}>پرداخت سالانه {'\u20AC'}{t.amt * 12}</a>
+                      : <span style={optStyle(true, false)}>پرداخت سالانه {'\u20AC'}{t.amt * 12}</span>}
+                    {mLink
+                      ? <a href={mLink} target="_blank" rel="noopener noreferrer" style={optStyle(false, true)}>پرداخت ماهانه {'\u20AC'}{t.amt}</a>
+                      : <span style={optStyle(false, false)}>پرداخت ماهانه {'\u20AC'}{t.amt}</span>}
+                  </div>
                 </div>
               );
             })}
