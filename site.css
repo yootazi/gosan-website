@@ -1337,13 +1337,13 @@ body[data-motion="off"] .tt-wave span { animation: none !important; }
 
 /* --- latest-articles carousel (hero) --- */
 .nc-carousel { max-width: 1180px; margin: 0 auto; padding-top: 2rem; }
-.nc-carousel-inner { display: grid; grid-template-columns: 1fr 1fr; }
+.nc-carousel-inner { display: grid; grid-template-columns: 1.9fr 1fr; gap: 1.3rem; align-items: start; }
 .nc-carousel-text {
   position: relative; min-width: 0;
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 3.6rem 2.4rem 5.4rem;
+  display: flex; flex-direction: column; justify-content: flex-start;
+  padding: 1rem 0 0; border-top: 3px solid var(--ink);
 }
-.nc-carousel-eyebrow { display: block; margin-bottom: 1.6rem; }
+.nc-carousel-eyebrow { display: block; margin-bottom: 0.9rem; }
 .nc-carousel-copy { animation: ncCopyIn 0.6s var(--ease-out); }
 @keyframes ncCopyIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 body[data-motion="off"] .nc-carousel-copy { animation: none; }
@@ -1363,9 +1363,9 @@ body[data-motion="off"] .nc-carousel-copy { animation: none; }
 .nc-carousel-by span { font-weight: 400; color: var(--accent-strong); }
 .nc-carousel-dek {
   font-size: 0.82rem; line-height: 1.85; color: var(--text-body);
-  margin: 1.1rem 0 0; max-width: 42ch; text-align: justify;
+  margin: 1.1rem 0 0; max-width: 60ch; text-align: justify;
 }
-.nc-carousel-dots { position: absolute; bottom: 1rem; display: flex; gap: 0.7rem; }
+.nc-carousel-dots { position: static; margin-top: 1.4rem; display: flex; gap: 0.7rem; }
 .nc-dot {
   width: 15px; height: 15px; padding: 0; border-radius: 50%;
   border: 1.5px solid var(--ink); background: none; cursor: pointer;
@@ -1373,7 +1373,7 @@ body[data-motion="off"] .nc-carousel-copy { animation: none; }
 }
 .nc-dot:hover { transform: scale(1.18); }
 .nc-dot.is-active { background: var(--ink); }
-.nc-carousel-media { position: relative; overflow: hidden; background: var(--surface-band); aspect-ratio: 4 / 3; align-self: start; }
+.nc-carousel-media { position: relative; overflow: hidden; background: var(--surface-band); aspect-ratio: 16 / 10; align-self: start; border: 1px solid var(--ink); }
 .nc-carousel-slide-media {
   position: absolute; inset: 0; opacity: 0; pointer-events: none;
   transition: opacity 0.9s var(--ease-out);
@@ -1384,8 +1384,8 @@ body[data-motion="off"] .nc-carousel-copy { animation: none; }
 body[data-motion="off"] .nc-carousel-slide-media { transition: none; }
 @media (max-width: 820px) {
   .nc-carousel-inner { grid-template-columns: 1fr; }
-  .nc-carousel-media { min-height: 0; aspect-ratio: 4 / 3; order: -1; }
-  .nc-carousel-text { padding: 2.4rem 1.6rem 4.2rem; }
+  .nc-carousel-media { min-height: 0; aspect-ratio: 16 / 10; order: -1; }
+  .nc-carousel-text { padding: 1rem 0 0; margin-top: 1rem; }
 }
 
 /* --- manifesto (two-column composition: statement + branding) --- */
