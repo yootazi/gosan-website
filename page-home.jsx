@@ -249,7 +249,7 @@ function HomePage({ lang = 'fa', onToggleLang }) {
 
   /* real pieces of issue no. 1 — hero switcher, featured strip and popular list
      are curated from the eleven received essays (no demo posts left up top). */
-  const latest = ['who-is-the-gosan', 'between-two-defeats', 'azarkeyvani-creation-myth', 'music-totalitarian-regimes', 'interview-farnaz-modarresifar', 'herzfeld-german-archives', 'beyzaie-myth-symbolic-action'].map(P);
+  const latest = ['who-is-the-gosan', 'between-two-defeats', 'herzfeld-german-archives', 'azarkeyvani-creation-myth', 'music-totalitarian-regimes', 'interview-farnaz-modarresifar', 'beyzaie-myth-symbolic-action'].map(P);
   const featured = ['manichaean-music-terms', 'note-for-gosan', 'oil-to-narrative'].map(P);
   const notes = [].map(P);
   const features = ['azarkeyvani-creation-myth', 'manichaean-music-terms', 'herzfeld-german-archives', 'music-totalitarian-regimes', 'who-is-the-gosan', 'farabi-music-politics'].map(P);
