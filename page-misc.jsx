@@ -212,7 +212,7 @@ function ContactPage() {
   const [sent, setSent] = React.useState(false);
   return (
     <main data-screen-label="تماس با ما">
-      <PageTitle technical="CONTACT // GOSAN" title="تماس با ما" lede="نامه‌ها، پیشنهادها و نوشتارهای شما" />
+      <PageTitle technical="CONTACT // GŌSĀN" title="تماس با ما" lede="نامه‌ها، پیشنهادها و نوشتارهای شما" />
       <div className="wrap contact-grid" style={{ paddingBottom: '5rem', maxWidth: '1100px' }}>
         <Reveal>
           <div className="contact-card">
@@ -266,7 +266,7 @@ function ImpressumPage() {
   const mail = { direction: 'ltr', display: 'inline-block', borderBottom: '1px solid var(--gold)', fontWeight: 500 };
   return (
     <main data-screen-label="Impressum">
-      <PageTitle technical="IMPRESSUM // GOSAN" title="اطلاعات ناشر — Impressum" lede="شناسنامهٔ حقوقی وب‌سایت بر پایهٔ § ۵ DDG و § ۱۸ MStV" />
+      <PageTitle technical="IMPRESSUM // GŌSĀN" title="اطلاعات ناشر — Impressum" lede="شناسنامهٔ حقوقی وب‌سایت بر پایهٔ § ۵ DDG و § ۱۸ MStV" />
       <div className="wrap" style={{ maxWidth: '760px', paddingBottom: '5rem' }}>
         <Reveal>
           <p style={{ fontSize: '0.9rem', lineHeight: 2, color: 'var(--text-muted)', margin: '0 0 1.4rem', textAlign: 'justify' }}>
@@ -329,7 +329,7 @@ function DatenschutzPage() {
   const ext = { direction: 'ltr', display: 'inline-block', borderBottom: '1px solid var(--gold)', fontSize: '0.85rem', wordBreak: 'break-all' };
   return (
     <main data-screen-label="Datenschutz">
-      <PageTitle technical="DATENSCHUTZ // GOSAN" title="حفاظت از داده‌ها — Datenschutzerklärung" lede="پردازش داده‌ها در این وب‌سایت، بر پایهٔ DSGVO و TDDDG" />
+      <PageTitle technical="DATENSCHUTZ // GŌSĀN" title="حفاظت از داده‌ها — Datenschutzerklärung" lede="پردازش داده‌ها در این وب‌سایت، بر پایهٔ DSGVO و TDDDG" />
       <div className="wrap" style={{ maxWidth: '760px', paddingBottom: '5rem' }}>
         <Reveal>
           <p style={para}>
@@ -407,7 +407,7 @@ function SupportPage() {
   };
   return (
     <main data-screen-label="حمایت از گوسان">
-      <PageTitle technical="SUPPORT // GOSAN" title="حمایت از گوسان" lede="گاهنامه و اندیشکده تنها با پشتیبانی خوانندگان سر پا می‌مانند" />
+      <PageTitle technical="SUPPORT // GŌSĀN" title="حمایت از گوسان" lede="گاهنامه و اندیشکده تنها با پشتیبانی خوانندگان سر پا می‌مانند" />
       <div className="wrap" style={{ maxWidth: '760px', paddingBottom: '5rem' }}>
         <Reveal>
           <p style={para}>
