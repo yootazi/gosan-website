@@ -197,7 +197,7 @@ function MotifMark({ size = 52 }) {
 
 function MotifDivider({ size = 26, style, className = '' }) {
   return (
-    <div className={`gsn-motif-divider${className ? ' ' + className : ''}`} style={style} aria-hidden="true">
+    <div className={`gsn-motif-divider${className ? ' ' + className : ''}`} style={{ ...style, marginLeft: 'auto', marginRight: 'auto' }} aria-hidden="true">
       <span className="gsn-motif-line"></span>
       <MotifMark size={size} />
       <span className="gsn-motif-line"></span>
