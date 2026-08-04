@@ -28,7 +28,7 @@ const HOME_T = {
     ],
     manVerse: { a: 'هنر خوار شد جادویی ارجمند', b: 'نهان راستی، آشکارا گزند' },
     manClose: 'گاهنامهٔ «گوسان» در پی آن است که غبار فراموشی را از صفحهٔ فرهنگ و هنر و میراثِ ایران بزداید؛ گوشه‌های ناشناختهٔ تاریخ و فرهنگ و هنرِ ایران را به ابزارِ پژوهش و نقد بکاود، بشناسد و روایت کند.',
-    topics: [['جستار', '#/archive/جستار'], ['گفتگو', '#/archive/گفتگو'], ['یادمان', '#/archive/یادمان'], ['یادداشت آزاد', '#/archive/یادداشت آزاد'], ['شیوه‌نامه', '#/shivenameh'], ['اندیشکده', '#/thinktank']],
+    topics: [['جستار', '#/archive/جستار'], ['گفتگو', '#/archive/گفتگو'], ['یادمان', '#/archive/یادمان'], ['یادداشت آزاد', '#/archive/یادداشت آزاد'], ['شیوه‌نامه', '#/shivenameh'], ['اندیشکده', 'institute-v3.html']],
     verses: [
       { hemistichs: ['هنر خوار شد جادویی ارجمند', 'نهان راستی، آشکارا گزند'], poet: 'فردوسی — شاهنامه' },
       { hemistichs: ['بسی رنج بردم در این سال سی', 'عجم زنده کردم بدین پارسی'], poet: 'فردوسی — شاهنامه' },
@@ -54,7 +54,7 @@ const HOME_T = {
       'Gōsān is not a museum, nor a mourner of bygone days. It is a living review that bridges tradition and now — from the miniature to the new poetry, from the musical radif to the architecture of old alleys.',
       'Our belief is simple: a culture that is not narrated is forgotten. And we have come to narrate it.',
     ],
-    topics: [['Essays', '#/archive/جستار'], ['Interviews', '#/archive/گفتگو'], ['Memoriam', '#/archive/یادمان'], ['Notes', '#/archive/یادداشت آزاد'], ['Style', '#/shivenameh'], ['Think Tank', '#/thinktank']],
+    topics: [['Essays', '#/archive/جستار'], ['Interviews', '#/archive/گفتگو'], ['Memoriam', '#/archive/یادمان'], ['Notes', '#/archive/یادداشت آزاد'], ['Style', '#/shivenameh'], ['Think Tank', 'institute-v3.html']],
     verses: [
       { hemistichs: ['Art was scorned, and sorcery prized,', 'truth lay hidden, and harm ran rife.'], poet: 'Ferdowsi — Shāhnāmeh' },
       { hemistichs: ['Much have I toiled across these thirty years —', 'I revived the Persians with this Persian tongue.'], poet: 'Ferdowsi — Shāhnāmeh' },
@@ -371,7 +371,7 @@ function NcFloatingNav({ en }) {
   return (
     <nav className={`nc-topics${navStuck ? ' is-stuck' : ''}`}>
       <div className="nc-topics-main">
-        <a href="#/thinktank" className="nav-think">{en ? 'The Gōsān Think Tank' : 'اندیشکدهٔ فرهنگ و هنر گوسان'}</a>
+        <a href="institute-v3.html" className="nav-think">{en ? 'The Gōsān Think Tank' : 'اندیشکدهٔ فرهنگ و هنر گوسان'}</a>
         <span className="nc-topics-sep"></span>
         {NAV_ITEMS.map((it) => (
           <a

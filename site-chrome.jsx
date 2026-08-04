@@ -43,7 +43,7 @@ function SiteHeader({ active, lang = 'fa', onToggleLang }) {
             ))}
             <li className="nav-think-li">
               <a
-                href="#/thinktank"
+                href="institute-v3.html"
                 className={`nav-think${isActive('#/thinktank') ? ' is-active' : ''}`}
               >{en ? 'The Gōsān Think Tank' : 'اندیشکدهٔ فرهنگ و هنر گوسان'}</a>
             </li>
@@ -82,7 +82,7 @@ function SiteFooter({ route }) {
           <h5 style={{ color: 'var(--white)', fontSize: '1rem', margin: '0 0 1rem', fontWeight: 700 }}>پیوندها</h5>
           <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gap: '0.55rem', fontSize: '0.88rem' }}>
             <li><a href="#/about">دربارهٔ ما</a></li>
-            <li><a href="#/thinktank">اندیشکدهٔ فرهنگ و هنر</a></li>
+            <li><a href="institute-v3.html">اندیشکدهٔ فرهنگ و هنر</a></li>
             <li><a href="#/contact">تماس با ما</a></li>
             <li><a href="#/support">حمایت از گوسان</a></li>
             <li><a href="#/impressum">اطلاعات ناشر · Impressum</a></li>

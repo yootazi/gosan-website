@@ -346,5 +346,16 @@
   </div>
 </footer>
 <script src="assets/institute.js"></script>
+<script>
+/* pre-launch: only this landing page is public — internal institute links are inert */
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a');
+  if (!a) return;
+  var h = a.getAttribute('href') || '';
+  if (h.indexOf('mailto:') === 0) return;
+  if (h === 'index.html' || h === './index.html') return;
+  if (/\.html(\?|#|$)/.test(h)) { e.preventDefault(); e.stopPropagation(); }
+}, true);
+</script>
 </body>
 </html>
