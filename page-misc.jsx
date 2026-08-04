@@ -452,18 +452,18 @@ function SupportPage() {
                   <span style={{ fontSize: '0.76rem', lineHeight: 1.8, color: 'var(--text-muted)', minHeight: '3.6em' }}>{t.what}</span>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginTop: 'auto', borderTop: '1px dashed var(--line, #CFCCC3)', paddingTop: '0.7rem' }}>
                     {yLink
-                      ? <a href={yLink} target="_blank" rel="noopener noreferrer" style={optStyle(true, true)}>پرداخت سالانه {'\u20AC'}{t.amt * 12}</a>
-                      : <span style={optStyle(true, false)}>پرداخت سالانه {'\u20AC'}{t.amt * 12}</span>}
+                      ? <a href={yLink} target="_blank" rel="noopener noreferrer" style={optStyle(true, true)}>حمایت سالانه — {'\u20AC'}{t.amt * 12}</a>
+                      : <span style={optStyle(true, false)}>حمایت سالانه — {'\u20AC'}{t.amt * 12}</span>}
                     {mLink
-                      ? <a href={mLink} target="_blank" rel="noopener noreferrer" style={optStyle(false, true)}>پرداخت ماهانه {'\u20AC'}{t.amt}</a>
-                      : <span style={optStyle(false, false)}>پرداخت ماهانه {'\u20AC'}{t.amt}</span>}
+                      ? <a href={mLink} target="_blank" rel="noopener noreferrer" style={optStyle(false, true)}>حمایت ماهانه — {'\u20AC'}{t.amt}</a>
+                      : <span style={optStyle(false, false)}>حمایت ماهانه — {'\u20AC'}{t.amt}</span>}
                   </div>
                 </div>
               );
             })}
           </div>
           <p style={note}>
-            پرداخت ماهانه از راه PayPal یا دستور پرداخت بانکی، از زمان راه‌اندازی رسمی فعال می‌شود. پس از تأیید عام‌المنفعگی، حق عضویت حامیان برای مالیات‌دهندگان آلمان کسرپذیر است — برخلاف باشگاه‌های ورزشی، حمایت از انجمن‌های فرهنگی مشمول کسر مالیاتی است، درست به این دلیل که حامی چیزی برای خودش نمی‌خرد.
+            حمایت ماهانه یا سالانه از راه PayPal یا دستور پرداخت بانکی، از زمان راه‌اندازی رسمی فعال می‌شود. پس از تأیید عام‌المنفعگی، حق عضویت حامیان برای مالیات‌دهندگان آلمان کسرپذیر است — برخلاف باشگاه‌های ورزشی، حمایت از انجمن‌های فرهنگی مشمول کسر مالیاتی است، درست به این دلیل که حامی چیزی برای خودش نمی‌خرد.
           </p>
 
           <div style={label}>پی‌پال · PayPal</div>
