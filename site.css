@@ -1337,11 +1337,11 @@ body[data-motion="off"] .tt-wave span { animation: none !important; }
 
 /* --- latest-articles carousel (hero) --- */
 .nc-carousel { max-width: 1180px; margin: 0 auto; padding-top: 2rem; }
-.nc-carousel-inner { display: grid; grid-template-columns: 1fr 1fr; }
+.nc-carousel-inner { display: grid; grid-template-columns: 0.92fr 1.08fr; }
 .nc-carousel-text {
   position: relative; min-width: 0;
   display: flex; flex-direction: column; justify-content: center;
-  padding: 3.6rem 2.4rem 5.4rem;
+  padding: 3.6rem 2.2rem 5.4rem 1.1rem;
 }
 .nc-carousel-eyebrow { display: block; margin-bottom: 1.6rem; }
 .nc-carousel-copy { animation: ncCopyIn 0.6s var(--ease-out); }
@@ -1353,7 +1353,7 @@ body[data-motion="off"] .nc-carousel-copy { animation: none; }
 }
 .nc-carousel-title {
   font-family: var(--font-display); font-weight: 400;
-  font-size: clamp(1rem, 2vw, 1.55rem); line-height: 1.5;
+  font-size: clamp(1.25rem, 2.4vw, 2rem); line-height: 1.5;
   letter-spacing: -0.01em; white-space: nowrap;
   margin: 0.7rem 0 0; color: var(--ink);
 }
