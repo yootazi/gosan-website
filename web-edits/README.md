@@ -4,7 +4,7 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
-| `interview-farnaz-modarresifar` | احسان | ۱۴۰۵/۵/۱۳، ۲۱:۰۱ | ۳۹ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/interview-farnaz-modarresifar.md) |
+| `interview-farnaz-modarresifar` | احسان | ۱۴۰۵/۵/۱۳، ۲۱:۱۱ | ۵۳ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/interview-farnaz-modarresifar.md) |
 | `manichaean-music-terms` | احسان | ۱۴۰۵/۵/۱۲، ۲۱:۲۸ | ۸۴ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/manichaean-music-terms.md) |
 
 ---
