@@ -10,7 +10,7 @@
 <body>
 <header class="site">
   <div class="wrap bar">
-    <a class="brand" href="institute-v3.html">
+    <a class="brand" href="index.html#/">
       <img src="assets/logo-gosan.png" alt="">
       <span class="bstack"><span class="bn">Gōsān Culture &amp; Arts Institute</span></span>
     </a>
@@ -121,7 +121,7 @@
           </div></span><span class="pright">
           <span class="kind mono-b">Charter</span>
           <span class="pstat done"><i class="ok"></i>Complete · Read the full text</span></span></a>
-        <a class="paper prow islink" href="institute-v3-paper-10.html"><span class="id">10</span><span>
+        <div class="paper prow"><span class="id">10</span><span>
           <h4>Between Two Failures</h4><p>State, market and cultural policymaking in Iran — the programme’s founding essay.</p>
           <p class="pex">“In the course of studying and combing through government reports with the aim of extracting statistical data on the state of culture and the arts in Iran, I came across a policy report published by the Research Institute for Culture, Art and Communication.”</p>
           <div class="ptags">
@@ -129,8 +129,8 @@
             <span class="chip topic">Founding essay</span>
           </div></span><span class="pright">
           <span class="kind mono-b">Essay</span>
-          <span class="pstat done"><i class="ok"></i>Complete · Read the full text</span></span></a>
-        <a class="paper prow islink" href="institute-v3-paper-09.html"><span class="id">09</span><span>
+          <span class="pstat"><i></i>In progress · due Sep 2026</span></span></div>
+        <div class="paper prow"><span class="id">09</span><span>
           <h4>The National Foundation of Culture and Fine Arts</h4><p>The full institutional monograph — "the Ministry regulates; the Foundation decides" — with a 25-article draft statute and a structured premortem.</p>
           <p class="pex">“Iran will leave five decades of ideological cultural engineering with damaged institutions, a scattered creative class, and a public deeply suspicious of any state hand in the arts.”</p>
           <div class="ptags">
@@ -138,7 +138,7 @@
             <span class="chip topic">National Foundation</span>
           </div></span><span class="pright">
           <span class="kind mono-b">Monograph</span>
-          <span class="pstat done"><i class="ok"></i>Complete · Read the full text</span></span></a>
+          <span class="pstat"><i></i>In progress · due Sep 2026</span></span></div>
         <div class="paper prow"><span class="id">01</span><span>
           <h4>Rebuilding the House</h4><p>Administrative reconstruction of cultural governance in transition — a task-force model. "Instruments of control, immediately; instruments of support, deliberately."</p>
           <p class="pex">“Political transitions inherit bureaucracies built for other purposes. Where the prior state was ideological, the cultural administration is rarely a neutral service apparatus: it is an instrument of doctrinal supervision, censorship, and rent distribution.”</p>
@@ -353,7 +353,7 @@ document.addEventListener('click', function (e) {
   if (!a) return;
   var h = a.getAttribute('href') || '';
   if (h.indexOf('mailto:') === 0) return;
-  if (h === 'index.html' || h === './index.html') return;
+  if (h.indexOf('index.html') === 0 || h.indexOf('./index.html') === 0) return;
   if (/\.html(\?|#|$)/.test(h)) { e.preventDefault(); e.stopPropagation(); }
 }, true);
 </script>
