@@ -4,7 +4,7 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
-| `crossroads-ahead` | احسان | ۱۴۰۵/۵/۱۳، ۲۲:۲۲ | ۵۸ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/crossroads-ahead.md) |
+| `crossroads-ahead` | احسان | ۱۴۰۵/۵/۱۳، ۲۲:۳۲ | ۷۰ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/crossroads-ahead.md) |
 | `manichaean-music-terms` | احسان | ۱۴۰۵/۵/۱۳، ۲۱:۴۵ | ۸۴ | تأییدشده | [دیدن](approved/manichaean-music-terms.md) |
 
 ---
