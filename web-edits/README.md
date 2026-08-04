@@ -4,7 +4,7 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
-| `crossroads-ahead` | احسان | ۱۴۰۵/۵/۱۳، ۲۲:۴۳ | ۱۱۵ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/crossroads-ahead.md) |
+| `crossroads-ahead` | احسان | ۱۴۰۵/۵/۱۳، ۲۲:۴۴ | ۱۱۵ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/crossroads-ahead.md) |
 | `manichaean-music-terms` | احسان | ۱۴۰۵/۵/۱۳، ۲۱:۴۵ | ۸۴ | تأییدشده | [دیدن](approved/manichaean-music-terms.md) |
 
 ---
