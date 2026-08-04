@@ -117,12 +117,31 @@ function splitTitle(t) {
   const m = s.match(/^(.+?)\s*[:؛—–]\s*(.+)$/);
   return m ? [m[1].trim(), m[2].trim()] : [s, null];
 }
+
+/* Persian title line-breaking: a wrapped line must START with a connector
+   (از، در، و، به…). All other spaces become no-break spaces; segments that
+   grow too long fall back to normal wrapping so nothing ever overflows. */
+function smartTitleBreaks(t) {
+  const CONN = new Set(['از', 'در', 'و', 'به', 'با', 'برای', 'میان', 'بر', 'تا', 'نزد', 'چون', 'همچون', 'دربارهٔ', 'دربارۀ']);
+  const words = String(t == null ? '' : t).split(' ').filter(Boolean);
+  if (words.length < 2) return String(t == null ? '' : t);
+  const segs = [[words[0]]];
+  for (let i = 1; i < words.length; i++) {
+    if (CONN.has(words[i])) segs.push([words[i]]);
+    else segs[segs.length - 1].push(words[i]);
+  }
+  return segs.map((seg) => {
+    const joined = seg.join(' ');
+    return joined.length > 30 ? joined : seg.join('\u00A0');
+  }).join(' ');
+}
+
 function TitleLines({ text }) {
   /* long one-part titles wrap at a fixed point — same size, same colour */
   const br = TITLE_BREAKS[String(text)];
   if (br) return <React.Fragment>{br[0]}<br />{br[1]}</React.Fragment>;
   const [main, sub] = splitTitle(text);
-  return sub ? <React.Fragment>{main}<span className="title-sub">{sub}</span></React.Fragment> : <React.Fragment>{text}</React.Fragment>;
+  return sub ? <React.Fragment>{smartTitleBreaks(main)}<span className="title-sub">{smartTitleBreaks(sub)}</span></React.Fragment> : <React.Fragment>{smartTitleBreaks(text)}</React.Fragment>;
 }
 
 
