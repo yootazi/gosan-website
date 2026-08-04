@@ -582,6 +582,7 @@ article:has(.essay-figure:nth-of-type(3)) .essay-figure-block { clear: both; }
 /* two-part titles: the part after «:» or «؛» drops to the next line, lighter */
 .title-sub { display: block; font-size: 0.72em; font-weight: 500; color: var(--text-muted); margin-top: 0.25em; line-height: 1.4; }
 .nc-carousel-title .title-sub, .nc-title .title-sub { color: var(--text-muted); }
+.title-part { display: block; font-size: 0.55em; font-weight: 400; color: var(--text-muted); margin-top: 0.45em; letter-spacing: 0.03em; }
 /* compact writer / interviewee biography at the end of an article */
 .article-bio {
   max-width: 720px; margin: 2.4rem auto 0; padding: 1.2rem 0 0;

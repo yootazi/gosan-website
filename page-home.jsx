@@ -109,6 +109,8 @@ const GOSAN_COVER_ALTS = {
 const TITLE_BREAKS = {
   'تأویلی آذرکیوانی از اسطورۀ آفرینش زردشتی در کتاب دبستان مذاهب':
     ['تأویلی آذرکیوانی', 'از اسطورۀ آفرینش زردشتی', 'در کتاب دبستان مذاهب'],
+  'ارنست هرتسفلد در آیینۀ اسناد وزارت خارجۀ آلمان':
+    ['ارنست هرتسفلد', 'در آیینۀ اسناد وزارت خارجۀ آلمان'],
   'گوسان کیست؟ سنت گوسانان در ایران باستان':
     ['گوسان کیست؟', 'سنت گوسانان در ایران باستان'],
 };
@@ -137,11 +139,17 @@ function smartTitleBreaks(t) {
 }
 
 function TitleLines({ text }) {
-  /* long one-part titles wrap at a fixed point — same size, same colour */
-  const br = TITLE_BREAKS[String(text)];
-  if (br) return <React.Fragment>{br.map((l, i) => <React.Fragment key={i}>{i > 0 ? <br /> : null}{l}</React.Fragment>)}</React.Fragment>;
-  const [main, sub] = splitTitle(text);
-  return sub ? <React.Fragment>{smartTitleBreaks(main)}<span className="title-sub">{smartTitleBreaks(sub)}</span></React.Fragment> : <React.Fragment>{smartTitleBreaks(text)}</React.Fragment>;
+  /* long one-part titles wrap at a fixed point — same size, same colour.
+     A trailing «(بخش …)» label loses its parentheses and drops to its own,
+     smaller line. */
+  const raw = String(text == null ? '' : text);
+  const pm = raw.match(/^(.*?)\s*(?:\((بخش\s[^)]+)\)|[—–-]\s*(بخش\s.+?))\s*$/);
+  const base = pm ? pm[1] : raw;
+  const partEl = pm ? <span className="title-part">{pm[2] || pm[3]}</span> : null;
+  const br = TITLE_BREAKS[base];
+  if (br) return <React.Fragment>{br.map((l, i) => <React.Fragment key={i}>{i > 0 ? <br /> : null}{l}</React.Fragment>)}{partEl}</React.Fragment>;
+  const [main, sub] = splitTitle(base);
+  return sub ? <React.Fragment>{smartTitleBreaks(main)}<span className="title-sub">{smartTitleBreaks(sub)}</span>{partEl}</React.Fragment> : <React.Fragment>{smartTitleBreaks(base)}{partEl}</React.Fragment>;
 }
 
 
