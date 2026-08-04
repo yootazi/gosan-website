@@ -497,7 +497,10 @@ function SupportPage() {
           </p>
 
           <MotifDivider style={{ margin: '2.4rem 0 1.2rem' }} />
-          <p style={note}>پرسش دربارهٔ حمایت، کمک نهادی یا همکاری: <a href="mailto:info@gosan.org" style={{ direction: 'ltr', display: 'inline-block', borderBottom: '1px solid var(--gold)', fontWeight: 500 }}>info@gosan.org</a></p>
+          <div style={{ border: '1px solid var(--line, #CFCCC3)', background: 'var(--surface-band)', padding: '1.3rem 1.5rem', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
+            <p style={{ margin: 0, fontSize: '0.95rem', fontWeight: 500, color: 'var(--ink)' }}>پرسش دربارهٔ حمایت، کمک نهادی یا همکاری؟</p>
+            <a href="mailto:info@gosan.org" style={{ display: 'inline-block', padding: '0.55rem 1.7rem', border: '1px solid var(--ink)', background: 'var(--ink)', color: 'var(--paper, #EAEAE6)', fontWeight: 600, fontSize: '0.88rem', textDecoration: 'none', direction: 'ltr' }}>info@gosan.org</a>
+          </div>
         </Reveal>
       </div>
     </main>
