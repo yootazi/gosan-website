@@ -69,7 +69,7 @@ function toFa(n) {
 /* two-part titles: the part after «:» or «؛» drops to the next line */
 const ART_TITLE_BREAKS = {
   'تأویلی آذرکیوانی از اسطورۀ آفرینش زردشتی در کتاب دبستان مذاهب':
-    ['تأویلی آذرکیوانی از اسطورۀ آفرینش زردشتی', 'در کتاب دبستان مذاهب'],
+    ['تأویلی آذرکیوانی', 'از اسطورۀ آفرینش زردشتی', 'در کتاب دبستان مذاهب'],
   'گوسان کیست؟ سنت گوسانان در ایران باستان':
     ['گوسان کیست؟', 'سنت گوسانان در ایران باستان'],
 };
@@ -100,7 +100,7 @@ function smartTitleBreaks(t) {
 function TitleLines({ text }) {
   /* long one-part titles wrap at a fixed point — same size, same colour */
   const br = ART_TITLE_BREAKS[String(text)];
-  if (br) return <React.Fragment>{br[0]}<br />{br[1]}</React.Fragment>;
+  if (br) return <React.Fragment>{br.map((l, i) => <React.Fragment key={i}>{i > 0 ? <br /> : null}{l}</React.Fragment>)}</React.Fragment>;
   const [main, sub] = splitTitle(text);
   return sub ? <React.Fragment>{smartTitleBreaks(main)}<span className="title-sub">{smartTitleBreaks(sub)}</span></React.Fragment> : <React.Fragment>{smartTitleBreaks(text)}</React.Fragment>;
 }

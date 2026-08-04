@@ -108,7 +108,7 @@ const GOSAN_COVER_ALTS = {
    Some titles have no separator but still need a fixed break point. */
 const TITLE_BREAKS = {
   'تأویلی آذرکیوانی از اسطورۀ آفرینش زردشتی در کتاب دبستان مذاهب':
-    ['تأویلی آذرکیوانی از اسطورۀ آفرینش زردشتی', 'در کتاب دبستان مذاهب'],
+    ['تأویلی آذرکیوانی', 'از اسطورۀ آفرینش زردشتی', 'در کتاب دبستان مذاهب'],
   'گوسان کیست؟ سنت گوسانان در ایران باستان':
     ['گوسان کیست؟', 'سنت گوسانان در ایران باستان'],
 };
@@ -139,7 +139,7 @@ function smartTitleBreaks(t) {
 function TitleLines({ text }) {
   /* long one-part titles wrap at a fixed point — same size, same colour */
   const br = TITLE_BREAKS[String(text)];
-  if (br) return <React.Fragment>{br[0]}<br />{br[1]}</React.Fragment>;
+  if (br) return <React.Fragment>{br.map((l, i) => <React.Fragment key={i}>{i > 0 ? <br /> : null}{l}</React.Fragment>)}</React.Fragment>;
   const [main, sub] = splitTitle(text);
   return sub ? <React.Fragment>{smartTitleBreaks(main)}<span className="title-sub">{smartTitleBreaks(sub)}</span></React.Fragment> : <React.Fragment>{smartTitleBreaks(text)}</React.Fragment>;
 }
