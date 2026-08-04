@@ -506,7 +506,7 @@
           msg='توکن اجازهٔ نوشتن ندارد. توکن باید «Contents: Read and write» و دسترسی به مخزن gosan-website داشته باشد.';
         else if(/Bad credentials/i.test(msg))
           msg='توکن نادرست است یا باطل شده؛ آن را دوباره وارد کنید.';
-        status(ok ? okMsg+' — '+new Date().toLocaleTimeString('fa-IR')
+        status(ok ? okMsg+' — '+new Date().toLocaleTimeString('en-GB',{timeZone:'Europe/Berlin'})
                   : 'خطای گیت‌هاب: '+msg, !ok);
       });
       return;
@@ -516,7 +516,7 @@
       .then(function(r){return r.json()})
       .then(function(d){
         if(!d.ok){ status('خطا: '+d.error,true); return; }
-        var t=new Date().toLocaleTimeString('fa-IR');
+        var t=new Date().toLocaleTimeString('en-GB',{timeZone:'Europe/Berlin'});
         status(d.pushed ? okMsg+' — '+t
              : d.committed ? 'ذخیره و کامیت شد؛ ارسال به گیت‌هاب ناموفق (بعداً ارسال می‌شود) — '+t
              : 'ذخیره شد (فقط محلی) — '+t, !d.committed);
@@ -533,7 +533,7 @@
     if(!hasChanges()) return;
     if(saveSig()===lastSaveSig) return;   /* nothing new since the last save */
     doSave(false);
-    status('ذخیرهٔ خودکار انجام شد — '+new Date().toLocaleTimeString('fa-IR'));
+    status('ذخیرهٔ خودکار انجام شد — '+new Date().toLocaleTimeString('en-GB',{timeZone:'Europe/Berlin'}));
   }, 600000);
   $('dl').onclick=function(){
     var blob=new Blob([JSON.stringify(payload(),null,1)],{type:'application/json'});
@@ -575,7 +575,7 @@
       var parts=diffWords(textOf(d.original_html), textOf(d.html));
       var changed=parts.filter(function(p){return p[0]!==' '}).length;
       var html='<h3>تفاوت‌ها — '+sel.options[sel.selectedIndex].text+'</h3>'
-        +'<div class="meta">ویراستار: '+d.editor+' · '+new Date(d.saved_at).toLocaleString('fa-IR')
+        +'<div class="meta">ویراستار: '+d.editor+' · '+new Date(d.saved_at).toLocaleString('en-GB',{timeZone:'Europe/Berlin',day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'})
         +'<span class="pill">'+changed+' واژه تغییر</span></div><p>';
       parts.forEach(function(p){
         var w=p[1].replace(/</g,'&lt;');
