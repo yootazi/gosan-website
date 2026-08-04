@@ -393,10 +393,12 @@ function DatenschutzPage() {
 const GOSAN_DONATE = {
   paypal: '',            // e.g. 'https://www.paypal.com/donate/?hosted_button_id=…'
   iban: '',              // filled after Registereintragung + bank account
-  monthly: { 5: '', 20: '', 50: '', 100: '' },  // PayPal subscription links per tier
+  monthly: { 5: '', 20: '', 50: '', 100: '' },  // PayPal monthly-subscription links per tier
+  yearly: { 5: '', 20: '', 50: '', 100: '' },   // PayPal annual-payment links per tier (recommended path)
 };
 
 function SupportPage() {
+  const [openTier, setOpenTier] = React.useState(null);
   const label = { fontSize: '0.72rem', letterSpacing: '0.09em', color: 'var(--gold-deep)', textTransform: 'uppercase', fontWeight: 700, margin: '2rem 0 0.6rem' };
   const para = { fontSize: '0.95rem', lineHeight: 2.05, color: 'var(--ink)', margin: '0 0 1rem', textAlign: 'justify' };
   const note = { fontSize: '0.85rem', lineHeight: 2, color: 'var(--text-muted)', margin: '0 0 1rem', textAlign: 'justify' };
@@ -422,42 +424,54 @@ function SupportPage() {
           </div>
 
 
-          <div style={label}>حلقهٔ دوستان گوسان</div>
+          <div style={label}>حلقهٔ دوستان گوسان · Freundeskreis</div>
           <p style={para}>
             نهادهای فرهنگی ماندگار را همیشه حلقه‌ای از دوستان برپا نگه داشته است — کسانی که چیزی برای خود نمی‌خرند و به نهادی که دوستش دارند نزدیک می‌مانند. محتوای گوسان برای همه آزاد می‌ماند؛ دوستان گوسان با پرداخت ماهانهٔ خود این نهاد را سر پا نگه می‌دارند.
           </p>
-          <div style={{ border: '1px solid var(--line, #CFCCC3)', padding: '1.1rem 1.3rem', margin: '0 0 1.2rem', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-            {[
-              { k: 'نام', t: 'نام شما — اگر بخواهید — در فهرست سالانهٔ دوستان گوسان در نسخهٔ چاپی گاهنامه می‌آید؛ همان‌گونه که در دفترچهٔ برنامهٔ یک کنسرت.' },
-              { k: 'دعوت', t: 'به شب مهرگان و کنسرت سالانهٔ گوسان دعوت می‌شوید.' },
-              { k: 'نسخهٔ چاپی', t: 'نسخهٔ چاپی هر شماره با پست به نشانی شما می‌رسد.' },
-              { k: 'نامهٔ سردبیر', t: 'هر سال نامهٔ شفاف سردبیر را دریافت می‌کنید: این‌که پول شما دقیقاً چه کرد — کدام مقاله، کدام حق‌التحریر، کدام سرور.' },
-            ].map((b) => (
-              <div key={b.k} style={{ display: 'flex', gap: '0.9rem', alignItems: 'baseline' }}>
-                <span style={{ flexShrink: 0, minWidth: '6.2rem', fontSize: '0.8rem', fontWeight: 700, color: 'var(--gold-deep)' }}>{b.k}</span>
-                <span style={{ fontSize: '0.85rem', lineHeight: 1.95, color: 'var(--ink)' }}>{b.t}</span>
-              </div>
-            ))}
-            <p style={{ margin: '0.35rem 0 0', fontSize: '0.8rem', lineHeight: 1.9, color: 'var(--text-muted)', borderTop: '1px dashed var(--line, #CFCCC3)', paddingTop: '0.7rem' }}>
-              هیچ‌یک از این‌ها دری را به روی دیگران نمی‌بندد؛ محتوای گوسان برای همه آزاد می‌ماند. این‌ها پاداش دهنده است، نه بهای گیرنده — تعلق، بازشناسی، نزدیکی و پاسخ‌گویی.
-            </p>
-          </div>
+          <p style={para}>
+            دوستان گوسان جایگاهی ویژه نزد ما دارند و گوسان سپاسگزاری از آنان را به شیوه‌های شایسته به جا می‌آورد. محتوای گوسان برای همه آزاد می‌ماند؛ حمایت دوستان نه خریدن امتیازی برای خود، که سهم داشتن در ماندگاری نهادی است که دوستش دارند.
+          </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '0.9rem', margin: '0 0 1rem' }}>
             {[
-              { amt: 5, name: 'دوست گوسان', what: 'چراغ تارنما را روشن نگه می‌دارد: میزبانی و ابزارها.' },
-              { amt: 20, name: 'همراه گوسان', what: 'هر سال حق‌التحریر یک جستار گاهنامه را می‌پردازد.' },
-              { amt: 50, name: 'پشتیبان گوسان', what: 'هر سال هزینهٔ یک مقالهٔ پژوهشی اندیشکده و بخشی از یک جستار.' },
-              { amt: 100, name: 'حامی گوسان', what: 'هر سال یک مقالهٔ کامل اندیشکده را با هر سه پژوهشگرش برپا می‌دارد.' },
-            ].map((t) => (
-              <div key={t.amt} style={{ border: '1px solid var(--line, #CFCCC3)', background: 'var(--surface-band)', padding: '1rem 1.1rem', display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
-                <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', fontWeight: 700, color: 'var(--ink)' }}>{'\u20AC'}{t.amt}<span style={{ fontSize: '0.72rem', fontWeight: 400, color: 'var(--text-muted)' }}> در ماه</span></span>
-                <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--gold-deep)' }}>{t.name}</span>
-                <span style={{ fontSize: '0.76rem', lineHeight: 1.8, color: 'var(--text-muted)' }}>{t.what}</span>
-                {GOSAN_DONATE.monthly[t.amt]
-                  ? <a href={GOSAN_DONATE.monthly[t.amt]} target="_blank" rel="noopener noreferrer" style={{ marginTop: 'auto', textAlign: 'center', padding: '0.4rem 0', border: '1px solid var(--ink)', background: 'var(--ink)', color: 'var(--paper, #EAEAE6)', fontSize: '0.8rem', fontWeight: 600, textDecoration: 'none' }}>آغاز حمایت</a>
-                  : <span style={{ marginTop: 'auto', textAlign: 'center', padding: '0.4rem 0', border: '1px solid var(--line, #CFCCC3)', color: 'var(--text-muted)', fontSize: '0.8rem' }}>از زمان راه‌اندازی</span>}
-              </div>
-            ))}
+              { amt: 5, what: 'چراغ تارنما را روشن نگه می‌دارد: میزبانی و ابزارها.' },
+              { amt: 20, what: 'هر سال حق‌التحریر یک جستار گاهنامه را می‌پردازد.' },
+              { amt: 50, what: 'هر سال هزینهٔ یک مقالهٔ پژوهشی اندیشکده و بخشی از یک جستار.' },
+              { amt: 100, what: 'هر سال یک مقالهٔ کامل اندیشکده را با هر سه پژوهشگرش برپا می‌دارد.' },
+            ].map((t) => {
+              const open = openTier === t.amt;
+              const yLink = GOSAN_DONATE.yearly[t.amt];
+              const mLink = GOSAN_DONATE.monthly[t.amt];
+              const optStyle = (primary, active) => ({
+                display: 'block', textAlign: 'center', padding: '0.45rem 0.4rem', fontSize: '0.78rem',
+                fontWeight: primary ? 700 : 400, textDecoration: 'none', cursor: active ? 'pointer' : 'default',
+                border: '1px solid ' + (primary ? 'var(--ink)' : 'var(--line, #CFCCC3)'),
+                background: primary ? 'var(--ink)' : 'transparent',
+                color: primary ? 'var(--paper, #EAEAE6)' : 'var(--ink)',
+              });
+              return (
+                <div
+                  key={t.amt}
+                  onClick={() => setOpenTier(open ? null : t.amt)}
+                  role="button"
+                  aria-expanded={open}
+                  style={{ border: '1px solid ' + (open ? 'var(--ink)' : 'var(--line, #CFCCC3)'), background: 'var(--surface-band)', padding: '1rem 1.1rem', display: 'flex', flexDirection: 'column', gap: '0.45rem', cursor: 'pointer' }}
+                >
+                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', fontWeight: 700, color: 'var(--ink)' }}>{'\u20AC'}{t.amt}<span style={{ fontSize: '0.72rem', fontWeight: 400, color: 'var(--text-muted)' }}> در ماه</span></span>
+                  <span style={{ fontSize: '0.76rem', lineHeight: 1.8, color: 'var(--text-muted)' }}>{t.what}</span>
+                  {open ? (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginTop: '0.4rem', borderTop: '1px dashed var(--line, #CFCCC3)', paddingTop: '0.7rem' }} onClick={(e) => e.stopPropagation()}>
+                      {yLink
+                        ? <a href={yLink} target="_blank" rel="noopener noreferrer" style={optStyle(true, true)}>پرداخت سالانه {'\u20AC'}{t.amt * 12} — پیشنهاد ما</a>
+                        : <span style={optStyle(true, false)}>پرداخت سالانه {'\u20AC'}{t.amt * 12} — پیشنهاد ما</span>}
+                      {mLink
+                        ? <a href={mLink} target="_blank" rel="noopener noreferrer" style={optStyle(false, true)}>پرداخت ماهانه {'\u20AC'}{t.amt}</a>
+                        : <span style={optStyle(false, false)}>پرداخت ماهانه {'\u20AC'}{t.amt}</span>}
+                      {!yLink && !mLink ? <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textAlign: 'center' }}>پرداخت از زمان راه‌اندازی رسمی فعال می‌شود.</span> : null}
+                    </div>
+                  ) : null}
+                </div>
+              );
+            })}
           </div>
           <p style={note}>
             پرداخت ماهانه از راه PayPal یا دستور پرداخت بانکی، از زمان راه‌اندازی رسمی فعال می‌شود. پس از تأیید عام‌المنفعگی، حق عضویت حامیان برای مالیات‌دهندگان آلمان کسرپذیر است — برخلاف باشگاه‌های ورزشی، حمایت از انجمن‌های فرهنگی مشمول کسر مالیاتی است، درست به این دلیل که حامی چیزی برای خودش نمی‌خرد.
@@ -466,10 +480,7 @@ function SupportPage() {
           <div style={label}>پی‌پال · PayPal</div>
           {GOSAN_DONATE.paypal
             ? <p style={para}><a href={GOSAN_DONATE.paypal} target="_blank" rel="noopener noreferrer" style={payBtn}>کمک از راه PayPal</a></p>
-            : <React.Fragment>
-                <p style={para}><span style={payBtn}>کمک از راه PayPal</span></p>
-                <p style={note}>پرداخت با PayPal و کارت‌های بانکی بین‌المللی از زمان راه‌اندازی رسمی فعال می‌شود.</p>
-              </React.Fragment>}
+            : <p style={note}>پرداخت با PayPal و کارت‌های بانکی بین‌المللی از زمان راه‌اندازی رسمی فعال می‌شود و همین‌جا در دسترس خواهد بود.</p>}
 
           <div style={label}>انتقال بانکی · Überweisung</div>
           <p style={note}>
