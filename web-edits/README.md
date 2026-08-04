@@ -4,7 +4,7 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
-| `manichaean-music-terms` | احسان | ۱۴۰۵/۵/۱۳، ۲۱:۴۵ | ۸۴ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/manichaean-music-terms.md) |
+| `manichaean-music-terms` | احسان | ۱۴۰۵/۵/۱۳، ۲۱:۴۵ | ۸۴ | تأییدشده | [دیدن](approved/manichaean-music-terms.md) |
 | `crossroads-ahead` | احسان | ۱۴۰۵/۵/۱۳، ۲۱:۴۵ | ۲ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/crossroads-ahead.md) |
 | `interview-farnaz-modarresifar` | احسان | ۱۴۰۵/۵/۱۳، ۲۱:۱۵ | ۵۹ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/interview-farnaz-modarresifar.md) |
 
