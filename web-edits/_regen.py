@@ -53,11 +53,16 @@ def _jalali(gy, gm, gd):
     return jy, 12, 29
 
 def fa_date(iso):
+    # Gregorian international date in Berlin/Vienna time (input is UTC ISO)
     m = re.match(r'(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})', str(iso))
     if not m:
         return str(iso or '')
-    jy, jm, jd = _jalali(int(m.group(1)), int(m.group(2)), int(m.group(3)))
-    return ('%d/%d/%d، %s:%s' % (jy, jm, jd, m.group(4), m.group(5))).translate(FA_DIGITS)
+    from datetime import datetime, timezone
+    from zoneinfo import ZoneInfo
+    dt = datetime(int(m.group(1)), int(m.group(2)), int(m.group(3)),
+                  int(m.group(4)), int(m.group(5)), tzinfo=timezone.utc)
+    dt = dt.astimezone(ZoneInfo('Europe/Berlin'))
+    return dt.strftime('%d %b %Y, %H:%M').lstrip('0')
 
 def esc(w):
     return w.replace('&', '&amp;').replace('<', '&lt;')
