@@ -4,7 +4,7 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
-| `azarkeyvani-creation-myth` | احسان | 5 Aug 2026, 23:41 | ۲۸ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/azarkeyvani-creation-myth.md) |
+| `azarkeyvani-creation-myth` | احسان | 5 Aug 2026, 23:43 | ۲۸ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/azarkeyvani-creation-myth.md) |
 | `beyzaie-myth-symbolic-action` | احسان | 5 Aug 2026, 23:21 | ۱۱ | تأییدشده | [دیدن](approved/beyzaie-myth-symbolic-action.md) |
 | `interview-farnaz-modarresifar` | احسان | 5 Aug 2026, 23:18 | ۰ | تأییدشده | [دیدن](approved/interview-farnaz-modarresifar.md) |
 | `crossroads-ahead` | احسان | 5 Aug 2026, 23:13 | ۹ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/crossroads-ahead.md) |
