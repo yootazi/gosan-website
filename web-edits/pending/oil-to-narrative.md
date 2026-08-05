@@ -2,9 +2,9 @@
 
 | | |
 |---|---|
-| ویراستار | یلدا |
-| زمان ذخیره | 5 Aug 2026, 14:05 |
-| واژه‌های تغییرکرده | 276 |
+| ویراستار | احسان |
+| زمان ذخیره | 5 Aug 2026, 22:28 |
+| واژه‌های تغییرکرده | 278 |
 
 <div dir="rtl">
 
@@ -14,6 +14,10 @@
 
 **متن**
 
+> فرهنگی رقابت می‌کنند. کشورها دریافته‌اند که در جهانی <del>اشباع</del> <ins>اشباع‌شده</ins> از تصویر و روایت، آن‌که داستان خود را
+>
+> …
+>
 > ایجاد ادراک و تصویری مطلوب در سطح جهانی. <ins>این</ins> <ins>نوشتار</ins> <ins>را</ins> <ins>باید</ins> <ins>درآمدی</ins> <ins>بر</ins> <ins>یک</ins> <ins>بحث</ins> <ins>بلندمدت</ins> <ins>و</ins> <ins>حائز</ins> <ins>اهمیت</ins> <ins>دانست:</ins> <ins>نسبت</ins> <ins>میان</ins> <ins>توسعهٔ</ins> <ins>اقتصادی،</ins> <ins>ثروت</ins> <ins>ملی</ins> <ins>و</ins> <ins>شکوفایی</ins> <ins>فرهنگ</ins> <ins>و</ins> <ins>هنر.</ins> <ins>طبیعتا</ins> <ins>بررسی</ins> <ins>این</ins> <ins>موضوع</ins> <ins>که</ins> <ins>چه</ins> <ins>شرایطی</ins> <ins>باید</ins> <ins>بر</ins> <ins>اقتصاد</ins> <ins>یک</ins> <ins>کشور</ins> <ins>حاکم</ins> <ins>باشد</ins> <ins>تا</ins> <ins>امکان</ins> <ins>سرمایه‌گذاری</ins> <ins>پایدار</ins> <ins>بر</ins> <ins>فرهنگ</ins> <ins>و</ins> <ins>هنر</ins> <ins>محقق</ins> <ins>شود،</ins> <ins>و</ins> <ins>این</ins> <ins>سرمایه‌گذاری</ins> <ins>چطور</ins> <ins>میتواند</ins> <ins>فرهنگ</ins> <ins>و</ins> <ins>هنر</ins> <ins>را</ins> <ins>به</ins> <ins>موتور</ins> <ins>اقتصادی</ins> <ins>آن</ins> <ins>کشور</ins> <ins>بدل</ins> <ins>کند،</ins> <ins>در</ins> <ins>یک</ins> <ins>یادداشت</ins> <ins>نمی‌گنجد</ins> <ins>.</ins> <ins>نگاهی</ins> <ins>دقیق</ins> <ins>و</ins> <ins>عمیق</ins> <ins>به</ins> <ins>آن</ins> <ins>نیازمند</ins> <ins>بازخوانی</ins> <ins>پیشینهٔ</ins> <ins>تاریخی</ins> <ins>این‌گونه</ins> <ins>سرمایه‌گذاری‌ها</ins> <ins>است؛</ins> <ins>نه‌تنها</ins> <ins>در</ins> <ins>ایران،</ins> <ins>که</ins> <ins>در</ins> <ins>کشورهای</ins> <ins>خلیج</ins> <ins>فارس</ins> <ins>و</ins> <ins>اقتصادهای</ins> <ins>توسعه‌یافته</ins> <ins>.</ins> <ins>تنها</ins> <ins>با</ins> <ins>چنین</ins> <ins>شناختی</ins> <ins>می‌توان</ins> <ins>به</ins> <ins>سازوکاری</ins> <ins>در</ins> <ins>جهت</ins> <ins>برنامه‌ریزی</ins> <ins>برای</ins> <ins>ایجاد</ins> <ins>یک</ins> <ins>صندوق</ins> <ins>سرمایه‌گذاری</ins> <ins>ملی</ins> <ins>برای</ins> <ins>فرهنگ</ins> <ins>و</ins> <ins>هنر</ins> <ins>ایران،</ins> <ins>و</ins> <ins>تعریف</ins> <ins>انتظارات</ins> <ins>از</ins> <ins>ان</ins> <ins>برپایهٔ</ins> <ins>مشاهدات</ins> <ins>و</ins> <ins>مستندات</ins> <ins>دست</ins> <ins>یافت.</ins> <ins>آنچه</ins> <ins>پیش</ins> <ins>رو</ins> <ins>دارید</ins> <ins>مقدمه‌ای</ins> <ins>است</ins> <ins>بر</ins> <ins>این</ins> <ins>مسیر</ins> <ins>.</ins> از رقابت منطقه‌ای تا رقابت فرهنگی نگاهی به
 
 </div>
