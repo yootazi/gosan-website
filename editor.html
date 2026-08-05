@@ -60,6 +60,8 @@
   <span id="fmt" style="display:none;gap:4px;align-items:center;flex-wrap:wrap">
     <button class="b-ghost fmtb" data-cmd="bold" title="Bold — متن انتخاب‌شده پررنگ می‌شود"><b>Bold</b></button>
     <button class="b-ghost fmtb" data-cmd="italic" title="Italic — متن انتخاب‌شده ایتالیک می‌شود"><i>Italic</i></button>
+    <button class="b-ghost fmtb" data-cmd="fontSize+" title="Font size + — بزرگ‌کردن قلم متن انتخاب‌شده یا بند جاری">A+</button>
+    <button class="b-ghost fmtb" data-cmd="fontSize-" title="Font size − — کوچک‌کردن قلم متن انتخاب‌شده یا بند جاری">A−</button>
     <button class="b-ghost fmtb" data-cmd="indent" title="Indent — تورفتگی خط/بند">Indent +</button>
     <button class="b-ghost fmtb" data-cmd="outdent" title="Outdent — برداشتن تورفتگی">Indent −</button>
     <button class="b-ghost fmtb" data-cmd="spaceBefore+" title="Space before — افزودن فاصله پیش از بند">↑Space +</button>
@@ -382,6 +384,7 @@
       r.setStart(p0.firstChild||p0,0); r.collapse(true);
       selq.removeAllRanges(); selq.addRange(r); p0.scrollIntoView({block:'center'});
     }catch(e){}
+    if(!d._edPasteBound){ d.addEventListener('paste', onPasteClean, true); d._edPasteBound=true; }
     editing=true;
     undoStack=[]; redoStack=[]; typingBurst=false;
     armTypingSnapshots();
@@ -413,6 +416,58 @@
     else status('تغییری نسبت به متن اصلی نیست؛ درخواست تأیید فرستاده نشد');
     stopEdit();
   };
+
+  /* ── paste hygiene: pasted text always conforms to the essay's font and size ── */
+  function cleanPastedRoot(tmp,d){
+    Array.prototype.slice.call(tmp.querySelectorAll('meta,style,script,link,title')).forEach(function(n){
+      n.parentNode.removeChild(n);
+    });
+    Array.prototype.slice.call(tmp.querySelectorAll('*')).forEach(function(el){
+      ['font-family','font-size','font','line-height','letter-spacing',
+       'color','background','background-color','margin','text-indent'].forEach(function(pr){
+        if(el.style) el.style.removeProperty(pr);
+      });
+      el.removeAttribute('face'); el.removeAttribute('size'); el.removeAttribute('color');
+      el.removeAttribute('class'); el.removeAttribute('id'); el.removeAttribute('lang'); el.removeAttribute('dir');
+      if(el.getAttribute('style')==='') el.removeAttribute('style');
+    });
+    Array.prototype.slice.call(tmp.querySelectorAll('font,big,small,span')).forEach(function(t){
+      if(t.tagName==='SPAN' && t.attributes.length) return;   /* keep spans that still carry meaning */
+      while(t.firstChild) t.parentNode.insertBefore(t.firstChild,t);
+      t.parentNode.removeChild(t);
+    });
+    Array.prototype.slice.call(tmp.querySelectorAll('div')).forEach(function(dv){
+      if(dv.querySelector('p,div,h1,h2,h3,h4,h5,h6,ul,ol,figure,blockquote,table,iframe,img')) return;
+      if(!dv.textContent.trim()){ dv.parentNode.removeChild(dv); return; }
+      var np=d.createElement('p');
+      while(dv.firstChild) np.appendChild(dv.firstChild);
+      dv.parentNode.replaceChild(np,dv);
+    });
+  }
+  function onPasteClean(e){
+    if(!editing) return;
+    var d;
+    try{ d=frame.contentDocument; }catch(err){ return; }
+    if(!d || !e.clipboardData) return;
+    var tgt=e.target && e.target.nodeType===1 ? e.target : (e.target? e.target.parentElement : null);
+    if(!tgt) return;
+    var inDate=!!tgt.closest('.byline-date');
+    var inEditable=inDate || tgt.closest('article,[contenteditable="true"]');
+    if(!inEditable) return;
+    e.preventDefault(); e.stopPropagation();
+    snapshot(); typingBurst=false;
+    var text=e.clipboardData.getData('text/plain')||'';
+    var html=e.clipboardData.getData('text/html')||'';
+    if(inDate || !html){
+      d.execCommand('insertText', false, text);
+      return;
+    }
+    html=html.replace(/<!--[\s\S]*?-->/g,'');
+    var tmp=d.createElement('div'); tmp.innerHTML=html;
+    cleanPastedRoot(tmp,d);
+    d.execCommand('insertHTML', false, tmp.innerHTML);
+    status('متن چسبانده و با قلم جستار همسان شد');
+  }
 
   /* ── delete-element mode: click a divider/figure inside the essay to remove it ── */
   var delMode=false, delHoverEl=null;
@@ -477,6 +532,44 @@
         if(cmd==='redo'){ doRedo(); return; }
         if(cmd==='deleteEl'){ setDelMode(!delMode); return; }
         snapshot(); typingBurst=false;
+        if(cmd==='fontSize+'||cmd==='fontSize-'){
+          var deltaF=(cmd.slice(-1)==='+')?0.1:-0.1;
+          var sqf=frame.contentWindow.getSelection();
+          if(!sqf.rangeCount) return;
+          var rgf=sqf.getRangeAt(0), newV=null;
+          var applyEm=function(el){
+            var mF=/^([\d.]+)em$/.exec(el.style.fontSize||'');
+            var v=(mF?parseFloat(mF[1]):1)+deltaF;
+            v=Math.max(0.5,Math.min(2,Math.round(v*10)/10));
+            el.style.fontSize=(v===1?'':v+'em');
+            if(el.getAttribute('style')==='') el.removeAttribute('style');
+            newV=v;
+          };
+          if(rgf.collapsed){
+            var ndf=rgf.startContainer;
+            if(ndf.nodeType!==1) ndf=ndf.parentElement;
+            var hostF=ndf.closest('span.ed-fs')||ndf.closest('p,h2,h3,h4,li,blockquote,figcaption,div');
+            if(hostF) applyEm(hostF);
+          } else {
+            var contf=rgf.commonAncestorContainer;
+            if(contf.nodeType!==1) contf=contf.parentElement;
+            var existF=contf.closest?contf.closest('span.ed-fs'):null;
+            if(existF){ applyEm(existF); }
+            else{
+              var spF=d.createElement('span'); spF.className='ed-fs';
+              try{
+                rgf.surroundContents(spF); applyEm(spF);
+                sqf.removeAllRanges();
+                var rr=d.createRange(); rr.selectNodeContents(spF); sqf.addRange(rr);
+              }catch(eF){
+                var nbF=contf.closest('p,h2,h3,h4,li,blockquote,figcaption,div');
+                if(nbF) applyEm(nbF);
+              }
+            }
+          }
+          if(newV!==null) status('اندازهٔ قلم: '+Math.round(newV*100)+'٪');
+          return;
+        }
         if(cmd.indexOf('space')===0){
           var sq3=frame.contentWindow.getSelection();
           if(!sq3.rangeCount) return;
