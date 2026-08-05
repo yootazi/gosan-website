@@ -4,8 +4,8 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
+| `crossroads-ahead` | احسان | 6 Aug 2026, 00:00 | ۷ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/crossroads-ahead.md) |
 | `music-totalitarian-regimes` | آزمایش | 5 Aug 2026, 23:59 | ۵ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/music-totalitarian-regimes.md) |
-| `crossroads-ahead` | احسان | 5 Aug 2026, 23:56 | ۷ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/crossroads-ahead.md) |
 | `note-for-gosan` | احسان | 5 Aug 2026, 23:56 | ۶۷ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/note-for-gosan.md) |
 | `oil-to-narrative` | احسان | 5 Aug 2026, 23:48 | ۴۲۲ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/oil-to-narrative.md) |
 | `azarkeyvani-creation-myth` | احسان | 5 Aug 2026, 23:43 | ۲۸ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/azarkeyvani-creation-myth.md) |
