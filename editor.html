@@ -64,6 +64,7 @@
     <button class="b-ghost fmtb" data-cmd="fontSize-" title="Font size − — کوچک‌کردن قلم متن انتخاب‌شده یا بند جاری">A−</button>
     <button class="b-ghost fmtb" data-cmd="indent" title="Indent — تورفتگی خط/بند">Indent +</button>
     <button class="b-ghost fmtb" data-cmd="outdent" title="Outdent — برداشتن تورفتگی">Indent −</button>
+    <button class="b-ghost fmtb" data-cmd="quoteIndent" title="Quote — تورفتگی دوطرفه برای نقل‌قول: بند جاری (یا بندهای انتخاب‌شده) از هر دو سو تو می‌رود؛ کلیک دوباره برمی‌گرداند">❝ Quote</button>
     <button class="b-ghost fmtb" data-cmd="spaceBefore+" title="Space before — افزودن فاصله پیش از بند">↑Space +</button>
     <button class="b-ghost fmtb" data-cmd="spaceBefore-" title="کاستن فاصله پیش از بند">↑Space −</button>
     <button class="b-ghost fmtb" data-cmd="spaceAfter+" title="Space after — افزودن فاصله پس از بند">↓Space +</button>
@@ -606,6 +607,30 @@
           var mm3=/^([\d.]+)rem$/.exec(blk3.style[prop3]||'');
           var val3=(mm3?parseFloat(mm3[1]):0) + (cmd.slice(-1)==='+'?0.5:-0.5);
           blk3.style[prop3] = val3>0 ? val3+'rem' : '';
+          return;
+        }
+        if(cmd==='quoteIndent'){
+          var sqq=frame.contentWindow.getSelection();
+          if(!sqq.rangeCount) return;
+          var rgq=sqq.getRangeAt(0), targets=[];
+          if(rgq.collapsed){
+            var ndq=rgq.startContainer;
+            if(ndq.nodeType!==1) ndq=ndq.parentElement;
+            var blkq=ndq.closest('p,li,blockquote,figcaption,h2,h3,h4,div');
+            if(blkq) targets=[blkq];
+          } else {
+            var artq=d.querySelector('article');
+            targets=[].slice.call(artq?artq.querySelectorAll('p,li,blockquote,figcaption'):[])
+              .filter(function(b){ return rgq.intersectsNode(b); });
+          }
+          if(!targets.length) return;
+          var onq=!!(targets[0].style.marginRight&&targets[0].style.marginLeft);
+          targets.forEach(function(b){
+            if(onq){ b.style.marginRight=''; b.style.marginLeft=''; }
+            else{ b.style.marginRight='1cm'; b.style.marginLeft='1cm'; }
+            if(b.getAttribute('style')==='') b.removeAttribute('style');
+          });
+          status(onq?'تورفتگی نقل‌قول برداشته شد':'تورفتگی دوطرفهٔ نقل‌قول اعمال شد');
           return;
         }
         if(cmd==='indent'||cmd==='outdent'){
