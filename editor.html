@@ -205,9 +205,14 @@
   /* resume: if a saved (pending) edit exists, load it into the article
      so the editor continues across sessions */
   function armResume(slug){
-    if(sessionDrafts[slug]){ applyResume(slug, sessionDrafts[slug]); return; }
+    var best=sessionDrafts[slug]||null;
+    try{
+      var loc=JSON.parse(localStorage.getItem('gosan-desk-draft-'+slug)||'null');
+      if(loc && loc.html && (!best || (loc.saved_at||'')>(best.saved_at||''))) best=loc;
+    }catch(e){}
+    if(best) applyResume(slug, best);
     fetchPending(slug, function(rec){
-      applyResume(slug, rec);
+      if(rec && rec.html && (!best || (rec.saved_at||'')>(best.saved_at||''))) applyResume(slug, rec);
     });
   }
   function applyResume(slug, rec){
@@ -772,6 +777,7 @@
       : 'پیش‌نویس ذخیره شد — بدون درخواست تأیید';
     var rec=payload(); rec.finished=!!finished;
     sessionDrafts[rec.slug]=rec;
+    try{ localStorage.setItem('gosan-desk-draft-'+rec.slug, JSON.stringify(rec)); }catch(e){}
     lastSaveSig=saveSig();
     if(GH){
       if(!$('tok').value.trim()){ status('توکن گیت‌هاب را وارد کنید (یک‌بار؛ ذخیره می‌شود)','err'); $('tok').focus(); return; }
@@ -784,6 +790,11 @@
           msg='توکن نادرست است یا باطل شده؛ آن را دوباره وارد کنید.';
         status(ok ? okMsg+' — '+new Date().toLocaleTimeString('en-GB',{timeZone:'Europe/Berlin'})
                   : 'خطای گیت‌هاب: '+msg, !ok);
+        if(!ok && !doSave._warned){
+          doSave._warned=true;
+          alert('ذخیره روی گیت‌هاب ناموفق بود: '+msg+'\n\nنگران نباشید — پیش‌نویس شما در همین مرورگر نگه داشته شده و با ذخیرهٔ بعدی دوباره ارسال می\u200cشود.');
+        }
+        if(ok) doSave._warned=false;
       });
       return;
     }
