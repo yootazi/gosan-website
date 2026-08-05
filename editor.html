@@ -68,6 +68,7 @@
     <button class="b-ghost fmtb" data-cmd="spaceAfter-" title="کاستن فاصله پس از بند">↓Space −</button>
     <button class="b-ghost fmtb" data-cmd="rtl" title="RTL — راست‌به‌چپ کردن بند">RTL</button>
     <button class="b-ghost fmtb" data-cmd="ltr" title="LTR — چپ‌به‌راست کردن بند">LTR</button>
+    <button class="b-ghost fmtb" data-cmd="matchFont" title="Match font — قلم و اندازهٔ متن انتخاب‌شده (یا بند جاری) را با یک کلیک با بقیهٔ جستار یکسان می‌کند">Match Font</button>
     <button class="b-ghost fmtb" data-cmd="removeFormat" title="Clear format — حذف قالب‌بندی">Clear</button>
     <button class="b-ghost fmtb" data-cmd="undo" title="Undo — واگرد">Undo</button>
     <button class="b-ghost fmtb" data-cmd="redo" title="Redo — ازنو">Redo</button>
@@ -445,6 +446,41 @@
           var mm=/^([\d.]+)cm$/.exec(blk2.style[prop]||'');
           var val=(mm?parseFloat(mm[1]):0) + (cmd==='indent'?1:-1);
           blk2.style[prop] = val>0 ? val+'cm' : '';
+          return;
+        }
+        if(cmd==='matchFont'){
+          var sqm=frame.contentWindow.getSelection();
+          if(!sqm.rangeCount) return;
+          var rg=sqm.getRangeAt(0), scope;
+          if(rg.collapsed){
+            var ndm=rg.startContainer;
+            if(ndm.nodeType!==1) ndm=ndm.parentElement;
+            var blkm=ndm.closest('p,h2,h3,h4,li,blockquote,figcaption,div');
+            scope=blkm?[blkm]:[];
+          } else {
+            var contm=rg.commonAncestorContainer;
+            if(contm.nodeType!==1) contm=contm.parentElement;
+            scope=[contm];
+          }
+          scope.forEach(function(root){
+            var all=[root].concat(Array.prototype.slice.call(root.querySelectorAll('*')));
+            all.forEach(function(el){
+              if(el.nodeType!==1) return;
+              if(!rg.collapsed && el!==root && !rg.intersectsNode(el)) return;
+              ['font-family','font-size','font','line-height','letter-spacing',
+               'color','background','background-color'].forEach(function(pr){
+                if(el.style) el.style.removeProperty(pr);
+              });
+              el.removeAttribute('face'); el.removeAttribute('size'); el.removeAttribute('color');
+              if(el.getAttribute('style')==='') el.removeAttribute('style');
+            });
+            Array.prototype.slice.call(root.querySelectorAll('font')).forEach(function(f){
+              if(!rg.collapsed && !rg.intersectsNode(f)) return;
+              while(f.firstChild) f.parentNode.insertBefore(f.firstChild,f);
+              f.parentNode.removeChild(f);
+            });
+          });
+          status('قلم و اندازه با متن جستار همسان شد');
           return;
         }
         if(cmd==='rtl'||cmd==='ltr'){
