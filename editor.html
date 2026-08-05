@@ -69,6 +69,7 @@
     <button class="b-ghost fmtb" data-cmd="rtl" title="RTL — راست‌به‌چپ کردن بند">RTL</button>
     <button class="b-ghost fmtb" data-cmd="ltr" title="LTR — چپ‌به‌راست کردن بند">LTR</button>
     <button class="b-ghost fmtb" data-cmd="matchFont" title="Match font — قلم و اندازهٔ متن انتخاب‌شده (یا بند جاری) را با یک کلیک با بقیهٔ جستار یکسان می‌کند">Match Font</button>
+    <button class="b-ghost fmtb" data-cmd="deleteEl" title="Delete element — حذف عنصر: پس از کلیک، روی خط جداکننده، تصویر یا عنصر موردنظر در جستار کلیک کنید تا حذف شود (Esc = انصراف)">✕ حذف عنصر</button>
     <button class="b-ghost fmtb" data-cmd="removeFormat" title="Clear format — حذف قالب‌بندی">Clear</button>
     <button class="b-ghost fmtb" data-cmd="undo" title="Undo — واگرد">Undo</button>
     <button class="b-ghost fmtb" data-cmd="redo" title="Redo — ازنو">Redo</button>
@@ -252,15 +253,15 @@
       sel.appendChild(o);
     });
     status((sel.options.length-1)+' جستار در فهرست');
-    /* mark essays whose edit has been finished (approved override on the site) —
-       re-editing stays possible; a second پایان ویرایش simply opens a new PR */
+    /* list markers: 🟢 = final edit is live on the site (approved override) —
+       re-editing stays possible; ✓ = essay currently being worked on (open draft) */
     Array.prototype.forEach.call(sel.options, function(o){
       if(!o.value) return;
-      fetch('content-overrides/'+o.value+'.json', {cache:'no-cache'}).then(function(r){
-        if(r.ok){ if(o.textContent.indexOf('✓ ')!==0) o.textContent='✓ '+o.textContent; return null; }
-        return fetch('web-edits/pending/'+o.value+'.json', {cache:'no-cache'});
+      fetch('https://raw.githubusercontent.com/'+GH_REPO+'/main/content-overrides/'+o.value+'.json', {cache:'no-cache'}).then(function(r){
+        if(r.ok){ if(o.textContent.indexOf('🟢 ')!==0) o.textContent='🟢 '+o.textContent; return null; }
+        return fetch('https://raw.githubusercontent.com/'+GH_REPO+'/'+GH_BRANCH+'/web-edits/pending/'+o.value+'.json', {cache:'no-cache'});
       }).then(function(r2){
-        if(r2 && r2.ok && o.textContent.indexOf('✓ ')!==0 && o.textContent.indexOf('● ')!==0) o.textContent='● '+o.textContent;
+        if(r2 && r2.ok && o.textContent.indexOf('🟢 ')!==0 && o.textContent.indexOf('✓ ')!==0) o.textContent='✓ '+o.textContent;
       }).catch(function(){});
     });
   });
@@ -389,6 +390,7 @@
     status('در حال ویرایش — تغییرها هنوز ذخیره نشده');
   }
   function stopEdit(){
+    if(delMode) setDelMode(false);
     var art=article();
     if(art){ art.contentEditable='false'; art.style.outline=''; }
     var sm=summaryEl();
@@ -412,6 +414,59 @@
     stopEdit();
   };
 
+  /* ── delete-element mode: click a divider/figure inside the essay to remove it ── */
+  var delMode=false, delHoverEl=null;
+  var DEL_SEL='hr,figure,.essay-figure,.essay-figure-pair,img,svg,[class*="divider"],[class*="dots"],[class*="ornament"]';
+  function delTarget(e){
+    var t=e.target && e.target.closest ? e.target.closest(DEL_SEL) : null;
+    return (t && t.closest('article')) ? t : null;
+  }
+  function delOver(e){
+    var t=delTarget(e);
+    if(t){
+      if(delHoverEl && delHoverEl!==t) delHoverEl.classList.remove('ed-del-target');
+      delHoverEl=t; t.classList.add('ed-del-target');
+    } else if(delHoverEl){ delHoverEl.classList.remove('ed-del-target'); delHoverEl=null; }
+  }
+  function delClick(e){
+    var t=delTarget(e);
+    if(!t) return;
+    e.preventDefault(); e.stopPropagation();
+    snapshot(); typingBurst=false;
+    t.classList.remove('ed-del-target');
+    t.parentNode.removeChild(t);
+    setDelMode(false);
+    status('عنصر حذف شد — با Undo قابل بازگشت است');
+  }
+  function delKey(e){ if(e.key==='Escape') setDelMode(false); }
+  function setDelMode(on){
+    var d;
+    try{ d=frame.contentDocument; }catch(err){ return; }
+    if(!d) return;
+    if(on && !d.getElementById('ed-delcss')){
+      var css=d.createElement('style'); css.id='ed-delcss';
+      css.textContent='.ed-del-target{outline:2px solid #A64B3C!important;outline-offset:3px;cursor:crosshair!important}';
+      d.head.appendChild(css);
+    }
+    var btn=document.querySelector('[data-cmd="deleteEl"]');
+    if(btn){ btn.style.background=on?'#A64B3C':''; btn.style.color=on?'#fff':''; btn.style.borderColor=on?'#A64B3C':''; }
+    if(on && !delMode){
+      d.addEventListener('mousemove',delOver,true);
+      d.addEventListener('click',delClick,true);
+      d.addEventListener('keydown',delKey,true);
+      document.addEventListener('keydown',delKey,true);
+      status('حالت حذف عنصر: روی خط یا عنصر موردنظر در جستار کلیک کنید (Esc = انصراف)');
+    }
+    if(!on && delMode){
+      d.removeEventListener('mousemove',delOver,true);
+      d.removeEventListener('click',delClick,true);
+      d.removeEventListener('keydown',delKey,true);
+      document.removeEventListener('keydown',delKey,true);
+      if(delHoverEl){ delHoverEl.classList.remove('ed-del-target'); delHoverEl=null; }
+    }
+    delMode=on;
+  }
+
   document.querySelectorAll('.fmtb').forEach(function(b){
     b.addEventListener('mousedown',function(e){ e.preventDefault(); });
     b.addEventListener('click',function(){
@@ -420,6 +475,7 @@
         var d=frame.contentDocument, cmd=b.dataset.cmd;
         if(cmd==='undo'){ doUndo(); return; }
         if(cmd==='redo'){ doRedo(); return; }
+        if(cmd==='deleteEl'){ setDelMode(!delMode); return; }
         snapshot(); typingBurst=false;
         if(cmd.indexOf('space')===0){
           var sq3=frame.contentWindow.getSelection();
@@ -452,6 +508,15 @@
           var sqm=frame.contentWindow.getSelection();
           if(!sqm.rangeCount) return;
           var rg=sqm.getRangeAt(0), scope;
+          var strip=function(el){
+            if(!el || el.nodeType!==1) return;
+            ['font-family','font-size','font','line-height','letter-spacing',
+             'color','background','background-color'].forEach(function(pr){
+              if(el.style) el.style.removeProperty(pr);
+            });
+            el.removeAttribute('face'); el.removeAttribute('size'); el.removeAttribute('color');
+            if(el.getAttribute('style')==='') el.removeAttribute('style');
+          };
           if(rg.collapsed){
             var ndm=rg.startContainer;
             if(ndm.nodeType!==1) ndm=ndm.parentElement;
@@ -463,21 +528,33 @@
             scope=[contm];
           }
           scope.forEach(function(root){
-            var all=[root].concat(Array.prototype.slice.call(root.querySelectorAll('*')));
+            /* sizes often ride on ancestors of the selection — clean up to the article */
+            var up=root;
+            while(up && up.tagName!=='ARTICLE' && !up.classList.contains('summary-text')){ strip(up); up=up.parentElement; }
+            var all=Array.prototype.slice.call(root.querySelectorAll('*'));
             all.forEach(function(el){
               if(el.nodeType!==1) return;
-              if(!rg.collapsed && el!==root && !rg.intersectsNode(el)) return;
-              ['font-family','font-size','font','line-height','letter-spacing',
-               'color','background','background-color'].forEach(function(pr){
-                if(el.style) el.style.removeProperty(pr);
-              });
-              el.removeAttribute('face'); el.removeAttribute('size'); el.removeAttribute('color');
-              if(el.getAttribute('style')==='') el.removeAttribute('style');
+              if(!rg.collapsed && !rg.intersectsNode(el)) return;
+              strip(el);
             });
-            Array.prototype.slice.call(root.querySelectorAll('font')).forEach(function(f){
-              if(!rg.collapsed && !rg.intersectsNode(f)) return;
-              while(f.firstChild) f.parentNode.insertBefore(f.firstChild,f);
-              f.parentNode.removeChild(f);
+            /* legacy sizing tags lose their wrapper, text stays */
+            Array.prototype.slice.call(root.querySelectorAll('font,big,small')).forEach(function(t){
+              if(!rg.collapsed && !rg.intersectsNode(t)) return;
+              while(t.firstChild) t.parentNode.insertBefore(t.firstChild,t);
+              t.parentNode.removeChild(t);
+            });
+            /* pasted blocks arrive as <div> and miss the essay's paragraph styling —
+               a div of plain inline text becomes a real paragraph */
+            var cand=Array.prototype.slice.call(root.querySelectorAll('div'));
+            if(root.tagName==='DIV') cand.unshift(root);
+            cand.forEach(function(dv){
+              if(dv.closest('figure,.essay-figure,.essay-figure-pair,.fn-card,nav')) return;
+              if(!rg.collapsed && dv!==root && !rg.intersectsNode(dv)) return;
+              if(dv.querySelector('p,div,h1,h2,h3,h4,h5,h6,ul,ol,figure,blockquote,table,iframe,img')) return;
+              if(!dv.textContent.trim()) return;
+              var np=d.createElement('p');
+              while(dv.firstChild) np.appendChild(dv.firstChild);
+              dv.parentNode.replaceChild(np,dv);
             });
           });
           status('قلم و اندازه با متن جستار همسان شد');
