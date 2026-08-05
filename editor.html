@@ -316,6 +316,14 @@
   sel.onchange=function(){
     if(editing){ if(hasChanges()) doSave(false); stopEdit(); }
     currentSlug=sel.value;
+    /* ✓ marks ONLY the essay currently open on the desk */
+    Array.prototype.forEach.call(sel.options, function(o){
+      o.textContent=o.textContent.replace(/^✓ /,'');
+    });
+    if(currentSlug && sel.selectedIndex>-1){
+      var curOpt=sel.options[sel.selectedIndex];
+      if(curOpt && curOpt.value) curOpt.textContent='✓ '+curOpt.textContent;
+    }
     resumedOriginal=null; resumedSummaryOriginal=null; originalSummary=null;
     resumedDateOriginal=null; resumedBioOriginal=null; originalDate=null; originalBio=null;
     if(currentSlug){
