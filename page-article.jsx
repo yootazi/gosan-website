@@ -168,7 +168,7 @@ const AUTHOR_SITES = {
   'مهرداد غلامی': 'https://www.mehrdadgholami.com',
 };
 
-function AuthorBioBlock({ post }) {
+function AuthorBioBlock({ post, ov }) {
   const isInterview = !!GUEST_BY_SLUG[post.slug];
   const person = isInterview ? GUEST_BY_SLUG[post.slug] : post.author;
   const bio = AUTHOR_BIOS[person];
@@ -179,11 +179,14 @@ function AuthorBioBlock({ post }) {
   const nameEl = site
     ? <a href={site} target="_blank" rel="noopener noreferrer" style={{ ...nameStyle, textDecoration: 'underline', textUnderlineOffset: '3px' }}>{person}</a>
     : <span style={nameStyle}>{person}</span>;
+  const bioEl = ov && ov.bio
+    ? <span className="article-bio-editable" dangerouslySetInnerHTML={{ __html: ov.bio }} />
+    : <span className="article-bio-editable">{bio ? bioWithLinks(bio) : ('معرفی کوتاه ' + kind + ' در دست تکمیل است.')}</span>;
   return (
     <div className="article-bio">
       {photo ? <span className="article-bio-avatar"><img src={photo} alt={person} /></span> : null}
       <div className="article-bio-body">
-        <p className="article-bio-text">{nameEl} {bio ? bioWithLinks(bio) : ('معرفی کوتاه ' + kind + ' در دست تکمیل است.')}</p>
+        <p className="article-bio-text">{nameEl} {bioEl}</p>
       </div>
     </div>
   );
@@ -401,7 +404,7 @@ function useContentOverride(slug) {
     setOv(null);
     fetch('content-overrides/' + slug + '.json', { cache: 'no-cache' })
       .then((r) => (r.ok ? r.json() : null))
-      .then((j) => { if (on && j && (j.body || j.summary)) setOv(j); })
+      .then((j) => { if (on && j && (j.body || j.summary || j.date || j.bio)) setOv(j); })
       .catch(() => {});
     return () => { on = false; };
   }, [slug]);
@@ -616,7 +619,7 @@ function ArticleView({ slug }) {
             <AuthorAvatar name={post.author} />
             <span style={{ color: 'var(--text-body)', fontWeight: 500 }}>{post.author}</span>
           </span>
-          <span style={{ color: 'var(--accent)' }}>{post.date}</span>
+          <span className="byline-date" style={{ color: 'var(--accent)' }}>{(ov && ov.date) || post.date}</span>
         </div>
         <ArticleMeta articleRef={articleRef} />
       </div>
@@ -637,7 +640,7 @@ function ArticleView({ slug }) {
         <SummaryAside post={post} getText={getText} ov={ov} />
       </div>
 
-      <AuthorBioBlock post={post} />
+      <AuthorBioBlock post={post} ov={ov} />
 
       <CommentsSection />
 

@@ -503,7 +503,7 @@ body[data-motion="off"] .author-bio-card { animation: none; }
 }
 .listen-stop svg { width: 12px; height: 12px; }
 .listen-stop:hover { color: var(--ink); border-color: var(--text-muted); }
-.listen-track { height: 2px; width: 100%; background: var(--line); border-radius: 2px; overflow: hidden; }
+.listen-track { height: 2px; background: var(--line); border-radius: 2px; overflow: hidden; margin-inline-end: calc(32px + 1rem); }
 .listen-fill { display: block; height: 100%; background: var(--text-muted); border-radius: 2px; transition: width 0.2s linear; }
 .listen-fill.is-live { animation: listenPulse 1.4s var(--ease-out) infinite; }
 @keyframes listenPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }

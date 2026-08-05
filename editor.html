@@ -79,7 +79,8 @@
   <b style="color:#a5d6a7">ویراستار گرامی، پیش از آغاز کار یک گام کوتاه لازم است:</b><br>
   ۱) توکنی را که از تحریریه دریافت کرده‌اید کپی کنید و در کادر <b>«توکن گیت‌هاب»</b> در نوار بالا بچسبانید — همین‌جا خودبه‌خود بررسی و ذخیره می‌شود و فقط یک‌بار لازم است.<br>
   ۲) سپس جستار را از فهرست انتخاب کنید، نام‌تان را بنویسید و <b>«آغاز ویرایش»</b> را بزنید.<br>
-  ۳) «ذخیره» پیش‌نویس شماست و هر ۱۰ دقیقه هم خودکار ذخیره می‌شود؛ وقتی کار جستار تمام شد <b>«پایان ویرایش»</b> را بزنید تا برای تأیید سردبیر فرستاده شود.
+  ۳) «ذخیره» پیش‌نویس شماست و هر ۱۰ دقیقه هم خودکار ذخیره می‌شود؛ وقتی کار جستار تمام شد <b>«پایان ویرایش»</b> را بزنید تا برای تأیید سردبیر فرستاده شود.<br>
+  ۴) افزون بر متن و چکیده، <b>تاریخ زیر عنوان</b> و <b>معرفی نویسنده در پایان جستار</b> نیز ویرایش‌پذیرند (کادرهای خط‌چین طلایی).
   <span id="tokState" style="display:block;margin-top:4px;font-weight:700"></span>
 </div>
 <div id="inbox" style="display:none;flex:none;background:#161616;border-bottom:1px solid #333;
@@ -103,6 +104,7 @@
   var frame=$('site'), sel=$('essay'), st=$('st');
   var editing=false, originalHTML=null, currentSlug='';
   var resumedOriginal=null, resumedSummaryOriginal=null, originalSummary=null;
+  var resumedDateOriginal=null, resumedBioOriginal=null, originalDate=null, originalBio=null;
   var sessionDrafts={};   /* latest state per essay in THIS session — survives quick switches */
   var GH = !/^(localhost|127\.|192\.168\.|10\.)/.test(location.hostname);
   var GH_REPO='yootazi/gosan-website', GH_BRANCH='web-edits';
@@ -217,6 +219,16 @@
             sm.innerHTML=rec.summary_html;
             resumedSummaryOriginal=rec.original_summary_html||null;
           }
+          var bd=bylineDateEl();
+          if(bd && rec.date_text){
+            bd.textContent=rec.date_text;
+            resumedDateOriginal=rec.original_date||null;
+          }
+          var bo=bioTextEl();
+          if(bo && rec.bio_html){
+            bo.innerHTML=rec.bio_html;
+            resumedBioOriginal=rec.original_bio_html||null;
+          }
           status('ویرایش ذخیره‌شدهٔ پیشین ('+(rec.editor||'')+') بارگذاری شد؛ می‌توانید ادامه دهید');
         } else if(++tries<25){ setTimeout(put,400); }
       })();
@@ -273,6 +285,14 @@
     try{ return frame.contentDocument.querySelector('.summary-card .summary-text'); }
     catch(e){ return null; }
   }
+  function bylineDateEl(){
+    try{ return frame.contentDocument.querySelector('.article-byline .byline-date'); }
+    catch(e){ return null; }
+  }
+  function bioTextEl(){
+    try{ return frame.contentDocument.querySelector('.article-bio-text .article-bio-editable'); }
+    catch(e){ return null; }
+  }
 
   function stripChrome(){
     try{
@@ -292,6 +312,7 @@
     if(editing){ if(hasChanges()) doSave(false); stopEdit(); }
     currentSlug=sel.value;
     resumedOriginal=null; resumedSummaryOriginal=null; originalSummary=null;
+    resumedDateOriginal=null; resumedBioOriginal=null; originalDate=null; originalBio=null;
     if(currentSlug){
       document.getElementById('empty').style.display='none';
       frame.style.display='block';
@@ -335,6 +356,20 @@
       sm.contentEditable='true';
       sm.style.outline='2px dashed #D9B35A'; sm.style.outlineOffset='5px';
     }
+    var bd=bylineDateEl();
+    if(bd){
+      if(originalDate===null) originalDate=resumedDateOriginal||bd.textContent;
+      bd.setAttribute('spellcheck','false');
+      bd.contentEditable='true';
+      bd.style.outline='2px dashed #D9B35A'; bd.style.outlineOffset='4px';
+    }
+    var bo=bioTextEl();
+    if(bo){
+      if(originalBio===null) originalBio=resumedBioOriginal||bo.innerHTML;
+      bo.setAttribute('spellcheck','false');
+      bo.contentEditable='true';
+      bo.style.outline='2px dashed #D9B35A'; bo.style.outlineOffset='5px';
+    }
     $('fmt').style.display='inline-flex';
     d.querySelectorAll('a').forEach(function(a){
       a.addEventListener('click',function(e){ if(editing) e.preventDefault(); });
@@ -357,6 +392,10 @@
     if(art){ art.contentEditable='false'; art.style.outline=''; }
     var sm=summaryEl();
     if(sm){ sm.contentEditable='false'; sm.style.outline=''; }
+    var bd=bylineDateEl();
+    if(bd){ bd.contentEditable='false'; bd.style.outline=''; }
+    var bo=bioTextEl();
+    if(bo){ bo.contentEditable='false'; bo.style.outline=''; }
     $('fmt').style.display='none';
     try{
       var em=frame.contentDocument.getElementById('ed-editmode');
@@ -428,23 +467,31 @@
   function payload(){
     var art=article();
     var sm=summaryEl();
+    var bd=bylineDateEl(), bo=bioTextEl();
     return { slug: currentSlug, editor: $('who').value.trim(),
              saved_at: new Date().toISOString(),
              html: art?captureHTML(art):'', original_html: originalHTML||'',
-             summary_html: sm?sm.innerHTML:'', original_summary_html: originalSummary||'' };
+             summary_html: sm?sm.innerHTML:'', original_summary_html: originalSummary||'',
+             date_text: bd?bd.textContent.trim():'', original_date: originalDate||'',
+             bio_html: bo?bo.innerHTML:'', original_bio_html: originalBio||'' };
   }
   /* one undo system for everything: typing, formatting, indents, direction, spacing */
   var undoStack=[], redoStack=[], typingBurst=false;
   function captureState(){
     var art=article(); if(!art) return null;
-    var sm=summaryEl();
-    return { body: art.innerHTML, summary: sm? sm.innerHTML : null };
+    var sm=summaryEl(); var bd=bylineDateEl(); var bo=bioTextEl();
+    return { body: art.innerHTML, summary: sm? sm.innerHTML : null,
+             date: bd? bd.textContent : null, bio: bo? bo.innerHTML : null };
   }
   function restoreState(st){
     if(!st) return;
     var art=article(); if(art) art.innerHTML=st.body;
     var sm=summaryEl();
     if(sm && st.summary!=null) sm.innerHTML=st.summary;
+    var bd=bylineDateEl();
+    if(bd && st.date!=null) bd.textContent=st.date;
+    var bo=bioTextEl();
+    if(bo && st.bio!=null) bo.innerHTML=st.bio;
     typingBurst=false;
   }
   function snapshot(){
@@ -480,14 +527,17 @@
 
   function hasChanges(){
     var art=article(); if(!art) return false;
-    var sm=summaryEl();
+    var sm=summaryEl(), bd=bylineDateEl(), bo=bioTextEl();
     if(captureHTML(art)!==(originalHTML||'')) return true;
-    return originalSummary!==null && sm && sm.innerHTML!==originalSummary;
+    if(originalSummary!==null && sm && sm.innerHTML!==originalSummary) return true;
+    if(originalDate!==null && bd && bd.textContent!==originalDate) return true;
+    return originalBio!==null && bo && bo.innerHTML!==originalBio;
   }
   var lastSaveSig='';
   function saveSig(){
-    var art=article(); var sm=summaryEl();
-    return (art?captureHTML(art):'')+'|'+(sm?sm.innerHTML:'');
+    var art=article(); var sm=summaryEl(); var bd=bylineDateEl(); var bo=bioTextEl();
+    return (art?captureHTML(art):'')+'|'+(sm?sm.innerHTML:'')
+           +'|'+(bd?bd.textContent:'')+'|'+(bo?bo.innerHTML:'');
   }
   function doSave(finished){
     if(!currentSlug){ status('جستاری انتخاب نشده','err'); return; }
