@@ -815,3 +815,20 @@ html:not([dir="rtl"]) .article>p:first-child::first-letter{
 .memnote{margin:14px 0 0;font-size:13.5px;line-height:1.7;color:var(--ink-2);
   font-style:italic}
 [dir="rtl"] .memnote{font-style:normal;font-size:12.5px;line-height:2}
+
+/* ── metrics, bright variant (minimal; the header's blue panel tint) ── */
+.metrics.lite{background:#F3F4F4;color:var(--ink);border-top:1px solid #E2E4E4;border-bottom:1px solid #E2E4E4}
+.metrics.lite .ledger{border-top:0;margin-top:clamp(26px,3.4vw,44px)}
+.metrics.lite .ledger .cap{color:#878E92}
+.metrics.lite .ledger .cap b{color:var(--ink)}
+.metrics.lite .ledger-bar{background:#E7E9E9;height:56px;border-radius:0}
+.metrics.lite .ledger .legend{color:#5C6468}
+.metrics.lite .ledger .note{color:#878E92}
+.metrics.lite > .wrap > .cap{color:#878E92!important}
+.metrics.lite .cap a{color:#5C6468}
+.metrics.lite .mgrid{border:0;background:transparent}
+.metrics.lite .metric{border-left:0;background:transparent;padding:34px clamp(18px,2.4vw,34px) 36px}
+.metrics.lite .metric:hover{background:transparent}
+.metrics.lite .metric .v{color:var(--ink)}
+.metrics.lite .metric .v small{color:#1D92B4}
+.metrics.lite .metric .k{color:#5C6468;font-family:var(--mono);font-size:11.5px;line-height:1.7;letter-spacing:.02em}

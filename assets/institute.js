@@ -31,15 +31,16 @@
   function run(el){
     var target=parseFloat(el.getAttribute('data-target'))||0;
     var dec=parseInt(el.getAttribute('data-dec')||'0',10);
-    if(reduced){ el.textContent=target.toFixed(dec); return; }
+    if(reduced){ el.textContent=target.toLocaleString('en-US',{minimumFractionDigits:dec,maximumFractionDigits:dec}); return; }
     var dur=1400, t0=null;
+    function fmt(v){ return v.toLocaleString('en-US',{minimumFractionDigits:dec,maximumFractionDigits:dec}); }
     function step(ts){
       if(t0===null) t0=ts;
       var p=Math.min(1,(ts-t0)/dur);
       var e=1-Math.pow(1-p,3);   /* ease-out cubic */
-      el.textContent=(target*e).toFixed(dec);
+      el.textContent=fmt(target*e);
       if(p<1) requestAnimationFrame(step);
-      else el.textContent=target.toFixed(dec);
+      else el.textContent=fmt(target);
     }
     requestAnimationFrame(step);
   }
