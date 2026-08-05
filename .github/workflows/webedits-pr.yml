@@ -32,7 +32,8 @@ jobs:
             fin=$(python3 -c "import json;print(json.load(open('$f',encoding='utf-8')).get('finished') is True)")
             if [ "$fin" != "True" ]; then echo "skip $slug — draft save"; continue; fi
             git checkout -B "review/$slug" "${{ github.sha }}"
-            git mv "web-edits/pending/$slug.json" "web-edits/approved/$slug.json"
+            git mv -f "web-edits/pending/$slug.json" "web-edits/approved/$slug.json"
+            [ -f "web-edits/pending/$slug.md" ] && git mv -f "web-edits/pending/$slug.md" "web-edits/approved/$slug.md" || true
             git commit -m "review: $slug — merge to approve"
             git push -f origin "review/$slug"
             python3 -c "
