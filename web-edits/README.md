@@ -4,7 +4,7 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
-| `azarkeyvani-creation-myth` | احسان | 6 Aug 2026, 00:41 | ۸۲ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/azarkeyvani-creation-myth.md) |
+| `azarkeyvani-creation-myth` | احسان | 6 Aug 2026, 00:51 | ۲۲۹ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/azarkeyvani-creation-myth.md) |
 | `oil-to-narrative` | احسان | 6 Aug 2026, 00:00 | ۴۲۲ | تأییدشده | [دیدن](approved/oil-to-narrative.md) |
 | `crossroads-ahead` | احسان | 6 Aug 2026, 00:00 | ۷ | تأییدشده | [دیدن](approved/crossroads-ahead.md) |
 | `note-for-gosan` | احسان | 5 Aug 2026, 23:56 | ۶۷ | تأییدشده | [دیدن](approved/note-for-gosan.md) |
