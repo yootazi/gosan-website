@@ -4,6 +4,7 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
+| `oil-to-narrative` | یلدا | 5 Aug 2026, 12:59 | ۹۹ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/oil-to-narrative.md) |
 | `interview-farnaz-modarresifar` | یلدا | 5 Aug 2026, 12:24 | ۱۰۰ | تأییدشده | [دیدن](approved/interview-farnaz-modarresifar.md) |
 | `beyzaie-myth-symbolic-action` | احسان | 5 Aug 2026, 02:04 | ۱۹۲ | تأییدشده | [دیدن](approved/beyzaie-myth-symbolic-action.md) |
 | `note-for-gosan` | احسان | 5 Aug 2026, 01:10 | ۴ | تأییدشده | [دیدن](approved/note-for-gosan.md) |
