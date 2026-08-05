@@ -256,14 +256,15 @@
     });
     status((sel.options.length-1)+' جستار در فهرست');
     /* list markers: 🟢 = final edit is live on the site (approved override) —
-       re-editing stays possible; ✓ = essay currently being worked on (open draft) */
+       re-editing stays possible; 🟡 = essay currently being worked on (open draft).
+       The dropdown's own checkmark marks the essay currently open on the desk. */
     Array.prototype.forEach.call(sel.options, function(o){
       if(!o.value) return;
       fetch('https://raw.githubusercontent.com/'+GH_REPO+'/main/content-overrides/'+o.value+'.json', {cache:'no-cache'}).then(function(r){
         if(r.ok){ if(o.textContent.indexOf('🟢 ')!==0) o.textContent='🟢 '+o.textContent; return null; }
         return fetch('https://raw.githubusercontent.com/'+GH_REPO+'/'+GH_BRANCH+'/web-edits/pending/'+o.value+'.json', {cache:'no-cache'});
       }).then(function(r2){
-        if(r2 && r2.ok && o.textContent.indexOf('🟢 ')!==0 && o.textContent.indexOf('✓ ')!==0) o.textContent='✓ '+o.textContent;
+        if(r2 && r2.ok && o.textContent.indexOf('🟢 ')!==0 && o.textContent.indexOf('🟡 ')!==0) o.textContent='🟡 '+o.textContent;
       }).catch(function(){});
     });
   });
