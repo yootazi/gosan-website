@@ -22,3 +22,33 @@
     v.removeAttribute('autoplay'); v.pause();
   }
 })();
+
+/* count-up numbers (display-style): .num[data-target] animates from 0 when scrolled into view */
+(function(){
+  var nums=[].slice.call(document.querySelectorAll('.num[data-target]'));
+  if(!nums.length) return;
+  var reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function run(el){
+    var target=parseFloat(el.getAttribute('data-target'))||0;
+    var dec=parseInt(el.getAttribute('data-dec')||'0',10);
+    if(reduced){ el.textContent=target.toFixed(dec); return; }
+    var dur=1400, t0=null;
+    function step(ts){
+      if(t0===null) t0=ts;
+      var p=Math.min(1,(ts-t0)/dur);
+      var e=1-Math.pow(1-p,3);   /* ease-out cubic */
+      el.textContent=(target*e).toFixed(dec);
+      if(p<1) requestAnimationFrame(step);
+      else el.textContent=target.toFixed(dec);
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window && !reduced){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){ run(e.target); io.unobserve(e.target); }});},
+      {threshold:0.4});
+    nums.forEach(function(el){ el.textContent='0'; io.observe(el); });
+  } else {
+    nums.forEach(run);
+  }
+})();

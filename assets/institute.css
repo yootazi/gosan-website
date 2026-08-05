@@ -1,3 +1,4 @@
+@font-face{font-family:'DSEG7';src:url('fonts/DSEG7Modern-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
 
 /* ══════════════════════════════════════════════════════════════
    Gōsān Institute — think-tank site
@@ -142,6 +143,9 @@ html:not([dir="rtl"]) nav.main a.lang{font-family:'IRANSansX','Vazirmatn',Tahoma
 .metric:hover{background:rgba(255,255,255,.035)}
 .metric .v{font-family:var(--serif);font-size:clamp(32px,3.6vw,46px);font-weight:600;
   line-height:1;letter-spacing:-.028em;color:#fff;font-variant-numeric:tabular-nums}
+.metric .v .num{font-family:'DSEG7',var(--mono);font-weight:700;font-size:.82em;letter-spacing:.02em}
+.metric .v small.pre{margin-right:6px;margin-left:0}
+.ledger-bar .seg .num{font-family:'DSEG7',var(--mono);font-weight:700;font-size:1.05em;letter-spacing:.02em}
 .metric .v small{font-size:.44em;font-weight:400;color:var(--gold-light);margin-left:4px;
   letter-spacing:0}
 .metric .k{margin-top:11px;font-size:13.5px;line-height:1.5;color:#A8BEC7;max-width:30ch}
