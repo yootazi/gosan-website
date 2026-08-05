@@ -4,6 +4,7 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
+| `interview-farnaz-modarresifar` | احسان | 5 Aug 2026, 23:18 | ۰ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/interview-farnaz-modarresifar.md) |
 | `crossroads-ahead` | احسان | 5 Aug 2026, 23:13 | ۹ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/crossroads-ahead.md) |
 | `note-for-gosan` | احسان | 5 Aug 2026, 23:08 | ۴۰ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/note-for-gosan.md) |
 | `oil-to-narrative` | احسان | 5 Aug 2026, 23:04 | ۴۲۲ | تأییدشده | [دیدن](approved/oil-to-narrative.md) |
