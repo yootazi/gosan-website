@@ -39,6 +39,7 @@ jobs:
           rec = json.load(open('/tmp/rec.json', encoding='utf-8'))
           clean = lambda h: re.sub(r'\s*(?:contenteditable|spellcheck)="[^"]*"', '', h)
           ov = {'body': clean(rec.get('html', '')), 'summary': clean(rec.get('summary_html', '')),
+                'date': rec.get('date_text', ''), 'bio': clean(rec.get('bio_html', '')),
                 'editor': rec.get('editor', ''), 'saved_at': rec.get('saved_at', '')}
           json.dump(ov, open('content-overrides/%s.json' % slug, 'w', encoding='utf-8'),
                     ensure_ascii=False, indent=1)
