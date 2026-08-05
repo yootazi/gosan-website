@@ -3,8 +3,8 @@
 | | |
 |---|---|
 | ویراستار | احسان |
-| زمان ذخیره | 5 Aug 2026, 22:48 |
-| واژه‌های تغییرکرده | 351 |
+| زمان ذخیره | 5 Aug 2026, 22:58 |
+| واژه‌های تغییرکرده | 404 |
 
 <div dir="rtl">
 
@@ -26,7 +26,7 @@
 >
 > …
 >
-> ایجاد ادراک و تصویری مطلوب در سطح جهانی. <ins>این</ins> <ins>نوشتار</ins> <ins>را</ins> <ins>باید</ins> <ins>درآمدی</ins> <ins>بر</ins> <ins>یک</ins> <ins>بحث</ins> <ins>بلندمدت</ins> <ins>و</ins> <ins>حائز</ins> <ins>اهمیت</ins> <ins>دانست:</ins> <ins>نسبت</ins> <ins>میان</ins> <ins>توسعهٔ</ins> <ins>اقتصادی،</ins> <ins>ثروت</ins> <ins>ملی</ins> <ins>و</ins> <ins>شکوفایی</ins> <ins>فرهنگ</ins> <ins>و</ins> <ins>هنر.</ins> <ins>طبیعتاً</ins> <ins>بررسی</ins> <ins>این</ins> <ins>موضوع</ins> <ins>که</ins> <ins>چه</ins> <ins>شرایطی</ins> <ins>باید</ins> <ins>بر</ins> <ins>اقتصاد</ins> <ins>یک</ins> <ins>کشور</ins> <ins>حاکم</ins> <ins>باشد</ins> <ins>تا</ins> <ins>امکان</ins> <ins>سرمایه‌گذاری</ins> <ins>پایدار</ins> <ins>بر</ins> <ins>فرهنگ</ins> <ins>و</ins> <ins>هنر</ins> <ins>محقق</ins> <ins>شود،</ins> <ins>و</ins> <ins>این</ins> <ins>سرمایه‌گذاری</ins> <ins>چطور</ins> <ins>می‌تواند</ins> <ins>فرهنگ</ins> <ins>و</ins> <ins>هنر</ins> <ins>را</ins> <ins>به</ins> <ins>موتور</ins> <ins>محرک</ins> <ins>اقتصادی</ins> <ins>آن</ins> <ins>کشور</ins> <ins>بدل</ins> <ins>کند،</ins> <ins>در</ins> <ins>یک</ins> <ins>یادداشت</ins> <ins>نمی‌گنجد</ins> <ins>.</ins> <ins>نگاهی</ins> <ins>دقیق</ins> <ins>و</ins> <ins>عمیق</ins> <ins>به</ins> <ins>آن</ins> <ins>نیازمند</ins> <ins>بازخوانی</ins> <ins>پیشینهٔ</ins> <ins>تاریخی</ins> <ins>این</ins> <ins>گونه</ins> <ins>سرمایه‌گذاری‌هاست؛</ins> <ins>نه</ins> <ins>تنها</ins> <ins>در</ins> <ins>ایران،</ins> <ins>بل</ins> <ins>که</ins> <ins>در</ins> <ins>کشورهای</ins> <ins>خلیج</ins> <ins>فارس</ins> <ins>و</ins> <ins>اقتصادهای</ins> <ins>توسعه‌یافته</ins> <ins>.</ins> <ins>تنها</ins> <ins>با</ins> <ins>چنین</ins> <ins>شناختی</ins> <ins>می‌توان</ins> <ins>به</ins> <ins>سازوکاری</ins> <ins>در</ins> <ins>جهت</ins> <ins>برنامه‌ریزی</ins> <ins>برای</ins> <ins>ایجاد</ins> <ins>یک</ins> <ins>صندوق</ins> <ins>سرمایه‌گذاری</ins> <ins>ملی</ins> <ins>برای</ins> <ins>فرهنگ</ins> <ins>و</ins> <ins>هنر</ins> <ins>ایران،</ins> <ins>و</ins> <ins>تعریف</ins> <ins>انتظارات</ins> <ins>از</ins> <ins>آن</ins> <ins>بر</ins> <ins>پایهٔ</ins> <ins>مشاهدات</ins> <ins>و</ins> <ins>مستندات</ins> <ins>دست</ins> <ins>یافت.</ins> <ins>آنچه</ins> <ins>پیش</ins> <ins>رو</ins> <ins>دارید</ins> <ins>مقدمه‌ای</ins> <ins>است</ins> <ins>بر</ins> <ins>این</ins> <ins>مسیر</ins> <ins>.</ins> از رقابت منطقه‌ای تا رقابت فرهنگی نگاهی به
+> ایجاد ادراک و تصویری مطلوب در سطح جهانی. <ins>این</ins> <ins>نوشتار</ins> <ins>را</ins> <ins>باید</ins> <ins>درآمدی</ins> <ins>بر</ins> <ins>یک</ins> <ins>بحث</ins> <ins>بلندمدت</ins> <ins>و</ins> <ins>حائز</ins> <ins>اهمیت</ins> <ins>دانست:</ins> <ins>نسبت</ins> <ins>میان</ins> <ins>توسعهٔ</ins> <ins>اقتصادی،</ins> <ins>ثروت</ins> <ins>ملی</ins> <ins>و</ins> <ins>شکوفایی</ins> <ins>فرهنگ</ins> <ins>و</ins> <ins>هنر.</ins> <ins>طبیعتاً</ins> <ins>بررسی</ins> <ins>این</ins> <ins>موضوع</ins> <ins>که</ins> <ins>چه</ins> <ins>شرایطی</ins> <ins>باید</ins> <ins>بر</ins> <ins>اقتصاد</ins> <ins>یک</ins> <ins>کشور</ins> <ins>حاکم</ins> <ins>باشد</ins> <ins>تا</ins> <ins>امکان</ins> <ins>سرمایه‌گذاری</ins> <ins>پایدار</ins> <ins>بر</ins> <ins>فرهنگ</ins> <ins>و</ins> <ins>هنر</ins> <ins>محقق</ins> <ins>شود،</ins> <ins>و</ins> <ins>این</ins> <ins>سرمایه‌گذاری</ins> <ins>چطور</ins> <ins>می‌تواند</ins> <ins>فرهنگ</ins> <ins>و</ins> <ins>هنر</ins> <ins>را</ins> <ins>به</ins> <ins>موتور</ins> <ins>رشد</ins> <ins>اقتصادی</ins> <ins>آن</ins> <ins>کشور</ins> <ins>بدل</ins> <ins>کند،</ins> <ins>در</ins> <ins>یک</ins> <ins>یادداشت</ins> <ins>نمی‌گنجد</ins> <ins>.</ins> <ins>نگاهی</ins> <ins>دقیق</ins> <ins>و</ins> <ins>عمیق</ins> <ins>به</ins> <ins>آن</ins> <ins>نیازمند</ins> <ins>بازخوانی</ins> <ins>پیشینهٔ</ins> <ins>تاریخی</ins> <ins>این</ins> <ins>گونه</ins> <ins>سرمایه‌گذاری‌هاست؛</ins> <ins>نه</ins> <ins>تنها</ins> <ins>در</ins> <ins>ایران،</ins> <ins>بل</ins> <ins>که</ins> <ins>در</ins> <ins>کشورهای</ins> <ins>خلیج</ins> <ins>فارس</ins> <ins>و</ins> <ins>اقتصادهای</ins> <ins>توسعه‌یافته</ins> <ins>.</ins> <ins>تنها</ins> <ins>با</ins> <ins>چنین</ins> <ins>شناختی</ins> <ins>می‌توان</ins> <ins>به</ins> <ins>سازوکاری</ins> <ins>در</ins> <ins>جهت</ins> <ins>برنامه‌ریزی</ins> <ins>برای</ins> <ins>ایجاد</ins> <ins>یک</ins> <ins>صندوق</ins> <ins>سرمایه‌گذاری</ins> <ins>ملی</ins> <ins>برای</ins> <ins>فرهنگ</ins> <ins>و</ins> <ins>هنر</ins> <ins>ایران،</ins> <ins>و</ins> <ins>تعریف</ins> <ins>انتظارات</ins> <ins>از</ins> <ins>آن</ins> <ins>بر</ins> <ins>پایهٔ</ins> <ins>مشاهدات</ins> <ins>و</ins> <ins>مستندات</ins> <ins>دست</ins> <ins>یافت.</ins> <ins>آنچه</ins> <ins>پیش</ins> <ins>رو</ins> <ins>دارید</ins> <ins>مقدمه‌ای</ins> <ins>است</ins> <ins>بر</ins> <ins>این</ins> <ins>مسیر</ins> <ins>.</ins> از رقابت منطقه‌ای تا رقابت فرهنگی نگاهی به
 >
 > …
 >
@@ -47,6 +47,14 @@
 > …
 >
 > نگاهی به تاریخ سرمایه‌گذاری‌های فرامرزی ایران در دهه‌های <del>۶۰</del> <ins>شصت</ins> و <del>۷۰</del> <del>میلادی،</del> <ins>هفتاد</ins> <ins>میلادی</ins> تصویری را پیش چشم می‌گذارد که حتی امروز
+>
+> …
+>
+> از قصد خرید ۳۹٪ سهام «دایملر-بنز» ۲ ۲ <del>Daimler-Benz؛</del> <ins>Daimler-Benz.</ins> دربارهٔ قصد فروش ۳۹٪ سهام دایملر-بنز به ایران بنگرید به: «Flick <del>intends</del> <ins>Intends</ins> to <del>sell</del> <del>shares</del> <ins>Sell</ins> <ins>Shares</ins> to Iran» ، آرشیو عمومی مرسدس-بنتس (Mercedes-Benz Public
+>
+> …
+>
+> 4910702. و خرید ۲۵٪ سهام «کروپ» ۳ ۳ <del>Krupp؛</del> <ins>Krupp.</ins> دربارهٔ خرید ۲۵٪ سهام کروپ بنگرید به: «Iran:
 >
 > …
 >
@@ -71,5 +79,41 @@
 > …
 >
 > امروز از آن محروم است. با این حال، <del>همان‌گونه</del> <ins>همان</ins> <ins>گونه</ins> که محمدرضا شاه پهلوی، در آخرین مصاحبهٔ رسمی
+>
+> …
+>
+> در ایران نه «هزینه»، بلکه «سرمایه»ای ارزشمند است. <del>نادیده‌گرفتن</del> <ins>نادیده</ins> <ins>گرفتنِ</ins> این واقعیت، در عمل باعث شده هنر ایران،
+>
+> …
+>
+> منطق سرمایه‌گذاری خاص خود را دارند و نمی‌توان <del>آن‌ها</del> <ins>آنها</ins> را با معیارهای پروژه‌های عمرانی یا صنعتی سنجید.
+>
+> …
+>
+> حرفه‌ای هنر داخلی با ابزارهای انگیزشی شفاف حمایت <del>کند—نه</del> <ins>کند</ins> <ins>—</ins> <ins>نه</ins> از طریق یارانه‌های پراکنده، بلکه با سرمایه‌گذاری هدفمند؛
+>
+> …
+>
+> خود نیازمند سیاست خارجی همسو با منافع ایران <del>به‌مثابه</del> <ins>به</ins> <ins>مثابۀ</ins> یک <del>دولت–ملت</del> <ins>دولت-ملت</ins> است. تحقق هم‌زمان این اقدامات می‌تواند ایران را
+>
+> …
+>
+> در دوران پهلوی و تجربهٔ معاصر همسایگان‌مان، هر <del>دو</del> <ins>دو،</ins> پیامی روشن دارند: بدون یک صندوق حرفه‌ای، مستقل
+>
+> …
+>
+> جریان است، نشانهٔ گذار فرهنگ و هنر از <del>حاشیه</del> <ins>حاشیۀ</ins> سیاست به متن رقابت ملی و منطقه‌ای است.
+>
+> …
+>
+> به دارایی راهبردی، ابزار قدرت نرم و موتور <del>توسعه</del> <ins>توسعۀ</ins> اقتصادی بدل کرده‌اند. ایران، با وجود سرمایهٔ تاریخی و فرهنگی کم‌نظیر، <del>به‌دلیل</del> <ins>به</ins> <ins>دلیل</ins> فقدان چنین سازوکاری و نبود یک دولت ملی
+>
+> …
+>
+> نگاه ویژه به سرمایه‌گذاری در بخش فرهنگ و <del>هنر—مستقل،</del> <ins>هنر</ins> <ins>—</ins> <ins>مستقل،</ins> شفاف و <del>آینده‌نگر—نه</del> <ins>آینده‌نگر</ins> <ins>—</ins> <ins>نه</ins> یک انتخاب لوکس، بلکه ضرورتی برای بازسازی جایگاه
+>
+> …
+>
+> و ایران از رقابت‌های منطقه‌ای عقب خواهد ماند. <del>NOTES</del> <del>//</del> پانویس‌ها ۱ Sovereign Wealth Fund (SWF) ۲ <del>Daimler-Benz؛</del> <ins>Daimler-Benz.</ins> دربارهٔ قصد فروش ۳۹٪ سهام دایملر-بنز به ایران بنگرید به: «Flick <del>intends</del> <ins>Intends</ins> to <del>sell</del> <del>shares</del> <ins>Sell</ins> <ins>Shares</ins> to Iran» ، آرشیو عمومی مرسدس-بنتس (Mercedes-Benz Public Archive)، سند شمارهٔ 4910702. ۳ <del>Krupp؛</del> <ins>Krupp.</ins> دربارهٔ خرید ۲۵٪ سهام کروپ بنگرید به: «Iran:
 
 </div>
