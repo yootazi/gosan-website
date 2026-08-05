@@ -173,6 +173,11 @@ html:not([dir="rtl"]) nav.main a.lang{font-family:'IRANSansX','Vazirmatn',Tahoma
   border:1px solid var(--line)}
 @media(max-width:760px){.principles{grid-template-columns:1fr}}
 .pr{background:var(--paper);padding:26px 28px 28px;transition:background .25s}
+.principles.seats{grid-template-columns:repeat(4,1fr)}
+@media(max-width:960px){.principles.seats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.principles.seats{grid-template-columns:1fr}}
+.pr.seat{padding:14px 16px}
+.pr.seat .n{letter-spacing:.1em;line-height:1.7}
 .block.alt .pr{background:var(--paper-2)}
 .pr:hover{background:var(--white)}
 .pr .n{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.14em}
