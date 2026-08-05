@@ -4,6 +4,7 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
+| `oil-to-narrative` | احسان | 5 Aug 2026, 23:43 | ۴۲۲ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/oil-to-narrative.md) |
 | `azarkeyvani-creation-myth` | احسان | 5 Aug 2026, 23:43 | ۲۸ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/azarkeyvani-creation-myth.md) |
 | `beyzaie-myth-symbolic-action` | احسان | 5 Aug 2026, 23:21 | ۱۱ | تأییدشده | [دیدن](approved/beyzaie-myth-symbolic-action.md) |
 | `interview-farnaz-modarresifar` | احسان | 5 Aug 2026, 23:18 | ۰ | تأییدشده | [دیدن](approved/interview-farnaz-modarresifar.md) |
