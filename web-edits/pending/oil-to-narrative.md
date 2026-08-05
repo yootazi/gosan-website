@@ -3,8 +3,8 @@
 | | |
 |---|---|
 | ویراستار | احسان |
-| زمان ذخیره | 5 Aug 2026, 22:38 |
-| واژه‌های تغییرکرده | 301 |
+| زمان ذخیره | 5 Aug 2026, 22:48 |
+| واژه‌های تغییرکرده | 351 |
 
 <div dir="rtl">
 
@@ -26,7 +26,7 @@
 >
 > …
 >
-> ایجاد ادراک و تصویری مطلوب در سطح جهانی. <ins>این</ins> <ins>نوشتار</ins> <ins>را</ins> <ins>باید</ins> <ins>درآمدی</ins> <ins>بر</ins> <ins>یک</ins> <ins>بحث</ins> <ins>بلندمدت</ins> <ins>و</ins> <ins>حائز</ins> <ins>اهمیت</ins> <ins>دانست:</ins> <ins>نسبت</ins> <ins>میان</ins> <ins>توسعهٔ</ins> <ins>اقتصادی،</ins> <ins>ثروت</ins> <ins>ملی</ins> <ins>و</ins> <ins>شکوفایی</ins> <ins>فرهنگ</ins> <ins>و</ins> <ins>هنر.</ins> <ins>طبیعتاً</ins> <ins>بررسی</ins> <ins>این</ins> <ins>موضوع</ins> <ins>که</ins> <ins>چه</ins> <ins>شرایطی</ins> <ins>باید</ins> <ins>بر</ins> <ins>اقتصاد</ins> <ins>یک</ins> <ins>کشور</ins> <ins>حاکم</ins> <ins>باشد</ins> <ins>تا</ins> <ins>امکان</ins> <ins>سرمایه‌گذاری</ins> <ins>پایدار</ins> <ins>بر</ins> <ins>فرهنگ</ins> <ins>و</ins> <ins>هنر</ins> <ins>محقق</ins> <ins>شود،</ins> <ins>و</ins> <ins>این</ins> <ins>سرمایه‌گذاری</ins> <ins>چطور</ins> <ins>می‌تواند</ins> <ins>فرهنگ</ins> <ins>و</ins> <ins>هنر</ins> <ins>را</ins> <ins>به</ins> <ins>محرک</ins> <ins>اقتصادی</ins> <ins>آن</ins> <ins>کشور</ins> <ins>بدل</ins> <ins>کند،</ins> <ins>در</ins> <ins>یک</ins> <ins>یادداشت</ins> <ins>نمی‌گنجد</ins> <ins>.</ins> <ins>نگاهی</ins> <ins>دقیق</ins> <ins>و</ins> <ins>عمیق</ins> <ins>به</ins> <ins>آن</ins> <ins>نیازمند</ins> <ins>بازخوانی</ins> <ins>پیشینهٔ</ins> <ins>تاریخی</ins> <ins>این</ins> <ins>گونه</ins> <ins>سرمایه‌گذاری‌هاست؛</ins> <ins>نه</ins> <ins>تنها</ins> <ins>در</ins> <ins>ایران،</ins> <ins>بل</ins> <ins>که</ins> <ins>در</ins> <ins>کشورهای</ins> <ins>خلیج</ins> <ins>فارس</ins> <ins>و</ins> <ins>اقتصادهای</ins> <ins>توسعه‌یافته</ins> <ins>.</ins> <ins>تنها</ins> <ins>با</ins> <ins>چنین</ins> <ins>شناختی</ins> <ins>می‌توان</ins> <ins>به</ins> <ins>سازوکاری</ins> <ins>در</ins> <ins>جهت</ins> <ins>برنامه‌ریزی</ins> <ins>برای</ins> <ins>ایجاد</ins> <ins>یک</ins> <ins>صندوق</ins> <ins>سرمایه‌گذاری</ins> <ins>ملی</ins> <ins>برای</ins> <ins>فرهنگ</ins> <ins>و</ins> <ins>هنر</ins> <ins>ایران،</ins> <ins>و</ins> <ins>تعریف</ins> <ins>انتظارات</ins> <ins>از</ins> <ins>آن</ins> <ins>بر</ins> <ins>پایهٔ</ins> <ins>مشاهدات</ins> <ins>و</ins> <ins>مستندات</ins> <ins>دست</ins> <ins>یافت.</ins> <ins>آنچه</ins> <ins>پیش</ins> <ins>رو</ins> <ins>دارید</ins> <ins>مقدمه‌ای</ins> <ins>است</ins> <ins>بر</ins> <ins>این</ins> <ins>مسیر</ins> <ins>.</ins> از رقابت منطقه‌ای تا رقابت فرهنگی نگاهی به
+> ایجاد ادراک و تصویری مطلوب در سطح جهانی. <ins>این</ins> <ins>نوشتار</ins> <ins>را</ins> <ins>باید</ins> <ins>درآمدی</ins> <ins>بر</ins> <ins>یک</ins> <ins>بحث</ins> <ins>بلندمدت</ins> <ins>و</ins> <ins>حائز</ins> <ins>اهمیت</ins> <ins>دانست:</ins> <ins>نسبت</ins> <ins>میان</ins> <ins>توسعهٔ</ins> <ins>اقتصادی،</ins> <ins>ثروت</ins> <ins>ملی</ins> <ins>و</ins> <ins>شکوفایی</ins> <ins>فرهنگ</ins> <ins>و</ins> <ins>هنر.</ins> <ins>طبیعتاً</ins> <ins>بررسی</ins> <ins>این</ins> <ins>موضوع</ins> <ins>که</ins> <ins>چه</ins> <ins>شرایطی</ins> <ins>باید</ins> <ins>بر</ins> <ins>اقتصاد</ins> <ins>یک</ins> <ins>کشور</ins> <ins>حاکم</ins> <ins>باشد</ins> <ins>تا</ins> <ins>امکان</ins> <ins>سرمایه‌گذاری</ins> <ins>پایدار</ins> <ins>بر</ins> <ins>فرهنگ</ins> <ins>و</ins> <ins>هنر</ins> <ins>محقق</ins> <ins>شود،</ins> <ins>و</ins> <ins>این</ins> <ins>سرمایه‌گذاری</ins> <ins>چطور</ins> <ins>می‌تواند</ins> <ins>فرهنگ</ins> <ins>و</ins> <ins>هنر</ins> <ins>را</ins> <ins>به</ins> <ins>موتور</ins> <ins>محرک</ins> <ins>اقتصادی</ins> <ins>آن</ins> <ins>کشور</ins> <ins>بدل</ins> <ins>کند،</ins> <ins>در</ins> <ins>یک</ins> <ins>یادداشت</ins> <ins>نمی‌گنجد</ins> <ins>.</ins> <ins>نگاهی</ins> <ins>دقیق</ins> <ins>و</ins> <ins>عمیق</ins> <ins>به</ins> <ins>آن</ins> <ins>نیازمند</ins> <ins>بازخوانی</ins> <ins>پیشینهٔ</ins> <ins>تاریخی</ins> <ins>این</ins> <ins>گونه</ins> <ins>سرمایه‌گذاری‌هاست؛</ins> <ins>نه</ins> <ins>تنها</ins> <ins>در</ins> <ins>ایران،</ins> <ins>بل</ins> <ins>که</ins> <ins>در</ins> <ins>کشورهای</ins> <ins>خلیج</ins> <ins>فارس</ins> <ins>و</ins> <ins>اقتصادهای</ins> <ins>توسعه‌یافته</ins> <ins>.</ins> <ins>تنها</ins> <ins>با</ins> <ins>چنین</ins> <ins>شناختی</ins> <ins>می‌توان</ins> <ins>به</ins> <ins>سازوکاری</ins> <ins>در</ins> <ins>جهت</ins> <ins>برنامه‌ریزی</ins> <ins>برای</ins> <ins>ایجاد</ins> <ins>یک</ins> <ins>صندوق</ins> <ins>سرمایه‌گذاری</ins> <ins>ملی</ins> <ins>برای</ins> <ins>فرهنگ</ins> <ins>و</ins> <ins>هنر</ins> <ins>ایران،</ins> <ins>و</ins> <ins>تعریف</ins> <ins>انتظارات</ins> <ins>از</ins> <ins>آن</ins> <ins>بر</ins> <ins>پایهٔ</ins> <ins>مشاهدات</ins> <ins>و</ins> <ins>مستندات</ins> <ins>دست</ins> <ins>یافت.</ins> <ins>آنچه</ins> <ins>پیش</ins> <ins>رو</ins> <ins>دارید</ins> <ins>مقدمه‌ای</ins> <ins>است</ins> <ins>بر</ins> <ins>این</ins> <ins>مسیر</ins> <ins>.</ins> از رقابت منطقه‌ای تا رقابت فرهنگی نگاهی به
 >
 > …
 >
@@ -35,5 +35,41 @@
 > …
 >
 > رویدادهای فرهنگی بزرگ نیز جریان دارد. دبی که <del>به‌عنوان</del> <ins>به</ins> <ins>عنوان</ins> جامعه‌ای نسبتاً باز و جهان‌وطن شناخته می‌شود، توانسته
+>
+> …
+>
+> میزبان جشنوارهٔ موسیقی MDLBEAST Soundstorm شد؛ رویدادی که <del>به‌عنوان</del> <ins>به</ins> <ins>عنوان</ins> بزرگ‌ترین جشنوارهٔ موسیقی خاورمیانه شناخته می‌شود. در مجموع،
+>
+> …
+>
+> دو کشور برای بازتعریف تصویر بین‌المللی خود و <del>شکل‌دادن</del> <ins>شکل</ins> <ins>دادن</ins> به برداشت‌های مثبت از <del>جایگاه‌شان</del> <ins>جایگاهشان</ins> در عرصهٔ جهانی است. در همین راستا، «جشنوارهٔ نور ریاض» یکی از برنامه‌های «ریاض آرت» است <del>که</del> <del>خود</del> <ins>و</ins> بخشی از چهار پروژهٔ بزرگ ریاض <del>به‌شمار</del> <ins>به</ins> <ins>شمار</ins> می‌آید که در ۱۹ مارس ۲۰۱۹ آغاز شدند؛
+>
+> …
+>
+> نگاهی به تاریخ سرمایه‌گذاری‌های فرامرزی ایران در دهه‌های <del>۶۰</del> <ins>شصت</ins> و <del>۷۰</del> <del>میلادی،</del> <ins>هفتاد</ins> <ins>میلادی</ins> تصویری را پیش چشم می‌گذارد که حتی امروز
+>
+> …
+>
+> آمریکا. ایرانِ آن روزها فراتر از مرزهای جغرافیایی <del>خود،</del> <ins>خود</ins> به دنبال «امنیت آینده» بود. در تمامی این
+>
+> …
+>
+> از پایان‌پذیری نفت و لزوم آمادگی برای دوران <del>پسا‌نفت،</del> <ins>پسا‌نفت</ins> بارها در سخنان محمدرضا شاه پهلوی بازتاب یافته
+>
+> …
+>
+> استانداردهای بین‌المللی تبدیل شود و ثروت ملی را <del>به‌صورت</del> <ins>به</ins> <ins>صورت</ins> نسل‌به‌نسل بازتولید کند. انقلاب اسلامی ۵۷ بسیاری از
+>
+> …
+>
+> ایدهٔ صندوق توسعهٔ ملی مطرح شد، اما در <del>عمل—و</del> <ins>عمل</ins> <ins>—</ins> <ins>و</ins> همچون بسیاری از سیاست‌های وام‌گرفته از <del>گذشته—این</del> <ins>گذشته</ins> <ins>—</ins> <ins>این</ins> صندوق بیشتر به ابزاری برای جبران کسری بودجه،
+>
+> …
+>
+> و تخصیص بخشی از سرمایه‌گذاری‌ها به فرهنگ و <del>هنر—در</del> <ins>هنر</ins> <ins>—</ins> <ins>در</ins> راستای منافع ایران <del>به‌مثابه</del> <ins>به</ins> <ins>مثابۀ</ins> یک <del>دولت–ملت—تنها</del> <ins>دولت-ملت</ins> <ins>—</ins> <ins>تنها</ins> از دولتی ملی برمی‌آید؛ امری که تا اطلاع
+>
+> …
+>
+> امروز از آن محروم است. با این حال، <del>همان‌گونه</del> <ins>همان</ins> <ins>گونه</ins> که محمدرضا شاه پهلوی، در آخرین مصاحبهٔ رسمی
 
 </div>
