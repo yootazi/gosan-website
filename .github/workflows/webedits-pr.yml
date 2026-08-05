@@ -25,9 +25,10 @@ jobs:
         run: |
           git config user.name "gosan-desk"
           git config user.email "actions@users.noreply.github.com"
-          BEFORE="${{ github.event.before }}"
-          git cat-file -e "$BEFORE" 2>/dev/null || BEFORE="${{ github.sha }}~1"
-          for f in $(git diff --name-only --diff-filter=AM "$BEFORE" "${{ github.sha }}" -- 'web-edits/pending/*.json'); do
+          # self-healing: EVERY run rebuilds EVERY finished pending edit onto the
+          # current base, so review PRs never rot into conflicts as the branch moves.
+          for f in web-edits/pending/*.json; do
+            [ -e "$f" ] || continue
             slug=$(basename "$f" .json)
             fin=$(python3 -c "import json;print(json.load(open('$f',encoding='utf-8')).get('finished') is True)")
             if [ "$fin" != "True" ]; then echo "skip $slug — draft save"; continue; fi
