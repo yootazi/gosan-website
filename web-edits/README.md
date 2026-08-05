@@ -4,7 +4,7 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
-| `oil-to-narrative` | احسان | 5 Aug 2026, 23:00 | ۴۱۲ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/oil-to-narrative.md) |
+| `oil-to-narrative` | احسان | 5 Aug 2026, 23:00 | ۴۱۲ | تأییدشده | [دیدن](approved/oil-to-narrative.md) |
 | `interview-farnaz-modarresifar` | یلدا | 5 Aug 2026, 12:24 | ۱۰۰ | تأییدشده | [دیدن](approved/interview-farnaz-modarresifar.md) |
 | `beyzaie-myth-symbolic-action` | احسان | 5 Aug 2026, 02:04 | ۱۹۲ | تأییدشده | [دیدن](approved/beyzaie-myth-symbolic-action.md) |
 | `note-for-gosan` | احسان | 5 Aug 2026, 01:10 | ۴ | تأییدشده | [دیدن](approved/note-for-gosan.md) |
