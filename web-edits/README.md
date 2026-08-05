@@ -4,7 +4,8 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
-| `interview-farnaz-modarresifar` | احسان | 5 Aug 2026, 23:18 | ۰ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/interview-farnaz-modarresifar.md) |
+| `beyzaie-myth-symbolic-action` | احسان | 5 Aug 2026, 23:21 | ۹ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/beyzaie-myth-symbolic-action.md) |
+| `interview-farnaz-modarresifar` | احسان | 5 Aug 2026, 23:18 | ۰ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/interview-farnaz-modarresifar.md) |
 | `crossroads-ahead` | احسان | 5 Aug 2026, 23:13 | ۹ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/crossroads-ahead.md) |
 | `note-for-gosan` | احسان | 5 Aug 2026, 23:08 | ۴۰ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/note-for-gosan.md) |
 | `oil-to-narrative` | احسان | 5 Aug 2026, 23:04 | ۴۲۲ | تأییدشده | [دیدن](approved/oil-to-narrative.md) |
