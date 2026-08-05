@@ -4,7 +4,7 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
-| `interview-farnaz-modarresifar` | Yalda | 5 Aug 2026, 12:09 | ۱۴ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/interview-farnaz-modarresifar.md) |
+| `interview-farnaz-modarresifar` | یلدا | 5 Aug 2026, 12:19 | ۸۱ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/interview-farnaz-modarresifar.md) |
 | `beyzaie-myth-symbolic-action` | احسان | 5 Aug 2026, 02:04 | ۱۹۲ | تأییدشده | [دیدن](approved/beyzaie-myth-symbolic-action.md) |
 | `note-for-gosan` | احسان | 5 Aug 2026, 01:10 | ۴ | تأییدشده | [دیدن](approved/note-for-gosan.md) |
 | `crossroads-ahead` | احسان | 5 Aug 2026, 00:44 | ۱۱۵ | تأییدشده | [دیدن](approved/crossroads-ahead.md) |
