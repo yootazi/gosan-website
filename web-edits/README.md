@@ -4,14 +4,12 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
-| `azarkeyvani-creation-myth` | احسان | 6 Aug 2026, 00:05 | ۲۸ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/azarkeyvani-creation-myth.md) |
-| `oil-to-narrative` | احسان | 6 Aug 2026, 00:00 | ۴۲۲ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/oil-to-narrative.md) |
-| `crossroads-ahead` | احسان | 6 Aug 2026, 00:00 | ۷ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/crossroads-ahead.md) |
+| `azarkeyvani-creation-myth` | احسان | 6 Aug 2026, 00:09 | ۳۰ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/azarkeyvani-creation-myth.md) |
+| `oil-to-narrative` | احسان | 6 Aug 2026, 00:00 | ۴۲۲ | تأییدشده | [دیدن](approved/oil-to-narrative.md) |
+| `crossroads-ahead` | احسان | 6 Aug 2026, 00:00 | ۷ | تأییدشده | [دیدن](approved/crossroads-ahead.md) |
 | `note-for-gosan` | احسان | 5 Aug 2026, 23:56 | ۶۷ | تأییدشده | [دیدن](approved/note-for-gosan.md) |
 | `beyzaie-myth-symbolic-action` | احسان | 5 Aug 2026, 23:21 | ۱۱ | تأییدشده | [دیدن](approved/beyzaie-myth-symbolic-action.md) |
 | `interview-farnaz-modarresifar` | احسان | 5 Aug 2026, 23:18 | ۰ | تأییدشده | [دیدن](approved/interview-farnaz-modarresifar.md) |
-| `oil-to-narrative` | احسان | 5 Aug 2026, 23:04 | ۴۲۲ | تأییدشده | [دیدن](approved/oil-to-narrative.md) |
-| `crossroads-ahead` | احسان | 5 Aug 2026, 00:44 | ۱۱۵ | تأییدشده | [دیدن](approved/crossroads-ahead.md) |
 | `manichaean-music-terms` | احسان | 4 Aug 2026, 23:45 | ۸۴ | تأییدشده | [دیدن](approved/manichaean-music-terms.md) |
 
 ---
