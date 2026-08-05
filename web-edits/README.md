@@ -4,6 +4,7 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
+| `note-for-gosan` | احسان | 5 Aug 2026, 23:07 | ۴۰ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/note-for-gosan.md) |
 | `oil-to-narrative` | احسان | 5 Aug 2026, 23:04 | ۴۲۲ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/oil-to-narrative.md) |
 | `oil-to-narrative` | احسان | 5 Aug 2026, 23:00 | ۴۱۲ | تأییدشده | [دیدن](approved/oil-to-narrative.md) |
 | `interview-farnaz-modarresifar` | یلدا | 5 Aug 2026, 12:24 | ۱۰۰ | تأییدشده | [دیدن](approved/interview-farnaz-modarresifar.md) |
