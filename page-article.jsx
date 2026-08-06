@@ -33,6 +33,8 @@ const AUTHOR_PHOTOS = {
   'سهراب لبیب': 'assets/board-sohrab.png',
   'امین نایب‌پور': 'assets/board-amin.png',
   'مصطفی بوشهری': 'assets/author-mostafa-bushehri.png',
+  'مهرداد غلامی': 'assets/author-mehrdad-gholami.png',
+  'حامد امان‌پور قرایی': 'assets/author-hamed-amanpour-gharaei.png',
 };
 
 /* interview guests — the bio block shows the interviewee, not the interviewer */
