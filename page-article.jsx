@@ -22,16 +22,17 @@ function goToHomeSection(tag) {
   }
 }
 
-/* Author avatars appear ONLY for the five board members; each uses the SAME
-   photo file as the About page board (assets/board-*.png), so replacing one
-   file updates both the byline circle and the About page. Every other writer
-   shows no avatar circle at all. */
+/* Author avatars: the five board members use the SAME photo file as the About
+   page board (assets/board-*.png), so replacing one file updates both the byline
+   circle and the About page. Contributing writers use assets/author-*.png, which
+   the About page never reads. Writers with no file here show no circle at all. */
 const AUTHOR_PHOTOS = {
   'حافظ باباشاهی': 'assets/board-hafez.png',
   'یلدا زمانی': 'assets/board-yalda.png',
   'احسان شواربی': 'assets/board-ehsan.png',
   'سهراب لبیب': 'assets/board-sohrab.png',
   'امین نایب‌پور': 'assets/board-amin.png',
+  'مصطفی بوشهری': 'assets/author-mostafa-bushehri.png',
 };
 
 /* interview guests — the bio block shows the interviewee, not the interviewer */
