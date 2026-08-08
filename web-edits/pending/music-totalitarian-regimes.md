@@ -3,8 +3,8 @@
 | | |
 |---|---|
 | ویراستار | احسان |
-| زمان ذخیره | 8 Aug 2026, 21:37 |
-| واژه‌های تغییرکرده | 656 |
+| زمان ذخیره | 8 Aug 2026, 21:47 |
+| واژه‌های تغییرکرده | 774 |
 
 <div dir="rtl">
 
@@ -122,11 +122,7 @@
 >
 > …
 >
-> شکل استدلالی عرضه می‌شد، شاید چندان قانع‌کننده نبود. <del>بدین‌ترتیب،</del> <ins>بدین</ins> <ins>ترتیب،</ins> نوعی کیش عاطفی پیرامون رهبر و نظام شکل <del>می‌گیرد</del> <ins>می‌گیرد.</ins> ۱ ۱ Jacques Attali, Noise: The Political Economy
->
-> …
->
-> 3 – 20 در آلمان نازی، سرودهایی چون <del>ترانه‌ی</del> <ins>«ترانۀ</ins> هورست <del>وِسِل</del> <del>(Horst</del> <del>Wessel)</del> <ins>وِسِل»</ins> <ins>(Horst-Wessel-Lied)</ins> و نغمه‌های حماسی و ملی‌گرایانه طنین‌انداز می‌شد تا
+> شکل استدلالی عرضه می‌شد، شاید چندان قانع‌کننده نبود. <del>بدین‌ترتیب،</del> <ins>بدین</ins> <ins>ترتیب،</ins> نوعی کیش عاطفی پیرامون رهبر و نظام شکل <del>می‌گیرد</del> <ins>می‌گیرد.</ins> ۱ ۱ Jacques Attali, Noise: The Political Economy of <del>Music,</del> <del>trans.</del> <ins>Music</ins> <ins>,</ins> <ins>transl.</ins> Brian Massumi, Minneapolis: University <del>ofMinnesota</del> <ins>of</ins> <ins>Minnesota</ins> Press, 1985, pp. <del>3</del> <del>–</del> <del>20</del> <ins>3–20.</ins> در آلمان نازی، سرودهایی چون <del>ترانه‌ی</del> <ins>«ترانۀ</ins> هورست <del>وِسِل</del> <del>(Horst</del> <del>Wessel)</del> <ins>وِسِل»</ins> <ins>(Horst-Wessel-Lied)</ins> و نغمه‌های حماسی و ملی‌گرایانه طنین‌انداز می‌شد تا
 >
 > …
 >
@@ -134,7 +130,7 @@
 >
 > …
 >
-> Palgrave Macmillan, 1994, pp. 14 – 30 برای <del>آن‌که</del> <ins>آن</ins> <ins>که</ins> این سازوکار تبلیغی و عاطفی مختل نشود، رژیم‌های تمامیت‌خواه سانسوری سخت‌گیرانه بر موسیقی تحمیل می‌کنند. <del>آن‌ها</del> <ins>آنها</ins> تعیین می‌کنند چه چیزی «موسیقی خوب» و چه چیزی «منحرف» است. سبک‌ها، <del>آهنگ‌سازان،</del> <ins>آهنگسازان،</ins> سازها یا شیوه‌های خاص اجرا ممکن است <del>به‌عنوان</del> <ins>به</ins> <ins>عنوان</ins> «منحط»، «بورژوایی»، «بیگانه» یا «فرمالیستی» محکوم و ممنوع شوند. در آلمان نازی، «اتاق موسیقی رایش» <ins>(Reichsmusikkammer)</ins> هنرمندان را از نظر تبار و وفاداری سیاسی
+> ۲ ۲ Erik Levi, Music in the Third <del>Reich,</del> <ins>Reich</ins> <ins>,</ins> London: Palgrave Macmillan, 1994, pp. <del>14</del> <del>–</del> <del>30</del> <ins>14–30.</ins> برای <del>آن‌که</del> <ins>آن</ins> <ins>که</ins> این سازوکار تبلیغی و عاطفی مختل نشود، رژیم‌های تمامیت‌خواه سانسوری سخت‌گیرانه بر موسیقی تحمیل می‌کنند. <del>آن‌ها</del> <ins>آنها</ins> تعیین می‌کنند چه چیزی «موسیقی خوب» و چه چیزی «منحرف» است. سبک‌ها، <del>آهنگ‌سازان،</del> <ins>آهنگسازان،</ins> سازها یا شیوه‌های خاص اجرا ممکن است <del>به‌عنوان</del> <ins>به</ins> <ins>عنوان</ins> «منحط»، «بورژوایی»، «بیگانه» یا «فرمالیستی» محکوم و ممنوع شوند. در آلمان نازی، «اتاق موسیقی رایش» <ins>(Reichsmusikkammer)</ins> هنرمندان را از نظر تبار و وفاداری سیاسی
 >
 > …
 >
@@ -258,7 +254,23 @@
 >
 > …
 >
-> کرد که اثری بسیار تأثیرگذار است. در اکتبر <del>۱۹۴۴</del> <ins>۱۹۴۴،</ins> او نیز به آشویتس تبعید شد و اندکی
+> کرد که اثری بسیار تأثیرگذار است. در اکتبر <del>۱۹۴۴</del> <ins>۱۹۴۴،</ins> او نیز به آشویتس تبعید شد و اندکی بعد از <del>رسیدن،</del> <ins>رسیدن</ins> به قتل رسید. رافائل <del>شختر</del> <ins>شِختِر</ins> (۱۹۰۵–۱۹۴۴)، پیانیست، رهبر ارکستر و کورپتیتور، یکی از
+>
+> …
+>
+> را سازمان‌دهی کرد و با زندانیان «رکوئیم» جوزپه <del>وردی</del> <ins>وِردی</ins> را تمرین و اجرا کرد. او در سال
+>
+> …
+>
+> اتاق گاز در آشویتس به قتل رسید. آلما <del>روزه</del> <ins>رُزِه</ins> (۱۹۰۶–۱۹۴۴)، ویولنیست و خواهرزادهٔ گوستاو مالر و دختر کنسرت‌مایستر <ins>ارکستر</ins> فیلارمونیک وین آرنولد <del>روزه</del> <del>«Arnold</del> <del>Rosé»</del> <del>،</del> <ins>رُزِه</ins> <ins>(Arnold</ins> <ins>Rosé)،</ins> پیش از ۱۹۳۸ ویولنیستی مشهور و رهبر یک
+>
+> …
+>
+> در وین بود. پس از دستگیری، او به <del>آشویتس-بیرکِنائو</del> <ins>آشویتس</ins> رسید و در آنجا رهبری ارکستر زنان را
+>
+> …
+>
+> سال ۱۹۴۴ در اردوگاه درگذشت. ۳ ۳ Ina <del>Fujii</del> <del>2012:</del> <ins>Fujii,</ins> Musik gegen den Tod: Eine musikwissenschaftliche Untersuchung des Repertoires <del>derHäftlingsorchester</del> <ins>der</ins> <ins>Häftlingsorchester</ins> aus den Sammlungen des Staatlichen Museums Auschwitz-Birkenau im Kontext <del>ihrerMusikaktivitäten.</del> <ins>ihrer</ins> <ins>Musikaktivitäten</ins> <ins>,</ins> <ins>Magisterarbeit</ins> <ins>an</ins> <ins>der</ins> Humboldt-Universität zu Berlin, Philosophische Fakultät III, Institut für Musik- <del>undMedienwissenschaft,</del> <ins>und</ins> <ins>Medienwissenschaft,</ins> <ins>Berlin,</ins> <ins>2012</ins> pp. <del>20-36</del> <ins>20–36.</ins> , ۴ ۴ Shirli Gilbert, Music in the Holocaust: Confronting Life in the Nazi Ghettos and <del>Camps,</del> <ins>Camps</ins> <ins>,</ins> Oxford: <del>OxfordUniversity</del> <ins>Oxford</ins> <ins>University</ins> Press, 2005, pp. <del>55–196</del> <ins>55–196.</ins> زمان نگارش این مقاله، بیش از ۳۰ آهنگساز
 >
 > …
 >
@@ -339,6 +351,10 @@
 > …
 >
 > جنس «بله» یا «نه» ندارد. او نه قهرمان <del>بی‌لکه‌ی</del> <ins>بی‌لکۀ</ins> مقاومت بود و نه هنرمند فرمانبردار و بی‌سؤالِ
+>
+> …
+>
+> در لابه‌لای نغمه‌هایش باقی میگذارد. ۵ ۵ Jeremy <del>Eichler:</del> <ins>Eichler,</ins> Time's Echo. The Second World War, the Holocaust,
 >
 > …
 >
@@ -502,6 +518,6 @@
 >
 > …
 >
-> که روزگار سرکوب به سر آمده باشد، می‌توان <del>آن‌ها</del> <ins>آنها</ins> را <del>به‌سان</del> <ins>به</ins> <ins>سان</ins> تاریخ پنهانِ جان‌ها خواند. NOTES // پانویس‌ها ۱
+> که روزگار سرکوب به سر آمده باشد، می‌توان <del>آن‌ها</del> <ins>آنها</ins> را <del>به‌سان</del> <ins>به</ins> <ins>سان</ins> تاریخ پنهانِ جان‌ها خواند. <del>NOTES</del> <del>//</del> پانویس‌ها ۱ Jacques Attali, Noise: The Political Economy of <del>Music,</del> <del>trans.</del> <ins>Music</ins> <ins>,</ins> <ins>transl.</ins> Brian Massumi, Minneapolis: University <del>ofMinnesota</del> <ins>of</ins> <ins>Minnesota</ins> Press, 1985, pp. <del>3</del> <del>–</del> <del>20</del> <ins>3–20.</ins> ۲ Erik Levi, Music in the Third <del>Reich,</del> <ins>Reich</ins> <ins>,</ins> London: Palgrave Macmillan, 1994, pp. <del>14</del> <del>–</del> <del>30</del> <ins>14–30.</ins> ۳ Ina <del>Fujii</del> <del>2012:</del> <ins>Fujii,</ins> Musik gegen den Tod: Eine musikwissenschaftliche Untersuchung des Repertoires <del>derHäftlingsorchester</del> <ins>der</ins> <ins>Häftlingsorchester</ins> aus den Sammlungen des Staatlichen Museums Auschwitz-Birkenau im Kontext <del>ihrerMusikaktivitäten.</del> <ins>ihrer</ins> <ins>Musikaktivitäten</ins> <ins>,</ins> <ins>Magisterarbeit</ins> <ins>an</ins> <ins>der</ins> Humboldt-Universität zu Berlin, Philosophische Fakultät III, Institut für Musik- <del>undMedienwissenschaft,</del> <ins>und</ins> <ins>Medienwissenschaft,</ins> <ins>Berlin,</ins> <ins>2012</ins> pp. <del>20-36</del> <ins>20–36.</ins> ۴ Shirli Gilbert, Music in the Holocaust: Confronting Life in the Nazi Ghettos and <del>Camps,</del> <ins>Camps</ins> <ins>,</ins> Oxford: <del>OxfordUniversity</del> <ins>Oxford</ins> <ins>University</ins> Press, 2005, pp. <del>55–196</del> <ins>55–196.</ins> ۵ Jeremy <del>Eichler:</del> <ins>Eichler,</ins> Time's Echo. The Second World War, the Holocaust,
 
 </div>
