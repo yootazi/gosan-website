@@ -3,8 +3,8 @@
 | | |
 |---|---|
 | ویراستار | احسان |
-| زمان ذخیره | 8 Aug 2026, 21:58 |
-| واژه‌های تغییرکرده | 954 |
+| زمان ذخیره | 8 Aug 2026, 22:03 |
+| واژه‌های تغییرکرده | 1054 |
 
 <div dir="rtl">
 
@@ -270,7 +270,7 @@
 >
 > …
 >
-> سال ۱۹۴۴ در اردوگاه درگذشت. ۳ ۳ Ina <del>Fujii</del> <del>2012:</del> <ins>Fujii,</ins> Musik gegen den Tod: Eine musikwissenschaftliche Untersuchung des Repertoires <del>derHäftlingsorchester</del> <ins>der</ins> <ins>Häftlingsorchester</ins> aus den Sammlungen des Staatlichen Museums Auschwitz-Birkenau im Kontext <del>ihrerMusikaktivitäten.</del> <ins>ihrer</ins> <ins>Musikaktivitäten</ins> <ins>,</ins> <ins>Magisterarbeit</ins> <ins>an</ins> <ins>der</ins> Humboldt-Universität zu Berlin, Philosophische Fakultät III, Institut für Musik- <del>undMedienwissenschaft,</del> <ins>und</ins> <ins>Medienwissenschaft,</ins> <ins>Berlin,</ins> <ins>2012</ins> pp. <del>20-36</del> <del>,</del> <del>۴</del> <del>۴</del> <ins>20–36.</ins> Shirli Gilbert, Music in the Holocaust: Confronting Life in the Nazi Ghettos and <del>Camps,</del> <ins>Camps</ins> <ins>,</ins> Oxford: <del>OxfordUniversity</del> <ins>Oxford</ins> <ins>University</ins> Press, 2005, pp. <del>55–196</del> <ins>55–196.</ins> <ins>,</ins> <ins>۴</ins> <ins>۴</ins> زمان نگارش این مقاله، بیش از ۳۰ آهنگساز
+> سال ۱۹۴۴ در اردوگاه درگذشت. ۳ ۳ Ina <del>Fujii</del> <del>2012:</del> <ins>Fujii,</ins> Musik gegen den Tod: Eine musikwissenschaftliche Untersuchung des Repertoires <del>derHäftlingsorchester</del> <ins>der</ins> <ins>Häftlingsorchester</ins> aus den Sammlungen des Staatlichen Museums Auschwitz-Birkenau im Kontext <del>ihrerMusikaktivitäten.</del> <ins>ihrer</ins> <ins>Musikaktivitäten</ins> <ins>,</ins> <ins>Magisterarbeit</ins> <ins>an</ins> <ins>der</ins> Humboldt-Universität zu Berlin, Philosophische Fakultät III, Institut für Musik- <del>undMedienwissenschaft,</del> <ins>und</ins> <ins>Medienwissenschaft,</ins> <ins>Berlin,</ins> <ins>2012</ins> pp. <del>20-36</del> <del>,</del> <del>۴</del> <del>۴</del> <ins>20–36.</ins> Shirli Gilbert, Music in the Holocaust: Confronting Life in the Nazi Ghettos and <del>Camps,</del> <ins>Camps</ins> <ins>,</ins> Oxford: <del>OxfordUniversity</del> <ins>Oxford</ins> <ins>University</ins> Press, 2005, pp. <del>55–196</del> <ins>55–196.</ins> <ins>در</ins> زمان نگارش این مقاله، بیش از <del>۳۰</del> <ins>سی</ins> آهنگساز و نوازنده را <del>مدنظر</del> <ins>مد</ins> <ins>نظر</ins> داشتم؛ اما در نهایت، با توجه به بستر
 >
 > …
 >
@@ -354,7 +354,7 @@
 >
 > …
 >
-> در لابه‌لای نغمه‌هایش باقی میگذارد. ۵ ۵ Jeremy <del>Eichler:</del> <del>Time's</del> <del>Echo.</del> <ins>Eichler,</ins> <ins>Time’s</ins> <ins>Echo:</ins> The Second World War, the Holocaust, and the Music of <del>Remembrance.</del> <ins>Remembrance</ins> <ins>,</ins> <ins>New</ins> <ins>York:</ins> Alfred <del>A.Knopf,</del> <del>New</del> <del>York,</del> <del>2023</del> <del>PP</del> <del>305-356</del> <ins>A.</ins> <ins>Knopf,</ins> <ins>2023,</ins> <ins>pp.</ins> <ins>305–356.</ins> ریشارد اشتراوس (۱۸۶۴-۱۹۴۹) آلمان ریشارد اشتراوس در دوران
+> را در لابه‌لای نغمه‌هایش باقی میگذارد. ۵ ۵ <del>Jeremy</del> <del>Eichler:</del> <del>Time's</del> <del>Echo.</del> <del>The</del> <del>Second</del> <del>World</del> <del>War,</del> <del>the</del> <del>Holocaust,</del> <del>and</del> <del>the</del> <del>Music</del> <del>of</del> <del>Remembrance.</del> <del>Alfred</del> <del>A.Knopf,</del> <del>New</del> <del>York,</del> <del>2023</del> <del>PP</del> <del>305-356</del> ریشارد اشتراوس (۱۸۶۴-۱۹۴۹) آلمان ریشارد اشتراوس در دوران
 >
 > …
 >
@@ -402,7 +402,7 @@
 >
 > …
 >
-> اندازه پیچیده و چندلایه است. ۶ ۶ Jeremy <del>Eichler:</del> <del>Time's</del> <del>Echo.</del> <del>The</del> <del>Second</del> <del>World</del> <del>War,</del> <del>the</del> <del>Holocaust,</del> <del>and</del> <del>the</del> <del>Music</del> <del>of</del> <del>Remembrance.</del> <del>Alfred</del> <del>A.Knopf,</del> <del>New</del> <del>York,</del> <del>2023</del> <del>PP</del> <del>156-168</del> <ins>Eichler,</ins> <ins>Time’s</ins> <ins>Echo</ins> <ins>,</ins> <ins>pp.</ins> <ins>156–168.</ins> بلا بارتوک (۱۸۸۱-۱۹۴۵) مجارستان بلا بارتوک از روشن‌ترین
+> اندازه پیچیده و چندلایه است. ۶ ۶ Jeremy <del>Eichler:</del> <del>Time's</del> <del>Echo.</del> <ins>Eichler,</ins> <ins>Time’s</ins> <ins>Echo:</ins> The Second World War, the Holocaust, and the Music of <del>Remembrance.</del> <ins>Remembrance</ins> <ins>,</ins> <ins>New</ins> <ins>York:</ins> Alfred <del>A.Knopf,</del> <del>New</del> <del>York,</del> <del>2023</del> <del>PP</del> <del>156-168</del> <ins>A.</ins> <ins>Knopf,</ins> <ins>2023,</ins> <ins>pp.</ins> <ins>305–356.</ins> بلا بارتوک (۱۸۸۱-۱۹۴۵) مجارستان بلا بارتوک از روشن‌ترین
 >
 > …
 >
@@ -418,11 +418,7 @@
 >
 > …
 >
-> داشت که کجا، در چه زمینه‌ای، و زیر <del>سایه‌ی</del> <ins>سایۀ</ins> چه قدرتی می‌نوازد. ۷ ۷ László Vikárius, “What
->
-> …
->
-> Songs Want to Do at the 1938 Baden-Baden <del>Festival,”</del> <ins>Festival”,</ins> Studia Musicologica <ins>,</ins> <ins>Vol.</ins> 65, <del>no.</del> <ins>No.</ins> 1–2, 2024, pp. 89, <del>93</del> <ins>93.</ins> وقتی در سال ۱۹۳۸، Anschluss، یعنی الحاق اتریش
+> داشت که کجا، در چه زمینه‌ای، و زیر <del>سایه‌ی</del> <ins>سایۀ</ins> چه قدرتی می‌نوازد. ۷ ۷ <del>László</del> <del>Vikárius,</del> <del>“What</del> <del>Did</del> <del>Béla</del> <del>Bartók’s</del> <del>Five</del> <del>Hungarian</del> <del>Folk</del> <del>Songs</del> <del>Want</del> <del>to</del> <del>Do</del> <del>at</del> <del>the</del> <del>1938</del> <del>Baden-Baden</del> <del>Festival,”</del> <del>Studia</del> <del>Musicologica</del> <del>65,</del> <del>no.</del> <del>1–2,</del> <del>2024,</del> <ins>Jeremy</ins> <ins>Eichler,</ins> <ins>Time’s</ins> <ins>Echo</ins> <ins>,</ins> pp. <del>89,</del> <del>93</del> <ins>156–168.</ins> وقتی در سال ۱۹۳۸، Anschluss، یعنی الحاق اتریش
 >
 > …
 >
@@ -438,7 +434,7 @@
 >
 > …
 >
-> Folk Songs Want to Do at the 1938 <del>Baden-BadenFestival,”</del> <ins>Baden-Baden</ins> <ins>Festival”,</ins> pp. 93, <del>98</del> <ins>98.</ins> در اینجا اهمیت بارتوک فقط دراین نیست که
+> Folk Songs Want to Do at the 1938 <del>Baden-BadenFestival,”</del> <ins>Baden-Baden</ins> <ins>Festival”,</ins> <ins>Studia</ins> <ins>Musicologica</ins> <ins>,</ins> <ins>Vol.</ins> <ins>65,</ins> <ins>No.</ins> <ins>1–2,</ins> <ins>2024,</ins> pp. <del>93,</del> <del>98</del> <ins>89,</ins> <ins>93.</ins> در اینجا اهمیت بارتوک فقط دراین نیست که
 >
 > …
 >
@@ -446,7 +442,7 @@
 >
 > …
 >
-> نوعی ضرورت اخلاقی بود. ۹ ۹ Béla Bartók, <del>letter</del> <ins>“Letter</ins> to Annie Müller-Widmann, 13 April <del>1938,</del> <del>in</del> <ins>1938”,</ins> <ins>in:</ins> János <del>Demény,</del> <del>ed.,</del> <ins>Demény</ins> <ins>(ed.),</ins> Béla Bartók <del>Letters,Budapest:</del> <ins>Letters</ins> <ins>,</ins> <ins>Budapest:</ins> Corvina / New York: St. Martin’s Press, 1971, pp. <del>267–269</del> <ins>267–269.</ins> آرنولد شوئنبرگ (۱۸۷۴-۱۹۵۱) اتریش آرنولد شوئنبرگ در دوران
+> راحت، بلکه نوعی ضرورت اخلاقی بود. ۹ ۹ <ins>László</ins> <ins>Vikárius,</ins> <ins>“What</ins> <ins>Did</ins> Béla <del>Bartók,</del> <del>letter</del> <ins>Bartók’s</ins> <ins>Five</ins> <ins>Hungarian</ins> <ins>Folk</ins> <ins>Songs</ins> <ins>Want</ins> to <del>Annie</del> <del>Müller-Widmann,</del> <del>13</del> <del>April</del> <del>1938,</del> <del>in</del> <del>János</del> <del>Demény,</del> <del>ed.,</del> <del>Béla</del> <del>Bartók</del> <del>Letters,Budapest:</del> <del>Corvina</del> <del>/</del> <del>New</del> <del>York:</del> <del>St.</del> <del>Martin’s</del> <del>Press,</del> <del>1971,</del> <ins>Do</ins> <ins>at</ins> <ins>the</ins> <ins>1938</ins> <ins>Baden-Baden</ins> <ins>Festival”,</ins> pp. <del>267–269</del> <ins>93,</ins> <ins>98.</ins> آرنولد شوئنبرگ (۱۸۷۴-۱۹۵۱) اتریش آرنولد شوئنبرگ در دوران
 >
 > …
 >
@@ -526,11 +522,7 @@
 >
 > …
 >
-> که خشونت و ترس را، و در کنار <del>آن‌ها</del> <ins>آنها</ins> آخرین <del>لحظه‌ی</del> <ins>لحظۀ</ins> کرامت، ایمان و هویت انسانی را زنده و
->
-> …
->
-> ۱۰ Amy Lynn Wlodarski, Musical Witness and Holocaust <del>Representation,</del> <ins>Representation</ins> <ins>,</ins> Cambridge: Cambridge University Press, 2015, <del>Kap.</del> <ins>Chapter</ins> 1: “The Composer as Witness: Arnold Schoenberg’s A Survivor from <del>Warsaw”,</del> <del>S.</del> <ins>Warsaw</ins> <ins>”,</ins> <ins>pp.</ins> 11–35. کودا «Coda» در دوران سرکوب، هنرمندان نیز
+> که خشونت و ترس را، و در کنار <del>آن‌ها</del> <ins>آنها</ins> آخرین <del>لحظه‌ی</del> <ins>لحظۀ</ins> کرامت، ایمان و هویت انسانی را زنده و شنیدنی نگه می‌دارد. ۱۰ ۱۰ <del>Amy</del> <del>Lynn</del> <del>Wlodarski,</del> <del>Musical</del> <del>Witness</del> <del>and</del> <del>Holocaust</del> <del>Representation,</del> <del>Cambridge:</del> <del>Cambridge</del> <del>University</del> <ins>Béla</ins> <ins>Bartók,</ins> <ins>“Letter</ins> <ins>to</ins> <ins>Annie</ins> <ins>Müller-Widmann,</ins> <ins>13</ins> <ins>April</ins> <ins>1938”,</ins> <ins>in:</ins> <ins>János</ins> <ins>Demény</ins> <ins>(ed.),</ins> <ins>Béla</ins> <ins>Bartók</ins> <ins>Letters</ins> <ins>,</ins> <ins>Budapest:</ins> <ins>Corvina</ins> <ins>/</ins> <ins>New</ins> <ins>York:</ins> <ins>St.</ins> <ins>Martin’s</ins> Press, <del>2015,</del> <del>Kap.</del> <del>1:</del> <del>“The</del> <del>Composer</del> <del>as</del> <del>Witness:</del> <del>Arnold</del> <del>Schoenberg’s</del> <del>A</del> <del>Survivor</del> <del>from</del> <del>Warsaw”,</del> <del>S.</del> <del>11–35.</del> <ins>1971,</ins> <ins>pp.</ins> <ins>267–269.</ins> کودا «Coda» در دوران سرکوب، هنرمندان نیز –
 >
 > …
 >
