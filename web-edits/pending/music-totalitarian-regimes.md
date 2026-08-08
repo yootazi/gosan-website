@@ -3,8 +3,8 @@
 | | |
 |---|---|
 | ویراستار | احسان |
-| زمان ذخیره | 8 Aug 2026, 22:03 |
-| واژه‌های تغییرکرده | 1054 |
+| زمان ذخیره | 8 Aug 2026, 22:09 |
+| واژه‌های تغییرکرده | 1057 |
 
 <div dir="rtl">
 
@@ -230,7 +230,7 @@
 >
 > …
 >
-> در خدمت نظامی قرار گرفته بود که می‌خواست <del>آن‌ها</del> <ins>آنها</ins> را نابود کند. در فیلم مستند <del>«Klassik</del> <ins>«[موسیقی]</ins> <ins>کلاسیک</ins> <ins>زیر</ins> <ins>صلیب</ins> <ins>شکسته»</ins> <ins>(Klassik</ins> unterm <del>Hakenkreuz»</del> <ins>Hakenkreuz)،</ins> به کارگردانی <del>Christian</del> <del>Berger</del> <ins>کریستیان</ins> <ins>برگر</ins> <ins>(Christian</ins> <ins>Berger)،</ins> یکی از بازماندگان <del>اردوگاهAnita</del> <del>Lasker-Wallfisch</del> <del>Auschwitz.</del> <del>میگوید:</del> <del>موسیقی</del> <del>‌]ویولنسل]</del> <ins>اردوگاه</ins> <ins>آشویتس</ins> <ins>(Auschwitz)</ins> <ins>به</ins> <ins>نام</ins> <ins>آنیتا</ins> <ins>لَزکِر-والفیش</ins> <ins>(Anita</ins> <ins>Lasker-Wallfisch)</ins> <ins>می‌گوید:</ins> <ins>«موسیقی</ins> <ins>‌[ویولنسل]</ins> جانم را نجات داد، اما مجبور بودم آن را در جایی بنوازم که <del>همه‌ی</del> <ins>همۀ</ins> انسانیت از بین رفته <del>بود.</del> <ins>بود.»</ins> همین جمله نشان می‌دهد که <del>تجربه‌ی</del> <del>آن‌ها</del> <ins>تجربۀ</ins> <ins>آنها</ins> تا چه حد دو لبه داشت: موسیقی <del>به‌عنوان</del> <ins>به</ins> <ins>عنوان</ins> آخرین تکیه‌گاه درونی، و در عین حال <del>به‌عنوان</del> <ins>به</ins> <ins>عنوان</ins> ابزار قدرتی که جلادان از آن سوءاستفاده می‌کردند.
+> در خدمت نظامی قرار گرفته بود که می‌خواست <del>آن‌ها</del> <ins>آنها</ins> را نابود کند. در فیلم مستند <del>«Klassik</del> <ins>[موسیقی]</ins> <ins>کلاسیک</ins> <ins>زیر</ins> <ins>صلیب</ins> <ins>شکسته</ins> <ins>(</ins> <ins>Klassik</ins> unterm <del>Hakenkreuz»</del> <ins>Hakenkreuz</ins> <ins>)،</ins> به کارگردانی <del>Christian</del> <del>Berger</del> <ins>کریستیان</ins> <ins>برگر</ins> <ins>(Christian</ins> <ins>Berger)،</ins> یکی از بازماندگان <del>اردوگاهAnita</del> <del>Lasker-Wallfisch</del> <del>Auschwitz.</del> <del>میگوید:</del> <del>موسیقی</del> <del>‌]ویولنسل]</del> <ins>اردوگاه</ins> <ins>آشویتس</ins> <ins>(Auschwitz)</ins> <ins>به</ins> <ins>نام</ins> <ins>آنیتا</ins> <ins>لَزکِر-والفیش</ins> <ins>(Anita</ins> <ins>Lasker-Wallfisch)</ins> <ins>می‌گوید:</ins> <ins>«موسیقی</ins> <ins>‌[ویولنسل]</ins> جانم را نجات داد، اما مجبور بودم آن را در جایی بنوازم که <del>همه‌ی</del> <ins>همۀ</ins> انسانیت از بین رفته <del>بود.</del> <ins>بود.»</ins> همین جمله نشان می‌دهد که <del>تجربه‌ی</del> <del>آن‌ها</del> <ins>تجربۀ</ins> <ins>آنها</ins> تا چه حد دو لبه داشت: موسیقی <del>به‌عنوان</del> <ins>به</ins> <ins>عنوان</ins> آخرین تکیه‌گاه درونی، و در عین حال <del>به‌عنوان</del> <ins>به</ins> <ins>عنوان</ins> ابزار قدرتی که جلادان از آن سوءاستفاده می‌کردند.
 >
 > …
 >
@@ -271,6 +271,10 @@
 > …
 >
 > سال ۱۹۴۴ در اردوگاه درگذشت. ۳ ۳ Ina <del>Fujii</del> <del>2012:</del> <ins>Fujii,</ins> Musik gegen den Tod: Eine musikwissenschaftliche Untersuchung des Repertoires <del>derHäftlingsorchester</del> <ins>der</ins> <ins>Häftlingsorchester</ins> aus den Sammlungen des Staatlichen Museums Auschwitz-Birkenau im Kontext <del>ihrerMusikaktivitäten.</del> <ins>ihrer</ins> <ins>Musikaktivitäten</ins> <ins>,</ins> <ins>Magisterarbeit</ins> <ins>an</ins> <ins>der</ins> Humboldt-Universität zu Berlin, Philosophische Fakultät III, Institut für Musik- <del>undMedienwissenschaft,</del> <ins>und</ins> <ins>Medienwissenschaft,</ins> <ins>Berlin,</ins> <ins>2012</ins> pp. <del>20-36</del> <del>,</del> <del>۴</del> <del>۴</del> <ins>20–36.</ins> Shirli Gilbert, Music in the Holocaust: Confronting Life in the Nazi Ghettos and <del>Camps,</del> <ins>Camps</ins> <ins>,</ins> Oxford: <del>OxfordUniversity</del> <ins>Oxford</ins> <ins>University</ins> Press, 2005, pp. <del>55–196</del> <ins>55–196.</ins> <ins>در</ins> زمان نگارش این مقاله، بیش از <del>۳۰</del> <ins>سی</ins> آهنگساز و نوازنده را <del>مدنظر</del> <ins>مد</ins> <ins>نظر</ins> داشتم؛ اما در نهایت، با توجه به بستر
+>
+> …
+>
+> از آن، بر جای گذاشته‌اند. دیمیتری شوستاکوویچ (۱۹۰۶–۱۹۷۵) <ins>-</ins> اتحاد شوروی دیمیتری شوستاکوویچ از بزرگ‌ترین آهنگسازان قرن
 >
 > …
 >
