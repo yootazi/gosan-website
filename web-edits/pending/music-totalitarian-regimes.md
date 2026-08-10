@@ -3,8 +3,8 @@
 | | |
 |---|---|
 | ویراستار | یلدا |
-| زمان ذخیره | 11 Aug 2026, 01:09 |
-| واژه‌های تغییرکرده | 61 |
+| زمان ذخیره | 11 Aug 2026, 01:14 |
+| واژه‌های تغییرکرده | 89 |
 
 <div dir="rtl">
 
@@ -14,6 +14,10 @@
 
 **متن**
 
+> پنهانِ مخالفت را در لابه‌لای نغمه‌هایش باقی می‌گذارد. <del>۵</del> <del>۵</del> <del>Jeremy</del> <del>Eichler,</del> <del>Time’s</del> <del>Echo:</del> <del>The</del> <del>Second</del> <del>World</del> <del>War,</del> <del>the</del> <del>Holocaust,</del> <del>and</del> <del>the</del> <del>Music</del> <del>of</del> <del>Remembrance</del> <del>,</del> <del>New</del> <del>York:</del> <del>Alfred</del> <del>A.</del> <del>Knopf,</del> <del>2023,</del> <del>pp.</del> <del>305–356.</del> <ins>۴</ins> <ins>۴</ins> ریشارد اشتراوس (۱۸۶۴–۱۹۴۹)، آلمان ریشارد اشتراوس در دوران
+>
+> …
+>
 > , Oxford: Oxford University Press, 2005, pp. 55–196. <del>4</del> 5 Jeremy Eichler, Time’s Echo: The Second World
 
 </div>
