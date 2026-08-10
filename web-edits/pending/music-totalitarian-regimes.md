@@ -3,8 +3,8 @@
 | | |
 |---|---|
 | ویراستار | احسان |
-| زمان ذخیره | 10 Aug 2026, 23:46 |
-| واژه‌های تغییرکرده | 1132 |
+| زمان ذخیره | 10 Aug 2026, 23:56 |
+| واژه‌های تغییرکرده | 1170 |
 
 <div dir="rtl">
 
@@ -378,19 +378,15 @@
 >
 > …
 >
-> را در لابه‌لای نغمه‌هایش باقی میگذارد. ۵ ۵ <del>Jeremy</del> <del>Eichler:</del> <del>Time's</del> <del>Echo.</del> <del>The</del> <del>Second</del> <del>World</del> <del>War,</del> <del>the</del> <del>Holocaust,</del> <del>and</del> <del>the</del> <del>Music</del> <del>of</del> <del>Remembrance.</del> <del>Alfred</del> <del>A.Knopf,</del> <del>New</del> <del>York,</del> <del>2023</del> <del>PP</del> <del>305-356</del> ریشارد اشتراوس (۱۸۶۴-۱۹۴۹) آلمان ریشارد اشتراوس در دوران
+> ناچار است سر خم کند، اما حتی در <del>خم‌شدن</del> <ins>خم</ins> <ins>شدن</ins> نیز نجوا و فریاد پنهانِ مخالفت را در لابه‌لای نغمه‌هایش باقی <del>میگذارد.</del> <ins>می‌گذارد.</ins> ۵ ۵ <del>Jeremy</del> <del>Eichler:</del> <del>Time's</del> <del>Echo.</del> <del>The</del> <del>Second</del> <del>World</del> <del>War,</del> <del>the</del> <del>Holocaust,</del> <del>and</del> <del>the</del> <del>Music</del> <del>of</del> <del>Remembrance.</del> <del>Alfred</del> <del>A.Knopf,</del> <del>New</del> <del>York,</del> <del>2023</del> <del>PP</del> <del>305-356</del> ریشارد اشتراوس <del>(۱۸۶۴-۱۹۴۹)</del> <ins>(۱۸۶۴–۱۹۴۹)،</ins> آلمان ریشارد اشتراوس در دوران ناسیونال‌سوسیالیسم آهنگسازی سالخورده و بسیار مشهور است که <del>زندگی‌اش</del> <del>به‌طور</del> <del>تنگاتنگ</del> <ins>زندگی‌اش،</ins> <ins>به</ins> <ins>طور</ins> <ins>تنگاتنگ،</ins> با فاجعه‌های قرن بیستم گره خورده، اما خودش
 >
 > …
 >
-> آهنگسازی سالخورده و بسیار مشهور است که زندگی‌اش <del>به‌طور</del> <ins>به</ins> <ins>طور</ins> تنگاتنگ با فاجعه‌های قرن بیستم گره خورده، اما
+> کسی ظاهر می‌شود که با ناسیونال‌سوسیالیست‌ها کنار می‌آید: <del>سمت</del> <ins>سِمت</ins> ریاست <del>اتاق</del> <ins>«اتاق</ins> موسیقی <del>رایش</del> <ins>رایش»</ins> (Reichsmusikkammer) را می‌پذیرد، از جایگاه خود در رایش سوم بهره می‌برد و در آلمان می‌ماند؛ در <del>حالی‌که</del> <ins>حالی</ins> <ins>که</ins> بسیاری از <del>آهنگسازان</del> <ins>آهنگسازانِ</ins> دیگر تحت تعقیب قرار می‌گیرند یا ناچار به فرار می‌شوند. RICHARD STRAUSS در عین حال، <del>خانواده‌ی</del> <ins>خانوادۀ</ins> خود او هم در معرض همین وضعیت است:
 >
 > …
 >
-> به فرار می‌شوند. RICHARD STRAUSS در عین حال، <del>خانواده‌ی</del> <ins>خانوادۀ</ins> خود او هم در معرض همین وضعیت است:
->
-> …
->
-> یهودی است، نوه‌هایش طبق ایدئولوژی نژادی نازی‌ها یهودی <del>به‌حساب</del> <ins>به</ins> <ins>حساب</ins> می‌آیند و دو لیبرتویست محبوب و دیرینش، هوگو
+> یهودی است، نوه‌هایش طبق ایدئولوژی نژادی نازی‌ها یهودی <del>به‌حساب</del> <ins>به</ins> <ins>حساب</ins> می‌آیند و دو <del>لیبرتویست</del> <ins>لیبرِتیست</ins> محبوب و دیرینش، هوگو <del>فون</del> <del>هوفمانستال</del> <ins>فُن</ins> <ins>هوفمانستال،</ins> که پدربزرگی یهودی <del>داشت</del> <ins>داشت،</ins> و اشتفان <del>تسوایگ</del> <ins>تسوایگ،</ins> که یهودی تبار بود و نهایت در سال
 >
 > …
 >
@@ -426,7 +422,7 @@
 >
 > …
 >
-> اندازه پیچیده و چندلایه است. ۶ ۶ Jeremy <del>Eichler:</del> <del>Time's</del> <del>Echo.</del> <ins>Eichler,</ins> <ins>Time’s</ins> <ins>Echo:</ins> The Second World War, the Holocaust, and the Music of <del>Remembrance.</del> <ins>Remembrance</ins> <ins>,</ins> <ins>New</ins> <ins>York:</ins> Alfred <del>A.Knopf,</del> <del>New</del> <del>York,</del> <del>2023</del> <del>PP</del> <del>156-168</del> <ins>A.</ins> <ins>Knopf,</ins> <ins>2023,</ins> <ins>pp.</ins> <ins>305–356.</ins> بلا بارتوک (۱۸۸۱-۱۹۴۵) مجارستان بلا بارتوک از روشن‌ترین
+> اندازه پیچیده و چندلایه است. ۶ ۶ Jeremy <del>Eichler:</del> <del>Time's</del> <del>Echo.</del> <ins>Eichler,</ins> <ins>Time’s</ins> <ins>Echo:</ins> The Second World War, the Holocaust, and the Music of <del>Remembrance.</del> <ins>Remembrance</ins> <ins>,</ins> <ins>New</ins> <ins>York:</ins> Alfred <del>A.Knopf,</del> <del>New</del> <del>York,</del> <del>2023</del> <del>PP</del> <del>156-168</del> <del>بلا</del> <ins>A.</ins> <ins>Knopf,</ins> <ins>2023,</ins> <ins>pp.</ins> <ins>305–356.</ins> <ins>بِلا</ins> بارتوک <del>(۱۸۸۱-۱۹۴۵)</del> <ins>(۱۸۸۱–۱۹۴۵)،</ins> مجارستان بلا بارتوک از روشن‌ترین و قاطع‌ترین مخالفان
 >
 > …
 >
@@ -466,7 +462,7 @@
 >
 > …
 >
-> راحت، بلکه نوعی ضرورت اخلاقی بود. ۹ ۹ <ins>László</ins> <ins>Vikárius,</ins> <ins>“What</ins> <ins>Did</ins> Béla <del>Bartók,</del> <del>letter</del> <ins>Bartók’s</ins> <ins>Five</ins> <ins>Hungarian</ins> <ins>Folk</ins> <ins>Songs</ins> <ins>Want</ins> to <del>Annie</del> <del>Müller-Widmann,</del> <del>13</del> <del>April</del> <del>1938,</del> <del>in</del> <del>János</del> <del>Demény,</del> <del>ed.,</del> <del>Béla</del> <del>Bartók</del> <del>Letters,Budapest:</del> <del>Corvina</del> <del>/</del> <del>New</del> <del>York:</del> <del>St.</del> <del>Martin’s</del> <del>Press,</del> <del>1971,</del> <ins>Do</ins> <ins>at</ins> <ins>the</ins> <ins>1938</ins> <ins>Baden-Baden</ins> <ins>Festival”,</ins> pp. <del>267–269</del> <ins>93,</ins> <ins>98.</ins> آرنولد شوئنبرگ (۱۸۷۴-۱۹۵۱) اتریش آرنولد شوئنبرگ در دوران
+> راحت، بلکه نوعی ضرورت اخلاقی بود. ۹ ۹ <ins>László</ins> <ins>Vikárius,</ins> <ins>“What</ins> <ins>Did</ins> Béla <del>Bartók,</del> <del>letter</del> <ins>Bartók’s</ins> <ins>Five</ins> <ins>Hungarian</ins> <ins>Folk</ins> <ins>Songs</ins> <ins>Want</ins> to <del>Annie</del> <del>Müller-Widmann,</del> <del>13</del> <del>April</del> <del>1938,</del> <del>in</del> <del>János</del> <del>Demény,</del> <del>ed.,</del> <del>Béla</del> <del>Bartók</del> <del>Letters,Budapest:</del> <del>Corvina</del> <del>/</del> <del>New</del> <del>York:</del> <del>St.</del> <del>Martin’s</del> <del>Press,</del> <del>1971,</del> <ins>Do</ins> <ins>at</ins> <ins>the</ins> <ins>1938</ins> <ins>Baden-Baden</ins> <ins>Festival”,</ins> pp. <del>267–269</del> <ins>93,</ins> <ins>98.</ins> آرنولد شوئنبرگ <del>(۱۸۷۴-۱۹۵۱)</del> <ins>(۱۸۷۴–۱۹۵۱)،</ins> اتریش آرنولد شوئنبرگ در دوران حکومت ناسیونال‌سوسیالیست‌ها (نازی‌ها)
 >
 > …
 >

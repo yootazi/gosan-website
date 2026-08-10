@@ -4,7 +4,7 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
-| `music-totalitarian-regimes` | احسان | 10 Aug 2026, 23:46 | ۱۱۳۲ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/music-totalitarian-regimes.md) |
+| `music-totalitarian-regimes` | احسان | 10 Aug 2026, 23:56 | ۱۱۷۰ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/music-totalitarian-regimes.md) |
 | `azarkeyvani-creation-myth` | احسان | 6 Aug 2026, 00:54 | ۲۴۹ | تأییدشده | [دیدن](approved/azarkeyvani-creation-myth.md) |
 | `oil-to-narrative` | احسان | 6 Aug 2026, 00:00 | ۴۲۲ | تأییدشده | [دیدن](approved/oil-to-narrative.md) |
 | `crossroads-ahead` | احسان | 6 Aug 2026, 00:00 | ۷ | تأییدشده | [دیدن](approved/crossroads-ahead.md) |
