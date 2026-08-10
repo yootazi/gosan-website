@@ -637,6 +637,8 @@ article:has(.essay-figure:nth-of-type(3)) .essay-figure-block { clear: both; }
   color: var(--gold-deep); font-weight: 700; padding-top: 0.1rem;
 }
 .fn-card-text { font-size: 0.82rem; line-height: 1.85; color: var(--text-body); }
+/* an English (LTR) note's hover card mirrors too: number on the left, text left-aligned */
+.fn-card[dir="ltr"] { text-align: left; }
 body[data-motion="off"] .fn-card { transition: none; }
 
 .fn-list-sec { margin-top: 2.6rem; padding-top: 1.6rem; border-top: 1px solid var(--line); }

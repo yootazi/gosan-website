@@ -46,8 +46,8 @@ function ArtFn({ n, notes }) {
         onMouseEnter={() => setOpen(true)}
         aria-label={`پانویس ${acToFa(n)}`}
       >{acToFa(n)}</button>
-      <span className={`fn-card${open ? ' is-open' : ''}`} role="note" onMouseLeave={() => setOpen(false)}>
-        <span className="fn-card-num">{acToFa(n)}</span>
+      <span className={`fn-card${open ? ' is-open' : ''}`} dir={acNoteIsLatin(content) ? 'ltr' : undefined} role="note" onMouseLeave={() => setOpen(false)}>
+        <span className="fn-card-num">{acNoteIsLatin(content) ? n : acToFa(n)}</span>
         <span className="fn-card-text">{content}</span>
       </span>
     </span>

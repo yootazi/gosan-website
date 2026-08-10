@@ -240,8 +240,8 @@ function Footnote({ n }) {
         onMouseEnter={() => setOpen(true)}
         aria-label={`پی‌نوشت ${toFa(n)}`}
       >{toFa(n)}</button>
-      <span className={`fn-card${open ? ' is-open' : ''}`} role="note" onMouseLeave={() => setOpen(false)}>
-        <span className="fn-card-num">{toFa(n)}</span>
+      <span className={`fn-card${open ? ' is-open' : ''}`} dir={acNoteIsLatin(content) ? 'ltr' : undefined} role="note" onMouseLeave={() => setOpen(false)}>
+        <span className="fn-card-num">{acNoteIsLatin(content) ? n : toFa(n)}</span>
         <span className="fn-card-text">{content}</span>
       </span>
     </span>
