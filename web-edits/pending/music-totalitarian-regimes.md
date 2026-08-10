@@ -3,8 +3,8 @@
 | | |
 |---|---|
 | ویراستار | احسان |
-| زمان ذخیره | 8 Aug 2026, 22:09 |
-| واژه‌های تغییرکرده | 1057 |
+| زمان ذخیره | 10 Aug 2026, 23:16 |
+| واژه‌های تغییرکرده | 1064 |
 
 <div dir="rtl">
 
@@ -270,11 +270,11 @@
 >
 > …
 >
-> سال ۱۹۴۴ در اردوگاه درگذشت. ۳ ۳ Ina <del>Fujii</del> <del>2012:</del> <ins>Fujii,</ins> Musik gegen den Tod: Eine musikwissenschaftliche Untersuchung des Repertoires <del>derHäftlingsorchester</del> <ins>der</ins> <ins>Häftlingsorchester</ins> aus den Sammlungen des Staatlichen Museums Auschwitz-Birkenau im Kontext <del>ihrerMusikaktivitäten.</del> <ins>ihrer</ins> <ins>Musikaktivitäten</ins> <ins>,</ins> <ins>Magisterarbeit</ins> <ins>an</ins> <ins>der</ins> Humboldt-Universität zu Berlin, Philosophische Fakultät III, Institut für Musik- <del>undMedienwissenschaft,</del> <ins>und</ins> <ins>Medienwissenschaft,</ins> <ins>Berlin,</ins> <ins>2012</ins> pp. <del>20-36</del> <del>,</del> <del>۴</del> <del>۴</del> <ins>20–36.</ins> Shirli Gilbert, Music in the Holocaust: Confronting Life in the Nazi Ghettos and <del>Camps,</del> <ins>Camps</ins> <ins>,</ins> Oxford: <del>OxfordUniversity</del> <ins>Oxford</ins> <ins>University</ins> Press, 2005, pp. <del>55–196</del> <ins>55–196.</ins> <ins>در</ins> زمان نگارش این مقاله، بیش از <del>۳۰</del> <ins>سی</ins> آهنگساز و نوازنده را <del>مدنظر</del> <ins>مد</ins> <ins>نظر</ins> داشتم؛ اما در نهایت، با توجه به بستر
+> همچنین از قتل فوری نجات پیدا کنند. آلما <del>روزه</del> <ins>رُزِه</ins> در سال ۱۹۴۴ در اردوگاه درگذشت. ۳ ۳ Ina <del>Fujii</del> <del>2012:</del> <ins>Fujii,</ins> Musik gegen den Tod: Eine musikwissenschaftliche Untersuchung des Repertoires <del>derHäftlingsorchester</del> <ins>der</ins> <ins>Häftlingsorchester</ins> aus den Sammlungen des Staatlichen Museums Auschwitz-Birkenau im Kontext <del>ihrerMusikaktivitäten.</del> <ins>ihrer</ins> <ins>Musikaktivitäten</ins> <ins>,</ins> <ins>Magisterarbeit</ins> <ins>an</ins> <ins>der</ins> Humboldt-Universität zu Berlin, Philosophische Fakultät III, Institut für Musik- <del>undMedienwissenschaft,</del> <ins>und</ins> <ins>Medienwissenschaft,</ins> <ins>Berlin,</ins> <ins>2012</ins> pp. <del>20-36</del> <del>,</del> <del>۴</del> <del>۴</del> <ins>20–36.</ins> Shirli Gilbert, Music in the Holocaust: Confronting Life in the Nazi Ghettos and <del>Camps,</del> <ins>Camps</ins> <ins>,</ins> Oxford: <del>OxfordUniversity</del> <ins>Oxford</ins> <ins>University</ins> Press, 2005, pp. <del>55–196</del> <ins>55–196.</ins> <ins>در</ins> زمان نگارش این مقاله، بیش از <del>۳۰</del> <ins>سی</ins> آهنگساز و نوازنده را <del>مدنظر</del> <ins>مد</ins> <ins>نظر</ins> داشتم؛ اما در نهایت، با توجه به بستر
 >
 > …
 >
-> از آن، بر جای گذاشته‌اند. دیمیتری شوستاکوویچ (۱۹۰۶–۱۹۷۵) <ins>-</ins> اتحاد شوروی دیمیتری شوستاکوویچ از بزرگ‌ترین آهنگسازان قرن
+> چه پس از آن، بر جای گذاشته‌اند. دیمیتری <del>شوستاکوویچ</del> <del>(۱۹۰۶–۱۹۷۵)</del> <ins>شوستاکُویچ</ins> <ins>(۱۹۰۶–۱۹۷۵)،</ins> اتحاد شوروی دیمیتری <del>شوستاکوویچ</del> <ins>شوستاکُویچ</ins> از بزرگ‌ترین آهنگسازان قرن بیستم است؛ اما زندگی
 >
 > …
 >
