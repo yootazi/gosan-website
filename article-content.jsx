@@ -54,6 +54,20 @@ function ArtFn({ n, notes }) {
   );
 }
 
+/* a note written wholly in a Latin-script language reads left-to-right,
+   so its list number is Latin too; any Persian in the row keeps ۱۲۳ */
+function acNoteText(node) {
+  if (node == null || node === false) return '';
+  if (typeof node === 'string' || typeof node === 'number') return String(node);
+  if (Array.isArray(node)) return node.map(acNoteText).join('');
+  if (node.props) return acNoteText(node.props.children);
+  return '';
+}
+function acNoteIsLatin(t) {
+  const s = acNoteText(t);
+  return /[A-Za-z]/.test(s) && !/[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(s);
+}
+
 /* numbered notes list at the end of an essay — same markup as FootnotesList */
 function ArtFnList({ notes }) {
   return (
@@ -61,7 +75,7 @@ function ArtFnList({ notes }) {
       <span className="gsn-technical" style={{ color: 'var(--gold-deep)', display: 'block', marginBottom: '0.5rem', textAlign: 'right' }}>NOTES // پانویس‌ها</span>
       <ol className="fn-list">
         {notes.map((t, i) => (
-          <li key={i}><span className="fn-list-num">{acToFa(i + 1)}</span>{t}</li>
+          <li key={i}><span className="fn-list-num">{acNoteIsLatin(t) ? i + 1 : acToFa(i + 1)}</span>{t}</li>
         ))}
       </ol>
     </section>

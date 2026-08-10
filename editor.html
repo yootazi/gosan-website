@@ -288,8 +288,12 @@
     // (numbers are editable on the desk, so index order can't be trusted)
     var liByNum={};
     c.querySelectorAll('.fn-list li').forEach(function(li){
-      var n=fnParseNum((li.querySelector('.fn-list-num')||{}).textContent||'');
-      if(n!=null && !(n in liByNum)) liByNum[n]=li;
+      var numEl=li.querySelector('.fn-list-num');
+      var n=fnParseNum((numEl||{}).textContent||'');
+      if(n==null) return;
+      /* digit style follows the row's language: Latin for all-English notes */
+      if(numEl) numEl.textContent=fnNumText(n, fnRowLatin(li));
+      if(!(n in liByNum)) liByNum[n]=li;
     });
     c.querySelectorAll('.fn').forEach(function(fn){
       var btn=fn.querySelector('.fn-ref'), txt=fn.querySelector('.fn-card-text'),
@@ -580,6 +584,16 @@
     return out? parseInt(out,10) : null;
   }
   function fnFa(n){ return String(n).replace(/[0-9]/g,function(d){ return FN_FA.charAt(+d); }); }
+  /* an all-English (Latin-script) note reads left-to-right — its list number is Latin too */
+  function fnRowLatin(li){
+    if(!li) return false;
+    var c=li.cloneNode(true);
+    c.querySelectorAll('.fn-list-num').forEach(function(x){ x.remove(); });
+    var s=c.textContent||'';
+    if(/[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(s)) return false;
+    return /[A-Za-z]/.test(s) || String(li.getAttribute('dir')||'').toLowerCase()==='ltr';
+  }
+  function fnNumText(n, latin){ return latin? String(n) : fnFa(n); }
   function fnListOl(){ try{ return frame.contentDocument.querySelector('article .fn-list'); }catch(e){ return null; } }
   function fnMaxNum(){
     var art=article(), mx=0; if(!art) return 0;
@@ -617,11 +631,13 @@
     var n=fnParseNum(inp);
     if(n==null || n<1){ status('شمارهٔ معتبر نیست','err'); return; }
     snapshot(); typingBurst=false;
-    t.textContent=fnFa(n);
     if(t.classList.contains('fn-ref')){
+      t.textContent=fnFa(n);
       t.setAttribute('aria-label','پانویس '+fnFa(n));
       var card=t.parentElement && t.parentElement.querySelector('.fn-card-num');
       if(card) card.textContent=fnFa(n);
+    } else {
+      t.textContent=fnNumText(n, fnRowLatin(t.closest('li')));
     }
     status('شماره شد '+fnFa(n)+' — شمارهٔ همتای آن را هم هماهنگ کنید؛ حالت شماره فعال است (Esc = پایان)');
   }
@@ -735,7 +751,7 @@
       if(card) card.textContent=fnFa(nn);
       var li=liByNum[mnums[i]]; used[mnums[i]]=1;
       var numEl=li.querySelector('.fn-list-num');
-      if(numEl) numEl.textContent=fnFa(nn);
+      if(numEl) numEl.textContent=fnNumText(nn, fnRowLatin(li));
       ordered.push(li);
     });
     var extra=lis.filter(function(li){ var n=liNum.get(li); return !(n in used); });
@@ -743,7 +759,7 @@
     extra.forEach(function(li){
       k++;
       var numEl=li.querySelector('.fn-list-num');
-      if(numEl) numEl.textContent=fnFa(k);
+      if(numEl) numEl.textContent=fnNumText(k, fnRowLatin(li));
       ordered.push(li);
     });
     if(ol) ordered.forEach(function(li){ ol.appendChild(li); });
