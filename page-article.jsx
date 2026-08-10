@@ -254,7 +254,7 @@ function FootnotesList() {
       <span className="gsn-technical" style={{ color: 'var(--gold-deep)', display: 'block', marginBottom: '0.5rem', textAlign: 'right' }}>NOTES // پی‌نوشت</span>
       <ol className="fn-list">
         {ESSAY_FOOTNOTES.map((t, i) => (
-          <li key={i} id={`fn-${i + 1}`}><span className="fn-list-num">{acNoteIsLatin(t) ? i + 1 : toFa(i + 1)}</span>{t}</li>
+          <li key={i} id={`fn-${i + 1}`} dir={acNoteIsLatin(t) ? 'ltr' : undefined}><span className="fn-list-num">{acNoteIsLatin(t) ? i + 1 : toFa(i + 1)}</span>{t}</li>
         ))}
       </ol>
     </section>

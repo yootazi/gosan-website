@@ -649,6 +649,9 @@ body[data-motion="off"] .fn-card { transition: none; }
   position: absolute; right: 0; top: 0.15em; width: 1.3rem; text-align: center;
   font-family: var(--font-technical); font-size: 0.7rem; color: var(--gold-deep); font-weight: 700;
 }
+/* an English (LTR) note mirrors the row: text starts at the left, number on the left */
+.fn-list li[dir="ltr"] { padding-right: 0; padding-left: 1.8rem; text-align: left; }
+.fn-list li[dir="ltr"] .fn-list-num { right: auto; left: 0; }
 
 /* ---------- article: body + summary aside ---------- */.article-layout {
   max-width: 1140px; margin: 0 auto; padding: 0 2rem 1rem;

@@ -291,8 +291,11 @@
       var numEl=li.querySelector('.fn-list-num');
       var n=fnParseNum((numEl||{}).textContent||'');
       if(n==null) return;
-      /* digit style follows the row's language: Latin for all-English notes */
-      if(numEl) numEl.textContent=fnNumText(n, fnRowLatin(li));
+      /* digit style and direction follow the row's language: an all-English
+         note gets a Latin number and reads from the left (dir=ltr) */
+      var latin=fnRowLatin(li);
+      if(numEl) numEl.textContent=fnNumText(n, latin);
+      if(latin) li.setAttribute('dir','ltr');
       if(!(n in liByNum)) liByNum[n]=li;
     });
     c.querySelectorAll('.fn').forEach(function(fn){

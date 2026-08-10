@@ -75,7 +75,7 @@ function ArtFnList({ notes }) {
       <span className="gsn-technical" style={{ color: 'var(--gold-deep)', display: 'block', marginBottom: '0.5rem', textAlign: 'right' }}>NOTES // پانویس‌ها</span>
       <ol className="fn-list">
         {notes.map((t, i) => (
-          <li key={i}><span className="fn-list-num">{acNoteIsLatin(t) ? i + 1 : acToFa(i + 1)}</span>{t}</li>
+          <li key={i} dir={acNoteIsLatin(t) ? 'ltr' : undefined}><span className="fn-list-num">{acNoteIsLatin(t) ? i + 1 : acToFa(i + 1)}</span>{t}</li>
         ))}
       </ol>
     </section>
