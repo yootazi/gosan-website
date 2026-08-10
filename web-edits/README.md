@@ -4,7 +4,7 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
-| `music-totalitarian-regimes` | احسان | 11 Aug 2026, 00:20 | ۱۱۸۲ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/music-totalitarian-regimes.md) |
+| `music-totalitarian-regimes` | احسان | 11 Aug 2026, 00:20 | ۱۱۸۲ | تأییدشده | [دیدن](approved/music-totalitarian-regimes.md) |
 | `azarkeyvani-creation-myth` | احسان | 6 Aug 2026, 00:54 | ۲۴۹ | تأییدشده | [دیدن](approved/azarkeyvani-creation-myth.md) |
 | `oil-to-narrative` | احسان | 6 Aug 2026, 00:00 | ۴۲۲ | تأییدشده | [دیدن](approved/oil-to-narrative.md) |
 | `crossroads-ahead` | احسان | 6 Aug 2026, 00:00 | ۷ | تأییدشده | [دیدن](approved/crossroads-ahead.md) |
