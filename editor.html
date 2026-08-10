@@ -72,7 +72,10 @@
     <button class="b-ghost fmtb" data-cmd="rtl" title="RTL — راست‌به‌چپ کردن بند">RTL</button>
     <button class="b-ghost fmtb" data-cmd="ltr" title="LTR — چپ‌به‌راست کردن بند">LTR</button>
     <button class="b-ghost fmtb" data-cmd="matchFont" title="Match font — قلم و اندازهٔ متن انتخاب‌شده (یا بند جاری) را با یک کلیک با بقیهٔ جستار یکسان می‌کند">Match Font</button>
-    <button class="b-ghost fmtb" data-cmd="deleteEl" title="Delete element — حذف عنصر: پس از کلیک، روی خط جداکننده، تصویر یا عنصر موردنظر در جستار کلیک کنید تا حذف شود (Esc = انصراف)">✕ حذف عنصر</button>
+    <button class="b-ghost fmtb" data-cmd="deleteEl" title="Delete element — حذف عنصر: پس از کلیک، روی خط جداکننده، تصویر، نشانهٔ پانویس در متن یا ردیف پانویس در فهرست پایانی کلیک کنید تا حذف شود (Esc = انصراف)">✕ حذف عنصر</button>
+    <button class="b-ghost fmtb" data-cmd="fnAdd" title="افزودن پانویس — نشانگر را در جای موردنظر متن بگذارید و کلیک کنید: نشانهٔ شماره در متن درج می‌شود و ردیف تازه‌ای در فهرست پایانی ساخته می‌شود تا متن پانویس را بنویسید">پانویس +</button>
+    <button class="b-ghost fmtb" data-cmd="fnNum" title="تغییر شمارهٔ پانویس — پس از کلیک، روی شمارهٔ موردنظر (نشانهٔ داخل متن یا شمارهٔ فهرست پایانی) کلیک کنید و شمارهٔ تازه را بدهید؛ برای چند تغییر پیاپی در همین حالت بمانید (Esc = پایان)">№ پانویس</button>
+    <button class="b-ghost fmtb" data-cmd="fnRenum" title="بازشماری پانویس‌ها — همهٔ نشانه‌های متن به‌ترتیب پیدایش ۱، ۲، ۳… شماره می‌گیرند و فهرست پایانی هم به همان ترتیب مرتب و هم‌شماره می‌شود؛ اگر شماره‌ای تکراری یا بی‌همتا باشد، کاری انجام نمی‌شود و همان‌جا گفته می‌شود">بازشماری پانویس‌ها</button>
     <button class="b-ghost fmtb" data-cmd="removeFormat" title="Clear format — حذف قالب‌بندی">Clear</button>
     <button class="b-ghost fmtb" data-cmd="undo" title="Undo — واگرد">Undo</button>
     <button class="b-ghost fmtb" data-cmd="redo" title="Redo — ازنو">Redo</button>
@@ -281,13 +284,25 @@
       el.removeAttribute('contenteditable'); el.removeAttribute('spellcheck');
     });
     // footnote text lives twice (inline hover card + end list); the end list
-    // is the editable one — mirror it back into the cards
-    var lis=c.querySelectorAll('.fn-list li'), cards=c.querySelectorAll('.fn-card-text');
-    for(var i=0;i<lis.length && i<cards.length;i++){
-      var li=lis[i].cloneNode(true);
-      li.querySelectorAll('.fn-list-num').forEach(function(n){ n.remove(); });
-      cards[i].innerHTML=li.innerHTML;
-    }
+    // is the editable one — mirror it back into the cards, matched BY NUMBER
+    // (numbers are editable on the desk, so index order can't be trusted)
+    var liByNum={};
+    c.querySelectorAll('.fn-list li').forEach(function(li){
+      var n=fnParseNum((li.querySelector('.fn-list-num')||{}).textContent||'');
+      if(n!=null && !(n in liByNum)) liByNum[n]=li;
+    });
+    c.querySelectorAll('.fn').forEach(function(fn){
+      var btn=fn.querySelector('.fn-ref'), txt=fn.querySelector('.fn-card-text'),
+          num=fn.querySelector('.fn-card-num');
+      if(!btn) return;
+      if(num) num.textContent=btn.textContent.trim();
+      var n=fnParseNum(btn.textContent);
+      var li=(n!=null && liByNum[n])? liByNum[n].cloneNode(true) : null;
+      if(li && txt){
+        li.querySelectorAll('.fn-list-num').forEach(function(x){ x.remove(); });
+        txt.innerHTML=li.innerHTML;
+      }
+    });
     return c.innerHTML;
   }
   function summaryEl(){
@@ -420,6 +435,7 @@
   }
   function stopEdit(){
     if(delMode) setDelMode(false);
+    if(fnMode) setFnMode(false);
     var art=article();
     if(art){ art.contentEditable='false'; art.style.outline=''; }
     var sm=summaryEl();
@@ -497,7 +513,7 @@
 
   /* ── delete-element mode: click a divider/figure inside the essay to remove it ── */
   var delMode=false, delHoverEl=null;
-  var DEL_SEL='hr,figure,.essay-figure,.essay-figure-pair,img,svg,[class*="divider"],[class*="dots"],[class*="ornament"]';
+  var DEL_SEL='hr,figure,.essay-figure,.essay-figure-pair,img,svg,[class*="divider"],[class*="dots"],[class*="ornament"],.fn,.fn-list li';
   function delTarget(e){
     var t=e.target && e.target.closest ? e.target.closest(DEL_SEL) : null;
     return (t && t.closest('article')) ? t : null;
@@ -514,10 +530,13 @@
     if(!t) return;
     e.preventDefault(); e.stopPropagation();
     snapshot(); typingBurst=false;
+    var wasFn=t.classList.contains('fn'), wasLi=(t.tagName==='LI');
     t.classList.remove('ed-del-target');
     t.parentNode.removeChild(t);
     setDelMode(false);
-    status('عنصر حذف شد — با Undo قابل بازگشت است');
+    if(wasFn) status('نشانهٔ پانویس حذف شد — ردیف آن در فهرست پایانی مانده؛ آن را هم حذف کنید یا «بازشماری پانویس‌ها» را بزنید. Undo برمی‌گرداند');
+    else if(wasLi) status('ردیف پانویس حذف شد — اگر نشانه‌اش در متن مانده، آن را هم حذف کنید یا بازشماری کنید. Undo برمی‌گرداند');
+    else status('عنصر حذف شد — با Undo قابل بازگشت است');
   }
   function delKey(e){ if(e.key==='Escape') setDelMode(false); }
   function setDelMode(on){
@@ -548,6 +567,191 @@
     delMode=on;
   }
 
+  /* ── footnote tools: edit numbers, add notes, renumber (notes & references) ── */
+  var FN_FA='۰۱۲۳۴۵۶۷۸۹', FN_AR='٠١٢٣٤٥٦٧٨٩';
+  function fnParseNum(s){
+    s=String(s||'').trim(); var out='';
+    for(var i=0;i<s.length;i++){
+      var c=s.charAt(i), f=FN_FA.indexOf(c), a=FN_AR.indexOf(c);
+      if(f>-1) out+=String(f);
+      else if(a>-1) out+=String(a);
+      else if(c>='0'&&c<='9') out+=c;
+    }
+    return out? parseInt(out,10) : null;
+  }
+  function fnFa(n){ return String(n).replace(/[0-9]/g,function(d){ return FN_FA.charAt(+d); }); }
+  function fnListOl(){ try{ return frame.contentDocument.querySelector('article .fn-list'); }catch(e){ return null; } }
+  function fnMaxNum(){
+    var art=article(), mx=0; if(!art) return 0;
+    art.querySelectorAll('.fn .fn-ref, .fn-list-num').forEach(function(el){
+      var n=fnParseNum(el.textContent); if(n!=null && n>mx) mx=n;
+    });
+    return mx;
+  }
+
+  /* number mode: click any footnote number (marker in the text or list number) to change it */
+  var fnMode=false, fnHoverEl=null;
+  var FN_SEL='.fn-ref,.fn-list-num';
+  function fnTarget(e){
+    var t=e.target && e.target.closest ? e.target.closest(FN_SEL) : null;
+    if(!t && e.target && e.target.closest){
+      var w=e.target.closest('.fn');           /* marker button swallows no events in edit mode */
+      if(w) t=w.querySelector('.fn-ref');
+    }
+    return (t && t.closest('article')) ? t : null;
+  }
+  function fnOver(e){
+    var t=fnTarget(e);
+    if(t){
+      if(fnHoverEl && fnHoverEl!==t) fnHoverEl.classList.remove('ed-fn-target');
+      fnHoverEl=t; t.classList.add('ed-fn-target');
+    } else if(fnHoverEl){ fnHoverEl.classList.remove('ed-fn-target'); fnHoverEl=null; }
+  }
+  function fnClick(e){
+    var t=fnTarget(e);
+    if(!t) return;
+    e.preventDefault(); e.stopPropagation();
+    var cur=fnParseNum(t.textContent);
+    var inp=window.prompt('شمارهٔ تازه برای این پانویس:', cur!=null? fnFa(cur) : '');
+    if(inp===null) return;
+    var n=fnParseNum(inp);
+    if(n==null || n<1){ status('شمارهٔ معتبر نیست','err'); return; }
+    snapshot(); typingBurst=false;
+    t.textContent=fnFa(n);
+    if(t.classList.contains('fn-ref')){
+      t.setAttribute('aria-label','پانویس '+fnFa(n));
+      var card=t.parentElement && t.parentElement.querySelector('.fn-card-num');
+      if(card) card.textContent=fnFa(n);
+    }
+    status('شماره شد '+fnFa(n)+' — شمارهٔ همتای آن را هم هماهنگ کنید؛ حالت شماره فعال است (Esc = پایان)');
+  }
+  function fnKey(e){ if(e.key==='Escape') setFnMode(false); }
+  function setFnMode(on){
+    var d;
+    try{ d=frame.contentDocument; }catch(err){ return; }
+    if(!d) return;
+    if(on && !d.getElementById('ed-fncss')){
+      var css=d.createElement('style'); css.id='ed-fncss';
+      css.textContent='.ed-fnmode article .fn-ref{pointer-events:auto!important;cursor:pointer!important}'+
+        '.ed-fnmode article .fn-list-num{cursor:pointer!important}'+
+        '.ed-fn-target{outline:2px solid #0E7D99!important;outline-offset:2px}';
+      d.head.appendChild(css);
+    }
+    var btn=document.querySelector('[data-cmd="fnNum"]');
+    if(btn){ btn.style.background=on?'#0E7D99':''; btn.style.color=on?'#fff':''; btn.style.borderColor=on?'#0E7D99':''; }
+    if(on && !fnMode){
+      d.documentElement.classList.add('ed-fnmode');
+      d.addEventListener('mousemove',fnOver,true);
+      d.addEventListener('click',fnClick,true);
+      d.addEventListener('keydown',fnKey,true);
+      document.addEventListener('keydown',fnKey,true);
+      status('حالت شمارهٔ پانویس: روی شمارهٔ موردنظر در متن یا فهرست پایانی کلیک کنید (Esc = پایان)');
+    }
+    if(!on && fnMode){
+      d.documentElement.classList.remove('ed-fnmode');
+      d.removeEventListener('mousemove',fnOver,true);
+      d.removeEventListener('click',fnClick,true);
+      d.removeEventListener('keydown',fnKey,true);
+      document.removeEventListener('keydown',fnKey,true);
+      if(fnHoverEl){ fnHoverEl.classList.remove('ed-fn-target'); fnHoverEl=null; }
+    }
+    fnMode=on;
+  }
+
+  /* add a footnote: marker at the caret + a matching row in the end list */
+  function fnAddNote(){
+    var d=frame.contentDocument, art=article();
+    if(!art) return;
+    var sel=frame.contentWindow.getSelection();
+    if(!sel.rangeCount){ status('نشانگر را در جای موردنظر متن بگذارید','err'); return; }
+    var rg=sel.getRangeAt(0);
+    var host=rg.startContainer.nodeType===1? rg.startContainer : rg.startContainer.parentElement;
+    if(!host || !host.closest('article') ||
+       host.closest('.fn,.fn-list-sec,figure,.essay-figure,.essay-figure-pair,nav.article-toc')){
+      status('جای درج معتبر نیست — نشانگر را داخل متن جستار بگذارید','err'); return;
+    }
+    var inp=window.prompt('شمارهٔ پانویس تازه:', fnFa(fnMaxNum()+1));
+    if(inp===null) return;
+    var n=fnParseNum(inp);
+    if(n==null || n<1){ status('شمارهٔ معتبر نیست','err'); return; }
+    snapshot(); typingBurst=false;
+    var sp=d.createElement('span');
+    sp.className='fn'; sp.setAttribute('contenteditable','false');
+    sp.innerHTML='<button type="button" class="fn-ref" aria-label="پانویس '+fnFa(n)+'">'+fnFa(n)+'</button>'+
+      '<span class="fn-card" role="note"><span class="fn-card-num">'+fnFa(n)+'</span><span class="fn-card-text"></span></span>';
+    rg.collapse(false);
+    rg.insertNode(sp);
+    var ol=fnListOl();
+    if(!ol){
+      var sec=d.createElement('section'); sec.className='fn-list-sec';
+      sec.innerHTML='<span class="gsn-technical" style="color:var(--gold-deep);display:block;margin-bottom:0.5rem;text-align:right">NOTES // پانویس‌ها</span>'+
+        '<ol class="fn-list"></ol>';
+      art.appendChild(sec);
+      ol=sec.querySelector('ol');
+    }
+    var li=d.createElement('li');
+    li.innerHTML='<span class="fn-list-num" contenteditable="false">'+fnFa(n)+'</span> ';
+    var before=null, kids=ol.children;
+    for(var i=0;i<kids.length;i++){
+      var kn=fnParseNum((kids[i].querySelector('.fn-list-num')||{}).textContent||'');
+      if(kn!=null && kn>n){ before=kids[i]; break; }
+    }
+    ol.insertBefore(li, before);
+    var r2=d.createRange();
+    r2.setStart(li, li.childNodes.length); r2.collapse(true);
+    sel.removeAllRanges(); sel.addRange(r2);
+    li.scrollIntoView({block:'center'});
+    status('پانویس '+fnFa(n)+' افزوده شد — متن آن را همین‌جا در فهرست بنویسید');
+  }
+
+  /* renumber everything 1..n in text order; end list reordered to match */
+  function fnRenumberAll(){
+    var art=article(); if(!art) return;
+    var markers=[].slice.call(art.querySelectorAll('.fn .fn-ref'));
+    var lis=[].slice.call(art.querySelectorAll('.fn-list li'));
+    if(!markers.length){ status('نشانهٔ پانویسی در متن نیست','err'); return; }
+    var liByNum={}, liNum=new Map(), dupLi=null;
+    lis.forEach(function(li){
+      var n=fnParseNum((li.querySelector('.fn-list-num')||{}).textContent||'');
+      liNum.set(li,n);
+      if(n==null) return;
+      if(n in liByNum) dupLi=n; else liByNum[n]=li;
+    });
+    if(dupLi!=null){ status('شمارهٔ '+fnFa(dupLi)+' در فهرست پایانی دو بار آمده — نخست آن را دستی یکتا کنید','err'); return; }
+    var mnums=markers.map(function(b){ return fnParseNum(b.textContent); });
+    if(mnums.indexOf(null)>-1){ status('شمارهٔ یکی از نشانه‌های متن خوانا نیست','err'); return; }
+    var seen={}, dupM=null;
+    mnums.forEach(function(n){ if(seen[n]) dupM=n; seen[n]=1; });
+    if(dupM!=null){ status('دو نشانه در متن شمارهٔ '+fnFa(dupM)+' دارند — نخست دستی جدا کنید','err'); return; }
+    var missing=mnums.filter(function(n){ return !(n in liByNum); });
+    if(missing.length){ status('پانویس شمارهٔ '+fnFa(missing[0])+' در فهرست پایانی نیست — نخست ردیفش را بسازید','err'); return; }
+    snapshot(); typingBurst=false;
+    var ol=fnListOl(), ordered=[], used={};
+    markers.forEach(function(b,i){
+      var nn=i+1;
+      b.textContent=fnFa(nn);
+      b.setAttribute('aria-label','پانویس '+fnFa(nn));
+      var card=b.parentElement && b.parentElement.querySelector('.fn-card-num');
+      if(card) card.textContent=fnFa(nn);
+      var li=liByNum[mnums[i]]; used[mnums[i]]=1;
+      var numEl=li.querySelector('.fn-list-num');
+      if(numEl) numEl.textContent=fnFa(nn);
+      ordered.push(li);
+    });
+    var extra=lis.filter(function(li){ var n=liNum.get(li); return !(n in used); });
+    var k=markers.length;
+    extra.forEach(function(li){
+      k++;
+      var numEl=li.querySelector('.fn-list-num');
+      if(numEl) numEl.textContent=fnFa(k);
+      ordered.push(li);
+    });
+    if(ol) ordered.forEach(function(li){ ol.appendChild(li); });
+    status(fnFa(markers.length)+' پانویس به‌ترتیب متن بازشماری شد'
+      +(extra.length? ' — '+fnFa(extra.length)+' ردیف بی‌نشانه به پایان فهرست رفت' : '')
+      +' — Undo برمی‌گرداند');
+  }
+
   document.querySelectorAll('.fmtb').forEach(function(b){
     b.addEventListener('mousedown',function(e){ e.preventDefault(); });
     b.addEventListener('click',function(){
@@ -556,7 +760,10 @@
         var d=frame.contentDocument, cmd=b.dataset.cmd;
         if(cmd==='undo'){ doUndo(); return; }
         if(cmd==='redo'){ doRedo(); return; }
-        if(cmd==='deleteEl'){ setDelMode(!delMode); return; }
+        if(cmd==='deleteEl'){ if(fnMode) setFnMode(false); setDelMode(!delMode); return; }
+        if(cmd==='fnNum'){ if(delMode) setDelMode(false); setFnMode(!fnMode); return; }
+        if(cmd==='fnAdd'){ if(delMode) setDelMode(false); if(fnMode) setFnMode(false); fnAddNote(); return; }
+        if(cmd==='fnRenum'){ if(delMode) setDelMode(false); if(fnMode) setFnMode(false); fnRenumberAll(); return; }
         snapshot(); typingBurst=false;
         if(cmd==='fontSize+'||cmd==='fontSize-'){
           var deltaF=(cmd.slice(-1)==='+')?0.1:-0.1;
