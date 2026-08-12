@@ -3,8 +3,8 @@
 | | |
 |---|---|
 | ویراستار | احسان |
-| زمان ذخیره | 13 Aug 2026, 00:24 |
-| واژه‌های تغییرکرده | 1222 |
+| زمان ذخیره | 13 Aug 2026, 00:34 |
+| واژه‌های تغییرکرده | 1320 |
 
 <div dir="rtl">
 
@@ -486,19 +486,27 @@
 >
 > …
 >
-> سیاسی نبود؛ او از همراهی اخلاقی و روانی <del>جامعه‌ی</del> <ins>جامعۀ</ins> اطراف خود با این نظام نیز زخم خورده
+> سیاسی نبود؛ او از همراهی اخلاقی و روانی <del>جامعه‌ی</del> <ins>جامعۀ</ins> اطراف خود با این نظام نیز زخم خورده بود. نمونه‌ای بسیار <del>گویا،</del> <ins>گویا</ins> برخورد او با فرم‌های نژادپرستانه‌ای است که پس
 >
 > …
 >
-> نمی‌گنجند. بنابراین حتی زبان بوروکراتیک نازی‌ها نیز، با <del>همه‌ی</del> <ins>همۀ</ins> خشونت سرد و اداری‌اش، در برابر دقت فکری و <del>طعنه‌ی</del> <ins>طعنۀ</ins> او فرو می‌ریزد. ۸ <del>۸</del> <ins>8</ins> László Vikárius, “What Did Béla Bartók’s Five Hungarian Folk Songs Want to Do at the 1938 <del>Baden-BadenFestival,”</del> <ins>Baden-Baden</ins> <ins>Festival”,</ins> pp. 93, <del>98</del> <ins>98.</ins> در اینجا اهمیت بارتوک فقط دراین نیست که
+> فرستاده شد. در این فرم‌ها باید مشخص می‌کرد <ins>که</ins> آیا «آلمانی»، «از نژاد مرتبط» یا «غیرآریایی» است.
 >
 > …
 >
-> از این بیم داشت که کشورش نیز زیر <del>سلطه‌ی</del> <ins>سلطۀ</ins> همان نظام قرار گیرد. برای او روشن بود
+> پرسش‌ها را غیرقانونی و ناروا دانست و در <del>نامه‌هایش</del> <ins>نامه‌هایش،</ins> با طنزی خشک و برنده، منطق نژادی نازی‌ها
 >
 > …
 >
-> انتخاب راحت، بلکه نوعی ضرورت اخلاقی بود. ۹ <del>۹</del> <ins>9</ins> Béla Bartók, <del>letter</del> <ins>“Letter</ins> to Annie Müller-Widmann, 13 April <del>1938,</del> <del>in</del> <ins>1938”,</ins> <ins>in:</ins> János <del>Demény,</del> <del>ed.,</del> <ins>Demény</ins> <ins>(ed.),</ins> Béla Bartók <del>Letters,Budapest:</del> <ins>Letters</ins> <ins>,</ins> <ins>Budapest:</ins> Corvina / New York: St. Martin’s Press, 1971, pp. <del>267–269</del> <ins>267–269.</ins> آرنولد شوئنبرگ <del>(۱۸۷۴-۱۹۵۱)</del> <ins>(۱۸۷۴–۱۹۵۱)،</ins> اتریش آرنولد شوئنبرگ در دوران حکومت ناسیونال‌سوسیالیست‌ها (نازی‌ها)
+> یعنی هندواروپایی، بفهمیم، مجارها که از نظر زبانی <del>فینو-اوگری‌اند،</del> <ins>فینو-اوگری‌اند</ins> اساساً در این چارچوب نمی‌گنجند. بنابراین حتی زبان بوروکراتیک نازی‌ها نیز، با <del>همه‌ی</del> <ins>همۀ</ins> خشونت سرد و اداری‌اش، در برابر دقت فکری و <del>طعنه‌ی</del> <ins>طعنۀ</ins> او فرو می‌ریزد. ۸ <del>۸</del> <ins>8</ins> László Vikárius, “What Did Béla Bartók’s Five Hungarian Folk Songs Want to Do at the 1938 <del>Baden-BadenFestival,”</del> <ins>Baden-Baden</ins> <ins>Festival”,</ins> pp. 93, <del>98</del> <ins>98.</ins> در اینجا اهمیت بارتوک فقط <del>دراین</del> <ins>در</ins> <ins>این</ins> نیست که با نازیسم مخالف بود؛ اهمیت او
+>
+> …
+>
+> اداری خود طبقه‌بندی کند. پاسخ بارتوک به چنین <del>نظمی،</del> <ins>نظامی</ins> فقط عصیان عاطفی نبود؛ پاسخی بود از جنس
+>
+> …
+>
+> امتناع و وفاداری به شأن مستقل هنر و <del>انسان.وقتی</del> <del>در</del> <del>سال</del> <del>۱۹۳۸،</del> <del>Anschluss،</del> <del>یعنی</del> <del>الحاق</del> <del>اتریش</del> <del>به</del> <del>آلمان</del> <del>نازی</del> <del>رخ</del> <del>داد،</del> <del>بارتوک</del> <del>در</del> <del>نامه‌هایش</del> <del>با</del> <del>وحشت</del> <del>و</del> <del>انزجار</del> <del>واکنش</del> <del>نشان</del> <del>داد.</del> <del>او</del> <del>خطر</del> <del>گسترش</del> <del>نازیسم</del> <del>به</del> <del>مجارستان</del> <del>را</del> <del>جدی</del> <del>می‌دید</del> <del>و</del> <del>از</del> <del>این</del> <del>بیم</del> <del>داشت</del> <del>که</del> <del>کشورش</del> <del>نیز</del> <del>زیر</del> <del>سلطه‌ی</del> <del>همان</del> <del>نظام</del> <del>قرار</del> <del>گیرد.</del> <del>برای</del> <del>او</del> <del>روشن</del> <del>بود</del> <del>که</del> <del>اگر</del> <del>مجارستان</del> <del>کاملاً</del> <del>به</del> <del>مدار</del> <del>نازیسم</del> <del>کشیده</del> <del>شود،</del> <del>دیگر</del> <del>نمی‌تواند</del> <del>در</del> <del>آنجا</del> <del>زندگی</del> <del>و</del> <del>کار</del> <del>کند.</del> <del>در</del> <del>چنین</del> <del>وضعی،</del> <del>مهاجرت</del> <del>برایش</del> <del>نه</del> <del>یک</del> <del>انتخاب</del> <del>راحت،</del> <del>بلکه</del> <del>نوعی</del> <del>ضرورت</del> <del>اخلاقی</del> <del>بود.</del> <ins>انسان.</ins> ۹ <del>۹</del> <ins>9</ins> Béla Bartók, <del>letter</del> <ins>“Letter</ins> to Annie Müller-Widmann, 13 April <del>1938,</del> <del>in</del> <ins>1938”,</ins> <ins>in:</ins> János <del>Demény,</del> <del>ed.,</del> <ins>Demény</ins> <ins>(ed.),</ins> Béla Bartók <del>Letters,Budapest:</del> <ins>Letters</ins> <ins>,</ins> <ins>Budapest:</ins> Corvina / New York: St. Martin’s Press, 1971, pp. <del>267–269</del> <ins>267–269.</ins> آرنولد <del>شوئنبرگ</del> <del>(۱۸۷۴-۱۹۵۱)</del> <ins>شونبرگ</ins> <ins>(۱۸۷۴–۱۹۵۱)،</ins> اتریش آرنولد <del>شوئنبرگ</del> <ins>شونبرگ</ins> در دوران حکومت ناسیونال‌سوسیالیست‌ها (نازی‌ها) یکی از برجسته‌ترین
 >
 > …
 >
@@ -506,7 +514,7 @@
 >
 > …
 >
-> یهودی خود اندیشید و به آن بازگشت؛ او <del>به‌طور</del> <ins>به</ins> <ins>طور</ins> رسمی دوباره به آیین یهودیت برگشت، نوشته‌های صهیونیستی
+> و سرانجام در کالیفرنیا ساکن شد. در تبعید، <del>شوئنبرگ</del> <ins>شونبرگ</ins> هرچه بیشتر به هویت یهودی خود اندیشید و به آن بازگشت؛ او <del>به‌طور</del> <ins>به</ins> <ins>طور</ins> رسمی دوباره به آیین یهودیت برگشت، نوشته‌های صهیونیستی
 >
 > …
 >
