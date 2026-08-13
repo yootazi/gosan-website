@@ -1325,6 +1325,16 @@ body[data-motion="off"] .tt-wave span { animation: none !important; }
   gap: 1.4rem; flex-wrap: wrap;
 }
 .nc-topics.is-stuck { box-shadow: 0 6px 22px -12px rgba(40, 90, 96, 0.28); }
+/* the گوسان calligraphy docked at the bar's inline-start (right in RTL), mirroring
+   the controls at inline-end; visible only after the manifesto logo passes the bar */
+.nc-topics-logo {
+  position: absolute; inset-inline-start: 2rem; top: 50%;
+  transform: translateY(calc(-50% + 6px));
+  opacity: 0; pointer-events: none;
+  transition: opacity var(--speed-base) var(--ease-out), transform var(--speed-base) var(--ease-out);
+}
+.nc-topics-logo img { height: 26px; display: block; }
+.nc-topics-logo.is-docked { opacity: 1; pointer-events: auto; transform: translateY(-50%); }
 .nc-topics-main { display: flex; align-items: center; justify-content: center; gap: 1.3rem; flex-wrap: wrap; }
 .nc-topics-controls { position: absolute; inset-inline-end: 2rem; top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 0.9rem; }
 .nc-support-btn {

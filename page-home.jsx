@@ -362,14 +362,26 @@ function HomePage({ lang = 'fa', onToggleLang }) {
 
 function NcFloatingNav({ en }) {
   const [navStuck, setNavStuck] = React.useState(false);
+  /* the گوسان calligraphy docks into the bar once the manifesto logo has
+     scrolled up past it, and leaves again when scrolling back up to it */
+  const [logoDocked, setLogoDocked] = React.useState(false);
+  const navRef = React.useRef(null);
   React.useEffect(() => {
-    const onScroll = () => setNavStuck(window.scrollY > 24);
+    const onScroll = () => {
+      setNavStuck(window.scrollY > 24);
+      const man = document.querySelector('.nc-man-logo');
+      const nav = navRef.current;
+      setLogoDocked(!!(man && nav) && man.getBoundingClientRect().bottom <= nav.getBoundingClientRect().bottom);
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
   return (
-    <nav className={`nc-topics${navStuck ? ' is-stuck' : ''}`}>
+    <nav ref={navRef} className={`nc-topics${navStuck ? ' is-stuck' : ''}`}>
+      <a href="#/" className={`nc-topics-logo${logoDocked ? ' is-docked' : ''}`} aria-hidden={!logoDocked} tabIndex={logoDocked ? 0 : -1}>
+        <img src="assets/logo-gosan.png" alt="گوسان" />
+      </a>
       <div className="nc-topics-main">
         <a href="institute-v3.html" className="nav-think">{en ? 'The Gōsān Think Tank' : 'اندیشکدهٔ فرهنگ و هنر گوسان'}</a>
         <span className="nc-topics-sep"></span>
