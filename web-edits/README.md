@@ -4,8 +4,8 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
+| `azarkeyvani-creation-myth` | احسان | 13 Aug 2026, 17:17 | ۱۷ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/azarkeyvani-creation-myth.md) |
 | `manichaean-music-terms` | احسان | 13 Aug 2026, 17:14 | ۱۶۸ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/manichaean-music-terms.md) |
-| `azarkeyvani-creation-myth` | احسان | 13 Aug 2026, 16:59 | ۳ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/azarkeyvani-creation-myth.md) |
 | `between-two-defeats` | احسان | 13 Aug 2026, 16:56 | ۵۷۱ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/between-two-defeats.md) |
 | `music-totalitarian-regimes` | احسان | 13 Aug 2026, 01:12 | ۱۵۳۷ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/music-totalitarian-regimes.md) |
 | `music-totalitarian-regimes` | یلدا | 11 Aug 2026, 01:36 | ۶۰ | تأییدشده | [دیدن](approved/music-totalitarian-regimes.md) |
