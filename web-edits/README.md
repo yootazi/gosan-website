@@ -5,7 +5,7 @@
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
 | `azarkeyvani-creation-myth` | احسان | 13 Aug 2026, 17:25 | ۲۰۲ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/azarkeyvani-creation-myth.md) |
-| `manichaean-music-terms` | احسان | 13 Aug 2026, 17:14 | ۱۶۸ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/manichaean-music-terms.md) |
+| `manichaean-music-terms` | احسان | 13 Aug 2026, 17:14 | ۱۶۸ | تأییدشده | [دیدن](approved/manichaean-music-terms.md) |
 | `between-two-defeats` | احسان | 13 Aug 2026, 16:56 | ۵۷۱ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/between-two-defeats.md) |
 | `music-totalitarian-regimes` | احسان | 13 Aug 2026, 01:12 | ۱۵۳۷ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/music-totalitarian-regimes.md) |
 | `music-totalitarian-regimes` | یلدا | 11 Aug 2026, 01:36 | ۶۰ | تأییدشده | [دیدن](approved/music-totalitarian-regimes.md) |
@@ -15,7 +15,6 @@
 | `note-for-gosan` | احسان | 5 Aug 2026, 23:56 | ۶۷ | تأییدشده | [دیدن](approved/note-for-gosan.md) |
 | `beyzaie-myth-symbolic-action` | احسان | 5 Aug 2026, 23:21 | ۱۱ | تأییدشده | [دیدن](approved/beyzaie-myth-symbolic-action.md) |
 | `interview-farnaz-modarresifar` | احسان | 5 Aug 2026, 23:18 | ۰ | تأییدشده | [دیدن](approved/interview-farnaz-modarresifar.md) |
-| `manichaean-music-terms` | احسان | 4 Aug 2026, 23:45 | ۸۴ | تأییدشده | [دیدن](approved/manichaean-music-terms.md) |
 
 ---
 
