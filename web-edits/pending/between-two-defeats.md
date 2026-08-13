@@ -3,8 +3,8 @@
 | | |
 |---|---|
 | ویراستار | احسان |
-| زمان ذخیره | 13 Aug 2026, 16:08 |
-| واژه‌های تغییرکرده | 481 |
+| زمان ذخیره | 13 Aug 2026, 16:18 |
+| واژه‌های تغییرکرده | 545 |
 
 <div dir="rtl">
 
@@ -392,7 +392,27 @@
 >
 > …
 >
-> این برنامه‌ها در اروپا شتاب بخشید و پای <del>آن‌ها</del> <ins>آنها</ins> را به آمریکای شمالی هم باز کرد. در
+> پس از جنگ، پایه‌های این حمایت را بنا <del>کردند؛</del> <ins>کردند.</ins> رونق اقتصادیِ جهانی در دههٔ ۱۹۶۰ <del>نیز</del> به این برنامه‌ها در اروپا شتاب بخشید و پای <del>آن‌ها</del> <ins>آنها</ins> را به آمریکای شمالی <del>هم</del> <ins>نیز</ins> باز کرد. در اینجا درس دیگری نهفته است:
+>
+> …
+>
+> هم از یکدیگر الگوبرداری کرده‌اند. برای نمونه، «شورای <del>هنر</del> <del>ایرلند»</del> <ins>هنر»</ins> <ins>در</ins> <ins>ایرلند</ins> <ins>(The</ins> <ins>Arts</ins> <ins>Council</ins> <ins>/</ins> <ins>An</ins> <ins>Chomhairle</ins> <ins>Ealaíon)</ins> ۳۶ ۳۶ شورای هنر ایرلند (The Arts Council
+>
+> …
+>
+> سال ۱۹۵۱ بر پایۀ الگوی بریتانیایی تأسیس شد. <del>(The</del> <del>Arts</del> <del>Council</del> <del>/</del> <del>An</del> <del>Chomhairle</del> <del>Ealaíon)</del> <ins>،</ins> و با کمی فاصله، «بنیاد ملی <del>هنرهای</del> <del>آمریکا»</del> <ins>هنرها»</ins> <ins>در</ins> <ins>آمریکا</ins> <ins>(National</ins> <ins>Endowment</ins> <ins>for</ins> <ins>the</ins> <ins>Arts</ins> <ins>-</ins> <ins>NEA)</ins> ۳۷ ۳۷ بنیاد ملی هنرهای آمریکا (National Endowment
+>
+> …
+>
+> عهده دارد و در سال ۱۹۶۵ تأسیس شد. <del>(National</del> <del>Endowment</del> <del>for</del> <del>the</del> <del>Arts</del> <del>-</del> <del>NEA)،</del> <ins>،</ins> با الگوبرداری از «شورای هنر بریتانیا» (Arts Council
+>
+> …
+>
+> متنوع برای حمایت از فرهنگ دست یافته‌اند، اما <del>هریک</del> <ins>هر</ins> <ins>یک</ins> از این <del>ابزارها،</del> <ins>ابزارها</ins> پیامدهای ناخواسته‌ای نیز با خود به همراه <del>دارند.</del> <ins>دارد.</ins> ساده‌ترین شکل <del>حمایت،</del> <del>خرید</del> <ins>حمایت</ins> <ins>خریدِ</ins> مستقیم اثر است؛ همان‌طور که شبکهٔ بی‌بی‌سی سال‌ها
+>
+> …
+>
+> مورد پسند دولت است، و موجب می‌شود دولت <del>آنرا</del> <del>خریداری</del> <del>کند.</del> <ins>آن</ins> <ins>را</ins> <ins>بخرد.</ins> نمونهٔ <del>گویا،</del> <ins>گویا</ins> برنامهٔ هلندی خرید آثار هنرمندان (BKR) بود که
 >
 > …
 >
