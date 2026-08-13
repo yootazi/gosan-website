@@ -4,10 +4,10 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
+| `between-two-defeats` | احسان | 13 Aug 2026, 23:31 | ۵۹۲ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/between-two-defeats.md) |
 | `manichaean-music-terms` | احسان | 13 Aug 2026, 23:12 | ۱۸ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/manichaean-music-terms.md) |
 | `azarkeyvani-creation-myth` | احسان | 13 Aug 2026, 17:25 | ۲۰۲ | تأییدشده | [دیدن](approved/azarkeyvani-creation-myth.md) |
 | `manichaean-music-terms` | احسان | 13 Aug 2026, 17:14 | ۱۶۸ | تأییدشده | [دیدن](approved/manichaean-music-terms.md) |
-| `between-two-defeats` | احسان | 13 Aug 2026, 16:56 | ۵۷۱ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/between-two-defeats.md) |
 | `music-totalitarian-regimes` | احسان | 13 Aug 2026, 01:12 | ۱۵۳۷ | تأییدشده | [دیدن](approved/music-totalitarian-regimes.md) |
 | `oil-to-narrative` | احسان | 6 Aug 2026, 00:00 | ۴۲۲ | تأییدشده | [دیدن](approved/oil-to-narrative.md) |
 | `crossroads-ahead` | احسان | 6 Aug 2026, 00:00 | ۷ | تأییدشده | [دیدن](approved/crossroads-ahead.md) |
