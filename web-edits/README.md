@@ -4,7 +4,7 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
-| `between-two-defeats` | احسان | 14 Aug 2026, 00:24 | ۸۶۱ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/between-two-defeats.md) |
+| `between-two-defeats` | احسان | 14 Aug 2026, 00:34 | ۹۰۹ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/between-two-defeats.md) |
 | `manichaean-music-terms` | احسان | 13 Aug 2026, 23:12 | ۱۸ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/manichaean-music-terms.md) |
 | `azarkeyvani-creation-myth` | احسان | 13 Aug 2026, 17:25 | ۲۰۲ | تأییدشده | [دیدن](approved/azarkeyvani-creation-myth.md) |
 | `manichaean-music-terms` | احسان | 13 Aug 2026, 17:14 | ۱۶۸ | تأییدشده | [دیدن](approved/manichaean-music-terms.md) |
