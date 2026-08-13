@@ -35,6 +35,7 @@ const AUTHOR_PHOTOS = {
   'مصطفی بوشهری': 'assets/author-mostafa-bushehri.png',
   'مهرداد غلامی': 'assets/author-mehrdad-gholami.png',
   'حامد امان‌پور قرایی': 'assets/author-hamed-amanpour-gharaei.png',
+  'احمدرضا قائم‌مقامی': 'assets/author-ahmadreza-ghaemmaghami.png',
 };
 
 /* interview guests — the bio block shows the interviewee, not the interviewer */
