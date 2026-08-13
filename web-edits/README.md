@@ -4,7 +4,7 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
-| `between-two-defeats` | احسان | 13 Aug 2026, 15:20 | ۴۱۷ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/between-two-defeats.md) |
+| `between-two-defeats` | احسان | 13 Aug 2026, 15:26 | ۴۳۷ | پیش‌نویس؛ ویراستار در حال کار | [دیدن](pending/between-two-defeats.md) |
 | `music-totalitarian-regimes` | احسان | 13 Aug 2026, 01:12 | ۱۵۳۷ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/music-totalitarian-regimes.md) |
 | `music-totalitarian-regimes` | یلدا | 11 Aug 2026, 01:36 | ۶۰ | تأییدشده | [دیدن](approved/music-totalitarian-regimes.md) |
 | `azarkeyvani-creation-myth` | احسان | 6 Aug 2026, 00:54 | ۲۴۹ | تأییدشده | [دیدن](approved/azarkeyvani-creation-myth.md) |
