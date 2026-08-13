@@ -127,12 +127,14 @@ const ESSAY_FOOTNOTES = [
   'اشاره به بیت فردوسی در شرح روزگار چیرگی ضحاک: «هنر خوار شد جادویی ارجمند / نهان راستی، آشکارا گزند».',
 ];
 
-function AuthorAvatar({ name }) {
+function AuthorAvatar({ name, bioHtml }) {
   const [open, setOpen] = React.useState(false);
   const ref = React.useRef(null);
   const src = AUTHOR_PHOTOS[name];
   /* only board members (those with a photo) get an avatar circle; others none */
   if (!src) return null;
+  /* bioHtml = the essay-end biography (content-override); the popover always
+     mirrors it when present, AUTHOR_BIOS is only the fallback */
   const bio = AUTHOR_BIOS[name] || 'از نویسندگان و پژوهشگران همکار گاهنامهٔ گوسان.';
   React.useEffect(() => {
     if (!open) return;
@@ -159,7 +161,9 @@ function AuthorAvatar({ name }) {
       {open ? (
         <div className="author-bio-card" role="dialog">
           <span className="author-bio-name">{name}</span>
-          <p className="author-bio-text">{bio}</p>
+          {bioHtml
+            ? <p className="author-bio-text" dangerouslySetInnerHTML={{ __html: bioHtml }} />
+            : <p className="author-bio-text">{bio}</p>}
         </div>
       ) : null}
     </span>
@@ -620,7 +624,7 @@ function ArticleView({ slug }) {
         <h1 className="gsn-display" style={{ fontSize: '2.4rem', margin: '0.6rem 0 1rem' }}><TitleLines text={post.title} /></h1>
         <div className="article-byline">
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem' }}>
-            <AuthorAvatar name={post.author} />
+            <AuthorAvatar name={post.author} bioHtml={GUEST_BY_SLUG[post.slug] ? null : ((ov && ov.bio) || null)} />
             <span style={{ color: 'var(--text-body)', fontWeight: 500 }}>{post.author}</span>
           </span>
           <span className="byline-date" style={{ color: 'var(--accent)' }}>{(ov && ov.date) || post.date}</span>
