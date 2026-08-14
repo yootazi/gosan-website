@@ -4,9 +4,8 @@
 
 | جستار | ویراستار | زمان | واژه‌های تغییرکرده | وضعیت | تفاوت‌ها |
 |---|---|---|---|---|---|
-| `manichaean-music-terms` | احسان | 14 Aug 2026, 01:46 | ۱۸ | [در انتظار تأیید سردبیر ← PR](https://github.com/yootazi/gosan-website/pulls) | [دیدن](pending/manichaean-music-terms.md) |
+| `manichaean-music-terms` | احسان | 14 Aug 2026, 01:46 | ۱۸ | تأییدشده | [دیدن](approved/manichaean-music-terms.md) |
 | `between-two-defeats` | احسان | 14 Aug 2026, 00:38 | ۹۱۵ | تأییدشده | [دیدن](approved/between-two-defeats.md) |
-| `manichaean-music-terms` | احسان | 13 Aug 2026, 23:12 | ۱۸ | تأییدشده | [دیدن](approved/manichaean-music-terms.md) |
 | `azarkeyvani-creation-myth` | احسان | 13 Aug 2026, 17:25 | ۲۰۲ | تأییدشده | [دیدن](approved/azarkeyvani-creation-myth.md) |
 | `music-totalitarian-regimes` | احسان | 13 Aug 2026, 01:12 | ۱۵۳۷ | تأییدشده | [دیدن](approved/music-totalitarian-regimes.md) |
 | `oil-to-narrative` | احسان | 6 Aug 2026, 00:00 | ۴۲۲ | تأییدشده | [دیدن](approved/oil-to-narrative.md) |
